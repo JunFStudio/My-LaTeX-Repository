@@ -1,0 +1,431 @@
+\documentclass[lang=cn, zihao=5]{elegantbook}
+\usepackage{hyperref}
+
+% font settings
+
+
+% watermark settings
+%\usepackage{ctex, draftwatermark, everypage}
+%	\SetWatermarkText{DEEP Team 讲义模版}
+%	\SetWatermarkLightness{0.95}
+%	\SetWatermarkScale{0.3}
+
+% customised commands
+\newcommand{\setjianfa}{\ \text{\textbackslash} \ }
+\newcommand{\arccot}{\text{arccot} \ }
+\newcommand{\xl}[1]{\overrightarrow{#1}}
+\newcommand{\nd}[1]{〔#1〕}
+\newcommand{\ssb}[1]{\left( #1 \right)}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\ic}{\text{i}}
+\newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
+\newcommand{\buzhou}[1]{$#1^{\circ} \ $}
+\usepackage{ulem}
+	\newcommand{\tk}{\uline{\hspace{4em}}}
+\newcommand{\pspace}{\vspace{0.5em}}
+
+% cover settings
+
+\title{Johnny数学学习笔记}
+\subtitle
+
+\author{Johnny Tang}
+\institute{DEEP Team}
+\date{January 21, 2022}
+
+\extrainfo{请：相信时间的力量，敬畏概率的准则}
+
+
+\cover{cover.png}
+
+% 本文档命令
+
+
+% 修改标题页的橙色带
+% \definecolor{customcolor}{RGB}{32,178,170}
+% \colorlet{coverlinecolor}{customcolor}
+
+
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\mainmatter
+
+\tableofcontents
+
+\part{《线性代数这样学》笔记}
+
+\chapter{向量空间}
+
+\section{从$\F ^{n}$说起}
+
+\subsection{复数与复数域}
+
+首先来温习一下复数域$\C$的定义与它满足的性质：
+
+\begin{definition}{复数}
+	记$z=a+b\ic $($a,b \in \R$)为一个\textbf{复数}，其中$\ic ^2=-1$.由所有复数构成的集合记为$\C$. \\
+	$\C$上的加法与乘法定义如下：
+	$$(a+b\ic ) + (c+d\ic ) = (a+c) + (b+d)\ic $$
+	$$(a+b\ic )(c+d\ic ) = (ac-bd) + (ad+bc)\ic $$
+\end{definition}
+
+\begin{proposition}{复数运算的性质}{Fxkvi}
+	(1) 交换性质$$\forall \alpha , \beta \in \C , \alpha + \beta = \beta + \alpha , \alpha \beta = \beta \alpha$$
+	(2) 结合性质$$\forall \alpha , \beta , \lambda \in \C , (\alpha + \beta) + \lambda = \alpha + (\beta + \lambda) , (\alpha \beta) \lambda = \alpha (\beta \lambda)$$
+	(3) 单位元$$\forall \lambda \in \C , \lambda + 0 = \lambda , 1 \lambda = \lambda$$
+	(4) 加法逆元$$\forall \alpha \in \C , \exists ! \beta \in \C , \alpha + \beta = 0$$
+	(5) 乘法逆元$$\forall \alpha \in \C (\alpha \neq 0) , \exists ! \beta \in \C , \alpha \beta = 1$$
+	(6) 分配性质$$\forall \lambda , \alpha , \beta \in \C , \lambda (\alpha + \beta) = \lambda \alpha + \lambda \beta$$
+\end{proposition}
+\begin{proof}
+	这里只选择部分性质证明： \\
+	(1) 加法交换性质：设$\alpha = a+b\ic , \beta = c+d\ic ~(a,b,c,d \in \R )$，则
+	\begin{align*}
+		\alpha + \beta &= (a+b\ic ) + (c+d\ic ) \\
+		&= (a+c) + (b+d)\ic \\
+		&= (c+a) + (d+b)\ic \\
+		\beta + \alpha &= (c+d\ic ) + (a+b\ic ) \\
+		&= (c+a) + (d+b)\ic
+	\end{align*}
+	因此有$\alpha + \beta = \beta + \alpha$ \\
+	(2) 乘法单位元：设$\lambda = a+b\ic ~ (a,b \in \R )$，那么$$1 \lambda = (1+0\ic )(a+b\ic ) = a + b\ic = \lambda$$
+	(3) 加法逆元：先证明存在.设$\alpha = a+b\ic $，取$\beta = (-a) + (-b)\ic $，则$\alpha + \beta = 0+0\ic = 0$；\\
+	再证明唯一.假设$\beta _1, \beta _2 \in \C $均为$\alpha$的加法逆元，那么$$\beta _1 = \beta _1 + 0 = \beta _1 + \alpha + \beta _2 = 0 + \beta _2 = \beta _2$$
+	这与假设矛盾，则$\alpha$的加法逆元是唯一的.
+\end{proof}
+
+由此可以引出\textbf{域}的正式定义：
+
+\begin{definition}{域}
+	\textbf{域}是一个集合$\F$，它带有加法与乘法两种运算(分别在加法与乘法上封闭)，且这些运算满足命题\ref{pro:Fxkvi}所示所有性质.
+\end{definition}
+\begin{remark}
+	最小的域是一个集合$\{ 0,1 \}$，带有通常的加法与乘法运算，但规定$1+1=0$.
+\end{remark}
+
+容易验证，$\R$与$\C$都是域.本书中用$\F$来表示$\R$或$\C$.
+
+总是用$\beta$表示$\alpha$的逆元非常不自然，因此定义出加/乘法逆元的表示与减/除法.
+
+\begin{definition}{加法逆元，减法，乘法逆元，除法}
+	设$\alpha , \beta \in \C $.
+	\begin{itemize}
+		\item 令$- \alpha$表示$\alpha$的加法逆元，即$-\alpha$是使得$$\alpha + (-\alpha) = 0$$成立的唯一复数.
+		\item 对于$\alpha \neq 0$，令$\alpha ^{-1}$表示$\alpha$的乘法逆元，即$\alpha ^{-1}$是使得$$\alpha (\alpha ^{-1}) = 1$$成立的唯一复数.
+		\item 定义$\C $上的\textbf{减法}：$$\beta - \alpha = \beta + (-\alpha)$$
+		\item 定义$\C $上的\textbf{除法}：$$\beta / \alpha = \beta (1 / \alpha)$$
+	\end{itemize}
+\end{definition}
+
+\subsection{$\F ^{n}$}
+
+在中学的向量板块，我们认识到一个向量可以表示为有序数组$(a,b)$的形式，并且在立体几何板块利用三维下的向量进行了许多计算.那么向量的定义能否推广到更高维度呢？
+
+\begin{definition}{$\F ^{n}$}
+	$\F ^{n}$是$\F$中元素组成的长度为$n$的组的集合，即$$\F ^{n} = \{ (x_1,\cdots ,x_n) : x_j \in \F , j=1, \cdots ,n \}$$
+	特别地，对于由无限长度序列构成的集合，称作$\F ^{\infty}$，即
+	$$\F ^{\infty} = \{ (x_1,\cdots ,x_n, \cdots) : x_j \in \F , j=1, \cdots ,n, \cdots \}$$
+	对于$\F ^{n}$中的某个元素$(x_1,\cdots ,x_n)$，称$x_j ~(i=1,\cdots ,n)$为$(x_1,\cdots ,x_n)$的第$j$个\textbf{坐标}. \\
+	$\F ^{n}$上的\textbf{加法}定义为对应坐标相加，即
+	$$(x_1, \cdots , x_n) + (y_1 , \cdots , y_n) = (x_1+y_1, \cdots , x_n+y_n)$$
+	对于$\F ^{\infty}$
+	$$(x_1, \cdots , x_n, \cdots) + (y_1 , \cdots , y_n ,\cdots) = (x_1+y_1, \cdots , x_n+y_n ,\cdots)$$
+	$\F ^{n}$上的\textbf{标量乘法}：一个数$\lambda ~(\lambda \in \F )$与$\F ^{n}$中元素的乘积这样计算：用$\lambda$乘以该元素的每个坐标，即
+	$$\lambda (x_1,\cdots ,x_n) = (\lambda x_1, \cdots ,\lambda x_n)$$
+	对于$\F ^{\infty}$
+	$$\lambda (x_1,\cdots ,x_n, \cdots) = (\lambda x_1, \cdots ,\lambda x_n,\cdots)$$
+	我们暂时不讨论$\F ^{n}$上元素之间的乘法.
+\end{definition}
+
+当$\F$代表$\R$且$n=2,3$时，$\F ^{n}$中的元素就相当于我们熟悉的平面向量、空间向量.实际上，所有在$\F$中的元素都被称为\textbf{标量}，所有在$\F ^{n}$中的元素如果被看做是一个从原点指向某定点的有向线段时，它就是\textbf{向量}.我们一般用小写字母表示标量，用加粗的小写字母表示$\F ^{n}$中的元素，例如$\F ^{4}$中的元素$$\boldsymbol{x} = (x_1,x_2,x_3,x_4)$$
+特别地，用$\boldsymbol{0}$表示所有坐标全是$0$的元素，即$$\boldsymbol{0} = (0, \cdots , 0)$$
+
+$\F ^{n}$同样也具有类似于$\F$的一些性质：
+
+\begin{proposition}{$\F ^{n}$的性质}{xlxkvi}
+	(1) 交换性质$$\forall \boldsymbol{u},\boldsymbol{v} \in \F ^{n} , \boldsymbol{u} + \boldsymbol{v} = \boldsymbol{v} + \boldsymbol{u}$$
+	(2) 结合性质$$\forall \boldsymbol{u},\boldsymbol{v},\boldsymbol{w} \in \F ^{n}, a,b \in \F, (\boldsymbol{u} + \boldsymbol{v}) + \boldsymbol{w} = \boldsymbol{u} + (\boldsymbol{v} + \boldsymbol{w}) , (ab) \boldsymbol{v} = a (b\boldsymbol{v})$$
+	(3) 加法单位元$$\exists ! \boldsymbol{0} \in \F ^{n}, \forall \boldsymbol{v} \in \F ^{n} , \boldsymbol{v} + \boldsymbol{0} = \boldsymbol{v}$$
+	(4) 加法逆元$$\forall \boldsymbol{v} \in \F ^{n} , \exists ! \boldsymbol{w} \in \F ^{n} , \boldsymbol{v} + \boldsymbol{w} = \boldsymbol{0}$$
+	(5) 乘法单位元$$\forall \boldsymbol{v} \in \F ^{n} , 1\boldsymbol{v} = \boldsymbol{v}$$
+	(6) 分配性质$$\forall a,b \in \F , \boldsymbol{u},\boldsymbol{v} \in \F ^{n} , a (\boldsymbol{u} + \boldsymbol{v}) = a\boldsymbol{u} + a\boldsymbol{v} , (a+b)\boldsymbol{v} = a\boldsymbol{v}+b\boldsymbol{v}$$
+\end{proposition}
+\begin{proof}
+	这里只选择部分证明：\\
+	(1) 交换性质：设$\boldsymbol{u} = (u_1, \cdots ,u_n),\boldsymbol{v} = (v_1, \cdots ,v_n)$，则
+	\begin{align*}
+		\boldsymbol{u} + \boldsymbol{v} &= (u_1, \cdots ,u_n) + (v_1, \cdots ,v_n) \\
+		&= (u_1+v_1, \cdots ,u_n+v_n) \\
+		&= (v_1+u_1, \cdots ,v_n+u_n) \\
+		&= (v_1, \cdots ,v_n) + (u_1, \cdots ,u_n) \\
+		&= \boldsymbol{v} + \boldsymbol{u}
+	\end{align*}
+	(2) 加法单位元：先证明存在.若$\boldsymbol{v} = (v_1, \cdots ,v_n)$，取$\boldsymbol{-v} = (-v_1, \cdots ,-v_n)$，容易发现$\boldsymbol{v} + \boldsymbol{-v} = \boldsymbol{0}$； \\
+	再证明唯一.假设存在两个加法单位元$\boldsymbol{0}$与$\boldsymbol{0'}$，则$$\boldsymbol{0} = \boldsymbol{0} + \boldsymbol{0'} = \boldsymbol{0'} + \boldsymbol{0} = \boldsymbol{0'}$$
+	这与假设矛盾.因此最多只有一个加法单位元.
+\end{proof}
+
+\subsection*{习题}
+\begin{exercise}
+	求$\ic $的两个不同的平方根.
+\end{exercise}
+\begin{exercise}
+	求$\boldsymbol{x} \in \R ^{4}$使得$(4,-3,1,7) + 2\boldsymbol{x} = (5,9,-6,8)$.
+\end{exercise}
+
+
+\newpage
+\section{向量空间}
+
+类似于$\F ^{n}$，我们把向量空间定义为带有加法和标量乘法的集合$V$，其满足命题\ref{pro:xlxkvi}中的性质.请注意，由于不一定满足乘法交换性质，向量空间不一定是一个域.
+
+\begin{definition}{加法，标量乘法}
+	\begin{itemize}
+		\item 集合$V$上的\textbf{加法}是一个函数，它把每一对$u,v \in V$都对应到$V$中的一个元素$u+v$.
+		\item 集合$V$上的\textbf{标量乘法}是一个函数，它把任意$\lambda \in \F $和$v \in V$都对应到$V$中的一个元素$\lambda v$.
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	换句话说，$V$对加法和标量乘法封闭.
+\end{remark}
+
+接下来可以正式定义向量空间：
+
+\begin{definition}{向量空间}
+	\textbf{向量空间}就是带有加法和标量乘法的集合$V$，满足如下性质： \\
+	(1) 交换性质$$\forall \boldsymbol{u},\boldsymbol{v} \in V , \boldsymbol{u} + \boldsymbol{v} = \boldsymbol{v} + \boldsymbol{u}$$
+	(2) 结合性质$$\forall \boldsymbol{u},\boldsymbol{v},\boldsymbol{w} \in V, a,b \in \F, (\boldsymbol{u} + \boldsymbol{v}) + \boldsymbol{w} = \boldsymbol{u} + (\boldsymbol{v} + \boldsymbol{w}) , (ab) \boldsymbol{v} = a (b\boldsymbol{v})$$
+	(3) 加法单位元$$\exists \boldsymbol{0} \in V, \forall \boldsymbol{v} \in V , \boldsymbol{v} + \boldsymbol{0} = \boldsymbol{v}$$
+	(4) 加法逆元$$\forall \boldsymbol{v} \in V , \exists \boldsymbol{w} \in V , \boldsymbol{v} + \boldsymbol{w} = \boldsymbol{0}$$
+	(5) 乘法单位元$$\forall \boldsymbol{v} \in V , 1\boldsymbol{v} = \boldsymbol{v}$$
+	(6) 分配性质$$\forall a,b \in \F , \boldsymbol{u},\boldsymbol{v} \in V , a (\boldsymbol{u} + \boldsymbol{v}) = a\boldsymbol{u} + a\boldsymbol{v} , (a+b)\boldsymbol{v} = a\boldsymbol{v}+b\boldsymbol{v}$$
+	向量空间中的元素被称为\textbf{向量}或\textbf{点}.
+\end{definition}
+\begin{remark}
+	因为向量空间的标量乘法依赖于$\F$，所以一般会说$V$是$\F$ \textbf{上的向量空间}.例如，平面点集$\R ^{2}$是$\R$上的向量空间.如果没有特别说明，默认$V$就表示在$\F$上的向量空间.
+\end{remark}
+\begin{remark}
+	最小的向量空间是$\{ 0 \}$，它带有通常的加法和乘法运算.
+\end{remark}
+\begin{note}
+	在向量空间的定义中并没有说明唯一性，这是因为唯一性可以通过已有的性质证明出.
+\end{note}
+
+\begin{example}
+	设$S$是一个集合，我们用$\F ^{S}$表示$S$到$\F$的所有函数的集合. \\
+	对于$f,g \in \F ^{S}$，对所有$x \in S$，规定$\F ^{S}$上的加和$f+g$满足$$(f+g)(x) = f(x) + g(x)$$
+	对于$\lambda \in \F$和$f \in \F ^{S}$，对所有$x \in S$，规定$\F ^{S}$上的标量乘法得到的乘积$\lambda f \in \F ^{S}$满足$$(\lambda f)(x) = \lambda f(x)$$
+	请证明$\F ^{S}$是$\F$上的向量空间，并指出它的加法单位元与加法逆元.
+\end{example}
+
+向量空间的定义中缺少了一些显而易见的性质，我们现在进行补充：
+
+\begin{proposition}{向量空间的性质}{xlkjxkvi}
+	\begin{itemize}
+		\item 向量空间有唯一的加法单位元.
+		\item 向量空间中的每个元素都有唯一的加法逆元.
+		\item 对任意$\boldsymbol{v} \in V$都有$0\boldsymbol{v}=\boldsymbol{0}$.
+		\item 对任意$a \in \F$都有$a\boldsymbol{0}=\boldsymbol{0}$.
+		\item 对任意$\boldsymbol{v} \in V$都有$(-1)\boldsymbol{v}=\boldsymbol{-v}$.(等式右边的$\boldsymbol{-v}$表示$v$的加法逆元)
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	设向量空间$V$， \\
+	(1) 假设$V$中有两个不同的加法单位元$\boldsymbol{0},\boldsymbol{0'}$，那么$$\boldsymbol{0} = \boldsymbol{0} + \boldsymbol{0'} = \boldsymbol{0'} + \boldsymbol{0} = \boldsymbol{0'}$$
+	这与假设矛盾，于是向量空间中只有唯一的加法单位元. \\
+	(2) 对于$\boldsymbol{v} \in V$，假设$\boldsymbol{w},\boldsymbol{w'}$都是它的加法逆元，那么$$\boldsymbol{w} = \boldsymbol{w}+0 = \boldsymbol{w} + \boldsymbol{v} + \boldsymbol{w'} = 0 + \boldsymbol{w'} = \boldsymbol{w'}$$
+	这与假设矛盾，于是向量空间中每个元素都有唯一的加法逆元. \\
+	(3) 对于$\boldsymbol{v} \in V$，由于$$0\boldsymbol{v} = (0+0)\boldsymbol{v} = 0\boldsymbol{v} + 0\boldsymbol{v}$$
+	在等式两边同时加上$0\boldsymbol{v}$的加法逆元，可得$0\boldsymbol{v} = 0$. \\
+	(4) 与(3)同理，请读者自行证明. \\
+	(5) 对于$\boldsymbol{v} \in V$，由于$$0 = (1+(-1))\boldsymbol{v} = \boldsymbol{v} + (-1)\boldsymbol{v}$$
+	在等式两边同时加上$\boldsymbol{v}$的加法逆元，可得$(-1)\boldsymbol{v} = \boldsymbol{-v}$.
+\end{proof}
+\begin{remark}
+	在(3)的证明过程中，由于在向量空间中只有分配性质能将标量乘法与向量的加法联系在一起，故必然会利用分配性质.
+\end{remark}
+
+\subsection*{习题}
+
+\begin{exercise}
+	证明对任意$\boldsymbol{v} \in V$都有$-(\boldsymbol{-v})=\boldsymbol{v}$.
+\end{exercise}
+
+\begin{exercise}
+	设$a \in \F, \boldsymbol{v} \in V, a\boldsymbol{v}=0$.证明$a=0$或$\boldsymbol{v}=0$.
+\end{exercise}
+
+\begin{exercise}
+	设$\boldsymbol{v},\boldsymbol{w} \in V$.说明为什么有唯一的$\boldsymbol{x} \in V$使得$\boldsymbol{v} + 3\boldsymbol{x} = \boldsymbol{w}$.
+\end{exercise}
+
+\begin{exercise}
+	证明在向量空间的定义中，关于加法逆元的那个条件可替换为$$\forall \boldsymbol{v} \in V, 0\boldsymbol{v}=\boldsymbol{0}$$
+	(等式左边的$0$是数$0$，右边的$\boldsymbol{0}$是$V$的加法单位元)
+\end{exercise}
+
+\begin{exercise}
+	设$\infty$和$-\infty$是两个不同的对象，它们都不属于$\R$.在$\R \cup {\infty} \cup {-\infty}$上如下定义加法和标量乘法：两个实数之间的加法和标量乘法按通常的实数运算法则定义，并对$t \in \R$定义$$
+	t\infty = \begin{cases}
+		-\infty , &if ~ t<0, \\
+		0 , &if ~ t=0, \\
+		\infty , &if ~ t>0,
+	\end{cases} \qquad
+	t(-\infty) = \begin{cases}
+		\infty , &if ~ t<0, \\
+		0 , &if ~ t=0, \\
+		-\infty , &if ~ t>0
+	\end{cases}$$
+	$$t + \infty = \infty + t = \infty , \qquad t+(-\infty) = (-\infty)+t = -\infty$$
+	$$\infty + \infty = \infty , \qquad (-\infty) + (-\infty) = -\infty , \qquad \infty + (-\infty) = 0$$
+	试问$\R \cup {\infty} \cup {-\infty}$是否为$\R$上的向量空间？说明理由.
+\end{exercise}
+
+
+\newpage
+\section{子空间}
+
+就像构造集合时要研究一个集合的子集一样，在向量空间中，我们也要研究它的子集.特别地，向量空间的子集如果也是向量空间，我们把它称作\textbf{子空间}.
+
+\subsection{子空间的概念}
+
+\begin{definition}{子空间}
+    设向量空间$V$和它的一个子集$U$(采用与$V$相同的加法法则与标量乘法法则)，如果$U$也是一个向量空间，则称$U$是$V$的\textbf{子空间}.
+\end{definition}
+
+然而在实际应用中，每遇到一个子集$U$都证明一遍它是向量空间是很麻烦的.其实只需要证明以下三个关键性质：
+
+\begin{proposition}{子空间的判定条件}
+    设向量空间$V$的子集$U$，$U$是$V$的子空间当且仅当$U$满足下列条件： \\
+    (1) 加法单位元$$\boldsymbol{0} \in U$$
+    (2) 加法封闭性$$\forall \boldsymbol{u},\boldsymbol{v} \in U, \boldsymbol{u}+\boldsymbol{v} \in U$$
+    (3) 标量乘法封闭性$$\forall \lambda \in \F,\boldsymbol{v} \in U,\lambda \boldsymbol{v} \in U$$
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：当$U$是$V$的子空间时，由定义可知$U$是一个向量空间，则它自然满足上述条件. \\
+    \buzhou{2} 充分性：当$U$满足上述条件时，由于$U$是$V$的子集并拥有相同的运算规则，显然$U$可以满足向量空间的所有性质.
+\end{proof}
+\begin{remark}
+    该判定条件中有关加法单位元的性质等价于“$U$非空”.(取$\boldsymbol{v} \in U,0 \in \F$，由标量乘法封闭性与命题\ref{pro:xlkjxkvi}的第三条可知$0\boldsymbol{v}=\boldsymbol{0} \in U$)
+\end{remark}
+\begin{remark}
+    实际上子空间的判定条件就是向量空间的必要条件：拥有加法单位元，且对加法和标量乘法封闭.
+\end{remark}
+
+\begin{example}
+    请指出下列向量空间的所有子空间：(2和3不要求证明唯一性，我们会在下一章给出证明) \\
+    (1)定义在$\mathbb{Z}$上的向量空间$\mathbb{Z}$； \\
+    (2)定义在$\R$上的向量空间$\R ^{2}$； \\
+    (3)定义在$\R$上的向量空间$\R ^{3}$.
+\end{example}
+\begin{solution}
+    (1)$\{ 0 \}$、集$\{ x : x=\lambda k,k \in \mathbb{Z} \}$($\lambda$为一个给定的非零整数). \\
+    \buzhou{1} 先证明唯一性：构造一个包含$0$的集合$U$，且该集合中包含另一非零元素$v \in U$.要让它是$\mathbb{Z}$的子空间，必须满足加法封闭性与加法逆元，那么$v,2v,3v,\cdots ,-v,-2v,\cdots$也在其中；若存在另一个不是$v$的倍数的数，设其模$v$余$m$，由加法封闭性，所有模$v$余$m$的数都在$U$中，于是所有模$v$余$2m,3m, \cdots , -m,-2m,\cdots$的数也在$U$中，然而这就不一定满足标量乘法封闭性了. \\
+    \buzhou{2} 再证明存在性：该集合$U$显然满足加法封闭性、存在加法单位元，且对于任意整数$u$、任意元素$w \in U$都有$uw \equiv 0 ~(\text{mod} v)$，因此$uw \in U$，即满足标量乘法封闭性. \\
+    (2)$\{ 0 \}$、$\R ^2$和$\R ^2$中过原点的所有直线. 存在性容易证明. \\
+    (3)$\{ 0 \}$、$\R ^3$和$\R ^3$中过原点的所有平面. 存在性容易证明.
+\end{solution}
+
+\begin{example}
+    证明下列结论：\\
+    (1)若$b \in \F$，则$\{ (x_1,x_2,x_3,x_4) \in \F ^{4} : x_3 = 5x_4+b \}$是$\F ^{4}$的子空间当且仅当$b=0$； \\
+    (2)区间$[0,1]$上的全体实值连续函数的集合是$\R ^{[0,1]}$的子空间； \\
+    (3)$\R$上的全体实值可微函数的集合是$\R ^{\R}$的子空间； \\
+    (4)区间$(0,3)$上满足条件$f'(2)=b$的实值可微函数的集合是$\R ^{(0,3)}$的子空间当且仅当$b=0$； \\
+    (5)极限为$0$的复数序列组成的集合是$\C ^{\infty}$的子空间.
+\end{example}
+
+\subsection{子空间的和}
+
+继续与集合比较.我们发现集合间有交、并、补等运算，向量空间中也有对应的运算，不过我们感兴趣的通常是它们的\textbf{和}.(详细原因参考本节习题)
+
+\begin{definition}{子集的和}
+    设$U_1,\cdots ,U_m$都是$V$的子集，定义$U_1, \cdots ,U_m$的\textbf{和}为$U_1, \cdots ,U_m$中元素所有可能的和构成的集合，记作$U_1+ \cdots +U_m$，即$$U_1+ \cdots +U_m = \{ \boldsymbol{u_1}+ \cdots +\boldsymbol{u_m} : \boldsymbol{u_j} \in U_j,j=1, \cdots ,m \}$$
+\end{definition}
+
+\begin{example}
+    证明下列结论： \\
+    (1)设$$U = \{ (x,0,0) \in \F ^{3} : x \in \F \} , \quad W = \{ (0,y,0) \in \F ^{3} : y \in \F \}$$
+    则$$U+W = \{ (x,y,0) : x,y \in \F \}$$
+    (2)设$$U = \{ (x,x,y,y) \in \F ^{4} : x,y \in \F \} , \quad W = \{ (x,x,x,y) \in \F ^{4} : x,y \in \F \}$$
+    则$$U+W = \{ (x,x,y,z) : x,y,z \in \F \}$$
+\end{example}
+
+两个集合的并集是包含它们的最小集合.相应地，两个子空间的和是包含它们的最小子空间.
+
+\begin{proposition}{子空间的和是包含这些子空间的最小子空间}
+    设$U_1,\cdots ,U_m$都是$V$的子空间，则$U_1+\cdots +U_m$是$V$的包含$U_1,\cdots ,U_m$的最小子空间.
+\end{proposition}
+\begin{proof}
+    记$U=U_1+\cdots +U_m$. \\
+    \buzhou{1} 证明$U$是$V$的子空间：显然$\boldsymbol{0}=\boldsymbol{0} + \cdots + \boldsymbol{0} \in U$；取$\boldsymbol{x_1}+ \cdots +\boldsymbol{x_m},\boldsymbol{y_1}+ \cdots +\boldsymbol{y_m} \in U$，其中$\boldsymbol{x_i},\boldsymbol{y_i} \in U_i$($i=1,\cdots ,m$)，由于对任意$i$都有$\boldsymbol{x_i}+\boldsymbol{y_1} \in U_i$，所以$(\boldsymbol{x_1}+\boldsymbol{y_1}) + \cdots + (\boldsymbol{x_m}+\boldsymbol{y_m})$也在$U$中，因此$U$对加法封闭；取$\boldsymbol{x_1}+ \cdots +\boldsymbol{x_m} \in U$，由于对任意$i$都有$\lambda \boldsymbol{x_i} \in U_i$，所以$\lambda \boldsymbol{x_1} + \cdots + \lambda \boldsymbol{x_m}$也在$U$中，因此$U$对标量乘法封闭.综上，$U$是$V$的子空间.\\
+    \buzhou{2} 证明$U$包含$U_1,\cdots ,U_m$：取$U_j$中元素$\boldsymbol{u_j}$，再取其他子空间中的元素$\boldsymbol{0}$，可知$\boldsymbol{u_j} \in U$.因此任意一个子空间都包含于$U$. \\
+    \buzhou{3} 证明$U$是最小的满足条件的子空间：假设存在一个更小的$U'$，由于$U'$包含$U_1, \cdots ,U_m$中的所有元素，又因为$U'$对加法封闭，故$U'$中必有$U_1+ \cdots +U_m$中所有元素，这与假设矛盾.因此$U$是最小的满足条件的子空间.
+\end{proof}
+
+\subsection{直和}
+
+注意到子空间的和中的元素$\boldsymbol{u}$可以用不同的$\boldsymbol{u_1}+ \cdots + \boldsymbol{u_m}$来表示.为了尽量避免这种不确定性，规定一种能够唯一地表示为上述形式的情形.
+
+\begin{definition}{直和}
+    设$U_1,\cdots ,U_m$都是$V$的子空间.和$U_1 + \cdots + U_m$称为\textbf{直和}，如果$U_1+ \cdots +U_m$中的每个元素都能唯一地表示成$\boldsymbol{u_1}+ \cdots + \boldsymbol{u_m}$的形式，其中每个$\boldsymbol{u_j}$都属于$U_j$.特别地，用$U_1 \oplus \cdots \oplus U_m$表示一个直和.
+\end{definition}
+
+\begin{example}
+    证明下列结论： \\
+    (1)设$$U = \{ (x,y,0) \in \F ^{3} : x,y \in \F \}, \quad W = \{ (0,0,z) \in \F ^{3} : z \in \F \}$$
+    则$\F ^{3} = U \oplus W$. \\
+    (2)设$U_j$是$\F ^{n}$中除第$j$个坐标以外其余坐标全是$0$的向量所组成的子空间(例如，$U_2= \{ (0,x,0,\cdots ,0) \in \F ^{n} : x \in \F \}$)，则$\F ^{n} = U_1 \oplus \cdots \oplus U_n$. \\
+    (3)设$$U_1 = \{ (x,y,0) \in \F ^{3} : x,y \in \F \}, \quad U_2 = \{ (0,0,z) \in \F ^{3} : z \in \F \}, \quad U_3 = \{ (0,y,y) \in \F ^{3} : y \in \F \}$$
+    则$U_1+U_2+U_3$不是直和.
+\end{example}
+
+每次都要构造一个反例来说明某个和不是直和过于麻烦，实际上有一种更简易的判别方法：
+
+\begin{proposition}{直和的判定条件}{vihe}
+    设$U_1,\cdots ,U_m$都是$V$的子空间.“$U_1 + \cdots + U_m$是直和”当且仅当“$\boldsymbol{0}$表示成$\boldsymbol{u_1}+\cdots +\boldsymbol{u_m}$(其中每个$\boldsymbol{u_j}$都属于$U_j$)的唯一方式是每个$\boldsymbol{u_j}$都等于$0$”.
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：由定义可知，若$U_1 + \cdots + U_m$是直和，则$\boldsymbol{0}$只有一种表示.又由$\boldsymbol{0} + \cdots + \boldsymbol{0} = \boldsymbol{0}$(其中第$j$个$\boldsymbol{0}$属于$U_j$)可知，这是唯一的表示方法. \\
+    \buzhou{2} 充分性：设$U_1 + \cdots + U_m$中元素$\boldsymbol{v}$，若$\boldsymbol{v}$可以表示为$\boldsymbol{u_1} + \cdots + \boldsymbol{u_m}$或$\boldsymbol{v_1} + \cdots + \boldsymbol{v_m}$(其中$\boldsymbol{u_j},\boldsymbol{v_j} \in U_j$)，那么$\boldsymbol{0} = (\boldsymbol{u_1} - \boldsymbol{v_1}) + \cdots + (\boldsymbol{u_m} - \boldsymbol{v_m})$，即$\boldsymbol{u_j}=\boldsymbol{v_j} ~(j=1,\cdots ,m)$，于是$U_1 + \cdots + U_m$是直和.
+\end{proof}
+
+\begin{proposition}{两个子空间的直和}
+    设$U$和$W$都是$V$的子空间，则$U+W$是直和当且仅当$U \cap W = \{ 0 \}$.
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：设$\boldsymbol{v} \in (U \cap W)$，由于$\boldsymbol{0} = \boldsymbol{v} + \boldsymbol{-v}$，由命题\ref{pro:vihe}可知，$\boldsymbol{v} = 0$. \\
+    \buzhou{2} 充分性：假设有不为$\boldsymbol{0}$的两个向量$\boldsymbol{u} \in U,\boldsymbol{v} \in W$，使得$\boldsymbol{0} = \boldsymbol{u} + \boldsymbol{v}$，那么$\boldsymbol{u} = \boldsymbol{-v}$.又因为$\boldsymbol{-v} \in W$，可知$\boldsymbol{u} \in \boldsymbol{v} \in (U \cap W)$，于是$\boldsymbol{u}=\boldsymbol{0}$，这与假设矛盾.
+\end{proof}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
