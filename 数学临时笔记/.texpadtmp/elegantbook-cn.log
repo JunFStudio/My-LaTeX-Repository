@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  21 JAN 2023 08:43
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  22 JAN 2023 12:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -242,21 +242,7 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 \g__ctex_font_size_int=\count298
  (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
 File: ctexopts.cfg 2021/12/12 v2.5.8 Option configuration file (CTEX)
-)
-
-/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/ctex.sty:308: LaTeX3 Error: Key 'ctex/option/zihao' accepts only a fixed set of choices.
-
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.308 \ProcessKeysOptions { ctex / option }
-                                           
-
-The key 'ctex/option/zihao' only accepts predefined values, and '4.5' is not
-one of these.
-
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
 File: ctex-engine-xetex.def 2021/12/12 v2.5.8 XeLaTeX adapter (CTEX)
  (/usr/local/texlive/2022/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
 Package: xeCJK 2021/12/12 v3.8.8 Typesetting CJK scripts with XeLaTeX
@@ -339,7 +325,12 @@ Package: zhnumber 2020/05/01 v2.8 Typesetting numbers with Chinese glyphs
 File: zhnumber-utf8.cfg 2020/05/01 v2.8 Chinese numerals with UTF8 encoding
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-plain.def
 File: ctex-scheme-plain.def 2021/12/12 v2.5.8 Plain scheme for generic (CTEX)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/ctex-c5size.clo
+File: ctex-c5size.clo 2021/12/12 v2.5.8 c5size option (CTEX)
+)
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 707.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
 File: ctex-fontset-mac.def 2021/12/12 v2.5.8 macOS fonts definition (CTEX)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-macnew.def
 File: ctex-fontset-macnew.def 2021/12/12 v2.5.8 macOS fonts definition for El Capitan or later version (CTEX)
@@ -349,7 +340,8 @@ File: ctex.cfg 2021/12/12 v2.5.8 Configuration file (CTEX)
 Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
 Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -452,8 +444,7 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count336
 \c@continuedfloat=\count337
 Package caption Info: hyperref package is loaded.
-)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2021/10/15 v2.17l AMS math features
 \@mathmargin=\skip62
 
@@ -1277,7 +1268,7 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cfttabnumwidth=\skip139
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1339.
+(Font)              scaled to size 10.53937pt on input line 1339.
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box133
 \UL@hyphenbox=\box134
@@ -1297,7 +1288,7 @@ Package csquotes Info: ... none found.
 LaTeX Warning: Unused global option(s):
     [zihao].
 
-(/Volumes/Storage_SSD/latex new/数学临时笔记/.texpadtmp/elegantbook-cn.aux
+(/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/数学临时笔记/.texpadtmp/elegantbook-cn.aux
 
 LaTeX Warning: Label `def:-NoValue-' multiply defined.
 
@@ -1364,7 +1355,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 52.
 LaTeX Info: Redefining \pageref on input line 52.
 LaTeX Info: Redefining \nameref on input line 52.
- (/Volumes/Storage_SSD/latex new/数学临时笔记/.texpadtmp/elegantbook-cn.out) (/Volumes/Storage_SSD/latex new/数学临时笔记/.texpadtmp/elegantbook-cn.out)
+ (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/数学临时笔记/.texpadtmp/elegantbook-cn.out) (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/数学临时笔记/.texpadtmp/elegantbook-cn.out)
 \@outlinefile=\write7
 \openout7 = `elegantbook-cn.out'.
 
@@ -1431,7 +1422,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'elegantbook-cn.bbl' found.
- (/Volumes/Storage_SSD/latex new/数学临时笔记/.texpadtmp/elegantbook-cn.bbl)
+ (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/数学临时笔记/.texpadtmp/elegantbook-cn.bbl)
 Package biblatex Info: Reference section=0 on input line 52.
 Package biblatex Info: Reference segment=0 on input line 52.
 \c@lstlisting=\count558
@@ -1471,7 +1462,7 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 54.
 File: ./figure//cover.png Graphic file (type bmp)
 <./figure//cover.png>
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 54.
+(Font)              scaled to size 26.09749pt on input line 54.
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 54.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1485,7 +1476,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 54.
+(Font)              scaled to size 15.05624pt on input line 54.
 
 
 ./elegantbook-cn.tex:54: LaTeX Error: There's no line here to end.
@@ -1506,12 +1497,12 @@ or  <return>  to continue without it.
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 60.
- (/Volumes/Storage_SSD/latex new/数学临时笔记/.texpadtmp/elegantbook-cn.toc
+(Font)              scaled to size 18.06749pt on input line 60.
+ (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/数学临时笔记/.texpadtmp/elegantbook-cn.toc
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 1.
+(Font)              scaled to size 12.045pt on input line 1.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 1.
+(Font)              scaled to size 12.045pt on input line 1.
 )
 \tf@toc=\write8
 \openout8 = `elegantbook-cn.toc'.
@@ -1523,9 +1514,9 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 62.
+(Font)              scaled to size 22.08249pt on input line 62.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 20.74pt on input line 62.
+(Font)              scaled to size 22.08249pt on input line 62.
  [2
 
 ]
@@ -1550,28 +1541,34 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 145.
+(Font)              scaled to size 9.03374pt on input line 145.
  [4] [5]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 6.52437pt on input line 177.
 LaTeX Font Info:    Trying to load font information for U+ding on input line 177.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/bbding/Uding.fd
 File: Uding.fd 1996/02/01 v1.0 BBding font definitions
-) [6] [7] [8] [9] [10] [11] [12] (/Volumes/Storage_SSD/latex new/数学临时笔记/.texpadtmp/elegantbook-cn.aux)
+) [6] [7] [8] [9] [10] [11] [12] [13]
+Chapter 2.
+[14
+
+] (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/数学临时笔记/.texpadtmp/elegantbook-cn.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: BB5BE20CDA29D6B1587167007322761D;579.
+(rerunfilecheck)             Checksum: DCA5C835DA0897D7F9FB85CEBFC69D18;696.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45329 strings out of 476179
- 969795 string characters out of 5809544
- 1867441 words of memory out of 5000000
- 65263 multiletter control sequences out of 15000+600000
- 484845 words of font info for 136 fonts, out of 8000000 for 9000
+ 45359 strings out of 476179
+ 972378 string characters out of 5809544
+ 1864865 words of memory out of 5000000
+ 65284 multiletter control sequences out of 15000+600000
+ 487711 words of font info for 149 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,13n,107p,747b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,14n,107p,747b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex new/数学临时笔记/.texpadtmp/elegantbook-cn.pdf (13 pages).
+Output written on /Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/数学临时笔记/.texpadtmp/elegantbook-cn.pdf (15 pages).
