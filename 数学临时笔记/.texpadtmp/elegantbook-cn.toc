@@ -13,4 +13,8 @@
 \contentsline {subsection}{\numberline {2.1.1}张成空间}{14}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}有限维向量空间}{15}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}线性无关}{17}{section.2.2}%
-\contentsline {section}{\numberline {2.3}基与维数}{19}{section.2.3}%
+\contentsline {subsection}{\numberline {2.2.1}线性无关}{17}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}线性相关性与张成}{18}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}基与维数}{21}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}基}{21}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}维数}{22}{subsection.2.3.2}%

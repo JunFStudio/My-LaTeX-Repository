@@ -408,7 +408,7 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
     \buzhou{2} 充分性：设$U_1 + \cdots + U_m$中元素$v$，若$v$可以表示为$u_1 + \cdots + u_m$或$v_1 + \cdots + v_m$(其中$u_j,v_j \in U_j$)，那么$0 = (u_1 - v_1) + \cdots + (u_m - v_m)$，即$u_j=v_j ~(j=1,\cdots ,m)$，于是$U_1 + \cdots + U_m$是直和.
 \end{proof}
 
-\begin{proposition}{两个子空间的直和}
+\begin{proposition}{两个子空间的直和}{ziksjmvihe}
     设$U$和$W$都是$V$的子空间，则$U+W$是直和当且仅当$U \cap W = \{ 0 \}$.
 \end{proposition}
 \begin{proof}
@@ -580,6 +580,8 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 \newpage
 \section{线性无关}
 
+\subsection{线性无关}
+
 与子空间的和一样，我们倾向于研究那些有唯一表示形式的元素.
 
 \begin{definition}{线性无关，线性相关}
@@ -607,7 +609,8 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 	(1)$V$中一个向量$v$所构成的向量组是线性无关的当且仅当$v \neq 0$. \\
 	(2)$V$中两个向量构成的向量组线性无关当且仅当每个向量都不能写成另一个向量的标量倍. \\
 	(3)对每个非负整数$m$，$\mathcal{P} (\F)$中的组$1,z, \cdots ,z^m$线性无关. \\
-	(4)设$v_1,v_2,v_3,v_4$在$V$中是线性无关的，则$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也是线性无关的.
+	(4)设$v_1,v_2,v_3,v_4$在$V$中是线性无关的，则$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也是线性无关的. \\
+	(5)设$v_1, \cdots ,v_m$在$V$中线性无关，并设$w \in V$.证明：若$v_1+w , \cdots ,v_m+w$线性无关当且仅当$w \notin \spn (v_1 , \cdots ,v_m)$.
 \end{example}
 
 \begin{example}{\examplefont{线性相关的判断}}
@@ -635,10 +638,314 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 实际上，利用这个定义更好理解线性相关的本质.上一小节的例题告诉我们，张成组(即张成某向量空间的向量组)的长度可以不同.容易证明，第一个例子中的向量组是线性无关的，而第二个例子中的向量组是线性相关的.实际上，像这样既是张成组又是线性无关的组，就称为基(详细内容在下一小节会讲到).
 
 
+\subsection{线性相关性与张成}
 
+下面的引理为我们阐释了线性相关性与张成的一个基本关系.
+
+\begin{proposition}{线性相关性引理}
+	设$v_1, \cdots ,v_m$是$V$中的一个线性相关的向量组，则存在$j \in \{ 1,2, \cdots ,m \}$使得： \\
+	(a)$v_j \in \spn (v_1, \cdots , v_{j-1})$； \\
+	(b)若从$v_1, \cdots ,v_m$中去掉第$j$项，则剩余组的张成空间等于$\spn (v_1, \cdots ,v_m)$.
+\end{proposition}
+\begin{proof}
+	(a)由于$v_1, \cdots ,v_m$线性相关，存在不全为$0$的数$a_1, \cdots ,a_m \in \F$使得$a_1v_1 + \cdots + a_mv_m = 0$.不妨设该向量组的顺序满足$a_1, \cdots ,a_j$均不为$0$，从而有
+	\begin{equation}
+		v_j = \frac{a_1}{-a_j} v_1 + \cdots + \frac{a_{j-1}}{-a_j} v_{j-1} \label{xmxkxlgr}
+	\end{equation}
+	这意味着$v_j \in \spn (v_1, \cdots , v_{j-1})$； \\
+	(b)取$\spn (v_1, \cdots ,v_m)$中某一元素$u$，设$u=b_1v_1 + \cdots + b_mv_m$，将式\ref{xmxkxlgr}代入可得
+	$$u = \ssb{\frac{a_1b_j}{-a_j}+b_1}v_1 + \cdots + \ssb{\frac{a_{j-1}b_j}{-a_j}+b_{j-1}}v_{j-1} + b_{j+1} v_{j+1} + \cdots b_mv_m$$
+	这表明对于$\spn (v_1, \cdots ,v_m)$中任一元素，它都在$\spn (v_1, \cdots ,v_{j-1} , v_{j+1}, \cdots ,v_m)$中，即原命题所述.
+\end{proof}
+
+由线性无关与张成的几何意义，我们能够想象：对于任意一个有限维向量空间，总是存在一组“基底”，这组基底可以线性表示任何向量空间中的元素，并且它们之间互不多余、缺一不可.这就类似于欧氏几何中的五条公理一样.通过这种直观的理解，不难得出以下命题，难的在于如何规整地证明.
+
+\begin{proposition}{线性无关组与张成组长度的关系}{xxwgvi}
+	在有限维向量空间$V$中，线性无关组的长度总是小于等于向量空间的每一个张成组的长度.
+\end{proposition}
+\begin{proof}
+	设$V$中一个线性无关组$u_1, \cdots ,u_m$与张成组$w_1, \cdots w_n$. \\
+	\buzhou{1}第$1$步：将线性无关组中的第$1$个元素$u_1$添加在张成组的开头，便形成组$$u_1,w_1, \cdots ,w_n$$
+	由线性相关性引理，我们可以去掉某个$w$使得新的组仍张成$V$. \\
+	\buzhou{2}第$j$步：将线性无关组中的第$j$个元素$u_j$添加在$u_{j-1}$后，由线性相关性引理，又因为$u_1, \cdots ,u_j$是线性无关的，我们可以去掉某个$w$使得新的组仍张成$V$. \\
+	每经过一步，都会将组中的一个$w$换成一个$u$.因为在第$m$步后把所有的$u$都换完，可知$n \geq m$，即原命题所述.
+\end{proof}
+
+利用这一“直观”的结论，我们可以“直观”地证伪某些命题.
+
+\begin{example}
+	证明下列结论： \\
+	(1)组$(1,2,3),(4,5,8),(9,6,7),(-3,2,8)$在$\R ^{3}$中一定不是线性无关的. \\
+	(2)组$(1,2,3,-5),(4,5,8,3),(9,6,7,-1)$一定不能张成$\R ^{4}$.
+\end{example}
+
+利用命题\ref{pro:xxwgvi}的证明思路，还可以说明更多直观的结论：
+
+\begin{proposition}{向量空间中的一些结论}{yixpjply}
+	\begin{itemize}
+		\item 在向量空间$V$中，每个张成组都能通过去除某些元素得到一个线性无关的张成组.
+		\item $V$是无限维向量空间当且仅当$V$中存在一个向量序列$v_1, v_2, \cdots$使得当$m$是任意正整数时$v_1, \cdots ,v_m$都是线性无关的.
+		\item 有限维向量空间的子空间都是有限维的.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	(1)\buzhou{1} 第$1$步：设$\mathcal{W}_1 = v_1, \cdots ,v_m$张成$V$.若$v_1 \notin \spn (v_2, \cdots ,v_m)$，则保持该组不变，并停止操作；若$v_1 \in \spn (v_2, \cdots ,v_m)$，则去掉$v_1$，并记新组$v_2, \cdots , v_m$为$\mathcal{W}_2$. \\
+	\buzhou{2} 第$j$步：若$v_j \notin \spn (v_{j+1}, \cdots ,v_m)$，则保持$\mathcal{W}_j$不变，并停止操作；若$v_j \in \spn (v_{j+1}, \cdots ,v_m)$，则去掉$v_j$，并记新组$v_{j+1}, \cdots , v_m$为$\mathcal{W}_{j+1}$
+	在经过有限次操作后，一定会在某一步停止并返回一个线性无关的组，且能张成$V$. \\
+	(2)\buzhou{1} 第$1$步：取$V$中的一个线性无关向量组$\mathcal{W}_1$，作它的张成空间$U_1$，取一元素$u \in (V \setjianfa U_1)$放入该组，得到一个新的组$\mathcal{W}_2$.显然该组仍是线性无关的(参考“线性无关的判断”例题之5). \\
+	\buzhou{2} 第$j$步：作$\mathcal{W}_j$的张成空间$U_j$，取一元素$u \in (V \setjianfa U_j)$放入$\mathcal{W}_j$，得到一个新的组$\mathcal{W}_{j+1}$. \\
+	由于可以不断重复该过程，因此这样一个组$\mathcal{W}_j$会不断扩张并保持线性无关，即符合原命题要求. \\
+	(3)证明过程类似第二个结论，请读者自行验证.
+\end{proof}
+
+\subsection*{习题}
+
+\begin{exercise}
+	求数$t$使得$(3,1,4),(2,-3,5),(5,9,t)$在$\R ^{3}$中不是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	(1)证明：若将$\C$视为$\R$上的向量空间，则组$1+\ic ,1-\ic $是线性无关的. \\
+	(2)证明：若将$\C$视为$\C$上的向量空间，则组$1+\ic ,1-\ic $是线性相关的.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1,v_2, \cdots ,v_m$在$V$中线性无关，则$5v_1-4v_2,v_2,v_3, \cdots ,v_m$是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1,v_2, \cdots ,v_m$在$V$中线性无关，并设$\lambda \in \F$且$\lambda \neq 0$，则$\lambda v_1,\lambda v_2,\cdots ,\lambda v_m$是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1, \cdots ,v_m$和$w_1,\cdots ,w_m$都是$V$中的线性无关组，则$v_1+w_1, \cdots ,v_m+w_m$是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	设$v_1, \cdots ,v_m$在$V$中线性无关，并设$w \in V$.证明：若$v_1+w, \cdots ,v_m+w$线性相关，则$w \in \spn (v_1, \cdots ,v_m)$.
+\end{exercise}
+
+\begin{exercise}
+	证明$\F ^{\infty}$是无限维的.
+\end{exercise}
+
+\begin{exercise}
+	设$p_0,p_1, \cdots ,p_m$是$\mathcal{P}_m (\F)$中的多项式使得对每个$j$都有$p_{j}(2)=0$.证明$p_0,p_1, \cdots ,p_m$在$\mathcal{P}_m (\F)$中不是线性无关的.
+\end{exercise}
 
 \newpage
 \section{基与维数}
+
+\subsection{基}
+
+上一节中多次出现“基底”这一关键词，现在我们来集中研究它：
+
+\begin{definition}{基}
+	若$V$中的一个向量组既线性无关又张成$V$，则称为$V$的\textbf{基}.
+\end{definition}
+
+\begin{example}{\examplefont{基的例子}}
+	请验证： \\
+	(1)组$(1,0,\cdots ,0),(0,1,0,\cdots ,0), \cdots ,(0,\cdots ,0,1)$是$\F ^{n}$的基.(实际上，这称为$\F ^{n}$的\textbf{标准基}) \\
+	(2)组$(1,1,0),(0,0,1)$是$\{ (x,x,y) \in \F ^{3}:x,y \in \F \}$的基. \\
+	(3)组$(1,-1,0),(1,0,-1)$是$\{ (x,y,z) \in \F ^{3}:x+y+z=0 \}$的基. \\
+	(4)组$1,z, \cdots ,z^{m}$是$\mathcal{P}_m (\F)$的基.
+\end{example}
+
+我们发现张成和线性无关的定义十分类似：都出现了“线性组合”这一形式.将它们综合起来，就是基的判定命题：
+
+\begin{proposition}{基的判定}
+	$V$中的向量组$v_1, \cdots ,v_m$是$V$的基当且仅当每个$v \in V$都能唯一地写成以下形式$$v = a_1v_1 + \cdots + a_mv_m$$
+	其中$a_1, \cdots ,a_m \in \F$.
+\end{proposition}
+\begin{proof}
+	必要性显然.直接来看充分性：在$V$中任取一元素$v$，设它可以唯一地表示为$v = a_1v_1 + \cdots + a_mv_m$的形式. \\
+	\buzhou{1} 张成：由张成的定义可知，$v_1, \cdots ,v_m$张成$V$. \\
+	\buzhou{2} 线性无关：令$a_1, \cdots , a_m$全为$0$，则有$0=0v_1 + \cdots + 0v_m$，这是$0$的唯一表示形式，因此$v_1, \cdots ,v_m$线性无关.
+\end{proof}
+
+回顾上一节中命题\ref{pro:yixpjply}的第一条，实际上现在我们就能将其写成基的形式.
+
+\begin{proposition}{基、线性无关组、张成组I}{kois}
+	在有限维向量空间$V$中，
+	\begin{itemize}
+		\item 每个张成组都可以化简成$V$的一个基.
+		\item 每个线性无关的向量组都可以扩充成$V$的一个基.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	第一条已经在命题\ref{pro:yixpjply}中证明过，这里只证明第二条. \\
+	设$V$中的线性无关组$v_1, \cdots ,v_m$与一个基$u_1, \cdots ,u_n$.作组$\mathcal{W} = v_1, \cdots ,v_m,u_1, \cdots ,u_n$，它显然张成$V$.由命题\ref{pro:xxwgvi}可知$m \leq n$.利用第一条的证明过程将$\mathcal{W}$化简为$v_1, \cdots , v_m , u_1, \cdots ,u_j$，可知它是$V$的一个基.
+\end{proof}
+
+以上的命题具有很强的可操作性.例如，取$\F ^{3}$的基的一部分(也就是一个线性无关组)$(1,1,4),(5,1,4)$，再取一个标准基$(1,0,0),(0,1,0),(0,0,1)$.在$(1,1,4),(5,1,4),(1,0,0),(0,1,0),(0,0,1)$中去掉$$(1,0,0)=-\frac{1}{4}(1,1,4)+\frac{1}{4}(5,1,4)$$
+在$(1,1,4),(5,1,4),(0,1,0),(0,0,1)$中，由于$(0,1,0),(0,0,1)$都不能被$(1,1,4),(5,1,4)$线性表示，所以最后可以保留其中任意一个，即$(1,1,4),(5,1,4),(0,1,0)$和$(1,1,4),(5,1,4),(0,0,1)$都是$\F ^{3}$的基.
+
+有了基这个工具之后，我们可以证明更多之前不能证明的结论：
+
+\begin{proposition}{子空间与直和的关系}
+	设$V$是有限维的，$U$是$V$的子空间，则存在$V$的子空间$W$使得$V=U \oplus W$.
+\end{proposition}
+\begin{proof}
+	设$U$的一个基$u_1, \cdots , u_m$，按照命题\ref{pro:kois}的方法将这个$V$中的线性无关组扩充为$V$的基，记为$u_1, \cdots ,u_m,w_1, \cdots ,w_n$.取$W = \spn (w_1, \cdots ,w_n)$，下证这样的$W$就是满足题目要求的子空间： \\
+	显然$U+W=V$.任取$v \in (U \cap W)$，设$$v=a_1u_1 + \cdots + a_mu
+	_m \qquad v = b_1w_1 + \cdots + b_nw_n$$
+	两式作差，得$0=a_1u_1 + \cdots a_mu_m + (-b_1)w_1 + \cdots + (-b_n)w_n$，由$u_1, \cdots ,u_m,w_1, \cdots ,w_n$是$V$的基可得$a_1 = \cdots = b_n = 0$，则$v=0$.由命题\ref{pro:ziksjmvihe}知$V=U \oplus W$.
+\end{proof}
+
+\subsection{维数}
+
+继续研究向量空间的几何意义，我们发现基已经被定义了，但是最小的基还不太清楚.实际上，容易说明所有基的长度都是相等的，而任意一个基的长度就称作\textbf{维数}.
+
+\begin{proposition}{基的长度不依赖于基的选取}
+	有限维向量空间的任意两个基的长度都相同.
+\end{proposition}
+\begin{proof}
+	由命题\ref{pro:xxwgvi}可知，因为任意两个基$\mathcal{U},\mathcal{V}$都同时是线性无关向量组与张成组，所以$\mathcal{U}$的长度小于等于$\mathcal{V}$的长度、$\mathcal{U}$的长度大于等于$\mathcal{V}$的长度，于是它们的长度相等.
+\end{proof}
+
+\begin{definition}{维数}
+	有限维向量空间$V$的任意基的长度称为这个向量空间的\textbf{维数}，记作$\dim V$.
+\end{definition}
+
+很明显，一个有限维向量空间的子空间也是有限维的，它的维数应当满足下列命题要求：
+
+\begin{proposition}{子空间的维数}
+	若$U$是有限维向量空间$V$的子空间，则$\dim U \leq \dim V$.
+\end{proposition}
+\begin{proof}
+	取$U$的一个基$\mathcal{U}$，取$V$的一个基$\mathcal{V}$.因为$\mathcal{U}$是$V$的一个线性无关的子空间，由命题\ref{pro:xxwgvi}可知，$\mathcal{U}$的长度小于等于$\mathcal{V}$的长度，即$\dim U \leq \dim V$.
+\end{proof}
+
+借助维数，可以更快捷地证明一个向量空间的基.
+
+\begin{proposition}{基、线性无关组、张成组II}
+	设$V$是有限维向量空间.
+	\begin{itemize}
+		\item $V$中每个长度为$\dim V$的线性无关向量组都是$V$的基.
+		\item $V$中每个长度为$\dim V$的张成组都是$V$的基.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	(1)设$V$中的一个线性无关向量组$v_1, \cdots ,v_m$，取$V$中一个基$w_1 , \cdots , w_n$，由命题\ref{pro:kois}可知，$v_1, \cdots ,v_m$可以扩充为基，然而在此过程中由于$m=n$，实际上没有发生任何扩充，故$v_1, \cdots ,v_m$本来就是一个基. \\
+	(2)证明过程同(1)，留作习题.
+\end{proof}
+
+\begin{example}
+	证明以下结论： \\
+	(1)组$(5,7),(4,3)$是$\F ^{3}$的基. \\
+	(2)证明$1,(x-5)^2,(x-5)^3$是$\mathcal{P}_{3} (\R)$的子空间$U$的一个基，其中$U$定义为$$U = \{ p \in \mathcal{P}_{3} (\R) : p'(5)=0 \}$$
+\end{example}
+
+类比并集的元素个数计算公式(即容斥原理)，子空间和的的维数计算公式如下：
+
+\begin{proposition}{子空间和的维数}
+	如果$U_1$和$U_2$是有限维向量空间的两个子空间，则$$\dim (U_1+U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$$
+\end{proposition}
+\begin{proof}
+	设$U_1 \cap U_2$的基$v_1, \cdots ,v_m$，则$v_1, \cdots ,v_m \in U_1,U_2$；设$U_1, U_2$的基分别为$v_1, \cdots ,v_m,u_1, \cdots ,u_j$与$v_1, \cdots ,v_m,u'_1, \cdots ,u'_k$. \\
+	取$U_1+U_2$中的$0$元素，它能被表示为$w_1+w_2$的形式(其中$w_1 \in U_1,w_2 \in U_2$).因此设
+	\begin{align*}
+		0 &= w_1 + w_2 = (a_1v_1 + \cdots a_mv_m + b_1u_1 + \cdots + b_ju_j) + (a'_1v_1 + \cdots a'_mv_m + b'_1u'_1 + \cdots + b'_ku'_k) \\
+		&= (a_1+a'_1)v_1 + \cdots + (a_m + a'_m)v_m + b_1u_1 + \cdots + b_ju_j + b'_1u'_1 + \cdots + b'_ku'_k
+	\end{align*}
+	于是
+	$$ (-a_1-a'_1)v_1 + \cdots + (-a_m - a'_m)v_m + (-b_1)u_1 + \cdots + (-b_j)u_j = b'_1u'_1 + \cdots + b'_ku'_k $$
+	等式左边属于$U_1$，等式右边属于$U_2$，因此$b'_1u'_1 + \cdots + b'_ku'_k \in U_1 \cap U_2$.设
+	$$b'_1u'_1 + \cdots + b'_ku'_k = c_1v_1 + \cdots + c_mv_m$$
+	于是$$b'_1u'_1 + \cdots + b'_ku'_k + (-c_1)v_1 + \cdots + (-c_m)v_m = 0$$
+	这个式子告诉我们$b'_1 = \cdots = b'_k = c_1 = \cdots c_m =0$.同理可得$b_1 = \cdots = b_j =0$.带入上式，可得
+	$$(a_1+a'_1)v_1 + \cdots + (a_m + a'_m)v_m = 0$$
+	所以$a_1+a'_1 = \cdots = a_m + a'_m =0$. \\
+	综上，对于$U_1+U_2$中的$0$，它只有唯一一种线性表示形式，即满足$$a_1+a'_1 = \cdots = a_m + a'_m = b'_1 = \cdots = b'_k = b_1 = \cdots = b_j$$
+	故$v_1, \cdots ,v_m,u_1, \cdots ,u_j,u'_1, \cdots ,u'_k$是$U_1+U_2$的基.于是$\dim (U_1+U_2)=m+j+k = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$.
+\end{proof}
+\begin{remark}
+	注意子空间的维数计算公式不一定能推广到更多元的情况，例如本节习题中所示.
+\end{remark}
+
+\subsection*{习题}
+
+\begin{exercise}
+	证明或反驳：$\mathcal{P}_{3} (\F)$有一个基$p_0,p_1,p_2,p_3$使得多项式$p_0,p_1,p_2,p_3$的次数都不等于$2$.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1,v_2,v_3,v_4$是$V$的基，且$U$是$V$的子空间使得$v_1,v_2 \in U,~ v_3 \notin U ,~ v_3 \notin U$，则$v_1,v_2$是$U$的基.
+\end{exercise}
+
+\begin{exercise}
+	设$U$和$W$是$V$的子空间使得$V=U \oplus W$.并设$u_1, \cdots ,u_m$是$U$的基，$w_1, \cdots ,w_n$是$W$的基.证明$u_1, \cdots ,u_m,w_1, \cdots ,w_n$是$V$的基.
+\end{exercise}
+
+\begin{exercise}
+	(1)证明$\R ^{2}$的子空间恰为：$\{ 0 \}$、$\R ^2$和$\R ^2$中过原点的所有直线. \\
+    (2)证明$\R ^{3}$的子空间恰为：$\{ 0 \}$、$\R ^3$和$\R ^3$中过原点的所有平面.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U$是$\C ^{5}$的子空间，满足$$U= \{ (z_1,z_2,z_3,z_4,z_5) \in \C ^{5} : 6z_1=z_2,z_3+2z_4+3z_5=0 \}$$
+	求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\C ^{5}$的基. \\
+	(3)找出$\C ^{5}$的一个子空间$W$使得$\C ^{5} = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\F) : p(6)=0 \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\F)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\F)$的一个子空间$W$使得$\mathcal{P}_{4} (\F) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\R) : p''(6)=0 \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\R)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\R)$的一个子空间$W$使得$\mathcal{P}_{4} (\R) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\F) : p(2)=p(5) \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\F)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\F)$的一个子空间$W$使得$\mathcal{P}_{4} (\F) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\F) : p(2)=p(5)=p(6) \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\F)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\F)$的一个子空间$W$使得$\mathcal{P}_{4} (\F) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	设$v_1, \cdots ,v_m$在$V$中是线性无关的，并设$w \in V$.证明$$\dim \spn (v_1+w, \cdots ,v_m+w) \geq m-1$$
+\end{exercise}
+
+\begin{exercise}
+	假设$p_0,p_1, \cdots ,p_m \in \mathcal{P} (\F)$使得每个$p_j$的次数为$j$.证明$p_0,p_1, \cdots ,p_m$是$\mathcal{P}_m (\F)$的基.
+\end{exercise}
+
+\begin{exercise}
+	设$U$和$W$均为$\C ^{6}$的$4$维子空间.证明在$U \cap W$中存在两个向量使得其中任何一个都不是另一个的标量倍.
+\end{exercise}
+
+\begin{exercise}
+	设$U_1,\cdots ,U_m$均为$V$的有限维子空间.证明$U_1 + \cdots + U_m$是有限维的且$$\dim (U_1 + \cdots + U_m) \leq \dim U_1 +\cdots + \dim U_m$$
+\end{exercise}
+
+\begin{exercise}
+	设$U_1,\cdots ,U_m$均为$V$的有限维子空间，使得$U_1 + \cdots + U_m$是直和.证明$U_1 \oplus \cdots \oplus U_m$是有限维的且$$\dim U_1 \oplus \cdots \oplus \dim U_m = dim U_1 +\cdots + \dim U_m$$
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：设$U_1,U_2,U_3$是有限维向量空间的子空间，那么
+	\begin{split}
+		\dim (U_1+U_2+U_3) = &\dim U_1 + \dim U_2 + \dim U_3 \\ 
+		&- \dim (U_1 \cap U_2) - \dim (U_1 \cap U_3) - \dim (U_2 \cap U_3) \\
+		&+ \dim (U_1 \cap U_2 \cap U_3)
+	\end{split}
+\end{exercise}
+
+
+
+
 
 \end{document}
 
