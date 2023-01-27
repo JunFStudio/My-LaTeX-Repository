@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  27 JAN 2023 14:59
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  27 JAN 2023 18:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1301,27 +1301,27 @@ LaTeX Warning: Unused global option(s):
 (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.aux)
 \openout1 = `elegantbook-cn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-Package hyperref Info: Link coloring ON on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+Package hyperref Info: Link coloring ON on input line 49.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1331,9 +1331,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count557
 )
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
+LaTeX Info: Redefining \ref on input line 49.
+LaTeX Info: Redefining \pageref on input line 49.
+LaTeX Info: Redefining \nameref on input line 49.
  (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.out) (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.out)
 \@outlinefile=\write7
 \openout7 = `elegantbook-cn.out'.
@@ -1402,10 +1402,10 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'elegantbook-cn.bbl' found.
  (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.bbl)
-Package biblatex Info: Reference section=0 on input line 48.
-Package biblatex Info: Reference segment=0 on input line 48.
+Package biblatex Info: Reference section=0 on input line 49.
+Package biblatex Info: Reference segment=0 on input line 49.
 \c@lstlisting=\count558
-Package hyperref Info: Option `pageanchor' set `false' on input line 50.
+Package hyperref Info: Option `pageanchor' set `false' on input line 51.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1441,33 +1441,33 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 50.
 File: ./figure//cover.png Graphic file (type bmp)
 <./figure//cover.png>
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 50.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 50.
+(Font)              scaled to size 24.88pt on input line 51.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 51.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 50.
+LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 51.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/yhmath/OMXyhex.fd
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 50.
+(Font)              scaled to size 14.4pt on input line 51.
  [1
 
 
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 56.
+(Font)              scaled to size 17.28pt on input line 57.
  (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.toc
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
@@ -1478,17 +1478,18 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 
 
 
-])
+]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 68.
+ [2])
 \tf@toc=\write8
 \openout8 = `elegantbook-cn.toc'.
 
+ [3]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 58.
- [2] [3]
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 60.
+(Font)              scaled to size 20.74pt on input line 61.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 20.74pt on input line 60.
+(Font)              scaled to size 20.74pt on input line 61.
  [4
 
 ]
@@ -1551,16 +1552,16 @@ Chapter 11.
 
 ] (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.aux)
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 89B94659EE44DCE1B1581928BA5BCC83;8305.
+(rerunfilecheck)             Checksum: D3EF91A6F59359E11BA44A45CD7D36F9;10832.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45051 strings out of 476179
- 959982 string characters out of 5809544
- 1862593 words of memory out of 5000000
- 65005 multiletter control sequences out of 15000+600000
+ 45047 strings out of 476179
+ 959307 string characters out of 5809544
+ 1865299 words of memory out of 5000000
+ 65001 multiletter control sequences out of 15000+600000
  482300 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,12n,107p,747b,801s stack positions out of 10000i,1000n,20000p,200000b,200000s
