@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  22 JAN 2023 12:28
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  27 JAN 2023 16:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1561,19 +1561,19 @@ Chapter 11.
 ] [17
 
 ]
-Chapter 12.
+Chapter 1.
 [18
 
 ]
-Chapter 13.
+Chapter 2.
 [19
 
 ]
-Chapter 14.
+Chapter 3.
 [20
 
 ]
-Chapter 15.
+Chapter 4.
 [21
 
 ] (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学习题课/.texpadtmp/elegantbook-cn.aux)
@@ -1581,16 +1581,16 @@ Chapter 15.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 2EF3B7B52F0CF7ABF97D8DDD850F2FD6;2054.
+(rerunfilecheck)             Checksum: BDD8F95EDAC235EEC259F012E870C7A8;2147.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45147 strings out of 476179
- 963023 string characters out of 5809544
- 1861888 words of memory out of 5000000
- 65101 multiletter control sequences out of 15000+600000
+ 45150 strings out of 476179
+ 963076 string characters out of 5809544
+ 1862992 words of memory out of 5000000
+ 65104 multiletter control sequences out of 15000+600000
  482300 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,11n,107p,747b,1312s stack positions out of 10000i,1000n,20000p,200000b,200000s

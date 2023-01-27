@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  27 JAN 2023 14:59
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.18)  27 JAN 2023 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -242,21 +242,7 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 \g__ctex_font_size_int=\count298
  (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
 File: ctexopts.cfg 2021/12/12 v2.5.8 Option configuration file (CTEX)
-)
-
-/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/ctex.sty:308: LaTeX3 Error: Key 'ctex/option/zihao' accepts only a fixed set of choices.
-
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.308 \ProcessKeysOptions { ctex / option }
-                                           
-
-The key 'ctex/option/zihao' only accepts predefined values, and '4.5' is not
-one of these.
-
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
 File: ctex-engine-xetex.def 2021/12/12 v2.5.8 XeLaTeX adapter (CTEX)
  (/usr/local/texlive/2022/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
 Package: xeCJK 2021/12/12 v3.8.8 Typesetting CJK scripts with XeLaTeX
@@ -339,7 +325,12 @@ Package: zhnumber 2020/05/01 v2.8 Typesetting numbers with Chinese glyphs
 File: zhnumber-utf8.cfg 2020/05/01 v2.8 Chinese numerals with UTF8 encoding
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-plain.def
 File: ctex-scheme-plain.def 2021/12/12 v2.5.8 Plain scheme for generic (CTEX)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/ctex-c5size.clo
+File: ctex-c5size.clo 2021/12/12 v2.5.8 c5size option (CTEX)
+)
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 707.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
 File: ctex-fontset-mac.def 2021/12/12 v2.5.8 macOS fonts definition (CTEX)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-macnew.def
 File: ctex-fontset-macnew.def 2021/12/12 v2.5.8 macOS fonts definition for El Capitan or later version (CTEX)
@@ -349,7 +340,8 @@ File: ctex.cfg 2021/12/12 v2.5.8 Configuration file (CTEX)
 Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
 Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -452,8 +444,7 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count336
 \c@continuedfloat=\count337
 Package caption Info: hyperref package is loaded.
-)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2021/10/15 v2.17l AMS math features
 \@mathmargin=\skip62
 
@@ -1277,7 +1268,7 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cfttabnumwidth=\skip139
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1339.
+(Font)              scaled to size 10.53937pt on input line 1339.
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box133
 \UL@hyphenbox=\box134
@@ -1290,7 +1281,6 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 Package: ulem 2019/11/18
 \ULdepth=\dimen354
 )
-\symyh=\mathgroup7
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
 
@@ -1298,30 +1288,112 @@ Package csquotes Info: ... none found.
 LaTeX Warning: Unused global option(s):
     [zihao].
 
-(/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.aux)
+(./elegantbook-cn.aux
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+)
 \openout1 = `elegantbook-cn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-Package hyperref Info: Link coloring ON on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+Package hyperref Info: Link coloring ON on input line 55.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1331,10 +1403,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count557
 )
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
- (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.out) (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.out)
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
+ (./elegantbook-cn.out) (./elegantbook-cn.out)
 \@outlinefile=\write7
 \openout7 = `elegantbook-cn.out'.
 
@@ -1400,12 +1472,13 @@ Package biblatex Info: Automatic encoding selection.
 \openout5 = `elegantbook-cn.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'elegantbook-cn.bbl' found.
- (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.bbl)
-Package biblatex Info: Reference section=0 on input line 48.
-Package biblatex Info: Reference segment=0 on input line 48.
+Package biblatex Info: ... file 'elegantbook-cn.bbl' not found.
+
+No file elegantbook-cn.bbl.
+Package biblatex Info: Reference section=0 on input line 55.
+Package biblatex Info: Reference segment=0 on input line 55.
 \c@lstlisting=\count558
-Package hyperref Info: Option `pageanchor' set `false' on input line 50.
+Package hyperref Info: Option `pageanchor' set `false' on input line 57.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1441,128 +1514,134 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 50.
 File: ./figure//cover.png Graphic file (type bmp)
 <./figure//cover.png>
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 50.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 50.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
+(Font)              scaled to size 26.09749pt on input line 57.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 57.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 50.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/yhmath/OMXyhex.fd
-File: OMXyhex.fd 
-File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
-)
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 50.
- [1
+(Font)              scaled to size 15.05624pt on input line 57.
+
+
+./elegantbook-cn.tex:57: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 \maketitle
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
 
 
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 56.
- (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.toc
+(Font)              scaled to size 18.06749pt on input line 63.
+ (./elegantbook-cn.toc
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 1.
+(Font)              scaled to size 12.045pt on input line 1.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 1.
- [1
-
-
-
-
-])
+(Font)              scaled to size 12.045pt on input line 1.
+)
 \tf@toc=\write8
 \openout8 = `elegantbook-cn.toc'.
 
+ [1
+
+
+
+
+]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 58.
- [2] [3]
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 60.
+(Font)              scaled to size 22.08249pt on input line 65.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 20.74pt on input line 60.
- [4
-
-]
-Chapter 0.
-[5
+(Font)              scaled to size 22.08249pt on input line 65.
+ [2
 
 ]
 Chapter 1.
-[6
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 6.52437pt on input line 69.
+LaTeX Font Info:    Trying to load font information for U+ding on input line 69.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/bbding/Uding.fd
+File: Uding.fd 1996/02/01 v1.0 BBding font definitions
+)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 76.
+
+[3
 
 ]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 9.03374pt on input line 155.
+ [4] [5] [6] [7] [8] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
+
+ []
+
+[11] [12] [13]
 Chapter 2.
-[7
-
-] [8
-
-]
-Chapter 1.
-[9
-
-]
-Chapter 2.
-[10
-
-] [11]
-Chapter 3.
-[12
-
-]
-Chapter 4.
-[13
-
-]
-Chapter 5.
 [14
 
-]
-Chapter 6.
-[15
+] [15] [16] [17] [18]
 
-]
-Chapter 7.
-[16
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 702.
 
-]
-Chapter 8.
-[17
 
-]
-Chapter 9.
-[18
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 703.
 
-]
-Chapter 10.
-[19
+[19] [20] [21] [22] [23]
 
-]
-Chapter 11.
-[20
+./elegantbook-cn.tex:950: Package amsmath Error: \begin{split} won't work here.
 
-] (/Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.aux)
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.950 ^^I\end{split}
+                    
+\Did you forget a preceding \begin{equation}?
+If not, perhaps the `aligned' environment is what you want. 
+
+[24] (./elegantbook-cn.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 89B94659EE44DCE1B1581928BA5BCC83;8305.
+(rerunfilecheck)             Checksum: 19662A3F11F8EF465385840D88B9341F;1044.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45051 strings out of 476179
- 959982 string characters out of 5809544
- 1862593 words of memory out of 5000000
- 65005 multiletter control sequences out of 15000+600000
- 482300 words of font info for 116 fonts, out of 8000000 for 9000
+ 45469 strings out of 476179
+ 975881 string characters out of 5809544
+ 1875592 words of memory out of 5000000
+ 65399 multiletter control sequences out of 15000+600000
+ 487695 words of font info for 147 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,12n,107p,747b,801s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,14n,107p,747b,1308s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/My-LaTeX-Repository/高中数学I/.texpadtmp/elegantbook-cn.pdf (21 pages).
+Output written on elegantbook-cn.pdf (25 pages).
