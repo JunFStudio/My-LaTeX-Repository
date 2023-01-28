@@ -22,6 +22,7 @@
 \newcommand{\ssb}[1]{\left( #1 \right)}
 \newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
 \newcommand{\buzhou}[1]{$#1^{\circ} \ $}
+\newcommand{\R}{\mathbb{R}}
 
 \DeclareMathOperator{\card}{card}
 
@@ -173,21 +174,31 @@
 
 \section{三角函数的概念}
 
-任意角，弧度制，三角函数的定义，诱导公式，三角函数的复数表示
+任意角，弧度制
 
-\section{三角函数的函数性质}
+\subsection{三角函数的性质}
+
+三角函数的定义，诱导公式，和差角公式
+
+\subsection{三角函数的函数性质}
 
 三角函数的图像与性质
 
-\section{三角恒等变形}
+\subsection{三角函数与双曲函数}
 
-和差角公式，二倍角、半角公式，三倍角公式，万能公式，辅助角公式，积化和差、和差化积公式
+三角函数的复数表示，双曲函数的定义
 
-\section{正弦定理与余弦定理}
+\section{三角函数的计算}
+
+\subsection{三角恒等变形}
+
+二倍角、半角公式，三倍角公式，万能公式，辅助角公式，积化和差、和差化积公式，双曲恒等变形公式
+
+\subsection{正弦定理与余弦定理}
 
 正弦面积公式，正弦定理，余弦定理
 
-\section{三角换元与三角恒等式}
+\section{三角函数的应用}
 
 \subsection{三角换元}
 
@@ -197,13 +208,13 @@
 
 常见的三角恒等式
 
+\subsection{三角不等式}
+
+常见的三角不等式
+
 \section{反三角函数}
 
 反三角函数的概念、图像与性质
-
-\section{双曲函数}
-
-双曲函数的定义，双曲恒等变形公式
 
 \chapter{平面向量与复数}
 
@@ -211,9 +222,15 @@
 
 平面向量的概念，向量间的关系，向量的运算
 
-\section{平面向量基本定理与坐标表示}
+\section{平面向量基本定理}
 
-平面向量基本定理，定比分点公式，平面向量的坐标表示，高维向量的定义
+\subsection{平面向量基本定理}
+
+平面向量基本定理，定比分点公式
+
+\subsection{向量的本质}
+
+平面向量的坐标表示，高维向量的定义
 
 \section{复数}
 
@@ -227,15 +244,60 @@
 
 \chapter{数列}
 
-数列的概念，数列的表示，数列的分类
+数列，顾名思义，就是将一组数按顺序排为一列的形式.为了区别于集合与组，一般直接将每一项列出来而不加括号，例如$a_1,a_2, \cdots ,a_n$.也可以用通项公式或递推公式表示，例如
+$$\{ a_n \}_{n=1}^{\infty} \qquad a_{n+k}=f(a_{n+1}, \cdots ,a_{n+k-1})$$
+其中第一种表示形式的“$_{n=1}^{\infty}$”常省略不写.
+
+数列可按以下标准分类：
+\begin{enumerate}
+	\item 单调性：若$\forall n \in \mathbb{Z}^+,~ a_{n+1} \geq (>)~ a_n$，称$\{ a_n \}$为\textbf{(严格)递增数列}；反之，若$\forall n \in \mathbb{Z}^+,~ a_{n+1} \leq (<)~ a_n$，称$\{ a_n \}$为\textbf{(严格)递减数列}；若$\forall n \in \mathbb{Z}^+,~ a_{n+1} = a_n$，称$\{ a_n \}$为\textbf{常数数列}.
+	\item 有限性：若数列$\{ a_n \}$的项数有限，称其为\textbf{有限数列}；反之，若数列$\{ a_n \}$的项数无限，称其为\textbf{无限数列}.
+	\item 有界性：以上界为例.若数列$\{ a_n \}$满足
+	$$\exists M > 0 ~s.t.~ \forall n \in \mathbb{N}^{*},~ a_n<M$$
+	则称其为\textbf{有界数列}，其中它的\textbf{上界}是$M$；若满足
+	$$\forall M > 0 ,~ \exists n_0 \in \mathbb{N}^{*} ~s.t.~ a_n>M$$
+	则称其为\textbf{无界数列}.下界的定义类似.
+\end{enumerate}
+
+对于一个给定的数列，我们会研究它的递推公式、通项公式、前$n$项和$S_n$、前$n$项积$T_n$，等等.
 
 \section{等差数列与等比数列}
 
-定义，性质，无穷递降等比数列
+\subsection{等差数列}
+
+我们定义满足递推式$a_{n+1}=a_n+d$的数列$\{ a_n \}$为\textbf{等差数列}，并称$a_1$为\textbf{首项}，$d$为\textbf{公差}.
+
+等差数列的通项公式可以表达为$a_n=a_1+(n-1)d$.若将$a_n$看做关于$n$的函数，容易发现任何一个形如$a_n=pn+q$的式子都代表一个等差数列.
+
+等差数列的前$n$项和公式表达为$$S_n = \sum _{k=1}^{n} [a_1+(k-1)d] = na_1 + d[0+ 1 + \cdots +(n-1)] = na_1 + \frac{n(n-1)}{2}d$$
+若将$S_n$看做关于$n$的函数，容易发现任何一个形如$S_n=pn^2+qn$的式子都代表一个等差数列.
+
+以下列出等差数列的部分性质：
+
+\begin{proposition}
+	设等差数列$\{ a_n \}$，
+	\begin{enumerate}
+		\item 若$m+n=p+q$，则$a_m+a_n=a_p+a_q$.
+		\item $S_m,S_{2m}-S_m,S_{3m}-S_{2m},\cdots $也为等差数列，且其公差为$m^2d$.
+		\item $S_{2n-1}=(2n-1)a_n$.
+	\end{enumerate}
+\end{proposition}
+
+在证明一个数列是等差数列或利用题目中关于等差数列的条件时，常常利用等差数列的定义，即相邻两项之差为定值.
+
+\subsection{等比数列}
+
+类似于等差数列，
 
 \section{数列的变形}
 
-常见递推求法，Sn与an
+\subsection{数列递推求通项}
+
+常见递推求法
+
+\subsection{数列求和与$\sum$符号}
+
+$S_n$与$a_n$，$\sum$符号用法
 
 \section{数学归纳法}
 
@@ -257,19 +319,21 @@
 
 \chapter{不等式}
 
-\section{均值不等式}
+\section{常用不等式}
+
+\subsection{均值不等式}
 
 均值不等式，加权均值不等式
 
-\section{Cauchy不等式}
+\subsection{Cauchy不等式}
 
 Cauchy不等式
 
-\section{排序不等式}
+\subsection{排序不等式}
 
 排序不等式，切比雪夫不等式
 
-\section{函数的凹凸性与Jensen不等式}
+\subsection{函数的凹凸性与Jensen不等式}
 
 函数的凹凸性，Jensen不等式，加权Jensen不等式
 
@@ -277,9 +341,13 @@ Cauchy不等式
 
 Hölder不等式，Young不等式，Schur不等式，权方和不等式，Bernoulli不等式
 
-\section{常见不等式}
+\section{常见代数不等式}
 
-一些常见的不等式
+一些常见的代数不等式
+
+\section{常见几何不等式}
+
+一些常见的几何不等式
 
 \chapter{概率、计数与组合}
 
@@ -295,15 +363,15 @@ Hölder不等式，Young不等式，Schur不等式，权方和不等式，Bernou
 
 \chapter{几何中的距离与角度}
 
-\section{常见平面几何结论——边长}
+\section{常用平面几何结论——边长}
 
 Ptolemy定理，定差幂线定理，Stewart定理，Menelaus定理，Ceva定理
 
-\section{常见平面几何结论——三角}
+\section{常用平面几何结论——三角}
 
 张角定理，角元Menelaus定理，角元Ceva定理
 
-\section{常见平面几何结论——平面向量}
+\section{常用平面几何结论——平面向量}
 
 极化恒等式，奔驰定理
 
@@ -511,6 +579,15 @@ Ptolemy定理，定差幂线定理，Stewart定理，Menelaus定理，Ceva定理
 
 \newpage
 \section{子集的性质}
+
+\subsection*{填空题}
+
+\begin{example} % 启东中学奥赛教程 p19
+	设$S=\{ (x,y)|x^2-y^2 \text{为奇数},~x,y \in \R \},~ T=\{ (x,y)|\sin ^2 (2\pi x^2) - \sin ^2 (2\pi y^2) = \cos ^2 (2\pi x^2) - \cos ^2 (2\pi y^2),~ x,y \in \R \}$，则$S$与$T$的关系为\tk .
+\end{example}
+\begin{hint}
+	变形.
+\end{hint}
 
 \subsection*{解答题}
 
