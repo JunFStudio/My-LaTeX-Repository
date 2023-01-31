@@ -2,7 +2,7 @@
 \usepackage{hyperref}
 
 % font settings
-
+\definecolor{mgreen}{RGB}{0,166,82}
 
 % watermark settings
 %\usepackage{ctex, draftwatermark, everypage}
@@ -25,6 +25,8 @@
 \newcommand{\R}{\mathbb{R}}
 
 \DeclareMathOperator{\card}{card}
+
+\newcommand{\examplefont}[1]{\color{mgreen} \textbf{#1}}
 
 % cover settings
 
@@ -123,6 +125,12 @@
 映射、映射相等的概念，特殊的映射，逆映射，映射的复合，函数的概念
 
 \section{常见初等函数}
+
+% BV1FG4y1Q7q7 评论 by @四逝同堂
+% 科普一下 若a，b∈Q 则有a=p/q b=m/n（pq互素 mn互素）对于任意的p、q、m、n 有：p、q、m、n∈Z 
+% 而此时a^b=（p/q）^（m/n）=p^（m/n）/q^（m/n）
+% =【n次根号下p/m】/【n次根号下q/m】
+% 以上是容易计算的 但是π不仅是无理数 还是超越数 是不能轻易被代数计算的 退一万步讲 即使能够使得π=a/b（a，b∈R） 但看一下之前的分数指数幂的计算 这个计算量不是家用电子设备能运行的
 
 基本初等函数、初等函数的概念
 
@@ -265,7 +273,7 @@ $$\{ a_n \}_{n=1}^{\infty} \qquad a_{n+k}=f(a_{n+1}, \cdots ,a_{n+k-1})$$
 
 \subsection{等差数列}
 
-我们定义满足递推式$a_{n+1}=a_n+d$的数列$\{ a_n \}$为\textbf{等差数列}，并称$a_1$为\textbf{首项}，$d$为\textbf{公差}.
+我们定义满足递推式$a_{n+1}=a_n+d$的数列$\{ a_n \}$为\textbf{等差数列}(又名算术数列)，并称$a_1$为\textbf{首项}，$d$为\textbf{公差}.
 
 等差数列的通项公式可以表达为$a_n=a_1+(n-1)d$.若将$a_n$看做关于$n$的函数，容易发现任何一个形如$a_n=pn+q$的式子都代表一个等差数列.
 
@@ -274,7 +282,7 @@ $$\{ a_n \}_{n=1}^{\infty} \qquad a_{n+k}=f(a_{n+1}, \cdots ,a_{n+k-1})$$
 
 以下列出等差数列的部分性质：
 
-\begin{proposition}
+\begin{proposition}{等差数列的性质}
 	设等差数列$\{ a_n \}$，
 	\begin{enumerate}
 		\item 若$m+n=p+q$，则$a_m+a_n=a_p+a_q$.
@@ -282,22 +290,72 @@ $$\{ a_n \}_{n=1}^{\infty} \qquad a_{n+k}=f(a_{n+1}, \cdots ,a_{n+k-1})$$
 		\item $S_{2n-1}=(2n-1)a_n$.
 	\end{enumerate}
 \end{proposition}
+\begin{proof}
+	XXX
+\end{proof}
 
 在证明一个数列是等差数列或利用题目中关于等差数列的条件时，常常利用等差数列的定义，即相邻两项之差为定值.
 
 \subsection{等比数列}
 
-类似于等差数列，
+类似于等差数列，定义满足递推式$a_{n+1}=qa_n ~(q \neq 0)$的数列$\{ a_n \}$为\textbf{等比数列}(又名几何数列)，称$a_1$为\textbf{首项}，$q$为\textbf{公比}.
+
+等比数列的通项公式为$a_n = a_1 q^{n-1}$.任何一个形如$a_n=pq^n$的式子都代表一个等比数列.
+
+等比数列的前$n$项和公式推导过程如下： \\
+当$q \neq 1$时，
+$$\begin{cases}
+	S_n = a_1 + a_1q + a_1q^2 + \cdots + a_1q^{n-1} \\
+	qS_n = a_1q + a_1q^2 + \cdots + a_1q^{n} 
+\end{cases}
+\quad \Longrightarrow \quad
+(q-1)S_n = a_1q^{n} - a_1,~i.e.~S_n = \frac{1-q^n}{1-q} a_1
+$$
+当$q = 1$时，显然$S_n = a_n$.
+
+特别地，当$-1<q<1$时，注意到$\lim _{n \to \infty} q^n=0$，于是可得\textbf{无穷递降等比数列}的求和公式：$S_{\infty} = \dfrac{1}{1-q}a_1$.
+
+以下列出等比数列的部分性质：
+
+\begin{proposition}{等比数列的性质}
+	设等比数列$\{ a_n \}$，
+	\begin{enumerate}
+		\item 若$m+n=p+q$，则$a_m \cdot a_n = a_p \cdot a_q$.
+		\item $S_m,S_{2m}-S_m,S_{3m}-S_{2m},\cdots $也为等比数列，且其公比为$q^{m}$.
+		\item $\{ \log _{b}{a_n} \}$为等差数列，且其公差为$\log _{b}{q}$.
+	\end{enumerate}
+\end{proposition}
+
+由等比数列与等差数列的别名不难联想到$AM-GM$不等式.实际上，对于等比数列$\{ b_n \}$，有$b_{n+1} = (\sqrt{q \cdot b_n})^2 \leq \ssb{\dfrac{b_n+q}{2}}^2$，从而可以与另一个等差数列进行比较/放缩.
 
 \section{数列的变形}
 
 \subsection{数列递推求通项}
 
-常见递推求法
+以下给出几种常见的由递推求通项的方式：
+
+\begin{proposition}{由递推求通项基本方法}
+	\begin{enumerate}
+		\item 求满足下列递推式的数列的通项公式：$a_{n+1}=a_n+f(n)$. \\
+			\sw{一} 利用类似于等差数列求和的递推累加法，即$$a_n = a_{n-1} + f(n-1) = a_{n-2} + f(n-1) + f(n-2) = \cdots = a_1 + \sum _{k=1}^{n-1} f(k)$$
+			\sw{二} 构造裂项形成常数列，作$f(n) = g(n+1) - g(n)$，则$$a_{n} - g(n) = a_{n-1} - g(n-1) = \cdots = a_1 - g(1) \quad \Rightarrow \quad a_{n} = a_1 - g(1) + g(n)$$
+		\item 求满足下列递推式的数列的通项公式：$a_{n+1}=a_n \cdot f(n) ~(a_i \neq 0)$. \\
+			\sw{一} 利用递推累乘法，即$$a_n = f(n-1) \cdot a_{n-1} = f(n-1) \cdot f(n-2) \cdot a_{n-1} = \cdots = a_1 \cdot \prod _{k=1}^{n-1} f(k)$$
+			\sw{二} 构造裂项形成常数列，作$f(n) = \dfrac{g(n+1)}{g(n)}$，则$$\frac{a_n}{g(n)} = \frac{a_{n-1}}{g(n-1)} = \cdots = \frac{a_1}{g(1)} \quad \Rightarrow \quad a_n = \frac{g(n)}{g(1)}a_1$$
+		\item 求满足下列递推式的数列的通项公式：$a_{n+1}=pa_n + q ~(p \neq 1,q \neq 0)$. \\
+			\sw{一} 化为等比数列，构造$a_{n+1} - t = p(a_n - t)$，其中$t = \dfrac{q}{1-p}$. \\
+			\sw{二} 化为等差数列，构造$\dfrac{a_{n+1}}{p^{n+1}} = \dfrac{a_n}{p^n} + \dfrac{a}{p^{n+1}}$即可.
+		\item 求满足下列递推式的数列的通项公式：$a_{n+1}=p(n)a_n + q(n)$. \\
+			\sw{一} 化为等比数列，构造$a_{n+1} - f(n+1) = p(n)(a_n - f(n))$.(这种构造方法不太好用) \\
+			\sw{二} 化为等差数列，作$p(n) = \dfrac{f(n+1)}{f(n)}$，则$\dfrac{a_{n+1}}{f(n+1)} = \dfrac{a_n}{f(n)} + \dfrac{q(n)}{f(n+1)}$.
+	\end{enumerate}
+\end{proposition}
+
+不过以上方法只是抛砖引玉，具体如何进行构造还要靠代数变形的技巧.
 
 \subsection{数列求和与$\sum$符号}
 
-$S_n$与$a_n$，$\sum$符号用法
+本节我们着重于研究数列求和的一些例题.
 
 \section{数学归纳法}
 

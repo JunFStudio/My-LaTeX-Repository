@@ -1,0 +1,156 @@
+\documentclass[lang=cn, zihao=4.5]{elegantbook}
+\usepackage{hyperref}
+
+% font settings
+\definecolor{mgreen}{RGB}{0,166,82}
+\definecolor{guess}{RGB}{37,55,105}
+
+% watermark settings
+%\usepackage{ctex, draftwatermark, everypage}
+%	\SetWatermarkText{DEEP Team 讲义模版}
+%	\SetWatermarkLightness{0.95}
+%	\SetWatermarkScale{0.3}
+
+% customised commands
+\usepackage{ulem}
+	\newcommand{\tk}{\uline{\hspace{4em}}}
+	
+\DeclareSymbolFont{yh}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\hu}{\mathord}{yh}{"F3}
+
+\newcommand{\xl}[1]{\overrightarrow{#1}}
+\newcommand{\nd}[1]{〔#1〕}
+\newcommand{\ssb}[1]{\left( #1 \right)}
+\newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
+\newcommand{\buzhou}[1]{$#1^{\circ} \ $}
+\newcommand{\R}{\mathbb{R}}
+
+\DeclareMathOperator{\card}{card}
+
+\newcommand{\examplefont}[1]{\color{mgreen} \textbf{#1}}
+
+% cover settings
+
+\title{高中数学·二阶}
+\subtitle{适用于联赛二试与冬令营}
+
+\author{Johnny Tang}
+\institute{DEEP Team}
+\date{January 21, 2022}
+
+\extrainfo{请：相信时间的力量，敬畏概率的准则}
+
+
+\cover{cover.png}
+
+% 本文档命令
+
+
+% 修改标题页的橙色带
+% \definecolor{customcolor}{RGB}{32,178,170}
+% \colorlet{coverlinecolor}{customcolor}
+
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\mainmatter
+
+\tableofcontents
+
+\newpage
+
+\part{代数部分}
+
+\part{几何部分}
+
+\part{组合部分}
+
+\chapter{常见结论}
+
+\section{抽屉原理}
+
+\begin{theorem}{抽屉原理}
+	有$m$个小球，$n$个抽屉，那么存在一个抽屉放了至少$\left[ \dfrac{m-1}{n} \right]+1$个、至多$\left[ \dfrac{m}{n} \right]$个小球.
+\end{theorem}
+\begin{proof}
+	(1)假设所有抽屉最多有$\left[ \dfrac{m-1}{n} \right]$个小球，则总小球数目至多为$$\left[ \frac{m-1}{n} \right] \times n \leq \frac{m-1}{n} \times n = m-1 < m$$
+	这与条件矛盾. \\
+	(2)假设所有抽屉至少有$\left[ \dfrac{m}{n} \right] + 1$个小球，则总小球数目至少为$$\ssb{\left[ \dfrac{m}{n} \right] + 1} \times n > \frac{m}{n} \times n = m$$
+	这与条件矛盾.
+\end{proof}
+
+\begin{corollary}{平均值原理}
+	对于给定的实数$a_1, \cdots ,a_n$，存在$a_i,a_j$使得$$a_i \geq \dfrac{1}{n}(a_1+ \cdots +a_n), \quad a_j \leq \dfrac{1}{n}(a_1+ \cdots +a_n)$$
+\end{corollary}
+
+\begin{example} % 兴趣二阶组合1.1
+	\nd{1}证明： \\
+	(1)从前$100$个正整数中任意取出$51$个数，都可以找到两个数，使得它们中的一个是另一个的整数倍. \\
+	(2)从前$91$个正整数中任意取出$10$个数，则一定有两个数，使得这两个数中较大数不超过较小数的$1.5$倍. \\
+	(3)若$a_1,a_2,\cdots ,a_{100}$都是实数，且在集合$\{ a_1, \dfrac{a_1+a_2}{2}, \cdots ,\dfrac{a_1+a_2+\cdots +a_{100}}{100} \}$中至少有$51$个元素的值相等，则$a_1,a_2, \cdots ,a_{100}$中有两个数相等.
+\end{example}
+\begin{proof}
+	(1)构造：$$\{ 1 \times 2^0, \cdots , 1 \times 2^6 \},\{ 3 \times 2^0, \cdots , 3 \times 2^5 \}, \cdots ,\{99 \times 2^0 \}$$共$50$个抽屉.由抽屉原理，在前$100$个正整数中必有两个数在同一个抽屉中，即它们有倍数关系. \\
+	(2)构造：$$\{ 1 \},\{ 2,3 \},\{ 4,5,6 \},\{ 7,8,9,10 \},\{ 11,12,13,14,15,16 \},\{ 17,\cdots 25 \},\{ 26,\cdots ,39 \},\{ 40, \cdots ,60 \},\{ 61, \cdots ,91 \}$$共$9$个抽屉.由抽屉原理，前$91$个正整数中必有两个在同一抽屉中，即满足较大数不超过较小数的$1.5$倍. \\
+	(3)记$b_i=\dfrac{a_1+ \cdots + a_i}{i}$，注意到，若$b_i=b_{i+1}=p$，则$$\frac{a_1+ \cdots + a_i}{i} = \frac{a_1+ \cdots + a_i + a_{i+1}}{i+1}$$可得$a_{i+1} = \dfrac{a_1 + \cdots + a_i}{i} = b_i = p$.设$b_1, \cdots ,b_{100}$中相等的$51$个数均等于$p$. \\
+	\buzhou{1} 当$a_1 \neq p$时：构造$$\{ b_1,b_2 \}, \cdots ,\{ b_{99},b_{100} \}$$共$50$个抽屉，同理存在$a_{2k+1}=p$；构造$$\{ b_2,b_3 \}, \cdots ,\{ b_{98},b_{99} \},\{ b_{100} \}$$共$50$个抽屉，同理存在$a_{2l}=p$.故$a_{2k+1}=a_{2l}$. \\
+	\buzhou{2} 当$a_1=p$时：构造$$\{ b_2,b_3 \}, \cdots ,\{ b_{98},b_{99} \},\{ b_{100} \}$$共$50$个抽屉.由抽屉原理，必存在$b_{2k}=b_{2k+1}=p$，因而$a_{2k}=p=a_1$.
+\end{proof}
+
+\begin{example} % 兴趣二阶组合1.2
+	\nd{1}证明： \\
+	(1)平面上任作$8$条互不平行的直线，其中必有两条直线的夹角小于$23$度. \\
+	(2)给定一个由$10$个互不相等的两位十进制正整数组成的集合，则这个集合必有两个无公共元素的非空子集合，它们的元素和相等. \\
+	(3)$100$个孩子围成一圈，其中$41$个男孩，$59$个女孩.则一定有$2$个男孩，他们中间的孩子个数恰为$19$的整数倍.
+\end{example}
+\begin{proof}
+	(1)由于平面上两直线的夹角不会随平移而改变，不妨平移这$8$条线使得它们交于同一点.由平均值原理，必有两条直线的夹角小于等于$22.5$度，即小于$23$度. \\
+	(2)由于所有可能的非空子集个数为$2^{10}-1$，而子集和的所有可能情况只有在$[10,945]$中(共$936$种)，由抽屉原理，必有两个子集的和相同. \\
+	若这两个子集交集为空，则符合题意；若交集不空，则分别去掉交集中的元素，构成两个新的元素和相等且交集为空的集合. \\
+	(3)假设这$100$个孩子的编号分别为$1, \cdots ,100$，则构造$$\{ 1,21,41,61,81 \}, \{ 2,22,42,62,82 \}, \cdots ,\{ 20,40,60,80,100 \}$$
+	共$20$个集合.由抽屉原理，至少有一个集合中同时有三个男孩，即满足题意.
+\end{proof}
+
+\begin{example} % 兴趣二阶组合1.3
+	\nd{1}证明： \\
+	(1)已知$a_1, \cdots a_{21}$是区间$(0,400)$内的$21$个实数，总可以找到两个数$a_i,a_j(1 \leq i < j \leq 21)$，满足$a_i+a_j < 1+2\sqrt{a_ia_j}$. \\
+	(2)已知实数$0<a_1 < \cdots < a_{2011}$，则存在两个数$a_i,a_j(1 \leq i < j \leq 2011)$，满足$a_j-a_i < \dfrac{(1+a_i)(1+a_j)}{2010}$.
+\end{example}
+\begin{proof}
+	(1)只需证明$\sqrt{a_i}-\sqrt{a_j}<\sqrt{2}$即可.实际上，不妨设$a_1<\cdots <a_{21}$，那么在$\sqrt{a_{21}}-\sqrt{a_{20}}, \cdots ,\sqrt{a_2}-\sqrt{a_1}$中，由于它们的和为$\sqrt{a_{21}}-\sqrt{a_1} < 20$，由平均值原理可知其中必有一个$<1<\sqrt{2}$. \\
+	(2)只需证明$\dfrac{1}{1+a_i}-\dfrac{1}{1+a_j} < \dfrac{1}{2010}$.与(1)同理可知.
+\end{proof}
+
+\begin{example}
+	从$4$个同心圆的圆心出发的$100$条射线等分各圆周，分别与$4$个圆各有$100$个交点.任意给每个圆上的点染上黑、白两色之一，使每个圆上都恰有$50$个黑点和$50$个白点.证明：可将此$4$个圆适当旋转，使这$100$条射线中至少存在$13$条射线，它们中的每一条穿过的$4$个点颜色都相同.
+\end{example}
+
+\part{数论部分}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
