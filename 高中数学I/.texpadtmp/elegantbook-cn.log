@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  28 JAN 2023 13:10
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  1 FEB 2023 13:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1300,6 +1300,15 @@ LaTeX Warning: Unused global option(s):
 
 (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学I/.texpadtmp/elegantbook-cn.aux
 
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
 LaTeX Warning: Label `pro:-NoValue-' multiply defined.
 
 
@@ -1504,117 +1513,116 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 
 ]
 Chapter 0.
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 73.
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 73.
 [5
 
-]
+] [6]
 Chapter 1.
-[6
-
-]
-Chapter 2.
 [7
 
-] [8
+]
+Chapter 2.
+[8
+
+] [9
 
 ]
 Chapter 1.
-[9
+[10
 
 ]
 Chapter 2.
-[10
+[11
 
-] [11]
+] [12]
 Chapter 3.
-[12
+[13
 
-] [13]
+] [14]
 Chapter 4.
-[14
-
-]
-Chapter 5.
 [15
 
 ]
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 334.
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 334.
- [16] [17]
-Chapter 6.
-[18
+Chapter 5.
+[16
 
-]
-Chapter 7.
+] [17] [18]
+Chapter 6.
 [19
 
 ]
-Chapter 8.
+Chapter 7.
 [20
 
 ]
-Chapter 9.
+Chapter 8.
 [21
 
 ]
-Chapter 10.
+Chapter 9.
 [22
 
 ]
-Chapter 11.
+Chapter 10.
 [23
 
-] [24
+]
+Chapter 11.
+[24
+
+] [25
 
 ]
 Chapter 1.
-[25
+[26
 
 ]
-Overfull \hbox (9.68852pt too wide) in paragraph at lines 619--620
+Overfull \hbox (9.68852pt too wide) in paragraph at lines 691--692
 []\TU/SongtiSCLight(0)/b/n/10 例 题 \TU/texgyretermes(0)/b/n/10 1.2.8 []\TU/SongtiSCLight(0)/m/n/10 设 $\OML/cmm/m/it/10 n$ \TU/SongtiSCLight(0)/m/n/10 是 正 整 数，|  我 们 说 集 合 $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; []  ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 g$ \TU/SongtiSCLight(0)/m/n/10 的 一 个 排 列 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; x[]; []  ; x[]\OT1/cmr/m/n/10 )$ \TU/SongtiSCLight(0)/m/n/10 具 有 性 质 $\OML/cmm/m/it/10 P$\TU/SongtiSCLight(0)/m/n/10 ，|  是 指 在 $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; []  ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@
  []
 
-[26] [27] [28]
+[27] [28] [29]
 Chapter 2.
-[29
-
-]
-Chapter 3.
 [30
 
 ]
-Chapter 4.
+Chapter 3.
 [31
 
 ]
-Chapter 5.
+Chapter 4.
 [32
 
 ]
-Chapter 6.
+Chapter 5.
 [33
 
 ]
-Chapter 7.
+Chapter 6.
 [34
 
 ]
-Chapter 8.
+Chapter 7.
 [35
 
 ]
-Chapter 9.
+Chapter 8.
 [36
 
 ]
-Chapter 10.
+Chapter 9.
 [37
 
 ]
-Chapter 11.
+Chapter 10.
 [38
+
+]
+Chapter 11.
+[39
 
 ] (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学I/.texpadtmp/elegantbook-cn.aux)
 
@@ -1627,12 +1635,12 @@ Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45341 strings out of 476179
- 973228 string characters out of 5809544
- 1873762 words of memory out of 5000000
- 65281 multiletter control sequences out of 15000+600000
- 482380 words of font info for 126 fonts, out of 8000000 for 9000
+ 45433 strings out of 476179
+ 978394 string characters out of 5809544
+ 1873804 words of memory out of 5000000
+ 65371 multiletter control sequences out of 15000+600000
+ 482396 words of font info for 128 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,12n,107p,747b,1312s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,12n,107p,747b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/高中数学I/.texpadtmp/elegantbook-cn.pdf (39 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/高中数学I/.texpadtmp/elegantbook-cn.pdf (40 pages).

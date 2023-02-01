@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: /Volumes/Storage_SSD/latex sync/LaTeX/2023寒假物理论文/Thesis/.texpadtmp/tjumain.aux
+A level-1 auxiliary file: body.aux
+The style file: plain.bst
+A level-1 auxiliary file: appendix/acknowledgements.aux
+Database file #1: ../references/reference.bib
+Warning--empty note in ayumu
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            510 strings with 4309 characters,
+and the built_in function-call counts, 422 in all, are:
+= -- 41
+> -- 14
+< -- 0
++ -- 6
+- -- 4
+* -- 19
+:= -- 86
+add.period$ -- 7
+call.type$ -- 2
+change.case$ -- 7
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 18
+empty$ -- 34
+format.name$ -- 4
+if$ -- 83
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 13
+num.names$ -- 4
+pop$ -- 8
+preamble$ -- 1
+purify$ -- 6
+quote$ -- 0
+skip$ -- 11
+stack$ -- 0
+substring$ -- 10
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 6
+warning$ -- 1
+while$ -- 4
+width$ -- 3
+write$ -- 22
+(There was 1 warning)

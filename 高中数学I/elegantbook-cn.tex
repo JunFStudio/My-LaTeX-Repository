@@ -67,13 +67,87 @@
 \setcounter{chapter}{-1}
 \chapter{数理逻辑}
 
-充分条件与必要条件，命题的关系，命题的逻辑运算，形式逻辑词
+先讨论命题之间的关系.
+
+\begin{definition}{充分条件与必要条件} %ayumu数分p1定义0.1
+	设命题$A$和$B$.若$A$可以推得$B$，则称命题$A$是$B$的\textbf{充分条件}(sufficient condition)，$B$是$A$的\textbf{必要条件}(necessary condition)，记作$$A \Rightarrow B,~\text{或}~B \Leftarrow A$$
+	若$A$可以推得$B$且$B$可以推得$A$，则称命题$A$和$B$互为\textbf{充分必要条件}(necessary and sufficient condition)，简称充要条件，此时也称命题$A$和$B$等价($A$成立当且仅当$B$成立)，记作$$A \Leftrightarrow B$$
+	此时$B \Rightarrow A$的过程称为充分性，$A \Rightarrow B$的过程称为必要性.
+\end{definition}
+\begin{remark}
+	还有一个类似的逻辑语言：有且仅有(恰有)，这意味着存在一个(存在性)且只有一个(唯一性).例如，平面中，过直线外一点有且仅有一条直线与之平行.
+\end{remark}
+
+可以用图像来更好理解该定义：
+
+% TODO 充分条件与必要条件的示意图
+
+\begin{example}
+	(1)一个四边形“是菱形”是“它的对角线互相垂直”的\tk 条件. \\
+	(2)“$0<x<1$”是“$x<2$”的\tk 条件. \\
+	(3)“人类生存”是“人类呼吸”的\tk 条件.
+\end{example}
+\begin{solution}
+	(1)充分；(2)必要；(3)充分.
+\end{solution}
+
+不过这种直观的判断方式比较迷惑，我们可以通过命题的逻辑运算更好地思考这些问题.
+
+\begin{definition}{命题的逻辑运算} %ayumu数分p1定义0.3
+	设命题$A$与$B$， \\
+	(1)若$A$和$B$中至少有一个命题成立，则称$A$\textbf{或}(or)$B$，记作$$A \vee B$$
+	(2)若$A$和$B$同时成立，则称$A$\textbf{且}(and)$B$，记作$$A \wedge B$$
+	(3)若$A$的相反形式成立，则称\textbf{非}(not)$A$，记作$$\neg A$$
+\end{definition}
+
+“$A$是$B$的必要条件”等价于“$\neg A \Rightarrow \neg B$”.
+
+
+\begin{definition}{原命题，逆命题，否命题，逆否命题}
+	设有\textbf{原命题}(primitive proposition)：$P \Rightarrow Q$. \\
+	(1)\textbf{逆命题}(converse proposition)定义为：$$Q \Rightarrow P$$
+	(2)\textbf{否命题}(inverse proposition)定义为：$$\neg P \Rightarrow \neg Q$$
+	(3)\textbf{逆否命题}(contrapositive proposition)定义为：$$\neg Q \Rightarrow \neg P$$
+\end{definition}
+
+反证法的原理就是：逆否命题与原命题的真假性相同.
+
+\begin{definition}{存在，任意}
+	设命题$A$， \\
+	(1)若\textbf{存在}(exist)$x$使得命题$A$成立，可以记作$$\exists x~s.t.~A$$
+	(2)若对于\textbf{任意}(for all)$x$都能使得命题$A$成立，可以记作$$\forall x,A$$
+\end{definition}
+\begin{remark}
+	“$s.t.$”是“$such~that$”的缩写.
+\end{remark}
+\begin{remark}
+	“存在”与“任意”的相互关系如下：$$\neg (\forall x,A) = \exists x~s.t.~\neg A$$
+\end{remark}
+
+
+\begin{example}
+	证明：$\sqrt{2}$是无理数.
+\end{example}
+\begin{proof}
+	设原命题：“能表示为$\dfrac{p}{q}~$($p,q$都是正整数且互质)的形式的数都是有理数”$\Rightarrow$“$\sqrt{2}$是无理数”. \\
+	构造逆否命题：“$\sqrt{2}$是有理数”$\Rightarrow$“存在一个能表示为$\dfrac{p}{q}~$($p,q$都是正整数且互质)的形式的数不是有理数”， \\
+	即“$\sqrt{2}$是有理数”$\Rightarrow$“存在一个不能表示为$\dfrac{p}{q}~$($p,q$都是正整数且互质)的形式的数是有理数”. \\
+	由“$\sqrt{2}$是有理数”，假设$\sqrt{2}= \dfrac{p}{q}~$($p,q$都是正整数且互质).两边同时平方，有$$2q^2=p^2$$
+	这要求$p$是$2$的倍数，因而$p^2$是$4$的倍数，故$q^2$是$2$的倍数.又因为$q$是整数，所以$q$是$2$的倍数，那么$p,q$不互质，即$\sqrt{2}$不能表示为上述形式.这就证明了“存在一个不能表示为$\dfrac{p}{q}~$($p,q$都是正整数且互质)的形式的数是有理数”.由于原命题与逆否命题的真假性相同，故原命题也成立.
+\end{proof}
+
 
 \chapter{代数变换基础}
 
 \section{多项式的概念}
 
 多项式、多项式的根、多项式相等的概念，多项式的运算，多项式的带余除法
+
+\begin{definition}{多项式}
+	\begin{enumerate}
+		\item 关于
+	\end{enumerate}}
+\end{definition}
 
 \section{多项式的根与Vieta定理}
 
@@ -86,10 +160,6 @@
 \section{简单的不等式}
 
 绝对值不等式，糖水不等式，均值不等式，线性规划
-
-\section{求和符号}
-
-求和符号
 
 \chapter{数域与运算}
 
@@ -154,7 +224,7 @@
 
 \subsection{单调性}
 
-单调性的概念，函数单调性的运算，区间根定理
+单调性的概念，用单调性判断函数单射，函数单调性的运算，区间根定理
 
 \subsection{奇偶性}
 
@@ -353,7 +423,7 @@ $$
 
 不过以上方法只是抛砖引玉，具体如何进行构造还要靠代数变形的技巧.
 
-\subsection{数列求和与$\sum$符号}
+\subsection{数列求和与$\sum$符号运算}
 
 本节我们着重于研究数列求和的一些例题.
 
