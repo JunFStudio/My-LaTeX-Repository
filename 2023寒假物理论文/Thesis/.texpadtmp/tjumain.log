@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  1 FEB 2023 11:20
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  3 FEB 2023 20:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1162,10 +1162,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--86
 
 [4]
 第四章
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 111.
+File: figures//4.1.pdf Graphic file (type pdf)
+<use figures//4.1.pdf>
+
+LaTeX Font Warning: Command \LARGE invalid in math mode on input line 119.
+
+
+LaTeX Font Warning: Command \LARGE invalid in math mode on input line 119.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--122
+
+ []
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.5pt
-(hyperref)                replaced by space on input line 106.
+(hyperref)                replaced by space on input line 129.
 
 [5
 
@@ -1174,7 +1188,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ] (/Volumes/Storage_SSD/latex sync/LaTeX/2023寒假物理论文/Thesis/.texpadtmp/tjumain.bbl
 
 LaTeX Font Warning: Font shape `TU/SongtiSCLight(1)/m/it' undefined
-(Font)              using `TU/SongtiSCLight(1)/m/n' instead on input line 5.
+(Font)              using `TU/SongtiSCLight(1)/m/n' instead on input line 6.
 
 ) [7
 
@@ -1205,14 +1219,14 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `tjumain.out' has not changed.
-(rerunfilecheck)             Checksum: F1517E71F1A62FBF55DB8B4E102AB244;1687.
+(rerunfilecheck)             Checksum: 630D4F06242CEA83F5E725B7D0B8EDBF;1687.
  ) 
 Here is how much of TeX's memory you used:
- 23330 strings out of 476179
- 469048 string characters out of 5809544
- 985744 words of memory out of 5000000
- 43634 multiletter control sequences out of 15000+600000
- 562353 words of font info for 257 fonts, out of 8000000 for 9000
+ 23349 strings out of 476179
+ 469365 string characters out of 5809544
+ 985772 words of memory out of 5000000
+ 43649 multiletter control sequences out of 15000+600000
+ 564008 words of font info for 258 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,11n,97p,1298b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 

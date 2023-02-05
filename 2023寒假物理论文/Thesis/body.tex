@@ -94,6 +94,32 @@
 注意到这个式子的势能零点是无穷远处，而近地重力势能的势能零点是地表.这两个零势能点的势能差值等于地表处因(近似等价于)球心的万有引力而具有的势能(此时零势能点为无穷远处)，这个值恰好为$$-\frac{GMm}{R}$$
 于是近地处物体重力势能为(零势能点为地表)$$E_{PG} \approx mgh$$
 
+\chapter{等价无穷小的应用}
+
+由Maclaurin公式，可以得到以下重要的等价无穷小：
+
+\begin{proposition}
+	当$x \to 0$时， 
+	$$(1+x)^{\alpha} -1 \sim \alpha x, \qquad \sin x \sim x \sim\tan x, \qquad 1-\cos x \sim \dfrac{x^2}{2}$$
+\end{proposition}
+
+这些结论是显而易见的.
+
+
+
+\begin{example}
+	如图i所示，岸上一小人以恒定速度$v$拉动绳子的一头，船上的小人抓住绳子的另一头，求船速$v'$.
+	
+	\begin{center}
+		\includegraphics[width=14cm]{4.1.pdf}
+	\end{center}
+\end{example}
+\begin{solution}
+	如图ii所示，在一段极短的时间$\Delta t$内，设绳子的一头从$A$移动到$B$，过点$B$作$BC \bot OB$. \\
+	在$\vartriangle OBC$中，由于$\tan \theta \sim \sin \theta$，又$BC = \tan \theta OB = \sin \theta OC$，故可看做$OC=OB=l$，此时$\angle OBC = 90^{\circ}$.同理可知$\angle OCB = 90^{\circ}$.于是$\overset{\LARGE{\frown}}{BC} = \theta l = \tan \theta l = BC$，可将$\overset{\LARGE{\frown}}{BC}$看做直线. \\
+	考虑$\angle OBD=\gamma$，于是$\angle CBA=90^{\circ} - \gamma$，那么$\angle CAB = \gamma$.在直角三角形$\vartriangle ABC$中，$AB = v' \Delta t$，$AC = v \Delta t$，故$v \Delta t = \cos \gamma v' \Delta t$，解得$v' = \dfrac{v}{\cos \gamma}$.
+\end{solution}
+
 
 
 

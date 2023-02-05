@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  30 JAN 2023 17:34
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  4 FEB 2023 14:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1512,12 +1512,12 @@ Chapter 2.
 
 ] [26] [27] [28] [29] [30]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 381.
+(Font)              scaled to size 7.0pt on input line 378.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 381.
+(Font)              scaled to size 5.0pt on input line 378.
  [31] [32] [33] (/Volumes/Storage_SSD/latex sync/LaTeX/启东中学奥赛教程讲义/.texpadtmp/elegantbook-cn.aux)
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: A9D93F386A80D5B7FE30FDA6571C3EE2;1170.
+(rerunfilecheck)             Checksum: 276A254F98AEA3102EF7AA25F76C488F;1279.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
@@ -1525,7 +1525,7 @@ Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 Here is how much of TeX's memory you used:
  45303 strings out of 476179
  973199 string characters out of 5809544
- 1855380 words of memory out of 5000000
+ 1855500 words of memory out of 5000000
  65253 multiletter control sequences out of 15000+600000
  475986 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

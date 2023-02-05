@@ -65,6 +65,97 @@
 
 \part{代数部分}
 
+\chapter{不等式}
+
+\section{不等式中的恒等变形}
+
+\subsection{整式变形}
+
+\begin{proposition}{常见三元恒等变形公式}
+	(1)$$a^3+b^3+c^3-3abc = (a+b+c)(a^2+b^2+c^2-ab-bc-ca)$$
+	(2)$$(a+b)(b+c)(c+a) = a^2b + b^2c + c^2a + ab^2 + bc^2 + ca^2 +2abc$$
+	(3)$$(a+b+c)(ab+bc+ca) = a^2b + b^2c + c^2a + ab^2 + bc^2 + ca^2 +3abc$$
+	(4)$$(a-b)(b-c)(c-a) = \color{red}-\color{black}(a^2b+b^2c+c^2a)\color{red}+\color{black}(ab^2+bc^2+ca^2)$$
+	(5)$$(a+b-c)(b+c-a)(c+a-b) = a^2b+b^2c+c^2a+ab^2+bc^2+ca^2-a^3-b^3-c^3-2abc$$
+	(6)$$(a+b+c)(a+b-c)(b+c-a)(c+a-b) = 2a^2b^2 + 2b^2c^2 + 2c^2a^2 - a^4 -b^4-c^4$$
+\end{proposition}
+
+然而最近几年三元变形不太常考.
+
+\begin{theorem}{Schur不等式}
+	设实数$a,b,c,t$满足$a,b,c \geq 0$，则$$a^t(a-b)(a-c) + b^t(b-c)(b-a) + c^t(c-a)(c-b) \geq 0$$
+	当且仅当$a,b,c$中有两个相等、另一个为$0$或$a=b=c$时取等.
+\end{theorem}
+\begin{proof}
+	不妨设$a \geq b \geq c$，注意到$a-c=(a-b)+(b-c)$，所以
+	\begin{align*}
+		LHS &= a^t(a-b)^2 + a^t(a-b)(b-c) - b^t(b-c)(a-b) + c^t(b-c)^2 + c^t(a-b)(b-c) \\
+		&= a^t(a-b)^2 + c^t(b-c)^2 + (a^t-b^t+c^t)(a-b)(b-c) \geq 0
+	\end{align*}
+\end{proof}
+
+\begin{corollary}
+	当$t=1$时，有$$a(a-b)(a-c) + b(b-c)(b-a) + c(c-a)(c-b) \geq 0$$
+	即$$a^3+b^3+c^3+3abc \geq a^2b + b^2c + c^2a + ab^2 + bc^2 + ca^2$$
+\end{corollary}
+\begin{remark}
+	这个不等式意义在于：$\sum ab(a+b)$放在较小的一侧，这是Cauchy/均值不等式等无法做到的.
+\end{remark}
+
+\begin{example} % 兴趣二阶代数p8
+	已知$a \geq b \geq c \geq 0$，证明：$$ab^2+bc^2+ca^2 \leq \frac{1}{8} (a+b+c)^3$$
+\end{example}
+\begin{hint}
+	将不对称的形式转化为对称处理.
+\end{hint}
+
+\subsection{分式变形}
+
+\begin{example} % 兴趣二阶代数p7
+	设$n$是正整数，$a_1,a_2, \cdots ,a_n$是非负实数，证明：$$\frac{1}{1+a_1} + \frac{a_1}{(1+a_1)(1+a_2)} + \cdots + \frac{a_1a_2 \cdots a_{n-1}}{(1+a_1)(1+a_2) \cdots (1+a_n)} \leq 1$$
+\end{example}
+\begin{hint}
+	观察左式形式，尝试进行通分操作.
+	\begin{align*}
+		&n=1, \quad \frac{1}{1+a_1} = 1 - \frac{a_1}{1+a_1} \\
+		&n=2, \quad \frac{1}{1+a_1} + \frac{a_1}{(1+a_1)(1+a_2)} = \frac{1+a_1+a_2}{(1+a_1)(1+a_2)} = 1 - \frac{a_1a_2}{(1+a_1)(1+a_2)} \\
+		&n=3, \quad \frac{1}{1+a_1} + \frac{a_1}{(1+a_1)(1+a_2)} + \frac{a_1a_2}{(1+a_1)(1+a_2)(1+a_3)} = 1 - \frac{a_1a_2a_3}{(1+a_1)(1+a_2)(1+a_3)}
+	\end{align*}
+	于是猜测$$LHS = 1 - \frac{a_1a_2 \cdots a_n}{(1+a_1)(1+a_2) \cdots (1+a_n)}$$
+\end{hint}
+\begin{proof}
+	记$f(n) = LHS$，$g(n) = 1 - \dfrac{a_1a_2 \cdots a_n}{(1+a_1)(1+a_2) \cdots (1+a_n)}$. \\
+	作$$\frac{a_1a_2 \cdots a_{n-1}}{(1+a_1)(1+a_2) \cdots (1+a_n)} + \frac{a_1a_2 \cdots a_n}{(1+a_1)(1+a_2) \cdots (1+a_n)} = \frac{(a_1a_2 \cdots a_{n-1})(1+a_n)}{(1+a_1)(1+a_2) \cdots (1+a_n)} = 1-g(n-1)$$
+	即$f(n)-f(n-1) + 1-g(n) = 1-g(n-1)$.于是$f(n)-g(n) = f(n-1)-g(n-1)$.可以对$n$归纳证明$f(n)=g(n)$： \\
+	当$n=1$时，$f(n) = \dfrac{1}{2} = g(n)$；假设当$n=k$时成立，即$f(n)=g(n)$，由上述等式可知$f(n+1)=g(n+1)$，于是当$n=k+1$时也成立.由数学归纳原理，$f(n)=g(n)$.故$$LHS = 1 - \frac{a_1a_2 \cdots a_n}{(1+a_1)(1+a_2) \cdots (1+a_n)} \leq 1$$
+\end{proof}
+
+\subsection{求和符号变形}
+
+\begin{proposition}{常见求和符号变形公式}
+	(1)$$\ssb{ \sum_{i=1}^{n} a_i }^2 = \sum_{i=1}^{n} a_i^2 + 2 \sum_{1 \leq i < j \leq n} a_ia_j$$
+	(2)$$\ssb{ \sum_{i=1}^{n} a_i } \cdot \ssb{ \sum_{j=1}^{n} a_j } = \sum_{i=1}^{n} \ssb{a_i \cdot \sum_{j=1}^{n} a_j} = \sum_{i=1}^{n} \sum_{j=1}^{n} a_ib_j = \sum_{j=1}^{n} \sum_{i=1}^{n} a_ib_j$$
+	(3)$$\sum_{1 \leq i < j \leq n} a_ia_j = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} a_ia_j = \sum_{j=2}^{n} \sum_{i=1}^{j-1} a_ia_j$$
+\end{proposition}
+
+
+
+\section{数学归纳法与数列}
+
+\begin{example} % 兴趣二阶代数p7
+	证明：对任意的正整数，有$$\sqrt{1^2+ \sqrt{2^2+ \sqrt{3^2+ \cdots + \sqrt{n^2}}}}<2$$
+\end{example}
+\begin{hint}
+	尝试对$n$进行归纳证明.发现在$n=k+1$时，不等号方向不对，而证明加强命题比较麻烦，不如换个角度进行归纳.
+\end{hint}
+\begin{proof}
+	设$a_m = \sqrt{m^2+\sqrt{(m+1)^2 + \cdots + \sqrt{n^2}}}$.于是$a_m=a_{m-1}^2-(m-1)^2$，且$a_n=n$，$a_1=LHS$. \\
+	以下对$m$反向归纳证明$a_m<m+1$.当$m=n$时命题成立；假设$m=k$时命题成立，那么当$m=k-1$时，$$a_{k-1} = \sqrt{a_k + (k-1)^2} < \sqrt{k^2-k+2} \leq k$$
+	其中$k \geq 2$.由归纳原理，$a_m<m+1~(m \geq 1)$，于是$LHS=a_1 <2$.
+\end{proof}
+
+
+
 \part{几何部分}
 
 \part{组合部分}
