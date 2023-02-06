@@ -11,7 +11,7 @@
 \contentsline {chapter}{\numberline {2}有限维向量空间}{15}{chapter.2}%
 \contentsline {section}{\numberline {2.1}有限维向量空间}{15}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}张成空间}{15}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}有限维向量空间}{16}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}有限维向量空间}{17}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}线性无关}{18}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}线性无关}{18}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}线性相关性与张成}{19}{subsection.2.2.2}%

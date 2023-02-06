@@ -200,6 +200,15 @@
 
 由上述定义，不难证明，空集是任意集合的子集、是任意非空集合的真子集.
 
+有时我们需要研究某个有限集合的元素个数.设有限集$A$，可以用$\card (A)$表示其元素个数(card即\textit{cardinal}，基数).另外，有限集$A$的\textbf{阶}也表示其元素个数，记作$|A|$.
+
+\begin{example}
+	对于一个有限集$A$，它的子集个数为$2^{|A|}$个，真子集个数为$2^{|A|}-1$个.
+\end{example}
+\begin{example}
+	设$\{ b_n \}$是集合$\{ 2^t+2^s+2^r | 0 \leq r < s < t,~r,s,t \in \mathbb{Z} \}$中所有的数从小到大排列成的数列，已知$b_k=1160$，求$k$.
+\end{example}
+
 \subsection{集合间的运算与运算律}
 
 类似于上文对子集和母集的定义，我们可以从集合中元素的角度来研究集合间的运算.
@@ -213,7 +222,25 @@
 	若已知该全集(题目中明确定义)，$A$的补集也可记作$\overline{A}$.
 \end{definition}
 
+就像对于加减乘除运算，我们要研究其运算律一样，集合的交、并、补运算也有类似的运算律.
 
+\begin{proposition}{集合运算的运算律}
+	设集合$A$和$B$，全集$U$. \\
+	(1)它们的交、并运算满足交换律，即$$A \cap B = B \cap A \qquad A \cup B = B \cup A$$
+	(2)它们的交、并运算满足结合律，即
+	$$A \cap B \cap C = (A \cap B) \cap C = A \cap (B \cap C)$$
+	$$A \cup B \cup C = (A \cup B) \cup C = A \cup (B \cup C)$$
+	(3)它们的交运算与并运算之间满足分配律，即
+	$$(A \cap B) \cup C = (A \cup C) \cap (B \cup C)$$
+	$$(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$$
+	(4)它们的交、并运算与补运算之间满足摩根律(或称德摩根定理，De Morgan's theorem)，即$$\overline{A \cap B} = \overline{A} \cup \overline{B} \qquad \overline{A \cup B} = \overline{A} \cap \overline{B}$$
+\end{proposition}
+
+\begin{example}
+	(1)已知$A=\{ 2,5 \}$，$B = \{ x|x^2+px+q=0 \}$，且$A \cup B = A$，$A \cap B = \{ 5 \}$，则$pq=$\tk . \\
+	(2)已知$M,N$均为$\mathbb{R}$的子集，且$(\complement _{\mathbb{R}} M) \subseteq N$，则$M \cup (\complement _{\mathbb{R}} N)=$\tk . \\
+	(3)设集合$A = \{ x|1 \leq x \leq 2000,~x \in \mathbb{N} \}$，$B = \{ x|1993 \leq x \leq 2021,~x \in \mathbb{N} \}$.则满足$S \subseteq A$，且$S \cap B \neq \varnothing$的集合$S$的个数为\tk .
+\end{example}
 
 
 \chapter{新的数域与运算}

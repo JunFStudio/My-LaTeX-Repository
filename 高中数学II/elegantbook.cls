@@ -1033,7 +1033,7 @@
 \renewcommand{\theexam}{\thesection.\arabic{exam}}
 \newenvironment{example}[1][]{
   \refstepcounter{exam}
-  \par\noindent\textbf{\color{main}{\examplename} \theexam #1 }\rmfamily}{
+  \vspace{1em}\par\noindent\textbf{\color{main}{\examplename} \theexam #1 }\rmfamily}{
   \par\ignorespacesafterend}
 
 %% Exercise with counter
@@ -1064,7 +1064,7 @@
 \newenvironment{proof}{
   \par\noindent\textbf{\color{second}\proofname\;}
   \color{black!90}\cfs}{
-  % \hfill$\Box$\quad
+  \hfill$\Box$\quad
   \par}
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
