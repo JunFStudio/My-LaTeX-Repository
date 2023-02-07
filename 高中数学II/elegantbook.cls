@@ -1060,6 +1060,9 @@
   \par\noindent\makebox[-3pt][r]{
     \scriptsize\color{red!90}\textdbend\quad}
     \textbf{\color{second}\notename} \citshape}{\par}
+    
+\newenvironment{guess}{
+  \color{guess}}{\par \color{black}}
 
 \newenvironment{proof}{
   \par\noindent\textbf{\color{second}\proofname\;}

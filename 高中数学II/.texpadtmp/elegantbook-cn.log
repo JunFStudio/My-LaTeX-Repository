@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  6 FEB 2023 21:57
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  7 FEB 2023 13:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1277,18 +1277,41 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cfttabnumwidth=\skip139
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1339.
+(Font)              scaled to size 10.0pt on input line 1342.
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/mhchem/mhchem.sty
+Package: mhchem 2021/12/31 v4.09 for typesetting chemical formulae
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/chemgreek/chemgreek.sty
+Package: chemgreek 2020/01/16 v1.1a interface for upright Greek letters for use in chemistry (CN)
+\l__chemgreek_tmpa_int=\count556
+\g__chemgreek_tmpa_int=\count557
+)
+\l__mhchem_ce_distanceFromLastComma_int=\count558
+\__mhchem_arrow_extPgfLength_skip=\skip140
+\mhchem@minispace@tmp=\skip141
+\mhchem@minibackspace@tmp=\skip142
+\mhchem@bondwidth=\skip143
+\mhchem@bondheight=\skip144
+\mhchem@smallbondwidth@tmpA=\skip145
+\mhchem@smallbondwidth@tmpB=\skip146
+\mhchem@smallbondwidth=\skip147
+\mhchem@bondtmp@minussidebearingleft=\skip148
+\mhchem@bondtmp@minussidebearingright=\skip149
+\l__mhchem_option_version_int=\count559
+\mhchem@option@minusmathsidebearingleft=\dimen352
+\mhchem@option@minusmathsidebearingright=\dimen353
+\mhchem@option@minustextsidebearingleft=\dimen354
+\mhchem@option@minustextsidebearingright=\dimen355
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box133
 \UL@hyphenbox=\box134
-\UL@skip=\skip140
+\UL@skip=\skip150
 \UL@hook=\toks45
-\UL@height=\dimen352
-\UL@pe=\count556
-\UL@pixel=\dimen353
+\UL@height=\dimen356
+\UL@pe=\count560
+\UL@pixel=\dimen357
 \ULC@box=\box135
 Package: ulem 2019/11/18
-\ULdepth=\dimen354
+\ULdepth=\dimen358
 )
 \symyh=\mathgroup7
 Package csquotes Info: Checking for multilingual support...
@@ -1311,27 +1334,27 @@ LaTeX Warning: Label `cor:-NoValue-' multiply defined.
 )
 \openout1 = `elegantbook-cn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-Package hyperref Info: Link coloring ON on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+Package hyperref Info: Link coloring ON on input line 55.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1339,11 +1362,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count557
+\c@section@level=\count561
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
  (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.out) (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.out)
 \@outlinefile=\write7
 \openout7 = `elegantbook-cn.out'.
@@ -1389,8 +1412,8 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
 \FN@temptoken=\toks46
-\footnotemargin=\dimen355
-\@outputbox@depth=\dimen356
+\footnotemargin=\dimen359
+\@outputbox@depth=\dimen360
 Package footmisc Info: Declaring symbol style bringhurst on input line 695.
 Package footmisc Info: Declaring symbol style chicago on input line 703.
 Package footmisc Info: Declaring symbol style wiley on input line 712.
@@ -1412,10 +1435,13 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'elegantbook-cn.bbl' found.
  (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.bbl)
-Package biblatex Info: Reference section=0 on input line 54.
-Package biblatex Info: Reference segment=0 on input line 54.
-\c@lstlisting=\count558
-Package hyperref Info: Option `pageanchor' set `false' on input line 56.
+Package biblatex Info: Reference section=0 on input line 55.
+Package biblatex Info: Reference segment=0 on input line 55.
+\c@lstlisting=\count562
+
+Package chemgreek Info: Activating mapping `fontspec' on line 55.
+
+Package hyperref Info: Option `pageanchor' set `false' on input line 57.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1451,33 +1477,33 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 56.
 File: ./figure//cover.png Graphic file (type bmp)
 <./figure//cover.png>
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 56.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 56.
+(Font)              scaled to size 24.88pt on input line 57.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 57.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 56.
+LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 57.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/yhmath/OMXyhex.fd
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 )
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 56.
+(Font)              scaled to size 14.4pt on input line 57.
  [1
 
 
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 62.
+(Font)              scaled to size 17.28pt on input line 63.
  (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.toc
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
@@ -1494,9 +1520,9 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 66.
+(Font)              scaled to size 20.74pt on input line 67.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 20.74pt on input line 66.
+(Font)              scaled to size 20.74pt on input line 67.
  [2
 
 ]
@@ -1505,7 +1531,7 @@ Chapter 1.
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 138.
+(Font)              scaled to size 9.0pt on input line 139.
  [4] [5] [6] [7
 
 ] [8
@@ -1514,25 +1540,43 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 Chapter 2.
 [9
 
-] [10] [11] [12
+] [10]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
+(Font)              scaled to size 10.0pt on input line 287.
+
+
+LaTeX Font Warning: Font shape `TU/KaitiSC(0)/m/it' undefined
+(Font)              using `TU/KaitiSC(0)/m/n' instead on input line 287.
+
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 287.
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 287.
+[11]
+File: attachment/20230207.pdf Graphic file (type pdf)
+<use attachment/20230207.pdf>
+ [12] [13] [14
 
 ] (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: F035CC294E76A0FE0646074AC60AF9CD;1038.
+(rerunfilecheck)             Checksum: 5D8B7AC182128C6CC9AFE73686B3D357;1195.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45232 strings out of 476179
- 966538 string characters out of 5809544
- 1860988 words of memory out of 5000000
- 65177 multiletter control sequences out of 15000+600000
- 482340 words of font info for 121 fonts, out of 8000000 for 9000
+ 46156 strings out of 476179
+ 988583 string characters out of 5809544
+ 1897996 words of memory out of 5000000
+ 66072 multiletter control sequences out of 15000+600000
+ 484503 words of font info for 136 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,12n,107p,747b,1310s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.pdf (13 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.pdf (15 pages).

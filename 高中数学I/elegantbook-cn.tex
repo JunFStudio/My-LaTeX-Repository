@@ -254,7 +254,7 @@
 	$$(a+b\ic )(c+d\ic ) = (ac-bd) + (ad+bc)\ic $$
 \end{definition}
 
-\begin{proposition}{复数运算的性质}
+\begin{proposition}{复数运算的性质}{Fxkvi}
 	(1) 交换性质$$\forall \alpha , \beta \in \C , \alpha + \beta = \beta + \alpha , \alpha \beta = \beta \alpha$$
 	(2) 结合性质$$\forall \alpha , \beta , \lambda \in \C , (\alpha + \beta) + \lambda = \alpha + (\beta + \lambda) , (\alpha \beta) \lambda = \alpha (\beta \lambda)$$
 	(3) 单位元$$\forall \lambda \in \C , \lambda + 0 = \lambda , 1 \lambda = \lambda$$
@@ -307,7 +307,7 @@
 
 在初中我们常常遇到一类问题：例如，求$2$的多少次方是$1024$.这种简单的式子还可以一眼看出结果，那么$2$的多少次方是$1023$呢？这就不好说明.更进一步，我们甚至找不到一个比较好的逼近计算的方式.于是人们发明了对数运算：
 
-一般地，若$ax=y~(a>0,a \neq 1)$，则称$x$为以$a$为底$y$的\textbf{对数}(logarithm)，记作$x = \log_{a}{y}$，其中$a$叫做底数，$y$叫做真数.通常把以$10$为底的对数叫做\textbf{常用对数}(common logarithm)(化学中pH值的计算公式就包括它)，简记为$\log_{10}{N}=\lg N$；把以自然常数$e$为底的对数叫做\textbf{自然对数}，简记为$\log_{e}{N}=\ln N$.
+一般地，若$a^x=y~(a>0,a \neq 1)$，则称$x$为以$a$为底$y$的\textbf{对数}(logarithm)，记作$x = \log_{a}{y}$，其中$a$叫做底数，$y$叫做真数.通常把以$10$为底的对数叫做\textbf{常用对数}(common logarithm)(化学中pH值的计算公式就包括它)，简记为$\log_{10}{N}=\lg N$；把以自然常数$e$为底的对数叫做\textbf{自然对数}，简记为$\log_{e}{N}=\ln N$.
 
 对数运算有两条重要性质：(1)$~\log_{a}{1} = 0,~\log_{a}{a}=1$；(2)$~a^{\log_{a}{N}}=N$.第二条看起来是个废话，其实很有用.
 
@@ -344,7 +344,7 @@
 	由加减法运算法则，可以一窥常用对数的作用.例如，
 	$$\lg{120} = \lg{1.2 \times 10^2} = \lg{1.2}+2$$
 	$$\lg{0.012} = \lg{1.2 \times 10^{-2}} = \lg{1.2}-2$$
-	若要计算$\lg{120}$与$\lg{0.012}$，只需要知道$\lg{1.2}$的值.于是$\lg{N}$可以被用在换底公式中作为“工具对数”.
+	若要计算$\lg{120}$与$\lg{0.012}$，只需要知道$\lg{1.2}$的值.于是$\lg{N}$可以被用在换底公式中作为“工具对数”来近似计算.
 \end{remark}
 
 
@@ -626,9 +626,53 @@ $$
 
 本节我们着重于研究数列求和的一些例题.
 
-\section{数学归纳法}
+\section{数学归纳法与无穷递降法}
 
-第一数学归纳法，跳跃数学归纳法，第二数学归纳法，多元归纳法
+\subsection{数学归纳法}
+
+回顾前文等差数列的定义.我们发现，只需要规定数列中第一个元素以及整个数列满足的递推关系，就可以唯一地确定这个数列，即这两个条件是该数列的特征.运用同样的思路，可以用首项、递推关系来证明一个关于正整数$n$的命题.这就是数学归纳法.
+
+\begin{axiom}{归纳公理}
+	设$S$是正整数集$\mathbb{N}^{*}$的一个子集，满足条件： \\
+	(i)$1 \in S$；(ii)若$n \in S$，则$n+1 \in S$. \\
+	那么$S = \mathbb{N}^{*}$.
+\end{axiom}
+\begin{remark}
+	归纳公理是Peano提出的关于正整数的五条公理的最后一条，是本节所有形式数学归纳法的基础.
+\end{remark}
+
+\begin{theorem}{第一数学归纳法}
+	设$P(n)$是关于正整数$n$的一个命题(或性质).如果 \\
+	(i)当$n=1$时，$P(n)$成立；(ii)由$P(n)$成立可以推出$P(n+1)$成立. \\
+	那么，对任意$n \in \mathbb{N}^{*}$，$P(n)$都成立.
+\end{theorem}
+\begin{proof}
+	XXX
+\end{proof}
+
+在应用数学归纳法时，我们可以对“跨度”有轻微的调整，这就是跳跃数学归纳法：
+
+\begin{corollary}{跳跃数学归纳法}
+	设$P(n)$是关于正整数$n$的一个命题(或性质).如果 \\
+	(i)当$n=1,2, \cdots ,k$时，$P(n)$成立；(ii)由$P(n)$成立可以推出$P(n+k)$成立. \\
+	那么，对任意$n \in \mathbb{N}^{*}$，$P(n)$都成立.
+\end{corollary}
+\begin{proof}
+	XXX
+\end{proof}
+
+还有一种略有不同的归纳法：
+
+\begin{theorem}{第二数学归纳法}
+	设$P(n)$是关于正整数$n$的一个命题(或性质).如果 \\
+	(i)当$n=1,2, \cdots ,k$时，$P(n)$成立；(ii)由“对一切小于$n$的整数$k$，$P(k)$都成立”可以推出$P(n)$成立. \\
+	那么，对任意$n \in \mathbb{N}^{*}$，$P(n)$都成立.
+\end{theorem}
+\begin{proof}
+	XXX
+\end{proof}
+
+\subsection{最小数原理与无穷递降法}
 
 \chapter{极限与导数}
 
