@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  7 FEB 2023 22:42
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  8 FEB 2023 15:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1532,41 +1532,49 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 Chapter 1.
 [4
 
-] [5] [6] [7] [8
+] [5] [6] [7] [8] [9
 
-] [9
+] [10
 
 ]
 Chapter 2.
-[10
+[11
 
-] [11]
+] [12]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 292.
+(Font)              scaled to size 10.0pt on input line 337.
 
 
 LaTeX Font Warning: Font shape `TU/KaitiSC(0)/m/it' undefined
-(Font)              using `TU/KaitiSC(0)/m/n' instead on input line 299.
+(Font)              using `TU/KaitiSC(0)/m/n' instead on input line 344.
 
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 299.
+(Font)              scaled to size 7.0pt on input line 344.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 299.
-[12]
+(Font)              scaled to size 5.0pt on input line 344.
+[13]
 File: attachment/20230207.pdf Graphic file (type pdf)
 <use attachment/20230207.pdf>
- [13]
+ [14]
 File: attachment/202302071.pdf Graphic file (type pdf)
 <use attachment/202302071.pdf>
- [14] [15]
+ [15] [16]
 File: attachment/202302072.pdf Graphic file (type pdf)
 <use attachment/202302072.pdf>
 File: attachment/202302073.pdf Graphic file (type pdf)
 <use attachment/202302073.pdf>
- [16]
+ [17]
 File: attachment/202302074.pdf Graphic file (type pdf)
 <use attachment/202302074.pdf>
- [17] [18
+File: attachment/202302081.pdf Graphic file (type pdf)
+<use attachment/202302081.pdf>
+ [18]
+File: attachment/202302082.pdf Graphic file (type pdf)
+<use attachment/202302082.pdf>
+ [19]
+File: attachment/202302083.pdf Graphic file (type pdf)
+<use attachment/202302083.pdf>
+ [20] [21
 
 ] (/Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.aux)
 
@@ -1576,18 +1584,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 5D8B7AC182128C6CC9AFE73686B3D357;1195.
+(rerunfilecheck)             Checksum: 9B73C79E26CB836CF25ACEBDE85FD76D;1336.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46193 strings out of 476179
- 988656 string characters out of 5809544
- 1900018 words of memory out of 5000000
- 66104 multiletter control sequences out of 15000+600000
+ 46217 strings out of 476179
+ 989352 string characters out of 5809544
+ 1900170 words of memory out of 5000000
+ 66125 multiletter control sequences out of 15000+600000
  484511 words of font info for 137 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,12n,107p,747b,1310s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.pdf (19 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/高中数学II/.texpadtmp/elegantbook-cn.pdf (22 pages).
