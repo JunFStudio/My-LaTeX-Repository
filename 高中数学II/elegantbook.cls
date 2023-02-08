@@ -1062,7 +1062,7 @@
     \textbf{\color{second}\notename} \citshape}{\par}
     
 \newenvironment{guess}{
-  \color{guess}}{\par \color{black}}
+  \color{guess}}{\newline \color{black}}
 
 \newenvironment{proof}{
   \par\noindent\textbf{\color{second}\proofname\;}
