@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  3 FEB 2023 20:24
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  9 FEB 2023 12:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1120,7 +1120,7 @@ LaTeX Font Info:    Trying to load font information for TS1+txr on input line 7.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 10.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 9.
 )
 \tf@toc=\write4
 \openout4 = `tjumain.toc'.
@@ -1141,56 +1141,77 @@ LaTeX Font Info:    Calculating math sizes for size <14> on input line 10.
 
 ]
 第二章
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 18.
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 18.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 23.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 23.
 
 LaTeX Font Warning: Font shape `OML/eur/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 18.
+(Font)              size <10.95> substituted on input line 23.
 
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 37.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 34.
 [2
 
 ]
+Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 53.
+ [3]
 第三章
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 54.
-[3
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 70.
+[4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 83--86
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
 
  []
 
-[4]
+[5]
 第四章
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 111.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 120.
+File: figures//20230209.pdf Graphic file (type pdf)
+<use figures//20230209.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--135
+
+ []
+
+[6
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 155--158
+
+ []
+
 File: figures//4.1.pdf Graphic file (type pdf)
 <use figures//4.1.pdf>
 
-LaTeX Font Warning: Command \LARGE invalid in math mode on input line 119.
+LaTeX Font Warning: Command \LARGE invalid in math mode on input line 172.
 
 
-LaTeX Font Warning: Command \LARGE invalid in math mode on input line 119.
+LaTeX Font Warning: Command \LARGE invalid in math mode on input line 172.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--122
+Underfull \hbox (badness 10000) in paragraph at lines 170--175
+
+ []
+
+File: figures//202302092.pdf Graphic file (type pdf)
+<use figures//202302092.pdf>
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 192--195
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.5pt
-(hyperref)                replaced by space on input line 129.
+(hyperref)                replaced by space on input line 202.
 
-[5
-
-]) [6
+[8]) [9
 
 ] (/Volumes/Storage_SSD/latex sync/LaTeX/2023寒假物理论文/Thesis/.texpadtmp/tjumain.bbl
 
 LaTeX Font Warning: Font shape `TU/SongtiSCLight(1)/m/it' undefined
 (Font)              using `TU/SongtiSCLight(1)/m/n' instead on input line 6.
 
-) [7
+) [10
 
 
 
@@ -1219,15 +1240,15 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `tjumain.out' has not changed.
-(rerunfilecheck)             Checksum: 630D4F06242CEA83F5E725B7D0B8EDBF;1687.
+(rerunfilecheck)             Checksum: 63E078E804EE363886DCE6E3C943BC63;2192.
  ) 
 Here is how much of TeX's memory you used:
- 23349 strings out of 476179
- 469365 string characters out of 5809544
- 985772 words of memory out of 5000000
- 43649 multiletter control sequences out of 15000+600000
+ 23370 strings out of 476179
+ 469887 string characters out of 5809544
+ 986322 words of memory out of 5000000
+ 43668 multiletter control sequences out of 15000+600000
  564008 words of font info for 258 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,11n,97p,1298b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,97p,1298b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/2023寒假物理论文/Thesis/.texpadtmp/tjumain.pdf (12 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/2023寒假物理论文/Thesis/.texpadtmp/tjumain.pdf (15 pages).
