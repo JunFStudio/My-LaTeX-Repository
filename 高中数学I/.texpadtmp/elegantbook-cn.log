@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  7 FEB 2023 09:54
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  9 FEB 2023 21:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1338,13 +1338,22 @@ LaTeX Warning: Label `def:-NoValue-' multiply defined.
 LaTeX Warning: Label `pro:-NoValue-' multiply defined.
 
 
-LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
 
 
 LaTeX Warning: Label `pro:-NoValue-' multiply defined.
 
 
 LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `thm:-NoValue-' multiply defined.
 
 
 LaTeX Warning: Label `thm:-NoValue-' multiply defined.
@@ -1529,7 +1538,7 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 101.
+(Font)              scaled to size 9.0pt on input line 103.
  [2])
 \tf@toc=\write8
 \openout8 = `elegantbook-cn.toc'.
@@ -1616,7 +1625,7 @@ Chapter 1.
 [33
 
 ]
-Overfull \hbox (9.68852pt too wide) in paragraph at lines 919--920
+Overfull \hbox (9.68852pt too wide) in paragraph at lines 963--964
 []\TU/SongtiSCLight(1)/b/n/10 例 题 \TU/texgyretermes(0)/b/n/10 1.2.8 []\TU/SongtiSCLight(1)/m/n/10 设 $\OML/cmm/m/it/10 n$ \TU/SongtiSCLight(1)/m/n/10 是 正 整 数，|  我 们 说 集 合 $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; []  ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 n\OMS/cmsy/m/n/10 g$ \TU/SongtiSCLight(1)/m/n/10 的 一 个 排 列 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; x[]; []  ; x[]\OT1/cmr/m/n/10 )$ \TU/SongtiSCLight(1)/m/n/10 具 有 性 质 $\OML/cmm/m/it/10 P$\TU/SongtiSCLight(1)/m/n/10 ，|  是 指 在 $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; []  ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@
  []
 
@@ -1665,16 +1674,16 @@ Chapter 11.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: B1E4DD03B8B99E264873187852F6C561;8702.
+(rerunfilecheck)             Checksum: 857DC963B6A5F888B5D6971FF833F619;8750.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45638 strings out of 476179
- 988688 string characters out of 5809544
- 1874555 words of memory out of 5000000
- 65576 multiletter control sequences out of 15000+600000
+ 45644 strings out of 476179
+ 988784 string characters out of 5809544
+ 1874602 words of memory out of 5000000
+ 65582 multiletter control sequences out of 15000+600000
  480289 words of font info for 126 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,12n,107p,747b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
