@@ -1,5 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is '/Volumes/Storage_SSD/latex sync/LaTeX/m3228_1675949743_ce3ee25592b8fb2215e7a669f0f2f920/.texpadtmp/Term I Note.blg'
-[31] biber-darwin:340> INFO - === Fri Feb 10, 2023, 18:56:19
-[38] Utils.pm:409> ERROR - /Volumes/Storage_SSD/latex sync/LaTeX/m3228_1675949743_ce3ee25592b8fb2215e7a669f0f2f920/.texpadtmp/Term I Note.bcf is malformed, last biblatex run probably failed. Deleted /Volumes/Storage_SSD/latex sync/LaTeX/m3228_1675949743_ce3ee25592b8fb2215e7a669f0f2f920/.texpadtmp/Term I Note.bbl
-[38] Biber.pm:135> INFO - ERRORS: 1
