@@ -18,3 +18,5 @@
 \contentsline {section}{\numberline {2.3}基与维数}{22}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}基}{22}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}维数}{23}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}线性映射}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}向量空间的线性映射}{27}{section.3.1}%

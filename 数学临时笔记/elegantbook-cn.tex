@@ -18,6 +18,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\lmap}{\mathcal{L}}
 \newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
 \newcommand{\buzhou}[1]{$#1^{\circ} \ $}
 \usepackage{ulem}
@@ -965,6 +966,58 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 		&+ \dim (U_1 \cap U_2 \cap U_3)
 	\end{align*}
 \end{exercise}
+
+\chapter{线性映射}
+
+\section{向量空间的线性映射}
+
+说到线性映射，我们不得不想到所谓“线性函数(linear function)”，即一次函数.一次函数有一些很特殊的性质，例如，两个一次函数相加还是一次函数；如果这个一次函数过原点，那么它乘以任意常数得到的函数仍过原点.由此，可以引出线性代数中有关“线性”的一个重要概念.
+
+\begin{definition}{线性映射}
+	设函数$T:V \to W$，若该函数满足下列性质：
+	\begin{enumerate}
+		\item \textbf{加性}：$$\forall u,v \in V,~T(u+v)=Tu+Tv$$
+		\item \textbf{齐性}：$$\forall \lambda \in \F,~v \in V,~T(\lambda v)=\lambda Tv$$
+	\end{enumerate}
+	则称$T$是\textbf{线性映射}.
+\end{definition}
+\begin{remark}
+	为了表示简便，通常省略括号写成$Tv$，尽管$T(v)$更加规范.
+\end{remark}
+
+规定记号$\lmap (V,W)$，表示所有从$V$到$W$的线性映射构成的集合.
+
+\begin{example}{\examplefont{线性映射的例子}}
+	(1)零函数：定义$0 \in \lmap (V,W)$如下$$\forall v \in V, 0v=0$$
+	(2)恒等映射：定义$I \in \lmap (V,V)$如下$$\forall v \in V, Iv=v$$
+	(3)微分：定义$D \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$如下$$Dp=p'$$
+	(4)乘以$x^2$：定义$T \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$满足$$\forall x \in \R ,~(Tp)(x)=x^2p(x)$$
+	(5)向后移位：定义$T \in \lmap (\F ^{\infty},\F ^{\infty})$如下$$T(x_1,x_2,x_3, \cdots ) = (x_2,x_3, \cdots)$$
+	(6)从$\R ^3$到$\R ^2$：定义$T \in \lmap (\R ^{3},\R ^{2})$如下$$T(x,y,z)=(2x-y+3z,7x+5y-6z)$$
+	(7)从$\F ^n$到$\F ^m$：定义$T \in \lmap (\F ^{n},\F ^{m})$如下$$T(x_1,\cdots ,x_n) = (A_{1,1}x_1 + \cdots + A_{1,n}x_n, \cdots , A_{m,1}x_1+\cdots +A_{m,n}x_n)$$
+	其中，$A_{j,k} \in \F ,~j=1, \cdots ,m,~ k = 1, \cdots ,n$.事实上，从$\F ^n$到$\F ^m$的每个线性映射都是这种形式的.我们稍后会进行证明.
+\end{example}
+
+观察线性映射所具有的加性与齐性，似乎可以将其与线性组合联系起来.例如，对于$T \in \lmap (V,W)$，若给定$v_1, \cdots ,v_m$是$V$的基，设$c_1, \cdots ,c_m$是$\F$中的任意元素，则$$T(c_1v_1 + \cdots + c_mv_m) = c_1Tv_1 + \cdots + c_mTv_m$$
+由这种想法，以下的命题不难证明：
+
+\begin{proposition}{线性映射与定义域的基}
+	对于$T \in \lmap (V,W)$，设$v_1, \cdots ,v_m$是$V$的基，$w_1, \cdots ,w_m \in W$，则存在唯一一个线性映射$T \in \lmap (V,W)$使得对任意$j=1, \cdots ,n$都有$$Tv_j = w_j$$
+\end{proposition}
+\begin{proof}
+	\buzhou{1}存在性：利用先前得到的想法，定义$T:V \to W$如下：$$\forall c_j \in \F~(j=1, \cdots,m),~T(c_1v_1 + \cdots + c_mv_m) = c_1w1 + \cdots + c_mw_m$$
+	由于$v_1, \cdots ,v_m$是$V$的基，$T$的定义域是$V$.下证$T \in \lmap (V,W)$. \\
+	取$u=a_1v_1 + \cdots + a_mv_m,~v=c_1v_1 + \cdots + a_mv_m,~ \lambda \in \F$，因为
+	\begin{align*}
+		T(u+v) &= T((a_1+c_1)v_1 + \cdots + (a_m+c_m)v_m) \\
+		&= (a_1+c_1)w_1 + \cdots + (a_m+c_m)w_m \\
+		Tu+Tv &= a_1w_1 + \cdots + a_mv_m + c_1v_1 + \cdots + c_mv_m
+	\end{align*}
+	所以$T(u+v)=Tu+Tv$，即$T$满足加性.因为
+	\begin{align*}
+		T(\lambda u) = 
+	\end{align*}
+\end{proof}
 
 
 
