@@ -1,9 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is '/Volumes/Storage_SSD/latex sync/LaTeX/å¥¥æ°æç¨/.texpadtmp/elegantnote-cn.blg'
-[32] biber-darwin:340> INFO - === Mon Apr  3, 2023, 16:39:53
-[111] Biber.pm:418> INFO - Reading '/Volumes/Storage_SSD/latex sync/LaTeX/奥数教程/.texpadtmp/elegantnote-cn.bcf'
-[151] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
-[158] bbl.pm:654> INFO - Writing '/Volumes/Storage_SSD/latex sync/LaTeX/å¥¥æ°æç¨/.texpadtmp/elegantnote-cn.bbl' with encoding 'UTF-8'
-[158] bbl.pm:757> INFO - Output to /Volumes/Storage_SSD/latex sync/LaTeX/å¥¥æ°æç¨/.texpadtmp/elegantnote-cn.bbl
-[159] Biber.pm:130> WARN - The file '/Volumes/Storage_SSD/latex sync/LaTeX/奥数教程/.texpadtmp/elegantnote-cn.bcf' does not contain any citations!
-[159] Biber.pm:132> INFO - WARNINGS: 1

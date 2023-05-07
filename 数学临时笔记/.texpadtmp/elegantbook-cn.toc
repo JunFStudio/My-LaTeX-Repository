@@ -20,3 +20,9 @@
 \contentsline {subsection}{\numberline {2.3.2}维数}{24}{subsection.2.3.2}%
 \contentsline {chapter}{\numberline {3}线性映射}{28}{chapter.3}%
 \contentsline {section}{\numberline {3.1}向量空间的线性映射}{28}{section.3.1}%
+\contentsline {section}{\numberline {3.2}零空间与值域}{31}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}零空间与单射性}{31}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}值域与满射性}{32}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}线性映射基本定理}{32}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}矩阵}{34}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}用矩阵表示线性映射}{34}{subsection.3.3.1}%

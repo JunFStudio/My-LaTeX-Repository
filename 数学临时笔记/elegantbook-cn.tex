@@ -29,6 +29,8 @@
 	\DeclareMathOperator{\ic}{i}
 	\DeclareMathOperator{\arccot}{arccot}
 	\DeclareMathOperator{\setjianfa}{\textbackslash}
+	\DeclareMathOperator{\nul}{null}
+	\DeclareMathOperator{\rge}{range}
 \newcommand{\examplefont}[1]{\color{mgreen} \textbf{#1}}
 
 % cover settings
@@ -38,7 +40,7 @@
 
 \author{Johnny Tang}
 \institute{DEEP Team}
-\date{January 21, 2022}
+\date{January 21, 2023}
 
 \extrainfo{请：相信时间的力量，敬畏概率的准则}
 
@@ -699,7 +701,7 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 
 \subsection{线性相关性与张成}
 
-下面的引理为我们阐释了线性相关性与张成的一个基本关系.
+下面的命题为我们阐释了线性相关性与张成的一个基本关系.
 
 \begin{proposition}{线性相关性引理}
 	设$v_1, \cdots ,v_m$是$V$中的一个线性相关的向量组，则存在$j \in \{ 1,2, \cdots ,m \}$使得： \\
@@ -707,7 +709,7 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 	(b)若从$v_1, \cdots ,v_m$中去掉第$j$项，则剩余组的张成空间等于$\spn (v_1, \cdots ,v_m)$.
 \end{proposition}
 \begin{proof}
-	(a)由于$v_1, \cdots ,v_m$线性相关，存在不全为$0$的数$a_1, \cdots ,a_m \in \F$使得$a_1v_1 + \cdots + a_mv_m = 0$.不妨设该向量组的顺序满足$a_1, \cdots ,a_j$均不为$0$，从而有
+	(a)由于$v_1, \cdots ,v_m$线性相关，存在不全为$0$的数$a_1, \cdots ,a_m \in \F$使得$a_1v_1 + \cdots + a_mv_m = 0$.(人为地)设该向量组的顺序满足$a_1, \cdots ,a_j$均不为$0$，从而有
 	\begin{equation}
 		v_j = \frac{a_1}{-a_j} v_1 + \cdots + \frac{a_{j-1}}{-a_j} v_{j-1} \label{xmxkxlgr}
 	\end{equation}
@@ -742,19 +744,22 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 
 \begin{proposition}{向量空间中的一些结论}{yixpjply}
 	\begin{itemize}
-		\item 在向量空间$V$中，每个张成组都能通过去除某些元素得到一个线性无关的张成组.
+		\item 在向量空间$V$中，每个线性相关的张成组都能通过去除某些元素得到一个线性无关的张成组.
 		\item $V$是无限维向量空间当且仅当$V$中存在一个向量序列$v_1, v_2, \cdots$使得当$m$是任意正整数时$v_1, \cdots ,v_m$都是线性无关的.
 		\item 有限维向量空间的子空间都是有限维的.
 	\end{itemize}
 \end{proposition}
 \begin{proof}
 	(1)\buzhou{1} 第$1$步：设$\mathcal{W}_1 = v_1, \cdots ,v_m$张成$V$.若$v_1 \notin \spn (v_2, \cdots ,v_m)$，则保持该组不变，并停止操作；若$v_1 \in \spn (v_2, \cdots ,v_m)$，则去掉$v_1$，并记新组$v_2, \cdots , v_m$为$\mathcal{W}_2$. \\
-	\buzhou{2} 第$j$步：若$v_j \notin \spn (v_{j+1}, \cdots ,v_m)$，则保持$\mathcal{W}_j$不变，并停止操作；若$v_j \in \spn (v_{j+1}, \cdots ,v_m)$，则去掉$v_j$，并记新组$v_{j+1}, \cdots , v_m$为$\mathcal{W}_{j+1}$
-	在经过有限次操作后，一定会在某一步停止并返回一个线性无关的组，且能张成$V$. \\
-	(2)\buzhou{1} 第$1$步：取$V$中的一个线性无关向量组$\mathcal{W}_1$，作它的张成空间$U_1$，取一元素$u \in (V \setjianfa U_1)$放入该组，得到一个新的组$\mathcal{W}_2$.显然该组仍是线性无关的(参考“线性无关的判断”例题之5). \\
+	\buzhou{2} 第$j$步：若$v_j \notin \spn (v_{j+1}, \cdots ,v_m)$，则保持$\mathcal{W}_j$不变，并停止操作；若$v_j \in \spn (v_{j+1}, \cdots ,v_m)$，则去掉$v_j$，并记新组$v_{j+1}, \cdots , v_m$为$\mathcal{W}_{j+1}$.在经过有限次操作后，一定会在某一步停止并返回一个线性无关的组，且能张成$V$. \\
+	(2)充分性显然.下证必要性： \\
+	\buzhou{1} 第$1$步：取$V$中的一个线性无关向量组$\mathcal{W}_1$，作它的张成空间$U_1$，取一元素$u \in (V \setjianfa U_1)$放入该组，得到一个新的组$\mathcal{W}_2$.显然该组仍是线性无关的(因为线性相关性的第二定义). \\
 	\buzhou{2} 第$j$步：作$\mathcal{W}_j$的张成空间$U_j$，取一元素$u \in (V \setjianfa U_j)$放入$\mathcal{W}_j$，得到一个新的组$\mathcal{W}_{j+1}$. \\
 	由于可以不断重复该过程，因此这样一个组$\mathcal{W}_j$会不断扩张并保持线性无关，即符合原命题要求. \\
-	(3)证明过程类似第二个结论，请读者自行验证.
+	(3)设有限维向量空间$V$及其子空间$U$.由命题\ref{pro:xxwgvi}，$V$中任意一个线性无关组的长度小于等于每一个$V$的张成组的长度，故该线性无关组的长度是有限的. \\
+	\buzhou{1} 第$1$步：若$U=\{ 0 \}$，即$U = \spn ()$，则$U$符合要求；否则存在非零向量$v_1 \in U$. \\
+	\buzhou{2} 第$j$步：若$U= \spn (v_1,\cdots ,v_{j-1})$，则$U$符合要求；否则存在$v_j \in U$满足$v_j \notin \spn (v_1,\cdots ,v_{j-1})$. \\
+	由于第$j+1$步能够说明存在$v_1, \cdots , v_j \in U$使$v_1, \cdots , v_j$线性无关，而$U$中任意一个线性无关组的长度是有限的，故一定会在某一步停止，此时$U$即符合要求.
 \end{proof}
 
 \subsection*{习题}
@@ -789,7 +794,7 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 \end{exercise}
 
 \begin{exercise}
-	设$p_0,p_1, \cdots ,p_m$是$\mathcal{P}_m (\F)$中的多项式使得对每个$j$都有$p_{j}(2)=0$.证明$p_0,p_1, \cdots ,p_m$在$\mathcal{P}_m (\F)$中不是线性无关的.
+	设$p_0,p_1, \cdots ,p_m$是$\mathcal{P}_m (\F)$中的多项式使得对每个$j$都有$p_{j}(2)=0$.证明$p_0,p_1, \cdots ,p_m$在$\mathcal{P}_m (\F)$中是线性相关的.
 \end{exercise}
 
 \newpage
@@ -1036,7 +1041,7 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 观察线性映射所具有的加性与齐性，似乎可以将其与线性组合联系起来.例如，对于$T \in \lmap (V,W)$，若给定$v_1, \cdots ,v_m$是$V$的基，设$c_1, \cdots ,c_m$是$\F$中的任意元素，则$$T(c_1v_1 + \cdots + c_mv_m) = c_1Tv_1 + \cdots + c_mTv_m$$
 由这种想法，以下的命题不难证明：
 
-\begin{proposition}{线性映射与定义域的基}
+\begin{proposition}{线性映射与定义域的基}{xmxkykuedkyiyu}
 	对于$T \in \lmap (V,W)$，设$v_1, \cdots ,v_m$是$V$的基，$w_1, \cdots ,w_m \in W$，则存在唯一一个线性映射$T \in \lmap (V,W)$使得对任意$j=1, \cdots ,m$都有$$Tv_j = w_j$$
 \end{proposition}
 \begin{proof}
@@ -1088,9 +1093,197 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 但是为什么要将复合硬生生地看做乘法呢？是因为它有很多好的性质：
 
 \begin{proposition}{线性映射乘积的代数性质}
-	
+	(1)结合性：设线性映射$T_1,T_2,T_3$，在运算有意义的情况下，有$$(T_1T_2)T_3=T_1(T_2T_3)$$
+	(2)单位元：设$T \in \lmap (V,W)$，$I$是$W$上的恒等映射，则$$TI=IT=T$$
+	(3)分配性质：设$T,T_1,T_2 \in \lmap (U,V),~S,S_1,S_2 \in \lmap (V,W)$，则$$(S_1+S_2)T=S_1T+S_2T,\quad S(T_1+T_2)=ST_1+ST_2$$
 \end{proposition}
 
+请注意，线性映射的乘法不满足交换性，即$ST=TS$不一定成立.
+
+通过以上方式定义的乘积，满足一个函数的乘法逆元就是其反函数.
+
+\subsection*{习题}
+
+\begin{exercise}
+	设$T \in \lmap (\F ^n,\F ^m)$.证明存在标量$A_{j,k} \in \F$~(其中$j=1, \cdots ,m,~k=1,\cdots ,n$)使得对任意$(x_1, \cdots ,x_n) \in \F ^n$都有$$T(x_1, \cdots ,x_n) = (A_{1,1}x_1+ \cdots +A_{1,n}x_n, \cdots ,A_{m,1}x_1+\cdots +A_{m,n}x_n)$$
+\end{exercise}
+
+\begin{exercise}
+	证明每个从一维向量空间到其自身的线性映射都是乘以某个标量.准确地说，证明：若$\dim V=1$且$T \in \lmap (V,V)$，则有$\lambda \in \F$使得对所有$v \in V$都有$Tv=\lambda v$.
+\end{exercise}
+
+\begin{exercise}
+	给出一个函数$\varphi :\R ^2 \to \R$，使得对所有$a \in \R$和所有$v \in \R ^2$有$$\varphi (av)=a\varphi (v)$$
+	但$\varphi$不是线性的.
+\end{exercise}
+
+\begin{exercise}
+	给出一个函数$\varphi :\C \to \C$，使得对所有$w,z \in \C$都有$$\varphi (w+z) = \varphi (w) + \varphi (z)$$
+	但$\varphi$不是线性的.这里$\C$视为一个复向量空间.
+\end{exercise}
+
+\begin{exercise}
+	设$V$是有限维的.证明$V$的子空间上的线性映射可以扩张成$V$上的线性映射.也就是说，证明：如果$U$是$V$的子空间，$S \in \lmap (V,W)$，那么存在$T \in \lmap (V,W)$使得对所有$u \in U$都有$Tu=Su$.
+\end{exercise}
+
+\begin{exercise}
+	设$V$是有限维的且$\dim V>0$，再设$W$是无限维的.证明$\lmap (V,W)$是无限维的.
+\end{exercise}
+
+\begin{exercise}
+	设$v_1, \cdots ,v_m$是$V$中的一个线性相关的向量组，并设$W \neq \{ 0 \}$.证明存在$w_1, \cdots ,w_m \in W$使得没有$T \in \lmap (V,W)$能满足$Tv_k=w_k,~k=1,\cdots ,m$.
+\end{exercise}
+
+\begin{exercise}
+	设$V$是有限维的且$\dim V \geq 2$.证明存在$S,T \in \lmap (V,V)$使得$ST \neq TS$.
+\end{exercise}
+
+\section{零空间与值域}
+
+\subsection{零空间与单射性}
+
+\begin{definition}{零空间}
+	对于$T \in \lmap (V,W)$，$T$的\textbf{零空间}(或称为“核”)定义如下：$$\nul T = \{ v \in V:Tv=0 \}$$
+\end{definition}
+
+\begin{example}{\examplefont{零空间的例子}}
+	(1)若$T$是$V$到$W$的零映射，则$\nul T=V$. \\
+	(2)设$\varphi \in \lmap (\C ^3,\F)$定义为$\varphi (z_1,z_2,z_3)=z_1+2z_2+3z_3$.则$$\nul \varphi = \{ (z_1,z_2,z_3) \in \C ^3 : z_1+2z_2+3z_3=0 \}$$
+	并且$\null \varphi$的一个基为$(-2,1,0),(-3,0,1)$. \\
+	(3)设$D \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$是微分映射$Dp=p'$.只有常函数的导数才能等于零函数，故$T$的零空间是常函数组成的集合. \\
+	(4)设$T \in \lmap (\F ^{\infty},\F ^{\infty})$是向后移位映射$$T(x_1,x_2,x_3, \cdots )=(x_2,x_3,\cdots )$$
+	为让$Tv=0$，要求$x_2=x_3=\cdots =0$，故$\nul T = \{ (a,0,0,\cdots ) :a \in \F \}$.
+\end{example}
+
+自然地，零空间是向量空间.
+
+\begin{proposition}{零空间是子空间}
+	设$T \in \lmap (V,W)$，则$\nul T$是$V$的子空间.
+\end{proposition}
+\begin{proof}
+	略.为证明上述命题，只需注意到$T(0)=0$~(因为$T(0+0)=T(0)+T(0)$).
+\end{proof}
+
+\begin{definition}{单射}
+	如果当$Tu=Tv$时必有$u=v$，则称映射$T:V \to W$是单射.
+\end{definition}
+
+\begin{proposition}{单射性的判定}
+	设$T \in \lmap (V,W)$，则$T$是单射当且仅当$\nul T=\{ 0 \}$.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 充分性：当$\nul T = \{ 0 \}$时，设$Tu=Tv$，则$Tu-Tv=T(u-v)=0$，于是$u-v=0$，即$u=v$.这表明$T$是单射. \\
+	\buzhou{2} 必要性：任取$\nul T$中的元素$v$，则$Tv=0$.因为$T0=0$且$T$是单射，所以必有$v=0$，即$\nul T = \{ 0 \}$.
+\end{proof}
+
+\subsection{值域与满射性}
+
+\begin{definition}{值域}
+	对于$T \in \lmap (V,W)$，$T$的\textbf{值域}(或称为“像”)定义如下：$$\rge T = \{ Tv : v \in V \}$$
+\end{definition}
+
+\begin{example}{\examplefont{值域的例子}}
+	(1)若$T$是$V$到$W$的零映射，则$\rge T=\{ 0 \}$. \\
+	(2)设$T \in \lmap (\R ^2,\R ^3)$定义为$T(x,y)=(2x,5y,x+y)$，则$$\rge T = \{ (2x,5y,x+y):x,y \in \R \}$$
+	并且$\rge T$的一个基为$(2,0,1),(0,5,1)$. \\
+	(3)设$D \in \lmap (\mathcal{P}(\R ),\mathcal{P}(\R ))$是微分映射$Dp=p'$.由于对每个多项式$q \in \mathcal{P}(\R )$均存在多项式$p$使得$p'=q$，故$D$的值域为$\mathcal{P}(\R )$.
+\end{example}
+
+自然地，值域是向量空间.
+
+\begin{proposition}{值域是子空间}
+	设$T \in \lmap (V,W)$，则$\rge T$是$V$的子空间.
+\end{proposition}
+\begin{proof}
+	略.
+\end{proof}
+
+\begin{definition}{满射}
+	如果函数$T:V \to W$的值域等于$W$，则称$T$为\textbf{满射}.
+\end{definition}
+
+上述例子中只有微分映射是满的.
+
+\subsection{线性映射基本定理}
+
+\begin{proposition}{线性映射基本定理}
+	设$V$是有限维的，$T \in \lmap (V,W)$.则$\rge T$是有限维的并且$$\dim V = \dim \nul T + \dim \rge T$$
+\end{proposition}
+\begin{proof}
+	设$v_1, \cdots ,v_m$是$\nul T$的基.将其扩展为$V$的一个基$v_1, \cdots ,v_m ,u_1, \cdots ,u_n$.注意到原命题等价于证明$\dim \rge T = n$，于是下证$Tu_1, \cdots ,Tu_n$为$T$的基： \\
+	首先，任取$v \in V$，记$v=a_1v_1 + \cdots + a_mv_m + b_1u_1 + \cdots + b_nu_n$，则$$Tv = a_1Tv_1 + \cdots + a_mTv_m + b_1Tu_1 + \cdots + b_nTu_n = b_1Tu_1 + \cdots + b_nTu_n$$
+	故$Tu_1, \cdots ,Tu_n$张成$\rge T$. \\
+	另外，若$b_1Tu_1 + \cdots + b_nTu_n=0$，则$$T(b_1u_1 + \cdots + b_nu_n)=0$$
+	这表明$b_1u_1 + \cdots + b_nu_n \in \nul T$.记$b_1u_1 + \cdots + b_nu_n = c_1v_1 + \cdots + c_mv_m$，则由$v_1, \cdots ,v_m,u_1, \cdots ,u_n$线性无关，可得$b_1= \cdots = b_n = c_1 = \cdots = c_m$，于是$Tu_1, \cdots ,Tu_n$线性无关.
+\end{proof}
+
+利用线性映射基本定理，可以快速证伪某些命题.
+
+\begin{proposition}
+	设有限维向量空间$V,W$.若$\dim V > \dim W$，那么$V$到$W$的线性映射$T$一定不是单射；相反地，若$\dim V < \dim W$，那么$V$到$W$的线性映射$T$一定不是满射.
+\end{proposition}
+\begin{proof}
+	只证明第一部分.由$\dim V > \dim W \geq \dim \rge T$，可知$\dim \nul T = \dim V - \dim \rge T > 0$，于是$T$不是单射.
+\end{proof}
+
+\begin{example}
+	用线性映射重述齐次线性方程组是否有非零解的问题.即，对给定的正整数$m,n$，设$A_{j,k} \in \F ~(j=1,\cdots ,m,~k=1,\cdots ,n)$，考虑齐次线性方程组$$\begin{cases}
+		\sum_{k=1}^{n} A_{1,k}x_k = 0 \\
+		\cdots \cdots \\
+		\sum_{k=1}^{n} A_{m,k}x_k = 0
+	\end{cases}$$是否有不全为$0$的解.
+\end{example}
+\begin{solution}
+	构造$T:\F ^n \to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb{\sum_{k=1}^{n} A_{1,k}x_k, \cdots , \sum_{k=1}^{n} A_{m,k}x_k}$$
+	易于证明$T$是线性映射.则原方程有不全为$0$的解等价于$T$不是单射.由上述命题可知，若$n>m$则$T$一定不是单射.故当$n > m$时原方程组有不全为$0$的解.(即变量个数大于方程个数时)
+\end{solution}
+
+\begin{example}
+	用线性映射重述是否可以选取常数项使得非齐次线性方程组无解的问题.即，对给定的正整数$m,n$，设$A_{j,k} \in \F ~(j=1,\cdots ,m,~k=1,\cdots ,n)$及$c_1, \cdots ,c_m \in \F$，考虑线性方程组$$\begin{cases}
+		\sum_{k=1}^{n} A_{1,k}x_k = c_1 \\
+		\cdots \cdots \\
+		\sum_{k=1}^{n} A_{m,k}x_k = c_m
+	\end{cases}$$
+	是否存在某些常数$c_1, \cdots ,c_m$使得上述方程组无解.
+\end{example}
+\begin{solution}
+	构造$T:\F ^n \to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb{\sum_{k=1}^{n} A_{1,k}x_k, \cdots , \sum_{k=1}^{n} A_{m,k}x_k}$$
+	易于证明$T$是线性映射.则存在这样的一组常数等价于$T$不是满的.由上述命题可知，若$n<m$则$T$一定不是满射.故当$n < m$存在这样一组常数.(即变量个数小于方程个数时)
+\end{solution}
+
+\subsection*{习题}
+
+\section{矩阵}
+
+\subsection{用矩阵表示线性映射}
+
+我们知道，对于线性映射$T:V \to W$，通过$V$的基的象$Tv_1, \cdots ,Tv_n$可以确定任意$V$中元素的象(见命题\ref{pro:xmxkykuedkyiyu}).稍后我们会利用$W$的基在矩阵上记录这些$Tv_j$的值.
+
+\begin{definition}{矩阵}
+	设正整数$m,n$，$m \times n$\textbf{矩阵}$A$是由$\F$的元素构成的$m$行$n$列的矩形阵列：$$A = 
+	\begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots & \ddots & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix}$$
+	其中，记号$A_{j,k}$表示$A$的第$j$行第$k$列的元素.
+\end{definition}
+
+例如，若$A=\begin{pmatrix}
+	8 & 4 & 5-3i \\ 1 & 9 & 7
+\end{pmatrix}$，则$A_{2,3}=7$.
+
+\begin{definition}{线性映射的矩阵}
+	设$T \in \lmap (V,W)$，并设$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_n$是$W$的基.规定$T$\textbf{关于这些基的矩阵}为$m \times n$矩阵$\mathcal{M}(T)$，其中$A_{j,k}$满足$$Tv_k = A_{1,k}w_1 + \cdots + A_{m,k}w_m$$
+	如果这些基不是上下文自明的，则采用记号$\mathcal{M}(T,(v_1, \cdots ,v_n),(w_1, \cdots ,w_m))$.
+\end{definition}
+
+构造$\mathcal{M}(T)$的方法如下图所示： 
+	$$\mathcal{M}(T) = \begin{matrix}
+  	& v_1~~ \cdots ~~v_k~~ \cdots ~~v_n\\
+	\begin{matrix} w_1 \\ \vdots \\ w_m \end{matrix}  
+	&\begin{pmatrix} ~~~ & ~~~ & A_{1,k} & ~~~ & ~~~\\  &  & \vdots &  & \\  &  & A_{m,k} &  & \end{pmatrix}
+	\end{matrix}$$
 
 \end{document}
 
