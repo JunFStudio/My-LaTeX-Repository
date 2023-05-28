@@ -19,6 +19,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\lmap}{\mathcal{L}}
+\newcommand{\mmatrix}{\mathcal{M}}
 \newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
 \newcommand{\buzhou}[1]{$#1^{\circ} \ $}
 \usepackage{ulem}
@@ -1253,6 +1254,28 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 
 \subsection*{习题}
 
+\begin{exercise}
+	设$v_1,\cdots ,v_m$是$V$中的向量组.定义$T \in \lmap (\F ^m,V)$如下：$$T(z_1, \cdots ,z_m) = z_1v_1 + \cdots + z_mv_m$$
+	(1)$T$的什么性质相当于$v_1, \cdots ,v_m$张成$V$？ \\
+	(2)$T$的什么性质相当于$v_1, \cdots ,v_m$线性无关？
+\end{exercise}
+
+\begin{exercise}
+	证明$\{ T \in \lmap (\R ^5,\R ^4):\dim \null T>2 \}$不是$\lmap (\R ^5,\R ^4)$的子空间.
+\end{exercise}
+
+\begin{exercise}
+	给出线性映射$T : \R ^4 \to \R ^4$使得$\rge T = \null T$.
+\end{exercise}
+
+\begin{exercise}
+	证明不存在线性映射$T:\R ^5 \to \R ^5$使得$\rge T = \null T$.
+\end{exercise}
+
+\begin{exercise}
+	
+\end{exercise}
+
 \section{矩阵}
 
 \subsection{用矩阵表示线性映射}
@@ -1263,7 +1286,7 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 	设正整数$m,n$，$m \times n$\textbf{矩阵}$A$是由$\F$的元素构成的$m$行$n$列的矩形阵列：$$A = 
 	\begin{pmatrix}
 		A_{1,1} & \cdots & A_{1,n} \\
-		\vdots & \ddots & \vdots \\
+		\vdots &  & \vdots \\
 		A_{m,1} & \cdots & A_{m,n}
 	\end{pmatrix}$$
 	其中，记号$A_{j,k}$表示$A$的第$j$行第$k$列的元素.
@@ -1278,12 +1301,78 @@ $\F ^{n}$同样也具有类似于$\F$的一些性质：
 	如果这些基不是上下文自明的，则采用记号$\mathcal{M}(T,(v_1, \cdots ,v_n),(w_1, \cdots ,w_m))$.
 \end{definition}
 
-构造$\mathcal{M}(T)$的方法如下图所示： 
+构造$\mathcal{M}(T)$的方法如下图所示：把$Tv_k$写成$w_1, \cdots ,w_m$的线性组合形式$A_{1,k} w_1 + \cdots + A_{m,k} w_m$，那么所有系数自上而下构成的矩阵的第$k$列.
 	$$\mathcal{M}(T) = \begin{matrix}
-  	& v_1~~ \cdots ~~v_k~~ \cdots ~~v_n\\
+  	& Tv_1~~ \cdots ~~Tv_k~~ \cdots ~~Tv_n\\
 	\begin{matrix} w_1 \\ \vdots \\ w_m \end{matrix}  
-	&\begin{pmatrix} ~~~ & ~~~ & A_{1,k} & ~~~ & ~~~\\  &  & \vdots &  & \\  &  & A_{m,k} &  & \end{pmatrix}
+	&\begin{pmatrix} ~~~~~ & ~~~~~ & A_{1,k} & ~~~~~ & ~~~~~\\  &  & \vdots &  & \\  &  & A_{m,k} &  & \end{pmatrix}
 	\end{matrix}$$
+
+例如，对于线性映射$T:\F ^2 \to \F ^3$定义为$T(x,y)=(x+3y,2x+5y,7x+9y)$，则$T$关于$\F ^2$与$\F ^3$的标准基的矩阵为$$\mathcal{M}(T)= \begin{pmatrix}
+	1 & 3 \\ 2 & 5 \\ 7 & 9
+\end{pmatrix}$$
+这是因为$T(1,0)=(1,2,7)=1(1,0,0)+2(0,1,0)+7(0,0,1),~T(0,1)=(3,5,9)=3(1,0,0)+5(0,1,0)+9(0,0,1)$.
+
+对于微分映射$D:\mathcal{P}_3(\R) \to \mathcal{P}_2(\R)$满足$Dp=p'$，它关于$\mathcal{P}_3(\R)$和$\mathcal{P}_2(\R)$的标准基的矩阵为$$\begin{pmatrix}
+	0 & 1 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 3
+\end{pmatrix}$$
+
+\subsection{矩阵的运算}
+
+矩阵的加法与标量乘法定义很符合直觉：
+
+\begin{definition}{矩阵的加法与标量乘法}
+	\begin{itemize}
+		\item 规定两个同样大小的矩阵的\textbf{和}是将对应元素相加得到的矩阵：$$\begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix} + \begin{pmatrix}
+		C_{1,1} & \cdots & C_{1,n} \\
+		\vdots &  & \vdots \\
+		C_{m,1} & \cdots & C_{m,n}
+	\end{pmatrix} = \begin{pmatrix}
+		A_{1,1}+C_{1,1} & \cdots & A_{1,n}+C_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1}+C_{m,1} & \cdots & A_{m,n}+C_{m,n}
+	\end{pmatrix}$$
+		\item 规定标量与矩阵的\textbf{乘积}是将标量乘以每个元素得到的矩阵：$$\lambda \begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix} = \begin{pmatrix}
+		\lambda A_{1,1} & \cdots & \lambda A_{1,n} \\
+		\vdots &  & \vdots \\
+		\lambda A_{m,1} & \cdots & \lambda A_{m,n}
+	\end{pmatrix}$$
+	\end{itemize}
+\end{definition}
+
+因而，我们有
+
+\begin{proposition}{线性映射与矩阵运算}{xmxkykueyysrjuvf}
+	\begin{itemize}
+		\item 设$S,T \in \lmap (V,W)$，则$\mmatrix (S+T)=\mmatrix (S) + \mmatrix (T)$. 
+		\item 设$\lambda \in \F ,~T \in \lmap (V,W)$，则$\mmatrix (\lambda T) = \lambda \mmatrix (T)$.
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}{$\F ^{m,n}$是向量空间}
+	对于正整数$m,n$，元素取自$\F$的所有$m \times n$矩阵的集合记为$\F ^{m,n}$.按照矩阵运算的定义，$\F ^{m,n}$是$mn$维向量空间.
+\end{proposition}
+
+上述命题的证明是显然的.
+
+我们注意到，线性映射不止有加法和标量乘法，还有元素之间的乘法.联系命题\ref{prop:xmxkykueyysrjuvf}，猜测是否会有$\mmatrix (ST)= \mmatrix (S) \mmatrix (T)$？为了得到这个结果，尝试倒推矩阵乘法的定义：
+
+
+
+
+
+
+
+
+
 
 \end{document}
 
