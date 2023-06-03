@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  28 MAY 2023 12:01
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  3 JUN 2023 10:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1377,9 +1377,6 @@ LaTeX Warning: Label `def:-NoValue-' multiply defined.
 LaTeX Warning: Label `def:-NoValue-' multiply defined.
 
 
-LaTeX Warning: Label `pro:-NoValue-' multiply defined.
-
-
 LaTeX Warning: Label `def:-NoValue-' multiply defined.
 
 
@@ -1414,6 +1411,27 @@ LaTeX Warning: Label `def:-NoValue-' multiply defined.
 
 
 LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `def:-NoValue-' multiply defined.
+
+
+LaTeX Warning: Label `pro:-NoValue-' multiply defined.
 
 
 LaTeX Warning: Label `pro:-NoValue-' multiply defined.
@@ -1658,30 +1676,30 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 758.
 Chapter 3.
 [28
 
-] [29] [30] [31] [32] [33] [34] [35]
-
-LaTeX Warning: Reference `prop:xmxkykueyysrjuvf' on page 36 undefined on input line 1366.
-
-[36] (/Volumes/Storage_SSD/latex sync/LaTeX/数学临时笔记/.texpadtmp/elegantbook-cn.aux)
-
-LaTeX Warning: There were undefined references.
-
+] [29] [30] [31] [32] [33] [34] [35] [36]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1427.
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 7.52812pt on input line 1427.
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1427.
+ [37] [38] (/Volumes/Storage_SSD/latex sync/LaTeX/数学临时笔记/.texpadtmp/elegantbook-cn.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `elegantbook-cn.out' has not changed.
-(rerunfilecheck)             Checksum: 2BA9445C9413510324EDF0D83B3EA6D0;1505.
+(rerunfilecheck)             Checksum: 88457755A66D7C68EF8DC2AA6D1C6887;1670.
 Package logreq Info: Writing requests to 'elegantbook-cn.run.xml'.
 \openout1 = `elegantbook-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45525 strings out of 476179
- 977566 string characters out of 5809544
- 1876351 words of memory out of 5000000
- 65452 multiletter control sequences out of 15000+600000
- 487695 words of font info for 147 fonts, out of 8000000 for 9000
+ 45619 strings out of 476179
+ 982935 string characters out of 5809544
+ 1876582 words of memory out of 5000000
+ 65542 multiletter control sequences out of 15000+600000
+ 489450 words of font info for 158 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,15n,107p,747b,1308s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/数学临时笔记/.texpadtmp/elegantbook-cn.pdf (37 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/数学临时笔记/.texpadtmp/elegantbook-cn.pdf (39 pages).

@@ -27,3 +27,6 @@
 \contentsline {section}{\numberline {3.3}矩阵}{34}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}用矩阵表示线性映射}{34}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}矩阵的运算}{35}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}可逆性与同构的向量空间}{36}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}线性映射的可逆性}{36}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}同构的向量空间}{37}{subsection.3.4.2}%
