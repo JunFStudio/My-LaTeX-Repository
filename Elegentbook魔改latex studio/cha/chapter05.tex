@@ -1,0 +1,888 @@
+\chapter{Linux三剑客}
+\begin{center}{\textcolor[RGB]{255, 0, 0}{\faHeart}~温柔正确的人总是是难以生存，因为这个世界既不温柔，也不正确。~\textcolor[RGB]{255, 0, 0}{\faHeart}}
+\end{center}
+\begin{center}
+	\pgfornament[width=0.36\linewidth,color=lsp]{88}
+\end{center}
+\section{正则表达式}
+\begin{introduction}
+	\item 正则表达式
+	\item grep命令 – 强大的文本搜索工具
+	\item sed命令 – 处理编辑文本文件
+	\item awk命令 – 文本和数据进行处理的编程语言
+	\item awk命令之变量
+	\item awk格式化
+	\item awk命令之模式pattern
+\end{introduction}
+正则表达式就是用某种模式去匹配一类字符串的公式，主要用来描述字符串匹配的工具。一句话\textbf{正则表达式（Regular expression）是一组由字母和符号组成的特殊文本, 它可以用来从文本中找出满足你想要的格式的句子。}
+
+在正则表达式中，匹配是最常用的一个词语，它描述了正则表达式动作结果。给 定一段文本或字符串，使用正则表达式从文本或字符串中查找出符合正则表达式的字符串。有可能文本或字符存在不止一个部分满足给定的正则表达式，这时每一个这样的部分被称为一个匹配。
+
+正则表达式：在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规则的字符串的单个字符串。在很多文本编辑器或其他工具里，正则表达式通常被用来检索或替换那些符合某个模式的文本内容。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。
+
+\subsection{正则表达式可以做什么?}
+正则表达式在程序设计语言中存在着广泛的应用，特别是用来处理字符串。如匹  配字符串、查找字符串、替换字符串等。可以说，正则表达式是一段文本或一个公式，它是用来描述用某种模式去匹配一类字符串的公式，并且该公式具有一定的模  式。正则表达式就是用某种模式去匹配一类字符串的公式，主要用来描述字符串匹配的工具。
+
+\begin{dinglist}{118}
+	\item \textbf{验证字符串}，即验证给定的字符串或子字符串是否符合指定特征，譬如验证是否
+	是合法的邮件地址、验证是否为合法的HTTP地址等
+	\item \textbf{查找字符串}，从给定的文本中查找符合指定特征的字符串，比查找回定字符串更加灵活方便
+	\item \textbf{替换字符串}，即把给定的字符串中的符合指定特征的子字符串替换为其他字符
+	串，比普通的替换更强大
+	\item \textbf{提取字符串}，即从给定的字符串中提取符合指定特征的子字符串
+\end{dinglist}
+
+\subsection{正则表达式的分类}
+首先正则表达式分为三类（man grep可以看到，分别是basic RegExs，extended RegExs，perl RegExs）
+\begin{dinglist}{118}
+\item 基本的正则表达式（Basic Regular Expression 又叫Basic RegEx 简称BREs）
+\item 扩展的正则表达式（Extended Regular Expression 又叫Extended RegEx 简称EREs）
+\item Perl的正则表达式（Perl Regular Expression 又叫Perl RegEx 简称PREs)
+\end{dinglist}
+
+%\subsection{基本组成部分}
+%正则表达式的基本组成部分。
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.94\linewidth]{image/re1}
+%	\caption{基本组成部分}
+%	\label{fig:re1}
+%\end{figure}
+%\subsection{POSIX字符类}
+%POSIX字符类是一个形如[:...:]的特殊元序列（meta sequence），他可以用于匹配特定的字符范围。
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.94\linewidth]{image/re2}
+%	\caption{POSIX字符类}
+%	\label{fig:re1}
+%\end{figure}
+%\subsection{元字符}
+%元字符（meta character）是一种Perl风格的正则表达式，只有一部分文本处理工具支持它，并不是所有的文本处理工具都支持。
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.99\linewidth]{image/re3}
+%	\caption{元字符}
+%	\label{fig:re1}
+%\end{figure}
+
+\subsection{Linux 中常用文本工具与正则表达式的关系}
+常握 Linux 下几种常用文本工具的特点，对于我们更好的使用正则表达式是很有帮助的
+\begin{ascolorbox5}{正则表达式的分类}
+	\begin{ascboxB}{grep , egrep 正则表达式特点：}
+		\begin{itemize}
+			\item grep 支持：BREs、EREs、PREs 正则表达式
+			\begin{itemize}
+				\item grep 指令后不跟任何参数，则表示要使用 ”BREs“		
+				\item grep 指令后跟 ”-E" 参数，则表示要使用 “EREs“
+				\item grep 指令后跟 “-P" 参数，则表示要使用 “PREs"
+			\end{itemize}
+		\item egrep 支持：EREs、PREs 正则表达式
+		\begin{itemize}
+			\item egrep 指令后不跟任何参数，则表示要使用 “EREs”
+			\item egrep 指令后跟 “-P" 参数，则表示要使用 “PREs"
+		\end{itemize}
+	\item grep 与 egrep 正则匹配文件，处理文件方法
+			\begin{itemize}
+		\item egrep 与 egrep 的处理对象：文本文件
+		\item grep 与 egrep 的处理过程：查找文本文件中是否含要查找的 “关键字”（关键字可以是正则表达式） ，如果含有要查找的 ”关健字“，那么默认返回该文本文件中包含该”关健字“的该行的内容，并在标准输出中显示出来，除非使用了“>" 重定向符号,
+		\item grep 与 egrep 在处理文本文件时，是按行处理的
+	\end{itemize}
+\end{itemize}
+	\end{ascboxB}
+	\begin{ascboxB}{sed 正则表达式特点}
+	\begin{itemize}
+	\item sed 文本工具支持：BREs、EREs
+	\begin{itemize}
+		\item sed 指令默认是使用"BREs"
+		\item sed 命令参数 “-r ” ，则表示要使用“EREs"
+	\end{itemize}
+\item sed 功能与作用
+	\begin{itemize}
+	\item sed 处理的对象：文本文件
+	\item sed 处理操作：对文本文件的内容进行 --- 查找、替换、删除、增加等操作
+	\item sed 在处理文本文件的时候，也是按行处理的
+\end{itemize}
+	\end{itemize}
+	\end{ascboxB}
+	\begin{ascboxB}{Awk（gawk）正则表达式特点}
+	\begin{itemize}
+		\item Awk 文本工具支持：EREs
+		\begin{itemize}
+			\item awk 指令默认是使用 “EREs"
+		\end{itemize}
+		\item Awk 文本工具处理文本的特点
+		\begin{itemize}
+			\item awk 处理的对象：文本文件
+			\item awk 处理操作：主要是对列进行操作
+		\end{itemize}
+	\end{itemize}
+\end{ascboxB}
+\end{ascolorbox5}
+
+\section{Linux三剑客使用}
+Linux 三剑客是（grep，sed，awk）三者的简称，熟练使用这三个工具可以提升运维效率。Linux 三剑客以正则表达式作为基础，而在Linux系统中，支持两种正则表达式，分别为“标准正则表达式”和“扩展正则表达式”。在掌握好正则表达式后，将具体讲解三剑客的用法。
+
+\subsection{grep命令 – 强大的文本搜索工具}
+grep是“global search regular expression and print out the line”的简称，意思是全面搜索正则表达式，并将其打印出来。这个命令可以结合正则表达式使用，它也是linux使用最为广泛的命令。
+
+grep命令的选项用于对搜索过程的补充，而其命令的模式十分灵活，可以是变量、字符串、正则表达式。需要注意的是：一当模式中包含了空格，务必要用双引号将其引起来。
+
+linux系统支持三种形式的grep命令，大儿子就是grep，标准，模仿的代表。二儿子兴趣爱好多-egrep，简称扩展grep命令，其实和grep -E等价，支持基本和扩展的正则表达式。小儿子跑的最快-fgrep，简称快速grep命令，其实和grep -F等价，不支持正则表达式，按照字符串表面意思进行匹配。
+\begin{ascolorbox5}{grep命令 – 强大的文本搜索工具}
+	\begin{ascboxE}{基本说明 :}
+		\begin{dinglist}{118}
+			\item 命令名称：grep 
+			\item 命令英文原意： global search regular expression and print out the line
+			\item 命令所在路径：/bin/grep 
+			\item 执行权限：所有用户 
+			\item 语法：grep  -iv [指定字串] [文件] 
+			\item 功能描述：在文件中搜寻字串匹配的行并输出      
+		\end{dinglist}
+	\end{ascboxE}
+	\begin{ascboxB}{参数 :}
+		\begin{itemize}
+			\item -i	搜索时，忽略大小写
+			\item -c	只输出匹配行的数量
+			\item -l	只列出符合匹配的文件名，不列出具体的匹配行
+			\item \md{-n	列出所有的匹配行，显示行号}
+			\item -h	查询多文件时不显示文件名
+			\item -s	不显示不存在、没有匹配文本的错误信息
+			\item \md{-v	显示不包含匹配文本的所有行}
+			\item -w	匹配整词
+			\item -x	匹配整行
+			\item -r	递归搜索
+			\item -q	禁止输出任何结果，已退出状态表示搜索是否成功
+			\item -b	打印匹配行距文件头部的偏移量，以字节为单位
+			\item -o	与-b结合使用，打印匹配的词据文件头部的偏移量，以字节为单位
+		\end{itemize}
+	\end{ascboxB}
+\end{ascolorbox5}
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{找出login有关行:}
+		\begin{lstlisting}[style=linux]
+[root@localhost ~]# cat /etc/passwd > /tmp/test_grep.txt
+[root@localhost ~]# grep -E 'login' /tmp/test_grep.txt -n
+2:bin:x:1:1:bin:/bin:/sbin/nologin
+3:daemon:x:2:2:daemon:/sbin:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{找出没有login的行:}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# grep -E 'login' /tmp/test_grep.txt -nv
+1:root:x:0:0:root:/root:/bin/bash
+6:sync:x:5:0:sync:/sbin:/bin/sync
+7:shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+	\end{lstlisting}
+\end{ascboxJ}
+	\begin{ascboxJ}{忽略大小写，找出root有关行}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# grep -E 'Root' -in /tmp/test_grep.txt
+1:root:x:0:0:root:/root:/bin/bash
+10:operator:x:11:0:operator:/root:/sbin/nologin
+	\end{lstlisting}
+\end{ascboxJ}
+	\begin{ascboxJ}{同时过滤出root和sync有关行}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# grep -E 'root|sync' -in /tmp/test_grep.txt
+1:root:x:0:0:root:/root:/bin/bash
+6:sync:x:5:0:sync:/sbin:/bin/sync
+10:operator:x:11:0:operator:/root:/sbin/nologin
+	\end{lstlisting}
+\end{ascboxJ}
+	\begin{ascboxJ}{统计匹配结果的行数}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# grep -E 'root|sync' -in /tmp/test_grep.txt -c
+3
+	\end{lstlisting}
+\end{ascboxJ}
+	\begin{ascboxJ}{只输出匹配出的内容}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# grep -E 'root|sync' -in /tmp/test_grep.txt -o
+1:root
+1:root
+	\end{lstlisting}
+\end{ascboxJ}
+	\begin{ascboxJ}{完整匹配，字符串精确匹配，整个单词}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# grep -E 'root' -in /tmp/test_grep.txt -w
+1:root:x:0:0:root:/root:/bin/bash
+10:operator:x:11:0:operator:/root:/sbin/nologin
+	\end{lstlisting}
+\end{ascboxJ}
+	\begin{ascboxJ}{过滤掉空白和注释行}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# grep -Ev '^#|^$' -in /tmp/test_grep.txt
+1:root:x:0:0:root:/root:/bin/bash
+2:bin:x:1:1:bin:/bin:/sbin/nologin
+	\end{lstlisting}
+\end{ascboxJ}
+	\begin{ascboxJ}{找出用户名和shell相同的用户名}
+	\begin{lstlisting}[style=linux]
+[root@localhost tmp]# grep -E '^([^:]+\b).*\1$' password.txt -n
+6:sync:x:5:0:sync:/sbin:/bin/sync
+7:shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+8:halt:x:7:0:halt:/sbin:/sbin/halt
+	\end{lstlisting}
+\end{ascboxJ}
+\end{ascolorbox10}
+
+
+\subsection{sed命令 – 处理编辑文本文件}
+sed是Stream Editor（字符流编辑器）的缩写，简称流编辑器。
+
+Linux sed 命令是利用脚本来处理文本文件。sed 可依照脚本的指令来处理、编辑文本文件。sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。sed主要是用来将数据进行选取、替换、删除、新增的命令。
+\begin{ascolorbox5}{sed命令 – 处理编辑文本文件}
+	\begin{ascboxE}{基本说明 :}
+		\begin{dinglist}{118}
+			\item 命令名称：sed
+			\item 命令英文原意： Stream Editor
+			\item 命令所在路径： /usr/bin/sed
+			\item 执行权限：所有用户 
+			\item 语法：sed [选项] [sed内置命令字符] [输入文件]
+			\item 功能描述：处理编辑文本文件
+		\end{dinglist}
+	\end{ascboxE}
+	\begin{ascboxB}{选项:}
+		\begin{itemize}
+			\item -n ：使用安静（silent）模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到屏幕上。
+			但如果加上 -n 参数后，则只有经过 sed 特殊处理的那一行（或者动作）才会被列出来。
+			\item -e ：直接在命令行界面上进行 sed 的动作编辑；
+			\item -r ：sed 的动作支持的是延伸型正则表达式的语法。（默认是基础正则表达式语法）
+			\item -i ：直接修改读取的文件内容，而不是由屏幕输出。
+			\item -f ：直接将 sed 的动作写在一个文件内， -f filename 则可以执行 filename 内的 sed 动作；
+		\end{itemize}
+	\end{ascboxB}
+\begin{ascboxB}{动作说明:}
+	\begin{itemize}
+		\item 空地址	全文处理
+		\item 单地址	指定文件某一行
+		\item /pattern/	被模式匹配到的每一行
+		\item 范围区间	10,20 十到二十行，10,+5第10行向下5行，/pattern1/,/pattern2/
+	\item 	步长	1~2，表示1、3、5、7、9行，2~2两个步长，表示2、4、6、8、10、偶数行
+	\end{itemize}
+\end{ascboxB}
+
+	\begin{ascboxB}{sed内置命令字符:}
+	\begin{itemize}
+		\item a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现（目前的下一行）～
+		\item c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！
+		\item d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；
+		\item i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现（目前的上一行）；
+		\item p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～
+		\item s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正则表达式！例如 1,20s/old/new/g 就是啦！
+	\end{itemize}
+\end{ascboxB}
+\end{ascolorbox5}
+
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{输出文件第2，3行的内容:}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# cat -n test_grep.txt
+1  root:x:0:0:root:/root:/bin/bash
+2  bin:x:1:1:bin:/bin:/sbin/nologin
+3  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+4  adm:x:3:4:adm:/var/adm:/sbin/nologin
+[root@localhost tmp]# sed -n '2,3p' test_grep.txt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{过滤出含有root的字符串行:}
+\#sed可以实现grep的过滤效果，必须吧要过滤的内容放在双斜杠中
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# sed -n '/root/p' test_grep.txt  
+root:x:0:0:root:/root:/bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{删除含有game的行}
+\# 注意sed想要修改文件内容，还得用-i参数
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# sed '/login/d' test_grep.txt
+root:x:0:0:root:/root:/bin/bash
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+
+[root@localhost tmp]# sed -i '/root/d' test_grep.txt
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{删除第5行到结尾}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# sed '5,$d' test_grep.txt
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{将文件中的My全部替换为His}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# sed 's/My/His/g' luffy.txt
+me is chaoge.
+I teach linux.
+I like play computer game.
+His qq is 877348180.
+His website is http://pythonav.cn.
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{在文件第二行追加内容 a字符功能，写入到文件}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# sed '2a This test word' luffy.txt -i
+[root@localhost tmp]# cat luffy.txt
+me is chaoge.
+I teach linux.
+This test word
+
+[root@localhost tmp]# sed '2a This test word \n testword2' luffy.txt -i
+[root@localhost tmp]# cat luffy.txt
+me is chaoge.
+I teach linux.
+This test word
+testword2
+This test word
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{取出linux的IP地址}
+
+		\begin{lstlisting}[style=linux]
+sed 's/要被取代的字串/新的字串/g'
+			
+[root@localhost tmp]# ifconfig ens33| sed -n '2p'|sed -r 's/^.*inet\s|\snet.*$//g'
+192.168.178.110
+
+[root@localhost tmp]# ifconfig ens33 | sed -n '2p'|grep -Po '(\d{3}\.\d{3}\.\d{1,3}\.\d{1,3})'|head -n 1
+192.168.178.110
+
+[root@localhost tmp]# ifconfig ens33|sed -n '2p'|awk '{print $2}'
+192.168.178.110
+
+[root@localhost tmp]# ifconfig ens33|awk 'NR==2 {print $2}'
+192.168.178.110
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+
+\subsection{awk命令 – 文本和数据进行处理的编程语言}
+awk是一个强大的文本分析工具，简单来说awk就是把文件逐行读入，（空格，制表符）为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+
+awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+
+awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。
+
+awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。
+\begin{ascolorbox5}{awk命令 – 文本和数据进行处理的编程语言}
+	\begin{ascboxE}{基本说明 :}
+		\begin{dinglist}{118}
+			\item 命令名称：awk 
+			\item 命令英文原意： Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母
+			\item 命令所在路径： /usr/bin/awk
+			\item 执行权限：所有用户 
+			\item 语法：awk [options] 'script' var=value file(s)
+			\item 语法2：awk [options] -f scriptfile var=value file(s)
+			\item 功能描述：awk是一个强大的文本分析工具
+		\end{dinglist}
+	\end{ascboxE}
+\end{ascolorbox5}
+
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{显示文件第五行:}
+		\begin{lstlisting}[style=linux]
+#NR在awk中表示行号，NR==5表示行号是5的那一行
+#注意一个等于号，是修改变量值的意思，两个等于号是关系运算符，是"等于"的意思
+
+[root@localhost tmp]# awk 'NR==5' password.txt
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{显示文件2-4行:}
+		\#sed可以实现grep的过滤效果，必须吧要过滤的内容放在双斜杠中
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk 'NR==2,NR==4' password.txt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{给每一行的内容添加行号}
+		\begin{lstlisting}[style=linux]
+添加变量，NR等于行号，$0表示一整行的内容
+{print }是awk的动作
+
+[root@localhost tmp]# awk '{print NR,$0}' password.txt
+1 root:x:0:0:root:/root:/bin/bash
+2 bin:x:1:1:bin:/bin:/sbin/nologin
+3 daemon:x:2:2:daemon:/sbin:/sbin/nologin
+4 adm:x:3:4:adm:/var/adm:/sbin/nologin
+5 lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{显示文件3-5行且输出行号}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk 'NR==3,NR==5 {print NR,$0}' password.txt
+3 daemon:x:2:2:daemon:/sbin:/sbin/nologin
+4 adm:x:3:4:adm:/var/adm:/sbin/nologin
+5 lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{显示文件的第一列，倒数第二和最后一列}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -F ':' 'NR==2,NR==4 {print $1,($NF-1),$NF}' password.txt
+bin -1 /sbin/nologin
+daemon -1 /sbin/nologin
+adm -1 /sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+
+
+
+\subsection{awk命令之变量}
+
+对于awk而言，变量分为两类，第一列内置变量
+\begin{ascolorbox5}{awk变量}
+	\begin{ascboxE}{基本说明 :}
+		\begin{dinglist}{118}
+			\item FS	输入字段分隔符， 默认为空白字符
+			\item OFS	输出字段分隔符， 默认为空白字符
+			\item RS	输入记录分隔符(输入换行符)， 指定输入时的换行符
+			\item ORS	输出记录分隔符（输出换行符），输出时用指定符号代替换行符
+		\item 	NF	NF：number of Field，当前行的字段的个数(即当前行被分割成了几列)，字段数量
+		\item 	NR	NR：行号，当前处理的文本行的行号。
+		\item 	FNR	FNR：各文件分别计数的行号
+		\item 	FILENAME	FILENAME：当前文件名
+		\item 	ARGC	ARGC：命令行参数的个数
+		\item 	ARGV	ARGV：数组，保存的是命令行所给定的各参数
+		\end{dinglist}
+	\end{ascboxE}
+\end{ascolorbox5}
+
+awk 怎么知道我到底这个数据有几行？有几栏呢？这就需要 awk 的内置变量的帮忙.
+
+\subsubsection{NR，NF、FNR}
+\begin{dinglist}{118}
+	\item NF 每一行 （\$0） 拥有的字段总数
+	\item NR 目前 awk 所处理的是“第几行”数据
+	\item FS 目前的分隔字符，默认是空白键
+\end{dinglist}
+last -n 5 的例子来做说明，如果我想要：
+\begin{dinglist}{118}
+	\item 列出每一行的帐号（就是 \$1）；
+	\item 列出目前处理的行数（就是 awk 内的 NR 变量）
+	\item 并且说明，该行有多少字段（就是 awk 内的 NF 变量）
+\end{dinglist}
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{NR 与 NF 的差别}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# last -n 5| awk '{print $1 "\t lines: "NR "\t columns: "NF}'
+root     lines: 1        columns: 10
+root     lines: 2        columns: 10
+root     lines: 3        columns: 10
+reboot   lines: 4        columns: 11
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{FNR处理多个文件显示行号}
+	\begin{lstlisting}[style=linux]
+#  普通的NR变量，会将多个文件按照顺序排序
+[root@localhost tmp]# awk '{print NR,$0}' luffy.txt password.txt
+1 me is chaoge.
+2 first line
+3 I teach linux.
+
+#使用FNR变量，可以分别对文件行数计数
+[root@localhost tmp]# awk '{print FNR,$0}' luffy.txt password.txt
+1 me is chaoge.
+2 first line
+3 I teach linux.
+1 root:x:0:0:root:/root:/bin/bash
+2 bin:x:1:1:bin:/bin:/sbin/nologin
+3 daemon:x:2:2:daemon:/sbin:/sbin/nologin
+	\end{lstlisting}
+\end{ascboxJ}
+\end{ascolorbox10}
+
+\subsubsection{FS,OFS分割符}
+awk的分隔符有两种
+\begin{dinglist}{118}
+	\item FS	输入字段分隔符， 默认为空白字符
+	\item OFS	输出字段分隔符， 默认为空白字符
+	\item RS	输入记录分隔符(输入换行符)， 指定输入时的换行符
+	\item ORS	输出记录分隔符（输出换行符），输出时用指定符号代替换行符
+\end{dinglist}
+
+\md{输入分隔符}awk逐行处理文本的时候，以输入分割符为准，把文本切成多个片段，默认符号是空格
+
+当我们处理特殊文件，没有空格的时候，可以自由指定分隔符特点
+\begin{ascolorbox10}{命令练习}
+\begin{ascboxJ}{输入字段分隔符-F 自由指定分隔符}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -F '#' '{print $1,$2}' chaoges.txt
+超哥l 超哥m
+超哥o 超哥p
+超哥r 超哥s
+超哥u 超哥v
+超哥x 超哥y
+		\end{lstlisting}
+\end{ascboxJ}
+	
+\begin{ascboxJ}{-v FS使用变量的形式，指定分隔符}
+除了使用-F选项，还可以使用变量的形式，指定分隔符，使用-v选项搭配，修改FS变量
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v FS='#' '{print $1}' chaoges.txt
+超哥l
+超哥o
+超哥r
+超哥u
+超哥x
+		\end{lstlisting}
+\end{ascboxJ}
+	
+awk执行完命令，默认用空格隔开每一列，这个空格就是awk的默认输出符，例如
+	\begin{ascboxJ}{默认输出符}
+		\begin{lstlisting}[style=linux]
+			[root@localhost tmp]# awk -v FS='#' '{print $1,$2,$3}' chaoges.txt
+超哥l 超哥m 超哥n
+超哥o 超哥p 超哥q
+超哥r 超哥s 超哥t
+超哥u 超哥v 超哥w
+超哥x 超哥y 超哥z
+		\end{lstlisting}
+	\end{ascboxJ}
+	
+	\begin{ascboxJ}{通过OFS设置输出分割符，记住修改变量必须搭配选项 -v}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v FS='#' -v OFS='*--*' '{print $1,$2,$3}' chaoges.txt
+超哥l*--*超哥m*--*超哥n
+超哥o*--*超哥p*--*超哥q
+超哥r*--*超哥s*--*超哥t
+超哥u*--*超哥v*--*超哥w
+超哥x*--*超哥y*--*超哥z
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+
+\md{输出分隔符与逗号},
+awk是否存在输出分隔符，特点在于\texttt{'{print \$1,\$3 } }逗号的区别
+\begin{ascolorbox10}{命令练习}
+	
+	\begin{ascboxJ}{添加逗号，默认是空格分隔符}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v FS='#'  '{print $1,$3 }' chaoges.txt
+超哥l 超哥n
+超哥o 超哥q
+超哥r 超哥t
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{通过OFS设置输出分割符，记住修改变量必须搭配选项 -v符}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v FS='#' -v OFS='*--*' '{print $1,$2,$3}' chaoges.txt
+超哥l*--*超哥m*--*超哥n
+超哥o*--*超哥p*--*超哥q
+超哥r*--*超哥s*--*超哥t
+超哥u*--*超哥v*--*超哥w
+超哥x*--*超哥y*--*超哥z
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{不加逗号}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v FS='#'  '{print $1$3 }' chaoges.txt
+超哥l超哥n
+超哥o超哥q
+超哥r超哥t
+		\end{lstlisting}
+	\end{ascboxJ}
+	\begin{ascboxJ}{修改分割符，改为(制表符，四个空格)或者任意字符}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v FS='#'  '{print $1"\t"$3 }' chaoges.txt
+超哥l   超哥n
+超哥o   超哥q
+超哥r   超哥t
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+
+\subsubsection{RS,ORS分隔符}
+RS变量作用是输入分隔符，默认是回车符，也就是回车(Enter键)换行符
+
+我们也可以自定义空格作为行分隔符，每遇见一个空格，就换行处理
+
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{自定义空格作为行分隔符}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v RS=' ' '{print NR,$0}' chaoges.txt
+1 超哥l
+2 超哥m
+3 超哥n
+超哥o
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+	\begin{ascboxJ}{自定义换行符作为行分隔符}
+	\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v RS='\n' '{print NR,$0}' chaoges.txt
+1 超哥l 超哥m 超哥n
+2 超哥o 超哥p 超哥q
+3 超哥r 超哥s 超哥t
+	\end{lstlisting}
+\end{ascboxJ}
+
+ORS是输出分隔符的意思，awk默认认为，每一行结束了，就得添加回车换行符
+
+ORS变量可以更改输出符
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{ORS变量可以更改输出符}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -v ORS='...' '{print NR,$0}' chaoges.txt
+1 超哥l 超哥m 超哥n...2 超哥o 超哥p 超哥q...3 超哥r 超哥s 超哥t...4 超哥u 超哥v 超哥w...5 超哥x 超哥y 超哥z...
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+
+\subsubsection{FILENAME显示awk正在处理文件的名字}
+FILENAME显示awk正在处理文件的名
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{FILENAME显示awk正在处理文件的名}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk '{print FILENAME,FNR,$0}' chaoges.txt  luffy.txt
+chaoges.txt 1 超哥l 超哥m 超哥n
+chaoges.txt 2 超哥o 超哥p 超哥q
+chaoges.txt 3 超哥r 超哥s 超哥t
+chaoges.txt 4 超哥u 超哥v 超哥w
+chaoges.txt 5 超哥x 超哥y 超哥z
+luffy.txt 1 me is chaoge.
+luffy.txt 2 first line
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+\subsection{awk格式化}
+前面我们接触到的awk的输出功能，是{print}的功能，只能对文本简单的输出，并不能美化或者修改格式
+		\begin{lstlisting}[style=linux]
+format的使用
+
+要点：
+1、其与print命令的最大不同是，printf需要指定format；
+2、format用于指定后面的每个item的输出格式；
+3、printf语句不会自动打印换行符；\\n
+
+format格式的指示符都以%开头，后跟一个字符；如下：
+%c: 显示字符的ASCII码；
+%d, %i：十进制整数；
+%e, %E：科学计数法显示数值；
+%f: 显示浮点数；
+%g, %G: 以科学计数法的格式或浮点数的格式显示数值；
+%s: 显示字符串；
+%u: 无符号整数；
+%%: 显示%自身；
+
+printf修饰符：
+-: 左对齐；默认右对齐,
++：显示数值符号；  printf "%+d"
+\end{lstlisting}
+printf动作默认不会添加换行符
+
+print默认添加空格换行符
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{给printf添加格式}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk '{printf "%s\n",$1}' chaoges.txt
+超哥l
+超哥r
+超哥u
+		\end{lstlisting}
+\end{ascboxJ}
+\begin{ascboxJ}{对多个变量进行格式化}
+\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk 'BEGIN{printf "%d\n%d\n%d\n%d\n%d\n",1,2,3,4,5}'
+1
+2
+3
+4
+5
+	\end{lstlisting}
+\end{ascboxJ}
+
+\begin{ascboxJ}{对多个变量进行格式化2格式化输出password文件}
+	\begin{lstlisting}[style=linux]
+[root@localhost tmp]# head password.txt | awk -F ":" 'BEGIN{printf "%-15s\t %-15s\t %-15s\t %-15s\t %-15s\t %-15s\t %-15s\n","用户名","密码","UID","GID","用户注释","家目录","解释器"} {printf "%-15s\t %-15s\t %-15s\t %-15s\t %-15s\t %-15s\t %s\n",$1, $2,$3,$4,$5,$6,$7}' # 太长了
+
+[root@localhost tmp]# head password.txt | awk -F ":" 'BEGIN{printf "%-15s\t %-15s\t %-15s\t %-15s\t %-15s\t \n","用户名","密码","UID","GID","用户注释"} {printf "%-15s\t %-15s\t %-15s\t %-15s\t %s\n",$1, $2,$3,$4,$5}'
+	用户名           密码                    UID                     GID                     用户注释
+	root             x                       0                       0                       root
+	bin              x                       1                       1                       bin
+	daemon           x                       2                       2                       daemon
+	adm              x                       3                       4                       adm
+	lp               x                       4                       7                       lp
+	sync             x                       5                       0                       sync
+	shutdown         x                       6                       0                       shutdown
+	halt             x                       7                       0                       halt
+	mail             x                       8                       12                      mail
+	operator         x                       11                      0                       operator
+		\end{lstlisting}
+	\end{ascboxJ}	
+\end{ascolorbox10}
+
+
+\subsection{awk命令之模式pattern}
+再来回顾下awk的语法
+		\begin{lstlisting}[style=linux]
+awk [option] 'pattern{action}'  file ...
+\end{lstlisting}
+\subsubsection{awk模式总结}
+\begin{dinglist}{118}
+	\item 空模式，没有指定任何的模式（条件），因此每一行都执行了对应的动作，空模式会匹配文档的每一行，每一行都满足了（空模式）	
+	\item 关系运算符模式，awk默认执行打印输出动作，'NR==2,NR==5'表示第2行到第5行
+	\item BEGIN/END模式（条件设置）
+\end{dinglist}
+
+awk是按行处理文本，刚才讲解了print动作，现在讲解特殊的pattern：BEGIN和END
+\begin{dinglist}{118}
+\item 	BEGIN模式是处理文本之前需要执行的操作
+\item 	END模式是处理完所有行之后执行的操作
+\end{dinglist}
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{BEGIN基本使用}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk 'BEGIN{print "begin的基础用法"}'
+begin的基础用法
+
+[root@localhost tmp]# awk 'BEGIN{print "begin的基础用法"}{print $1}' chaoges.txt
+begin的基础用法
+超哥l
+超哥r
+		\end{lstlisting}
+	\end{ascboxJ}
+
+	\begin{ascboxJ}{END基本使用}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk 'END{print "begin的基础用法"}{print $1}' chaoges.txt
+超哥l
+超哥x
+begin的基础用法
+\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{awk结合BEGIN和END模式}
+	\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk 'END{print "这是终止打印的"}BEGIN{print "这是开始打印的"}{print $1}' chaoges.txt
+这是开始打印的
+超哥l
+超哥o
+这是终止打印的
+	\end{lstlisting}
+\end{ascboxJ}
+
+\begin{ascboxJ}{模式接条件表达式}
+	\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk 'NF>3 {print $4}' chaoges.txt
+超哥u
+超哥x
+	\end{lstlisting}
+\end{ascboxJ}
+
+\end{ascolorbox10}
+
+\subsubsection{awk与正则表达式}
+正则表达式主要与awk的pattern模式（条件）结合使用
+
+不指定模式，awk每一行都会执行对应的动作
+
+指定了模式，只有被模式匹配到的、符合条件的行才会执行动作
+
+\begin{lstlisting}[style=linux]
+~	匹配正则	x~/正则/
+!~	不匹配正则	x!~/正则/
+
+grep '正则表达式' pwd.txt
+awk '/正则表达式/动作' pwd.txt
+\end{lstlisting}
+
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{找出pwd.txt中有以games开头的行用}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# grep -E '^game' password.txt
+games:x:12:100:games:/usr/games:/sbin/nologin
+
+[root@localhost tmp]# awk '/^game/{print}' password.txt
+games:x:12:100:games:/usr/games:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+\end{ascolorbox10}
+awk命令使用正则表达式，必须把正则放入 "//" 双斜杠中，匹配到结果后执行动作{print \$0}，打印整行信息
+
+grep可以过滤，那我还用你awk干啥？主要是awk强大的格式化文本功能
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{找出pwd.txt中用户名和用户id}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk -F ":"  'BEGIN{printf "%-10s\t%-10s\n","用户名","用户id"} /^./ {printf "%-10s\t%-10s\n",$1,$3}' password.txt
+用户名          用户id
+root            0
+bin             1
+daemon          2
+adm             3
+lp              4
+sync            5
+shutdown        6
+halt            7
+mail            8
+		\end{lstlisting}
+	\end{ascboxJ}
+
+	\begin{ascboxJ}{找出pwd.txt文件中禁止登录的用户（/sbin/nologin）}
+	\begin{lstlisting}[style=linux]
+[root@localhost tmp]# grep '/sbin/nologin$' password.txt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+
+[root@localhost tmp]# awk '/\/sbin\/nologin$/ {print $0}' password.txt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+		\end{lstlisting}
+	\end{ascboxJ}
+
+	\begin{ascboxJ}{找出mail用户到nobody用户之间的内容}
+	\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk '/^mail/,/^nobody/ {print}' password.txt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+
+[root@localhost tmp]# awk 'NR>=9 && NR<=13 {print $0}' password.txt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+	\end{lstlisting}
+\end{ascboxJ}
+\end{ascolorbox10}
+
+\subsubsection{awk练习}
+awk企业实战nginx日志
+\begin{ascolorbox10}{命令练习}	
+		\begin{ascboxJ}{统计日志的访客ip数量}
+			\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk '{print $1}' access.log | sort -n | uniq -c
+1 39.96.187.239
+2 211.162.238.91
+			\end{lstlisting}
+		\end{ascboxJ}
+
+	\begin{ascboxJ}{查看访问最频繁的前10个ip}
+		\begin{lstlisting}[style=linux]
+[root@localhost tmp]# awk '{print $1}' access.log | sort -n | uniq -c |sort -nr|head -n 10
+2 211.162.238.91
+1 39.96.187.239
+		\end{lstlisting}
+	\end{ascboxJ}
+
+	\end{ascolorbox10}
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} nslookup
+\PYG{p}{\PYGZgt{}} azurekite.\PYG{k}{cn}
+Server:         \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}     \PYGZsh{} 使用的是本地服务器
+Address:        \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}\PYGZsh{}\PYG{l+m}{53}
+
+Non\PYG{p}{\PYGZhy{}}authoritative answer:
+Name:   azurekite.\PYG{k}{cn}
+Address: \PYG{l+m}{101}.\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251}
+\PYG{p}{\PYGZgt{}} azurekitess.\PYG{k}{cn}   \PYGZsh{} 预定义的假域名也可以解析到指定的IP上
+Server:         \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}
+Address:        \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}\PYGZsh{}\PYG{l+m}{53}
+
+Name:   azurekitess.\PYG{k}{cn}
+Address: \PYG{l+m}{101}.\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251}
+\PYG{p}{\PYGZgt{}} baidu.\PYG{k}{com}     \PYGZsh{} 百度的域名也可以解析到指定IP上
+Server:         \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}
+Address:        \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}\PYGZsh{}\PYG{l+m}{53}
+
+Name:   baidu.\PYG{k}{com}
+Address: \PYG{l+m}{101}.\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251}
+
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} nslookup www.jd.\PYG{k}{com}  \PYGZsh{} 京东的域名\PYG{p}{,}则可以通过上游服务器进行解析
+Server:         \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}
+Address:        \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}\PYGZsh{}\PYG{l+m}{53}
+Non\PYG{p}{\PYGZhy{}}authoritative answer:
+www.jd.\PYG{k}{com}      canonical name \PYG{p}{=} www.jd.\PYG{k}{com}.gslb.qianxun.\PYG{k}{com}.
+www.jd.\PYG{k}{com}.gslb.qianxun.\PYG{k}{com}     canonical name \PYG{p}{=} cloud.jdcdn.\PYG{k}{com}.
+cloud.jdcdn.\PYG{k}{com} canonical name \PYG{p}{=} \PYG{l+m}{11}.jd.cdn.dnsv1.\PYG{k}{com}.
+\PYG{l+m}{11}.jd.cdn.dnsv1.\PYG{k}{com}     canonical name \PYG{p}{=} \PYG{l+m}{1036149}.sched.skalego\PYG{p}{\PYGZhy{}}dk.tdnsv5.\PYG{k}{com}.
+Name:   \PYG{l+m}{1036149}.sched.skalego\PYG{p}{\PYGZhy{}}dk.tdnsv5.\PYG{k}{com}
+Address: \PYG{l+m}{113}.\PYG{l+m}{137}.\PYG{l+m}{62}.\PYG{l+m}{49}
+\end{Verbatim}

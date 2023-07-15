@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{vim} \PYG{l+s+sr}{/etc/}hosts
+\PYG{l+m}{127}.\PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{1}   localhost localhost.localdomain localhost4 localhost4.localdomain4
+\PYG{p}{:}:\PYG{l+m}{1}         localhost localhost.localdomain localhost6 localhost6.localdomain6
+\PYG{l+m}{127}.\PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{1} azurekite.\PYG{k}{cn}
+
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} ping azurekite.\PYG{k}{cn}
+PING azurekite.\PYG{k}{cn} \PYG{p}{(}\PYG{l+m}{127}.\PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{1}\PYG{p}{)} \PYG{l+m}{56}\PYG{p}{(}\PYG{l+m}{84}\PYG{p}{)} bytes of data.
+\PYG{l+m}{64} bytes from localhost \PYG{p}{(}\PYG{l+m}{127}.\PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{1}\PYG{p}{)}: icmp\PYGZus{}seq\PYG{p}{=}\PYG{l+m}{1} ttl\PYG{p}{=}\PYG{l+m}{64} time\PYG{p}{=}\PYG{l+m}{0}.\PYG{l+m}{079} ms
+\PYG{l+m}{64} bytes from localhost \PYG{p}{(}\PYG{l+m}{127}.\PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{1}\PYG{p}{)}: icmp\PYGZus{}seq\PYG{p}{=}\PYG{l+m}{2} ttl\PYG{p}{=}\PYG{l+m}{64} time\PYG{p}{=}\PYG{l+m}{0}.\PYG{l+m}{035} ms
+\PYG{l+m}{64} bytes from localhost \PYG{p}{(}\PYG{l+m}{127}.\PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{1}\PYG{p}{)}: icmp\PYGZus{}seq\PYG{p}{=}\PYG{l+m}{3} ttl\PYG{p}{=}\PYG{l+m}{64} time\PYG{p}{=}\PYG{l+m}{0}.\PYG{l+m}{039} ms
+\end{Verbatim}

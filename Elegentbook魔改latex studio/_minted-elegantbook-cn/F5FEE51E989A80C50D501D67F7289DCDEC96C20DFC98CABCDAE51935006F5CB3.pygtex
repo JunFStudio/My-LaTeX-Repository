@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYGZsh{} 指定上游dns服务器参数
+resolv\PYG{p}{\PYGZhy{}}\PYG{k}{file}\PYG{p}{=}\PYG{l+s+sr}{/etc/}resolv.dnsmasq.\PYG{k}{conf}
+
+\PYGZsh{} 访问baidu.\PYG{k}{com}时的所有域名都会被解析成\PYG{l+m}{101}.\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251}
+address\PYG{p}{=}\PYG{l+s+sr}{/baidu.com/}\PYG{l+m}{101}.\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251}
+address\PYG{p}{=}\PYG{l+s+sr}{/taobao.com/}\PYG{l+m}{101}.\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251}
+
+\PYGZsh{} 定义dnsmasq监听的地址，默认是监控本机的所有网卡上。局域网内主机若要使用dnsmasq服务时\PYG{p}{,} 指定本机的IP地址
+listen\PYG{p}{\PYGZhy{}}address\PYG{p}{=}\PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{180}
+
+\PYGZsh{}本地域名配置文件（不支持泛域名），添加内部需要解析的地址和域名（重新加载即可生效）
+addn\PYG{p}{\PYGZhy{}}hosts\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.hosts  \PYGZsh{}  这个要写进去
+
+\PYGZsh{}记录dns查询日志服务器
+log\PYG{p}{\PYGZhy{}}queries
+
+\PYGZsh{} 设置日志记录
+log\PYG{p}{\PYGZhy{}}facility\PYG{p}{=}\PYG{l+s+sr}{/var/}log/dnsmasq.log
+
+\PYGZsh{}包含其他文件夹下所有配置文件
+\PYG{k}{conf}\PYG{p}{\PYGZhy{}}\PYG{k}{dir}\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{d}\PYG{p}{,}.rpmnew\PYG{p}{,}.rpmsave\PYG{p}{,}.rpmorig
+\end{Verbatim}

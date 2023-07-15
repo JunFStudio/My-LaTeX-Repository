@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{cp} \PYG{p}{\PYGZhy{}}\PYG{k}{p} \PYG{l+s+sr}{/etc/}named.rfc1912.zones \PYG{l+s+sr}{/etc/}named.zones
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{vim} \PYG{l+s+sr}{/etc/}named.zones
+zone \PYG{l+s+s2}{\PYGZdq{}long.com\PYGZdq{}} IN \PYGZob{}
+        type master;
+        \PYG{k}{file} \PYG{l+s+s2}{\PYGZdq{}long.com.zone\PYGZdq{}};
+        allow\PYG{p}{\PYGZhy{}}\PYG{k}{update} \PYGZob{} none; \PYGZcb{};
+\PYGZcb{};
+zone \PYG{l+s+s2}{\PYGZdq{}178.168.192.in\PYGZhy{}addr.arpa\PYGZdq{}} IN \PYGZob{}
+        type master;
+        \PYG{k}{file} \PYG{l+s+s2}{\PYGZdq{}1.178.168.192.zone\PYGZdq{}};
+        allow\PYG{p}{\PYGZhy{}}\PYG{k}{update} \PYGZob{} none; \PYGZcb{};
+\PYGZcb{};
+\end{Verbatim}

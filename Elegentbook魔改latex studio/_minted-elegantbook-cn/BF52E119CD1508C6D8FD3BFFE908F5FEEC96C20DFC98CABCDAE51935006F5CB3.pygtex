@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYGZsh{}  \PYG{l+s+sr}{/etc/}resolv.dnsmasq.\PYG{k}{conf} \PYGZsh{} 注意该文件需要手动创建 \PYGZsh{} 可以配置为resolv.\PYG{k}{conf}，添加nameserver
+
+[root@localhost \PYG{l+s+sr}{/]\PYGZsh{} cat /}etc/resolv.dnsmasq.\PYG{k}{conf}
+nameserver \PYG{l+m}{119}.\PYG{l+m}{29}.\PYG{l+m}{29}.\PYG{l+m}{29}
+nameserver \PYG{l+m}{223}.\PYG{l+m}{5}.\PYG{l+m}{5}.\PYG{l+m}{5}
+\end{Verbatim}

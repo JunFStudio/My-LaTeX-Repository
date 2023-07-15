@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{grep} \PYG{p}{\PYGZhy{}}Ev \PYG{l+s+s1}{\PYGZsq{}\PYGZca{}\PYGZdl{}|\PYGZca{}\PYGZsh{}\PYGZsq{}} \PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{conf}
+resolv\PYG{p}{\PYGZhy{}}\PYG{k}{file}\PYG{p}{=}\PYG{l+s+sr}{/etc/}resolv.dnsmasq.\PYG{k}{conf}
+address\PYG{p}{=}\PYG{l+s+sr}{/baidu.com/}\PYG{l+m}{101}/\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251}
+address\PYG{p}{=}\PYG{l+s+sr}{/taobao.com/}\PYG{l+m}{101}\PYG{l+s+sr}{/201/}\PYG{l+m}{210}.\PYG{l+m}{251}
+listen\PYG{p}{\PYGZhy{}}address\PYG{p}{=}\PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{220}
+addn\PYG{p}{\PYGZhy{}}hosts\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.hosts
+log\PYG{p}{\PYGZhy{}}queries
+\PYG{k}{conf}\PYG{p}{\PYGZhy{}}\PYG{k}{dir}\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{d}
+\PYG{k}{conf}\PYG{p}{\PYGZhy{}}\PYG{k}{dir}\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{d}\PYG{p}{,}.bak
+\PYG{k}{conf}\PYG{p}{\PYGZhy{}}\PYG{k}{dir}\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{d}/\PYG{p}{,}*.\PYG{k}{conf}
+\PYG{k}{conf}\PYG{p}{\PYGZhy{}}\PYG{k}{dir}\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{d}\PYG{p}{,}.rpmnew\PYG{p}{,}.rpmsave\PYG{p}{,}.rpmorig
+\end{Verbatim}

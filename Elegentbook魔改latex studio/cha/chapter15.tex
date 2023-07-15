@@ -1,0 +1,127 @@
+\chapter{Nginx}
+\rightline{\textcolor[RGB]{255, 0, 0}{\faHeart}~我们终会相知，在那悠远的苍穹{\faHeart}}
+
+\section{Nginx安装}
+~
+
+\begin{ascolorbox10}{命令练习}
+	\begin{ascboxJ}{1.下载Nginx源代码nginx.org官网:}
+%		\begin{lstlisting}[style=linux]
+%[root@localhost opt]# ls
+%nginx-1.21.1.tar.gz
+%		\end{lstlisting}
+	\end{ascboxJ}
+
+	\begin{ascboxJ}{2.解压缩Nginx源代码}
+%	\begin{lstlisting}[style=linux]
+%[root@localhost opt]# tar -zxf nginx-1.21.1.tar.gz
+%[root@localhost opt]# ls
+%nginx-1.21.1  nginx-1.21.1.tar.gz
+%	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{3.复制Nginx默认提供的vim语法插件}
+%	\begin{lstlisting}[style=linux]
+%[root@localhost opt]# mkdir ~/.vim
+%[root@localhost opt]# cd nginx-1.21.1
+%[root@localhost nginx-1.21.1]# ls
+%auto  CHANGES  CHANGES.ru  conf  configure  contrib  html  LICENSE  man  README  src
+%[root@localhost nginx-1.21.1]# cp -r contrib/vim/* ~/.vim/
+%	\end{lstlisting}
+\end{ascboxJ}	
+
+	\begin{ascboxJ}{4.开始编译Nginx，扩展编译模块}
+列出Nginx的编译选项，如制定安装路径，配置文件、日志文件等路径，指定开启模块功能等
+	\begin{lstlisting}[style=linux]
+[root@localhost nginx-1.21.1]# ./configure --help
+
+--help                             print this message
+
+--prefix=PATH                      set installation prefix
+--sbin-path=PATH                   set nginx binary pathname
+--modules-path=PATH                set modules path
+--conf-path=PATH                   set nginx.conf pathname
+--error-log-path=PATH              set error log pathname
+--pid-path=PATH                    set nginx.pid pathname
+--lock-path=PATH                   set nginx.lock pathname
+.........
+
+#编译Nginx初步，
+[root@localhost nginx-1.21.1]# ./configure --prefix=/opt/Learn_Nginx/nginx/ --with-http_ssl_module  --with-http_flv_module --with-http_gzip_static_m odule --with-http_stub_status_module  --with-threads  --with-file-aio
+checking for OS
++ Linux 3.10.0-957.el7.x86_64 x86_64
+checking for C compiler ... found
++ using GNU C compiler
++ gcc version: 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC)
+checking for gcc -pipe switch ... found
+checking for -Wl,-E switch ... found
+
+
+	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{5.执行make编译件}
+	\begin{lstlisting}[style=linux]
+[root@localhost nginx-1.21.1]# make
+make -f objs/Makefile
+make[1]: Entering directory `/opt/nginx-1.21.1'
+	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{6.首次编译安装，生成Nginx的可执行命令}
+	\begin{lstlisting}[style=linux]
+[root@localhost nginx-1.21.1]# make install
+make -f objs/Makefile install
+make[1]: Entering directory `/opt/nginx-1.21.1'
+test -d '/opt/Learn_Nginx/nginx/' || mkdir -p '/opt/Learn_Nginx/nginx/'
+test -d '/opt/Learn_Nginx/nginx//sbin' \
+	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{7.检查Prefix指定的安装目录}
+	\begin{lstlisting}[style=linux]
+[root@localhost opt]# ls /opt/Learn_Nginx/
+nginx
+	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{8.Nginx的程序目录}
+	\begin{lstlisting}[style=linux]
+[root@localhost nginx]# pwd
+/opt/Learn_Nginx/nginx
+[root@localhost nginx]# ls
+conf  html  logs  sbin
+
+依次是配置文件，静态文件，日志，二进制命令目录
+	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{9.创建nginx的环境变量文件，修改如下，创建/etc/profile.d/nginx.sh脚本文件便于以后维护}
+	\begin{lstlisting}[style=linux]
+[root@localhost nginx]# cat /etc/profile.d/nginx.sh
+export PATH=/opt/Learn_Nginx/nginx/sbin:$PATH
+	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{10.退出会话，重新登录终端，此时可以正常使用nginx}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# echo $PATH
+/opt/Learn_Nginx/nginx/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/.local/bin:/root/bin
+	\end{lstlisting}
+\end{ascboxJ}
+
+	\begin{ascboxJ}{11.检查nginx的编译模块信息}
+	\begin{lstlisting}[style=linux]
+[root@localhost ~]# nginx -V
+nginx version: nginx/1.21.1
+built by gcc 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC)
+built with OpenSSL 1.0.2k-fips  26 Jan 2017
+TLS SNI support enabled
+configure arguments: --prefix=/opt/Learn_Nginx/nginx/ --with-http_ssl_module --with-http_flv_module --with-http_gzip_static_module --with-http_stub_status_module --with-threads --with-file-aio
+	\end{lstlisting}
+\end{ascboxJ}	
+\end{ascolorbox10}
+
+
+
+

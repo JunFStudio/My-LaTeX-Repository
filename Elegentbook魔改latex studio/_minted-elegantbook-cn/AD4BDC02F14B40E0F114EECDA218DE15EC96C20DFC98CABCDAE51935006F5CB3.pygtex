@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+[root@localhost \PYG{l+s+sr}{/]\PYGZsh{} cat /}etc/dnsmasq.hosts  \PYGZsh{} 注意该文件需要手动创建
+\PYG{l+m}{101}.\PYG{l+m}{201}.\PYG{l+m}{210}.\PYG{l+m}{251} azurekite.\PYG{k}{cn}
+\end{Verbatim}

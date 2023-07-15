@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} um install bind\PYG{p}{\PYGZhy{}}chroot
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+ * base: mirrors.\PYG{l+m}{163}.\PYG{k}{com}
+ * extras: mirrors.\PYG{l+m}{163}.\PYG{k}{com}
+ * updates: mirrors.huaweicloud.\PYG{k}{com}
+\end{Verbatim}

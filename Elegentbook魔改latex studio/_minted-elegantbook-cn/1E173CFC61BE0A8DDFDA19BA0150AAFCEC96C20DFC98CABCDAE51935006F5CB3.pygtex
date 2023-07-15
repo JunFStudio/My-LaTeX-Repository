@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{cp} \PYG{p}{\PYGZhy{}}\PYG{k}{p} \PYG{l+s+sr}{/var/}named\PYG{l+s+sr}{/named.localhost /}var\PYG{l+s+sr}{/named/}long.\PYG{k}{com}.zone
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{vim} \PYG{l+s+sr}{/var/}named/long.\PYG{k}{com}.zone
+\PYGZdl{}TTL \PYG{l+m}{1}D
+@       IN SOA  @ rname.invalid. \PYG{p}{(}
+                                        \PYG{l+m}{0}       ; serial
+                                        \PYG{l+m}{1}D      ; refresh
+                                        \PYG{l+m}{1}H      ; retry
+                                        \PYG{l+m}{1}W      ; expire
+                                        \PYG{l+m}{3}H \PYG{p}{)}    ; minimum
+
+@     IN NS       dns.long.\PYG{k}{com}.
+@     IN MX  \PYG{l+m}{10}  mail.long.\PYG{k}{com}.
+
+dns IN A \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{1}
+mail IN A \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{2}
+slave IN A \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{3}
+www IN A \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{4}
+ftp IN A \PYG{l+m}{192}.\PYG{l+m}{168}.\PYG{l+m}{178}.\PYG{l+m}{20}
+web IN CNAME www.long.\PYG{k}{com}
+\end{Verbatim}

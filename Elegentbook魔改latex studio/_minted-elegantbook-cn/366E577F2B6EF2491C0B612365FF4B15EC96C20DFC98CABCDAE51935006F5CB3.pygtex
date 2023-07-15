@@ -1,0 +1,142 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYGZsh{}    \PYGZdl{}OpenBSD: sshd\PYGZus{}config\PYG{p}{,}\PYG{k}{v} \PYG{l+m}{1}.\PYG{l+m}{100} \PYG{l+m}{2016}\PYG{l+s+sr}{/08/}\PYG{l+m}{15} \PYG{l+m}{12}:\PYG{l+m}{32}:\PYG{l+m}{04} naddy Exp \PYGZdl{}
+
+\PYGZsh{} This \PYG{k}{is} the sshd server system\PYG{p}{\PYGZhy{}}wide configuration \PYG{k}{file}.  See
+\PYGZsh{} sshd\PYGZus{}config\PYG{p}{(}\PYG{l+m}{5}\PYG{p}{)} \PYG{k}{for} \PYG{n+nb}{more} information.
+
+\PYGZsh{} This sshd was compiled with PATH\PYG{p}{=}\PYG{l+s+sr}{/usr/}local\PYG{l+s+sr}{/bin:/}usr/\PYG{n+nb}{bin}
+
+\PYGZsh{} The strategy used \PYG{k}{for} \PYG{k}{options} \PYG{k}{in} the default sshd\PYGZus{}config shipped with
+\PYGZsh{} OpenSSH \PYG{k}{is} \PYG{k}{to} specify \PYG{k}{options} with their default value where
+\PYGZsh{} possible\PYG{p}{,} but leave them commented.  Uncommented \PYG{k}{options} override the
+\PYGZsh{} default value.
+
+\PYGZsh{} If you want \PYG{k}{to} change the port \PYG{k}{on} \PYG{k}{a} SELinux system\PYG{p}{,} you have \PYG{k}{to} tell
+\PYGZsh{} SELinux about this change.
+\PYGZsh{} semanage port \PYG{p}{\PYGZhy{}}\PYG{k}{a} \PYG{p}{\PYGZhy{}}\PYG{k}{t} ssh\PYGZus{}port\PYGZus{}t \PYG{p}{\PYGZhy{}}\PYG{k}{p} tcp \PYGZsh{}PORTNUMBER
+\PYGZsh{}
+\PYGZsh{}Port \PYG{l+m}{22}                \PYGZsh{} 默认端口
+\PYGZsh{}AddressFamily any      \PYGZsh{} 配置地址家族，any支持ipv4，ipv6
+\PYGZsh{}ListenAddress \PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{0}.\PYG{l+m}{0}  \PYGZsh{} 设置sshd服务监听的ip地址，注意多网卡的绑定
+\PYGZsh{}ListenAddress ::
+
+\PYGZsh{} ssh各密钥存放的位置
+HostKey \PYG{l+s+sr}{/etc/}ssh/ssh\PYGZus{}host\PYGZus{}rsa\PYGZus{}key       \PYGZsh{} SSH version \PYG{l+m}{2} 使用的RSA私钥
+\PYGZsh{}HostKey \PYG{l+s+sr}{/etc/}ssh/ssh\PYGZus{}host\PYGZus{}dsa\PYGZus{}key      \PYGZsh{} SSH version \PYG{l+m}{2} 使用的DSA私钥
+HostKey \PYG{l+s+sr}{/etc/}ssh/ssh\PYGZus{}host\PYGZus{}ecdsa\PYGZus{}key
+HostKey \PYG{l+s+sr}{/etc/}ssh/ssh\PYGZus{}host\PYGZus{}ed25519\PYGZus{}key
+
+\PYGZsh{} Ciphers and keying
+\PYGZsh{}RekeyLimit default none
+
+\PYGZsh{} Logging
+\PYGZsh{}SyslogFacility AUTH
+SyslogFacility AUTHPRIV
+\PYGZsh{}LogLevel INFO              \PYGZsh{} 登录记录的等级
+
+\PYGZsh{} Authentication:           \PYGZsh{} 登入设定部分
+
+\PYGZsh{}LoginGraceTime \PYG{l+m}{2}m          \PYGZsh{} 当使用者连上SSH server之后，会出现输入密码的画面\PYG{p}{,}在该画面中在多久时间内没有成功连上SSH server就强迫断线！若无单位则默认时间为秒
+\PYGZsh{}PermitRootLogin yes        \PYGZsh{} 是否允许root管理员直接登录，保证系统安全
+\PYGZsh{}StrictModes yes            \PYGZsh{} 当用户的私钥改变，直接拒绝连接
+\PYGZsh{}MaxAuthTries \PYG{l+m}{6}             \PYGZsh{} 最大密码尝试次数
+\PYGZsh{}MaxSessions \PYG{l+m}{10}             \PYGZsh{} 最大终端数
+
+\PYGZsh{}PubkeyAuthentication yes   \PYGZsh{} 是否允许用户自行使用成对的密钥系统进行登入行为，仅针对version2。
+
+\PYGZsh{} The default \PYG{k}{is} \PYG{k}{to} \PYG{k}{check} both .ssh\PYG{l+s+sr}{/authorized\PYGZus{}keys and .ssh/}authorized\PYGZus{}keys2
+\PYGZsh{} but this \PYG{k}{is} overridden \PYG{k}{so} installations will \PYG{k}{only} \PYG{k}{check} .ssh/authorized\PYGZus{}keys
+AuthorizedKeysFile    .ssh/authorized\PYGZus{}keys      \PYGZsh{} 信任主机的公钥文件存放地
+
+\PYGZsh{}AuthorizedPrincipalsFile none
+
+\PYGZsh{}AuthorizedKeysCommand none
+\PYGZsh{}AuthorizedKeysCommandUser nobody
+
+\PYGZsh{} For this \PYG{k}{to} work you will also need host keys \PYG{k}{in} \PYG{l+s+sr}{/etc/}ssh/ssh\PYGZus{}known\PYGZus{}hosts
+\PYGZsh{}HostbasedAuthentication no
+\PYGZsh{} Change \PYG{k}{to} yes \PYG{k}{if} you don\PYGZsq{}\PYG{k}{t} trust \PYG{p}{\PYGZti{}}\PYG{l+s+sr}{/.ssh/}known\PYGZus{}hosts \PYG{k}{for}
+\PYGZsh{} HostbasedAuthentication
+\PYGZsh{}IgnoreUserKnownHosts no
+\PYGZsh{} Don\PYG{l+s+s1}{\PYGZsq{}t read the user\PYGZsq{}}s \PYG{p}{\PYGZti{}}\PYG{l+s+sr}{/.rhosts and \PYGZti{}/}.shosts \PYG{k}{files}
+\PYGZsh{}IgnoreRhosts yes
+
+\PYGZsh{} To disable tunneled clear text passwords\PYG{p}{,} change \PYG{k}{to} no here\PYG{p}{!}
+\PYGZsh{}PasswordAuthentication yes
+\PYGZsh{}PermitEmptyPasswords no        \PYGZsh{} 是否允许空密码登录，禁止
+PasswordAuthentication yes      \PYGZsh{} 是否设置密码验证机制
+
+\PYGZsh{} Change \PYG{k}{to} no \PYG{k}{to} disable s/\PYG{n+nb}{key} passwords
+\PYGZsh{}ChallengeResponseAuthentication yes        \PYGZsh{} 允许任何的密码认证！所以，任何 login.\PYG{k}{conf} 规定的认证方式，均可适用
+ChallengeResponseAuthentication no          \PYGZsh{} 但目前我们比较喜欢使用 PAM 模块帮忙管理认证，因此这个选项可以设定为 no
+
+\PYGZsh{} Kerberos \PYG{k}{options}              \PYGZsh{} 与Kerberos有关的参数设定！因为我们没有Kerberos主机，所以底下不用设定
+\PYGZsh{}KerberosAuthentication no
+\PYGZsh{}KerberosOrLocalPasswd yes
+\PYGZsh{}KerberosTicketCleanup yes
+\PYGZsh{}KerberosGetAFSToken no
+\PYGZsh{}KerberosUseKuserok yes
+
+\PYGZsh{} GSSAPI \PYG{k}{options}
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials no
+\PYGZsh{}GSSAPIStrictAcceptorCheck yes
+\PYGZsh{}GSSAPIKeyExchange no
+\PYGZsh{}GSSAPIEnablek5users no
+
+\PYGZsh{} Set this \PYG{k}{to} \PYG{l+s+s1}{\PYGZsq{}yes\PYGZsq{}} \PYG{k}{to} enable PAM authentication\PYG{p}{,} account processing\PYG{p}{,}
+\PYGZsh{} and session processing. If this \PYG{k}{is} enabled\PYG{p}{,} PAM authentication will
+\PYGZsh{} be allowed through the ChallengeResponseAuthentication and
+\PYGZsh{} PasswordAuthentication.  Depending \PYG{k}{on} your PAM configuration\PYG{p}{,}
+\PYGZsh{} PAM authentication via ChallengeResponseAuthentication may bypass
+\PYGZsh{} the setting of \PYG{l+s+s2}{\PYGZdq{}PermitRootLogin without\PYGZhy{}password\PYGZdq{}}.
+\PYGZsh{} If you just want the PAM account and session checks \PYG{k}{to} run without
+\PYGZsh{} PAM authentication\PYG{p}{,} then enable this but \PYG{k}{set} PasswordAuthentication
+\PYGZsh{} and ChallengeResponseAuthentication \PYG{k}{to} \PYG{l+s+s1}{\PYGZsq{}no\PYGZsq{}}.
+\PYGZsh{} WARNING: \PYG{l+s+s1}{\PYGZsq{}UsePAM no\PYGZsq{}} \PYG{k}{is} not supported \PYG{k}{in} Red Hat Enterprise Linux and may cause several
+\PYGZsh{} problems.
+UsePAM yes                  \PYGZsh{} 利用 PAM 管理使用者认证有很多好处，可以记录与管理。
+
+\PYGZsh{}AllowAgentForwarding yes
+\PYGZsh{}AllowTcpForwarding yes
+\PYGZsh{}GatewayPorts no
+X11Forwarding yes
+\PYGZsh{}X11DisplayOffset \PYG{l+m}{10}
+\PYGZsh{}X11UseLocalhost yes
+\PYGZsh{}PermitTTY yes
+\PYGZsh{}PrintMotd yes
+\PYGZsh{}PrintLastLog yes           \PYGZsh{} 显示上次登入的信息
+\PYGZsh{}TCPKeepAlive yes           \PYGZsh{} 当达成联机后，服务器会一直传送 TCP 封包给客户端藉以判断对方式否一直存在联机。
+\PYGZsh{}UseLogin no
+\PYGZsh{}UsePrivilegeSeparation \PYG{k}{sandbox}
+\PYGZsh{}PermitUserEnvironment no
+\PYGZsh{}Compression delayed
+\PYGZsh{}ClientAliveInterval \PYG{l+m}{0}
+\PYGZsh{}ClientAliveCountMax \PYG{l+m}{3}
+\PYGZsh{}ShowPatchLevel no
+\PYGZsh{}UseDNS yes             \PYGZsh{} 一般来说，为了要判断客户端来源是正常合法的，因此会使用 DNS 去反查客户端的主机名不过如果是在内网互连，这项目设定为no会让联机达成速度比较快。
+\PYGZsh{}PidFile \PYG{l+s+sr}{/var/}run/sshd.pid
+\PYGZsh{}MaxStartups \PYG{l+m}{10}:\PYG{l+m}{30}:\PYG{l+m}{100}
+\PYGZsh{}PermitTunnel no
+\PYGZsh{}ChrootDirectory none
+\PYGZsh{}VersionAddendum none
+
+\PYGZsh{} no default banner \PYG{n+nb}{path}
+\PYGZsh{}Banner none
+
+\PYGZsh{} Accept locale\PYG{p}{\PYGZhy{}}related environment variables
+AcceptEnv LANG LC\PYGZus{}CTYPE LC\PYGZus{}NUMERIC LC\PYGZus{}TIME LC\PYGZus{}COLLATE LC\PYGZus{}MONETARY LC\PYGZus{}MESSAGES
+AcceptEnv LC\PYGZus{}PAPER LC\PYGZus{}NAME LC\PYGZus{}ADDRESS LC\PYGZus{}TELEPHONE LC\PYGZus{}MEASUREMENT
+AcceptEnv LC\PYGZus{}IDENTIFICATION LC\PYGZus{}ALL LANGUAGE
+AcceptEnv XMODIFIERS
+
+\PYGZsh{} override default of no subsystems
+Subsystem    sftp    \PYG{l+s+sr}{/usr/}libexec\PYG{l+s+sr}{/openssh/}sftp\PYG{p}{\PYGZhy{}}server
+
+\PYGZsh{} Example of overriding settings \PYG{k}{on} \PYG{k}{a} per\PYG{p}{\PYGZhy{}}user basis
+\PYGZsh{}Match \PYG{n+nb}{User} anoncvs
+\PYGZsh{}    X11Forwarding no
+\PYGZsh{}    AllowTcpForwarding no
+\PYGZsh{}    PermitTTY no
+\PYGZsh{}    ForceCommand cvs server
+\end{Verbatim}

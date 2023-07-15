@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  24 MAY 2023 12:02
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.27)  17 JUN 2023 17:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1463,20 +1463,72 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.4pt}.
 
-[40] (/Volumes/Storage_SSD/latex sync/LaTeX/数学题目选讲/.texpadtmp/elegantnote-cn.aux)
+[40] [41
+
+] [42]
+Chapter 1.
+[43
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.4pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.4pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.4pt}.
+
+[44]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.4pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.4pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.4pt}.
+
+[45]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.4pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.4pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.4pt}.
+
+[46]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.4pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.4pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.4pt}.
+
+[47]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.4pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.4pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.4pt}.
+
+[48
+
+] [49] [50]
+Chapter 2.
+[51
+
+] (/Volumes/Storage_SSD/latex sync/LaTeX/数学题目选讲/.texpadtmp/elegantnote-cn.aux)
 Package rerunfilecheck Info: File `elegantnote-cn.out' has not changed.
-(rerunfilecheck)             Checksum: AF7BE5DE489E8ABE52EFBB0A1E9D2780;2378.
+(rerunfilecheck)             Checksum: 51E5511068416DCE9180DDAAD76601E9;2767.
 Package logreq Info: Writing requests to 'elegantnote-cn.run.xml'.
 \openout1 = `elegantnote-cn.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38430 strings out of 476179
- 808871 string characters out of 5809544
+ 38432 strings out of 476179
+ 808887 string characters out of 5809544
  1572885 words of memory out of 5000000
- 58515 multiletter control sequences out of 15000+600000
+ 58517 multiletter control sequences out of 15000+600000
  480477 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,12n,107p,747b,801s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/数学题目选讲/.texpadtmp/elegantnote-cn.pdf (40 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/数学题目选讲/.texpadtmp/elegantnote-cn.pdf (51 pages).

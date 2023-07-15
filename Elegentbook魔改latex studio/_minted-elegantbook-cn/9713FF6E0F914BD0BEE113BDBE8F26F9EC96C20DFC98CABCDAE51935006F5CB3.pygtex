@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{cp} \PYG{p}{\PYGZhy{}}\PYG{k}{p} \PYG{l+s+sr}{/var/}named\PYG{l+s+sr}{/named.loopback /}var\PYG{l+s+sr}{/named/}\PYG{l+m}{1}.\PYG{l+m}{178}.\PYG{l+m}{168}.\PYG{l+m}{192}.zone
+\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} \PYG{k}{vim} \PYG{l+s+sr}{/var/}named/\PYG{l+m}{1}.\PYG{l+m}{178}.\PYG{l+m}{168}.\PYG{l+m}{192}.zone
+\PYGZdl{}TTL \PYG{l+m}{1}D
+@       IN SOA  @ rname.invalid. \PYG{p}{(}
+                                        \PYG{l+m}{0}       ; serial
+                                        \PYG{l+m}{1}D      ; refresh
+                                        \PYG{l+m}{1}H      ; retry
+                                        \PYG{l+m}{1}W      ; expire
+                                        \PYG{l+m}{3}H \PYG{p}{)}    ; minimum
+
+@   IN  NS      dns.long.\PYG{k}{com}.
+@   IN  MX  \PYG{l+m}{10}  mail.long.\PYG{k}{com}.
+
+\PYG{l+m}{1}     IN PTR  dns.long.\PYG{k}{com}.
+\PYG{l+m}{2}    IN PTR  mail.long.\PYG{k}{com}.
+\PYG{l+m}{3}    IN PTR  slave.long.\PYG{k}{com}.
+\PYG{l+m}{4}    IN PTR  www.long.\PYG{k}{com}.
+\PYG{l+m}{20}  IN PTR  ftp.long.\PYG{k}{com}.
+\end{Verbatim}
