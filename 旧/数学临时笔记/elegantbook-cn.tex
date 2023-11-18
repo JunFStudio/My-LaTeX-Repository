@@ -1,0 +1,3192 @@
+\documentclass[lang=cn, zihao=5]{elegantbook}
+\usepackage{hyperref}
+\usepackage{svg}
+
+% font settings
+\definecolor{mgreen}{RGB}{0,166,82}
+
+
+% watermark settings
+%\usepackage{ctex, draftwatermark, everypage}
+%	\SetWatermarkText{DEEP Team 讲义模版}
+%	\SetWatermarkLightness{0.95}
+%	\SetWatermarkScale{0.3}
+
+% customised commands
+\newcommand{\xl}[1]{\overrightarrow{#1}}
+\newcommand{\nd}[1]{〔#1〕}
+\newcommand{\ssb}[1]{\left( #1 \right)}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\lmap}{\mathcal{L}}
+\newcommand{\mmatrix}{\mathcal{M}}
+\newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
+\newcommand{\buzhou}[1]{$#1^{\circ} \ $}
+\usepackage{ulem}
+	\newcommand{\tk}{\uline{\hspace{4em}}}
+\newcommand{\pspace}{\vspace{0.5em}}
+\usepackage{amsmath,amsfonts}
+	\DeclareMathOperator{\spn}{span}
+	\DeclareMathOperator{\card}{card}
+	\DeclareMathOperator{\ic}{i}
+	\DeclareMathOperator{\arccot}{arccot}
+	\DeclareMathOperator{\setjianfa}{\textbackslash}
+	\DeclareMathOperator{\nul}{null}
+	\DeclareMathOperator{\rge}{range}
+\newcommand{\examplefont}[1]{\color{mgreen} \textbf{#1}}
+
+% cover settings
+
+\title{Johnny数学学习笔记}
+\subtitle
+
+\author{Johnny Tang}
+\institute{DEEP Team}
+\date{January 21, 2023}
+
+\extrainfo{请：相信时间的力量，敬畏概率的准则}
+
+
+\cover{cover.png}
+
+
+
+% 修改标题页的橙色带
+% \definecolor{customcolor}{RGB}{32,178,170}
+% \colorlet{coverlinecolor}{customcolor}
+
+
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\mainmatter
+
+\tableofcontents
+
+\part{《线性代数这样学》笔记}
+
+\chapter{向量空间}
+\begin{introduction}
+	\item 域
+	\item $\F ^{n}$
+	\item 向量空间
+	\item 子空间
+	\item 子空间的和与直和
+\end{introduction}
+
+\section{从$\F ^{n}$说起}
+
+\subsection{复数与复数域}
+
+首先来温习一下复数域$\C$的定义与它满足的性质：
+
+\begin{definition}{复数}
+	记$z=a+b\ic $($a,b \in \R$)为一个\textbf{复数}，其中$\ic ^2=-1$.由所有复数构成的集合记为$\C$. \\
+	$\C$上的加法与乘法定义如下：
+	$$(a+b\ic ) + (c+d\ic ) = (a+c) + (b+d)\ic $$
+	$$(a+b\ic )(c+d\ic ) = (ac-bd) + (ad+bc)\ic $$
+\end{definition}
+
+\begin{proposition}{复数运算的性质}{Fxkvi}
+	(1) 交换性质$$\forall \alpha , \beta \in \C , \alpha + \beta = \beta + \alpha , \alpha \beta = \beta \alpha$$
+	(2) 结合性质$$\forall \alpha , \beta , \lambda \in \C , (\alpha + \beta) + \lambda = \alpha + (\beta + \lambda) , (\alpha \beta) \lambda = \alpha (\beta \lambda)$$
+	(3) 单位元$$\forall \lambda \in \C , \lambda + 0 = \lambda , 1 \lambda = \lambda$$
+	(4) 加法逆元$$\forall \alpha \in \C , \exists ! \beta \in \C , \alpha + \beta = 0$$
+	(5) 乘法逆元$$\forall \alpha \in \C (\alpha \neq 0) , \exists ! \beta \in \C , \alpha \beta = 1$$
+	(6) 分配性质$$\forall \lambda , \alpha , \beta \in \C , \lambda (\alpha + \beta) = \lambda \alpha + \lambda \beta$$
+\end{proposition}
+\begin{proof}
+	这里只选择部分性质证明： \\
+	(1) 加法交换性质：设$\alpha = a+b\ic , \beta = c+d\ic ~(a,b,c,d \in \R )$，则
+	\begin{align*}
+		\alpha + \beta &= (a+b\ic ) + (c+d\ic ) \\
+		&= (a+c) + (b+d)\ic \\
+		&= (c+a) + (d+b)\ic \\
+		\beta + \alpha &= (c+d\ic ) + (a+b\ic ) \\
+		&= (c+a) + (d+b)\ic
+	\end{align*}
+	因此有$\alpha + \beta = \beta + \alpha$ \\
+	(2) 乘法单位元：设$\lambda = a+b\ic ~ (a,b \in \R )$，那么$$1 \lambda = (1+0\ic )(a+b\ic ) = a + b\ic = \lambda$$
+	(3) 加法逆元：先证明存在.设$\alpha = a+b\ic $，取$\beta = (-a) + (-b)\ic $，则$\alpha + \beta = 0+0\ic = 0$；\\
+	再证明唯一.假设$\beta _1, \beta _2 \in \C $均为$\alpha$的加法逆元，那么$$\beta _1 = \beta _1 + 0 = \beta _1 + \alpha + \beta _2 = 0 + \beta _2 = \beta _2$$
+	这与假设矛盾，则$\alpha$的加法逆元是唯一的.
+\end{proof}
+
+由此可以引出\textbf{域}的正式定义：
+
+\begin{definition}{域}
+	\textbf{域}是一个集合$\F$，它带有加法与乘法两种运算(分别在加法与乘法上封闭)，且这些运算满足命题\ref{pro:Fxkvi}所示所有性质.
+\end{definition}
+\begin{remark}
+	最小的域是一个集合$\{ 0,1 \}$，带有通常的加法与乘法运算，但规定$1+1=0$.
+\end{remark}
+
+容易验证，$\R$与$\C$都是域.本书中用$\F$来表示$\R$或$\C$.
+
+总是用$\beta$表示$\alpha$的逆元非常不自然，因此定义出加/乘法逆元的表示与减/除法.
+
+\begin{definition}{加法逆元，减法，乘法逆元，除法}
+	设$\alpha , \beta \in \C $.
+	\begin{itemize}
+		\item 令$- \alpha$表示$\alpha$的加法逆元，即$-\alpha$是使得$$\alpha + (-\alpha) = 0$$成立的唯一复数.
+		\item 对于$\alpha \neq 0$，令$\alpha ^{-1}$表示$\alpha$的乘法逆元，即$\alpha ^{-1}$是使得$$\alpha (\alpha ^{-1}) = 1$$成立的唯一复数.
+		\item 定义$\C $上的\textbf{减法}：$$\beta - \alpha = \beta + (-\alpha)$$
+		\item 定义$\C $上的\textbf{除法}：$$\beta / \alpha = \beta (1 / \alpha)$$
+	\end{itemize}
+\end{definition}
+
+\subsection{$\F ^{n}$}
+
+在中学的向量板块，我们认识到一个向量可以表示为有序数组$(a,b)$的形式，并且在立体几何板块利用三维下的向量进行了许多计算.那么向量的定义能否推广到更高维度呢？
+
+\begin{definition}{$\F ^{n}$}
+	$\F ^{n}$是$\F$中元素组成的长度为$n$的组的集合，即$$\F ^{n} = \{ (x_1,\cdots ,x_n) : x_j \in \F , j=1, \cdots ,n \}$$
+	特别地，对于由无限长度序列构成的集合，称作$\F ^{\infty}$，即
+	$$\F ^{\infty} = \{ (x_1,\cdots ,x_n, \cdots) : x_j \in \F , j=1, \cdots ,n, \cdots \}$$
+	对于$\F ^{n}$中的某个元素$(x_1,\cdots ,x_n)$，称$x_j ~(i=1,\cdots ,n)$为$(x_1,\cdots ,x_n)$的第$j$个\textbf{坐标}. \\
+	$\F ^{n}$上的\textbf{加法}定义为对应坐标相加，即
+	$$(x_1, \cdots , x_n) + (y_1 , \cdots , y_n) = (x_1+y_1, \cdots , x_n+y_n)$$
+	对于$\F ^{\infty}$
+	$$(x_1, \cdots , x_n, \cdots) + (y_1 , \cdots , y_n ,\cdots) = (x_1+y_1, \cdots , x_n+y_n ,\cdots)$$
+	$\F ^{n}$上的\textbf{标量乘法}：一个数$\lambda ~(\lambda \in \F )$与$\F ^{n}$中元素的乘积这样计算：用$\lambda$乘以该元素的每个坐标，即
+	$$\lambda (x_1,\cdots ,x_n) = (\lambda x_1, \cdots ,\lambda x_n)$$
+	对于$\F ^{\infty}$
+	$$\lambda (x_1,\cdots ,x_n, \cdots) = (\lambda x_1, \cdots ,\lambda x_n,\cdots)$$
+	我们暂时不讨论$\F ^{n}$上元素之间的乘法.
+\end{definition}
+
+当$\F$代表$\R$且$n=2,3$时，$\F ^{n}$中的元素就相当于我们熟悉的平面向量、空间向量.实际上，所有在$\F$中的元素都被称为\textbf{标量}，所有在$\F ^{n}$中的元素如果被看做是一个从原点指向某定点的有向线段时，它就是\textbf{向量}.我们一般用小写字母表示标量，用加粗的小写字母表示$\F ^{n}$中的元素，例如$\F ^{4}$中的元素$$\boldsymbol{x} = (x_1,x_2,x_3,x_4)$$
+特别地，用$\boldsymbol{0}$表示所有坐标全是$0$的元素，即$$\boldsymbol{0} = (0, \cdots , 0)$$
+
+$\F ^{n}$同样也具有类似于$\F$的一些性质：
+
+\begin{proposition}{$\F ^{n}$的性质}{xlxkvi}
+	(1) 交换性质$$\forall \boldsymbol{u},\boldsymbol{v} \in \F ^{n} , \boldsymbol{u} + \boldsymbol{v} = \boldsymbol{v} + \boldsymbol{u}$$
+	(2) 结合性质$$\forall \boldsymbol{u},\boldsymbol{v},\boldsymbol{w} \in \F ^{n}, a,b \in \F, (\boldsymbol{u} + \boldsymbol{v}) + \boldsymbol{w} = \boldsymbol{u} + (\boldsymbol{v} + \boldsymbol{w}) , (ab) \boldsymbol{v} = a (b\boldsymbol{v})$$
+	(3) 加法单位元$$\exists ! \boldsymbol{0} \in \F ^{n}, \forall \boldsymbol{v} \in \F ^{n} , \boldsymbol{v} + \boldsymbol{0} = \boldsymbol{v}$$
+	(4) 加法逆元$$\forall \boldsymbol{v} \in \F ^{n} , \exists ! \boldsymbol{w} \in \F ^{n} , \boldsymbol{v} + \boldsymbol{w} = \boldsymbol{0}$$
+	(5) 乘法单位元$$\forall \boldsymbol{v} \in \F ^{n} , 1\boldsymbol{v} = \boldsymbol{v}$$
+	(6) 分配性质$$\forall a,b \in \F , \boldsymbol{u},\boldsymbol{v} \in \F ^{n} , a (\boldsymbol{u} + \boldsymbol{v}) = a\boldsymbol{u} + a\boldsymbol{v} , (a+b)\boldsymbol{v} = a\boldsymbol{v}+b\boldsymbol{v}$$
+\end{proposition}
+\begin{proof}
+	这里只选择部分证明：\\
+	(1) 交换性质：设$\boldsymbol{u} = (u_1, \cdots ,u_n),\boldsymbol{v} = (v_1, \cdots ,v_n)$，则
+	\begin{align*}
+		\boldsymbol{u} + \boldsymbol{v} &= (u_1, \cdots ,u_n) + (v_1, \cdots ,v_n) \\
+		&= (u_1+v_1, \cdots ,u_n+v_n) \\
+		&= (v_1+u_1, \cdots ,v_n+u_n) \\
+		&= (v_1, \cdots ,v_n) + (u_1, \cdots ,u_n) \\
+		&= \boldsymbol{v} + \boldsymbol{u}
+	\end{align*}
+	(2) 加法单位元：先证明存在.若$\boldsymbol{v} = (v_1, \cdots ,v_n)$，取$\boldsymbol{-v} = (-v_1, \cdots ,-v_n)$，容易发现$\boldsymbol{v} + \boldsymbol{-v} = \boldsymbol{0}$； \\
+	再证明唯一.假设存在两个加法单位元$\boldsymbol{0}$与$\boldsymbol{0'}$，则$$\boldsymbol{0} = \boldsymbol{0} + \boldsymbol{0'} = \boldsymbol{0'} + \boldsymbol{0} = \boldsymbol{0'}$$
+	这与假设矛盾.因此最多只有一个加法单位元.
+\end{proof}
+
+\subsection*{习题}
+\begin{exercise}
+	求$\ic $的两个不同的平方根.
+\end{exercise}
+\begin{exercise}
+	求$\boldsymbol{x} \in \R ^{4}$使得$(4,-3,1,7) + 2\boldsymbol{x} = (5,9,-6,8)$.
+\end{exercise}
+
+
+\newpage
+\section{向量空间}
+
+类似于$\F ^{n}$，我们把向量空间定义为带有加法和标量乘法的集合$V$，其满足命题\ref{pro:xlxkvi}中的性质.请注意，由于不一定满足乘法交换性质，向量空间不一定是一个域.
+
+\begin{definition}{加法，标量乘法}
+	\begin{itemize}
+		\item 集合$V$上的\textbf{加法}是一个函数，它把每一对$u,v \in V$都对应到$V$中的一个元素$u+v$.
+		\item 集合$V$上的\textbf{标量乘法}是一个函数，它把任意$\lambda \in \F $和$v \in V$都对应到$V$中的一个元素$\lambda v$.
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	换句话说，$V$对加法和标量乘法封闭.
+\end{remark}
+
+接下来可以正式定义向量空间：
+
+\begin{definition}{向量空间}
+	\textbf{向量空间}就是带有加法和标量乘法的集合$V$，满足如下性质： \\
+	(1) 交换性质$$\forall \boldsymbol{u},\boldsymbol{v} \in V , \boldsymbol{u} + \boldsymbol{v} = \boldsymbol{v} + \boldsymbol{u}$$
+	(2) 结合性质$$\forall \boldsymbol{u},\boldsymbol{v},\boldsymbol{w} \in V, a,b \in \F, (\boldsymbol{u} + \boldsymbol{v}) + \boldsymbol{w} = \boldsymbol{u} + (\boldsymbol{v} + \boldsymbol{w}) , (ab) \boldsymbol{v} = a (b\boldsymbol{v})$$
+	(3) 加法单位元$$\exists \boldsymbol{0} \in V, \forall \boldsymbol{v} \in V , \boldsymbol{v} + \boldsymbol{0} = \boldsymbol{v}$$
+	(4) 加法逆元$$\forall \boldsymbol{v} \in V , \exists \boldsymbol{w} \in V , \boldsymbol{v} + \boldsymbol{w} = \boldsymbol{0}$$
+	(5) 乘法单位元$$\forall \boldsymbol{v} \in V , 1\boldsymbol{v} = \boldsymbol{v}$$
+	(6) 分配性质$$\forall a,b \in \F , \boldsymbol{u},\boldsymbol{v} \in V , a (\boldsymbol{u} + \boldsymbol{v}) = a\boldsymbol{u} + a\boldsymbol{v} , (a+b)\boldsymbol{v} = a\boldsymbol{v}+b\boldsymbol{v}$$
+	向量空间中的元素被称为\textbf{向量}或\textbf{点}.
+\end{definition}
+\begin{remark}
+	因为向量空间的标量乘法依赖于$\F$，所以一般会说$V$是$\F$ \textbf{上的向量空间}.例如，平面点集$\R ^{2}$是$\R$上的向量空间.如果没有特别说明，默认$V$就表示在$\F$上的向量空间.
+\end{remark}
+\begin{remark}
+	最小的向量空间是$\{ 0 \}$，它带有通常的加法和乘法运算.
+\end{remark}
+\begin{note}
+	在向量空间的定义中并没有说明唯一性，这是因为唯一性可以通过已有的性质证明出.
+\end{note}
+
+现在介绍一个具体的例子：
+
+\begin{definition}{$\F ^{S}$}
+	设$S$是一个集合，我们用$\F ^{S}$表示$S$到$\F$的所有函数的集合. \\
+	对于$f,g \in \F ^{S}$，对所有$x \in S$，规定$\F ^{S}$上的加和$f+g$满足$$(f+g)(x) = f(x) + g(x)$$
+	对于$\lambda \in \F$和$f \in \F ^{S}$，对所有$x \in S$，规定$\F ^{S}$上的标量乘法得到的乘积$\lambda f \in \F ^{S}$满足$$(\lambda f)(x) = \lambda f(x)$$
+\end{definition}
+
+\begin{example}
+	请证明$\F ^{S}$是$\F$上的向量空间，并指出它的加法单位元与加法逆元.
+\end{example}
+
+向量空间的定义中缺少了一些显而易见的性质，我们现在进行补充：
+
+\begin{proposition}{向量空间的性质}{xlkjxkvi}
+	\begin{itemize}
+		\item 向量空间有唯一的加法单位元.
+		\item 向量空间中的每个元素都有唯一的加法逆元.
+		\item 对任意$\boldsymbol{v} \in V$都有$0\boldsymbol{v}=\boldsymbol{0}$.
+		\item 对任意$a \in \F$都有$a\boldsymbol{0}=\boldsymbol{0}$.
+		\item 对任意$\boldsymbol{v} \in V$都有$(-1)\boldsymbol{v}=\boldsymbol{-v}$.(等式右边的$\boldsymbol{-v}$表示$\boldsymbol{v}$的加法逆元)
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	设向量空间$V$， \\
+	(1) 假设$V$中有两个不同的加法单位元$\boldsymbol{0},\boldsymbol{0'}$，那么$$\boldsymbol{0} = \boldsymbol{0} + \boldsymbol{0'} = \boldsymbol{0'} + \boldsymbol{0} = \boldsymbol{0'}$$
+	这与假设矛盾，于是向量空间中只有唯一的加法单位元. \\
+	(2) 对于$\boldsymbol{v} \in V$，假设$\boldsymbol{w},\boldsymbol{w'}$都是它的加法逆元，那么$$\boldsymbol{w} = \boldsymbol{w}+0 = \boldsymbol{w} + \boldsymbol{v} + \boldsymbol{w'} = 0 + \boldsymbol{w'} = \boldsymbol{w'}$$
+	这与假设矛盾，于是向量空间中每个元素都有唯一的加法逆元. \\
+	(3) 对于$\boldsymbol{v} \in V$，由于$$0\boldsymbol{v} = (0+0)\boldsymbol{v} = 0\boldsymbol{v} + 0\boldsymbol{v}$$
+	在等式两边同时加上$0\boldsymbol{v}$的加法逆元，可得$0\boldsymbol{v} = 0$. \\
+	(4) 与(3)同理，请读者自行证明. \\
+	(5) 对于$\boldsymbol{v} \in V$，由于$$0 = (1+(-1))\boldsymbol{v} = \boldsymbol{v} + (-1)\boldsymbol{v}$$
+	在等式两边同时加上$\boldsymbol{v}$的加法逆元，可得$(-1)\boldsymbol{v} = \boldsymbol{-v}$.
+\end{proof}
+\begin{remark}
+	在(3)的证明过程中，由于在向量空间中只有分配性质能将标量乘法与向量的加法联系在一起，故必然会利用分配性质.
+\end{remark}
+
+\subsection*{习题}
+
+\begin{exercise}
+	证明对任意$\boldsymbol{v} \in V$都有$-(\boldsymbol{-v})=\boldsymbol{v}$.
+\end{exercise}
+
+\begin{exercise}
+	设$a \in \F, \boldsymbol{v} \in V, a\boldsymbol{v}=\boldsymbol{0}$.证明$a=0$或$\boldsymbol{v}=\boldsymbol{0}$.
+\end{exercise}
+
+\begin{exercise}
+	设$\boldsymbol{v},\boldsymbol{w} \in V$.说明为什么有唯一的$\boldsymbol{x} \in V$使得$\boldsymbol{v} + 3\boldsymbol{x} = \boldsymbol{w}$.
+\end{exercise}
+
+\begin{exercise}
+	证明在向量空间的定义中，关于加法逆元的那个条件可替换为$$\forall \boldsymbol{v} \in V, 0\boldsymbol{v}=\boldsymbol{0}$$
+	(等式左边的$0$是数$0$，右边的$\boldsymbol{0}$是$V$的加法单位元)
+\end{exercise}
+
+\begin{exercise}
+	设$\infty$和$-\infty$是两个不同的对象，它们都不属于$\R$.在$\R \cup \{ \infty \} \cup \{ -\infty \}$上如下定义加法和标量乘法：两个实数之间的加法和标量乘法按通常的实数运算法则定义，并对$t \in \R$定义$$
+	t\infty = \begin{cases}
+		-\infty , &if ~ t<0, \\
+		0 , &if ~ t=0, \\
+		\infty , &if ~ t>0,
+	\end{cases} \qquad
+	t(-\infty) = \begin{cases}
+		\infty , &if ~ t<0, \\
+		0 , &if ~ t=0, \\
+		-\infty , &if ~ t>0
+	\end{cases}$$
+	$$t + \infty = \infty + t = \infty , \qquad t+(-\infty) = (-\infty)+t = -\infty$$
+	$$\infty + \infty = \infty , \qquad (-\infty) + (-\infty) = -\infty , \qquad \infty + (-\infty) = 0$$
+	试问$\R \cup \{ \infty \} \cup \{ -\infty \}$是否为$\R$上的向量空间？说明理由.
+\end{exercise}
+
+
+\newpage
+\section{子空间}
+
+就像构造集合时要研究一个集合的子集一样，在向量空间中，我们也要研究它的子集.特别地，向量空间的子集如果也是向量空间，我们把它称作\textbf{子空间}.
+
+\subsection{子空间}
+
+\begin{definition}{子空间}
+    设向量空间$V$和它的一个子集$U$(采用与$V$相同的加法法则与标量乘法法则)，如果$U$也是一个向量空间，则称$U$是$V$的\textbf{子空间}.
+\end{definition}
+
+然而在实际应用中，每遇到一个子集$U$都证明一遍它是向量空间是很麻烦的.其实只需要证明以下三个关键性质：
+
+\begin{proposition}{子空间的判定条件}
+    设向量空间$V$的子集$U$，$U$是$V$的子空间当且仅当$U$满足下列条件： \\
+    (1) 加法单位元$$0 \in U$$
+    (2) 加法封闭性$$\forall u,v \in U, u+v \in U$$
+    (3) 标量乘法封闭性$$\forall \lambda \in \F,v \in U,\lambda v \in U$$
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：当$U$是$V$的子空间时，由定义可知$U$是一个向量空间，则它自然满足上述条件. \\
+    \buzhou{2} 充分性：当$U$满足上述条件时，由于$U$是$V$的子集并拥有相同的运算规则，显然$U$可以满足向量空间的所有性质.
+\end{proof}
+\begin{remark}
+    该判定条件中有关加法单位元的性质等价于“$U$非空”.(取$v \in U,0 \in \F$，由标量乘法封闭性与命题\ref{pro:xlkjxkvi}的第三条可知$0v=0 \in U$)
+\end{remark}
+\begin{remark}
+    实际上子空间的判定条件就是向量空间的必要条件：拥有加法单位元，且对加法和标量乘法封闭.
+\end{remark}
+
+\begin{example}
+    请指出下列向量空间的所有子空间：(不要求证明唯一性，我们会在下一章给出证明) \\
+    (1)定义在$\R$上的向量空间$\R ^{2}$； \\
+    (2)定义在$\R$上的向量空间$\R ^{3}$.
+\end{example}
+\begin{solution}
+    (1)$\{ 0 \}$、$\R ^2$和$\R ^2$中过原点的所有直线. \\
+    (2)$\{ 0 \}$、$\R ^3$和$\R ^3$中过原点的所有平面. 
+\end{solution}
+
+\begin{example}
+    证明下列结论：\\
+    (1)若$b \in \F$，则$U = \{ (x_1,x_2,x_3,x_4) \in \F ^{4} : x_3 = 5x_4+b \}$是$\F ^{4}$的子空间当且仅当$b=0$； \\
+    (2)区间$[0,1]$上的全体实值连续函数的集合是$\R ^{[0,1]}$的子空间； \\
+    (3)区间$(0,3)$上满足条件$f'(2)=b$的实值可微函数的集合是$\R ^{(0,3)}$的子空间当且仅当$b=0$； \\
+    (4)极限为$0$的复数序列组成的集合是$\C ^{\infty}$的子空间.
+\end{example}
+\begin{proof}
+	(1)\buzhou{1} 充分性：当$b=0$时，显然$0=(0,0,0,0) \in U$.取$U$中两个元素$v=(v_1,v_2,5v_4,v_4)$与$u=(u_1,u_2,5u_4,u_4)$，取$\F$中标量$\lambda$.因为
+	$$v+u = (v_1+u_1,v_2+u_2,5v_4+5u_4,v_4+u_4) = (v_1+u_1,v_2+u_2,5(v_4+u_4),v_4+u_4) \in U$$
+	$$\lambda v = (\lambda v_1,\lambda v_2,\lambda 5v_4,\lambda v_4) = (\lambda v_1,\lambda v_2,5(\lambda v_4),\lambda v_4) \in U$$
+	这告诉我们$U$对加法和标量乘法封闭，于是$U$是$\F ^{4}$的子空间. \\
+	\buzhou{2} 必要性：任取$U$中两个元素$v=(v_1,v_2,5v_4+b,v_4)$与$u=(u_1,u_2,5u_4+b,u_4)$，取$\F$中标量$\lambda$.因为
+	$$(0,0,0,0) \in U$$
+	$$v+u = (v_1,v_2,5v_4+b,v_4) + (u_1,u_2,5u_4+b,u_4) = (v_1+u_1, v_2+u_2, 5(v_4+u_4)+2b, v_4+u_4) \in U$$
+	$$\lambda v = (\lambda v_1, \lambda v_2 , 5\lambda v_4 + \lambda b ,\lambda v_4) \in U$$
+	则$0=0+b,~ 5(v_4+u_4)+2b = 5(v_4+u_4)+b,~ 5\lambda v_4 + \lambda b = 5\lambda v_4 + b$，这要求$b=0$. \\
+	(3)\buzhou{1} 充分性：设函数$0:x \mapsto 0$，容易验证$0$是该集合的加法单位元；取函数$f,g \in \R ^{(0,3)}$，由于$(f+g)'(2)=f'(2)+g'(2)=0$，可知$f+g \in \R ^{(0,3)}$，即该集合对加法封闭；取函数$f \in \R ^{(0,3)}$，标量$\lambda \in \F$，由于$(\lambda f)'(2) = \lambda f'(2) = 0$，可知$\lambda f \in \R ^{(0,3)}$，即该集合对标量乘法封闭. \\
+	\buzhou{2} 必要性：由例题1.2.1的结论，该集合中必有加法单位元$0:x \mapsto 0$，则$0'(2)=0=b$；取函数$f,g \in \R ^{(0,3)}$，由于该集合对加法封闭，可知$(f+g)'(2)=f'(2)+g'(2)=2b=b$，则$b=0$；取函数$f \in \R ^{(0,3)}$，标量$\lambda \in \F$，由于该集合对标量乘法封闭，有$(\lambda f)'(2) = \lambda f'(2) = \lambda b = b$，则$b=0$.
+\end{proof}
+
+\subsection{子空间的和}
+
+继续与集合比较.我们发现集合间有交、并、补等运算，向量空间中也有对应的运算，不过我们感兴趣的通常是它们的\textbf{和}.(详细原因参考本节习题)
+
+\begin{definition}{子集的和}
+    设$U_1,\cdots ,U_m$都是$V$的子集，定义$U_1, \cdots ,U_m$的\textbf{和}为$U_1, \cdots ,U_m$中元素所有可能的和构成的集合，记作$U_1+ \cdots +U_m$，即$$U_1+ \cdots +U_m = \{ u_1+ \cdots +u_m : u_j \in U_j,j=1, \cdots ,m \}$$
+\end{definition}
+
+\begin{example}
+    证明下列结论： \\
+    (1)设$$U = \{ (x,0,0) \in \F ^{3} : x \in \F \} , \quad W = \{ (0,y,0) \in \F ^{3} : y \in \F \}$$
+    则$$U+W = \{ (x,y,0) : x,y \in \F \}$$
+    (2)设$$U = \{ (x,x,y,y) \in \F ^{4} : x,y \in \F \} , \quad W = \{ (x,x,x,y) \in \F ^{4} : x,y \in \F \}$$
+    则$$U+W = \{ (x,x,y,z) : x,y,z \in \F \}$$
+\end{example}
+
+两个集合的并集是包含它们的最小集合.相应地，两个子空间的和是包含它们的最小子空间.
+
+\begin{proposition}{子空间的和是包含这些子空间的最小子空间}{ziksjmdehe}
+    设$U_1,\cdots ,U_m$都是$V$的子空间，则$U_1+\cdots +U_m$是$V$的包含$U_1,\cdots ,U_m$的最小子空间.
+\end{proposition}
+\begin{proof}
+    记$U=U_1+\cdots +U_m$. \\
+    \buzhou{1} 证明$U$是$V$的子空间：显然$0=0 + \cdots + 0 \in U$；取$x_1+ \cdots +x_m,y_1+ \cdots +y_m \in U$，其中$x_i,y_i \in U_i$($i=1,\cdots ,m$)，由于对任意$i$都有$x_i+y_1 \in U_i$，所以$(x_1+y_1) + \cdots + (x_m+y_m)$也在$U$中，因此$U$对加法封闭；取$x_1+ \cdots +x_m \in U$，由于对任意$i$都有$\lambda x_i \in U_i$，所以$\lambda x_1 + \cdots + \lambda x_m$也在$U$中，因此$U$对标量乘法封闭.综上，$U$是$V$的子空间.\\
+    \buzhou{2} 证明$U$包含$U_1,\cdots ,U_m$：取$U_j$中元素$u_j$，再取其他子空间中的元素$0$，可知$u_j \in U$.因此任意一个子空间都包含于$U$. \\
+    \buzhou{3} 证明$U$是最小的满足条件的子空间：假设存在一个更小的$U'$，由于$U'$包含$U_1, \cdots ,U_m$中的所有元素，又因为$U'$对加法封闭，故$U'$中必有$U_1+ \cdots +U_m$中所有元素，这与假设矛盾.因此$U$是最小的满足条件的子空间.
+\end{proof}
+
+\subsection{直和}
+
+注意到子空间的和中的元素$u$可以用不同的$u_1+ \cdots + u_m$来表示.为了尽量避免这种不确定性，规定一种能够唯一地表示为上述形式的情形.
+
+\begin{definition}{直和}
+    设$U_1,\cdots ,U_m$都是$V$的子空间.和$U_1 + \cdots + U_m$称为\textbf{直和}，如果$U_1+ \cdots +U_m$中的每个元素都能唯一地表示成$u_1+ \cdots + u_m$的形式，其中每个$u_j$都属于$U_j$.特别地，用$U_1 \oplus \cdots \oplus U_m$表示一个直和.
+\end{definition}
+
+\begin{example}
+    证明下列结论： \\
+    (1)设$$U = \{ (x,y,0) \in \F ^{3} : x,y \in \F \}, \quad W = \{ (0,0,z) \in \F ^{3} : z \in \F \}$$
+    则$\F ^{3} = U \oplus W$. \\
+    (2)设$U_j$是$\F ^{n}$中除第$j$个坐标以外其余坐标全是$0$的向量所组成的子空间(例如，$U_2= \{ (0,x,0,\cdots ,0) \in \F ^{n} : x \in \F \}$)，则$\F ^{n} = U_1 \oplus \cdots \oplus U_n$. \\
+    (3)设$$U_1 = \{ (x,y,0) \in \F ^{3} : x,y \in \F \}, \quad U_2 = \{ (0,0,z) \in \F ^{3} : z \in \F \}, \quad U_3 = \{ (0,y,y) \in \F ^{3} : y \in \F \}$$
+    则$U_1+U_2+U_3$不是直和.
+\end{example}
+
+每次都要构造一个反例来说明某个和不是直和过于麻烦，实际上有一种更简易的判别方法：
+
+\begin{proposition}{直和的判定条件}{vihe}
+    设$U_1,\cdots ,U_m$都是$V$的子空间.“$U_1 + \cdots + U_m$是直和”当且仅当“$0$表示成$u_1+\cdots +u_m$(其中每个$u_j$都属于$U_j$)的唯一方式是每个$u_j$都等于$0$”.
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：由定义可知，若$U_1 + \cdots + U_m$是直和，则$\boldsymbol{0}$只有一种表示.又由$\boldsymbol{0} + \cdots + \boldsymbol{0} = \boldsymbol{0}$(其中第$j$个$\boldsymbol{0}$属于$U_j$)可知，这是唯一的表示方法. \\
+    \buzhou{2} 充分性：设$U_1 + \cdots + U_m$中元素$v$，若$v$可以表示为$u_1 + \cdots + u_m$或$v_1 + \cdots + v_m$(其中$u_j,v_j \in U_j$)，那么$0 = (u_1 - v_1) + \cdots + (u_m - v_m)$，即$u_j=v_j ~(j=1,\cdots ,m)$，于是$U_1 + \cdots + U_m$是直和.
+\end{proof}
+
+\begin{proposition}{两个子空间的直和}{ziksjmvihe}
+    设$U$和$W$都是$V$的子空间，则$U+W$是直和当且仅当$U \cap W = \{ 0 \}$.
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：设$v \in (U \cap W)$，由于$0 = v + -v$，由命题\ref{pro:vihe}可知，$v = 0$. \\
+    \buzhou{2} 充分性：假设有不为$0$的两个向量$u \in U,v \in W$，使得$0 = u + v$，那么$u = -v$.又因为$-v \in W$，可知$u \in v \in (U \cap W)$，于是$u=0$，这与假设矛盾.
+\end{proof}
+
+\subsection*{习题}
+
+\begin{exercise}
+	证明区间$(-4,4)$上满足$f'(-1)=3f(2)$的可微的实值函数$f$构成的集合是$\R ^{(-4,4)}$的子空间.
+\end{exercise}
+
+\begin{exercise}
+	(1) $\{ (a,b,c) \in \R ^{3} : a^3 = b^3 \}$是$\R ^{3}$的子空间吗？ \\
+	(2) $\{ (a,b,c) \in \C ^{3} : a^3 = b^3 \}$是$\C ^{3}$的子空间吗？
+\end{exercise}
+
+\begin{exercise}
+	给出$\R ^2$的一个非空子集$U$的例子，使得$U$对于加法和加法逆元是封闭的(后者意味着若$u \in U$则$-u \in U$)，但$U$不是$\R ^2$的子空间.
+\end{exercise}
+
+\begin{exercise}
+	给出$\R ^2$的一个非空子集$U$的例子，使得$U$在标量乘法下是封闭的，但$U$不是$\R ^2$的子空间.
+\end{exercise}
+
+\begin{exercise}
+	函数$f : \R \to \R$称为周期的，如果有正数$p$使得对任意$x \in \R$有$f(x)=f(x+p)$.$\R$到$\R$的周期函数构成的集合是$\R ^{\R}$的子空间吗？说明理由.
+\end{exercise}
+
+\begin{exercise}
+	证明$V$的任意一族子空间的交是$V$的子空间.
+\end{exercise}
+
+\begin{exercise}
+	(1)证明$V$的两个子空间的并是$V$的子空间当且仅当其中一个子空间包含另一个子空间. \\
+	(2)证明$V$的三个子空间的并是$V$的子空间当且仅当其中一个子空间包含另两个子空间.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U$是$V$的子空间，求$U+V$. \\
+	(2)$V$的子空间加法运算有单位元吗？哪些子空间有加法逆元？
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例： \\
+	(1)如果$U_1,U_2,W$是$V$的子空间，使得$U_1+W=U_2+W$，则$U_1=U_2$. \\
+	(2)如果$U_1,U_2,W$是$V$的子空间，使得$V=U_1 \oplus W$且$V=U_2 \oplus W$，则$U_1=U_2$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U = \{ (x,x,y,y) \in \F ^{4} : x,y \in \F \}$，找出$\F ^{4}$的一个子空间$W$使得$\F ^{4} = U \oplus W$. \\
+	(2)设$U = \{ (x,y,x+y,x-y,2x) \in \F ^{5} : x,y \in \F \}$，找出$\F ^{5}$的一个子空间$W$使得$\F ^{5} = U \oplus W$. \\
+	(3)设$U = \{ (x,y,x+y,x-y,2x) \in \F ^{5} : x,y \in \F \}$，找出$\F ^{5}$的三个非$\{ 0 \}$子空间$W_1,W_2,W_3$使得$\F ^{5} = U \oplus W_1 \oplus W_2 \oplus W_3$.
+\end{exercise}
+
+\begin{exercise}
+	函数$f: \R \to \R$称为偶函数，如果对所有$x \in \R$均有$f(-x) = f(x)$.函数$f: \R \to \R$称为奇函数，如果对所有$x \in \R$均有$f(-x) = -f(x)$.用$U_e$表示$\R$上实值偶函数的集合，用$U_o$表示$\R$上实值奇函数的几何.证明$\R ^{\R} = U_e \oplus U_o$.
+\end{exercise}
+
+
+\chapter{有限维向量空间}
+
+\begin{introduction}
+	\item 张成空间
+	\item 有限维向量空间
+	\item 线性无关
+	\item 基
+	\item 维数
+\end{introduction}
+
+在上一章，我们简要介绍了向量空间及其性质.本章将会更加具体地研究有限维向量空间的性质.
+
+\section{有限维向量空间}
+
+\subsection{张成空间}
+
+首先介绍线性组合：
+
+\begin{definition}{线性组合}
+	对于$V$中的一组向量$v_1, \cdots ,v_m$，取$a_1, \cdots ,a_m \in \F$分别与每个元素相乘，就得到这组向量的\textbf{线性组合}，即$$a_1v_1 + \cdots + a_mv_m$$
+	容易发现，一组向量的线性组合也是向量.
+\end{definition}
+\begin{remark}
+	在描述一组向量时，为了避免出现歧义，通常不用括号括起来.这就类似于集合的表示中“$|$”与“$:$”的关系一样.
+\end{remark}
+\begin{remark}
+	线性组合，实际上就是用来描述加法封闭性与标量乘法封闭性的.可以说，一个对加法、标量乘法封闭的集合中的任意元素都能被由所有元素构成的组的线性组合表示出来.
+\end{remark}
+
+\begin{example}
+	请判断下列向量是否是$(2,1,-3),(1,-2,4)$的线性组合：
+	$$(17,-4,2) \qquad (17,-4,5)$$
+\end{example}
+
+当这组向量的长度为$2$时，联系“平面向量基本定理”，可知若取平面上的两个基本的不共线向量$\xl{e_1},\xl{e_2}$，则平面上任意一个向量都能用这两个向量的线性组合表示.就像我们会用“所有满足$(x-a)^2+(y-b)^2=r^2$的点构成的集合”表示一个圆一样，所有能用这两个向量的线性组合表示的元素构成的集合是什么呢？
+
+\begin{definition}{张成空间}
+	$V$中的一组向量$v_1, \cdots v_m$的所有线性组合所构成的集合称为$v_1 , \cdots ,v_m$的\textbf{张成空间}，记为$\spn (v_1, \cdots ,v_m)$，即$$\spn (v_1, \cdots ,v_m) = \{ a_1v_1 + \cdots + a_mv_m : a_1 ,\cdots ,a_m \in \F \}$$
+	特别地，定义空组$()$的张成空间为$\{ 0 \}$.
+\end{definition}
+
+\begin{example}
+	前面的例子表明在$\F ^3$中，
+	$$(17,-4,2) \in \spn ((2,1,-3),(1,-2,4))$$
+	$$(17,-4,5) \notin \spn ((2,1,-3),(1,-2,4))$$
+\end{example}
+
+有了张成空间的定义，可知上文所述集合就是$\R ^2$，表示为$\R ^2 = \spn (\xl{e_1},\xl{e_2})$.
+
+\begin{proposition}{张成空间是包含这组向量的最小子空间}
+	$V$中一组向量的张成空间是包含这组向量的最小子空间.
+\end{proposition}
+\begin{proof}
+	设$V$中向量组$v_1, \cdots ,v_m$的张成空间$\spn (v_1, \cdots ,v_m)$，记为$U$. \\
+	\buzhou{1} 证明$U$是$V$的子空间：显然$0=0v_1 + \cdots + 0v_m \in U$；任取$U$中两个元素$u=a_1v_1 + \cdots a_mv_m$与$w=b_1v_1 + \cdots + b_mv_m$，作$u+w = (a_1+b_1)v_1 + \cdots + (a_m+b_m)v_m$，由$V$对加法封闭，可知$U$也对加法封闭；取$U$中一个元素$u=a_1v_1 + \cdots a_mv_m$与标量$\lambda \in \F$，由于$\lambda u = (\lambda a_1) v_1 + \cdots + (\lambda a_m)v_m$，由$V$对标量乘法封闭，可知$U$也对标量乘法封闭.综上，$U$是$V$的子空间.\\
+    \buzhou{2} 证明$U$包含$v_1,\cdots ,v_m$：取$U$中元素$u_j$，令$u_j=0v_1 + \cdots + 1v_j + \cdots + 0v_m = v_j$，于是任意一个$v_j \in U$. \\
+    \buzhou{3} 证明$U$是最小的满足条件的子空间：假设存在一个更小的$U'$，由于$U'$包含$v_1, \cdots ,v_m$，又因为$U'$对加法与标量乘法封闭，故$U'$中必有$v_1, \cdots ,v_m$的所有线性组合，即$|U'| \geq |\spn (v_1, \cdots ,v_m)| = |U|$，这与假设矛盾.因此$U$是最小的满足条件的子空间.
+\end{proof}
+
+\begin{definition}{张成}
+	若$\spn (v_1, \cdots ,v_m) = V$，则称$v_1, \cdots ,v_m$\textbf{张成}$V$.
+\end{definition}
+
+继续上文的例子.由于$\R ^2 = \spn (\xl{e_1},\xl{e_2})$，可知$\xl{e_1},\xl{e_2}$张成$\R ^2$.现在，取$\xl{e_1} = (1,0),\xl{e_2} = (0,1)$，则$\R ^2$中的任意一个向量均能表示为$a\xl{e_1} + b\xl{e_2} = (a,b)$的形式，这是一个标准的Cartesian坐标系.那如果$\xl{e_1},\xl{e_2}$只是两个普通的向量呢？可以构造出一种“平面非直角非单位长度坐标系”.总的来说，不论$\xl{e_1},\xl{e_2}$如何选取，它们总能作为两个“基底”张成$\R ^2$.更进一步，$\R ^{2}$中所有元素的自由度都是$2$(实际上这一点会在后面讲到，我们称能张成$V$的最小组的长度为$V$的维度).
+
+\begin{example}
+	请证明： \\
+	(1)$\F ^{2}$上的向量组$(1,2),(3,5)$张成$\F ^{2}$. \\
+	(2)$\F ^{2}$上的向量组$(1,2),(3,5),(6,7)$张成$\F ^{2}$. \\
+	(3)$\F ^{n}$上的向量组$(1,0,\cdots ,0),(0,1,\cdots ,0),\cdots , (0,0, \cdots ,1)$张成$\F ^{n}$.(其中第$j$个向量的第$j$个坐标为$1$，其余都为$0$) \\
+	(4)设$v_1,v_2,v_3,v_4$张成$V$，则$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也张成$V$.
+\end{example}
+\begin{proof}
+	只选择部分证明： \\
+	(1)任取$\F ^2$上的向量$(x,y)$，由于$(3y-5x)(1,2)+(2x-y)(3,5)=(x,y)$，可知$\spn ((1,2),(3,5)) = \F ^{2}$，即$(1,2),(3,5)$张成$\F ^{2}$. \\
+	(4)由于$v_1,v_2,v_3,v_4$张成$V$，任取$V$中元素$v$，设$$v=a_1v_1 + a_2v_2 + a_3v_3 + a_4v_4~(a_1,a_2,a_3,a_4 \in \F )$$
+	因为$$v = a_1(v_1-v_2) + (a_1+a_2)(v_2-v_3) + (a_1+a_2+a_3)(v_3-v_4) + (a_1+a_2+a_3+a_4)v_4$$
+	且由$\F$对加法封闭，$a_1,a_1+a_2,a_1+a_2+a_3,a_1+a_2+a_3+a_4 \in \F$，可知$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也张成$V$.
+\end{proof}
+\begin{remark}
+	从第二个例子可以看出，张成向量空间的组的长度不一定与$\R ^2$的维度相等.
+\end{remark}
+
+\subsection{有限维向量空间}
+
+现在我们给出线性代数中的一个关键定义：
+
+\begin{definition}{有限维向量空间，无限维向量空间}
+	\begin{itemize}
+		\item 如果一个向量空间可以由该空间中的某个向量组张成，则称这个向量空间是\textbf{有限维的}.
+		\item 相对应地，如果一个向量空间不是有限维的，则称这个向量空间是\textbf{无限维的}.也就是说，如果一个向量空间不能由该空间中的任何向量组张成，它就是无限维的.
+	\end{itemize}
+\end{definition}
+
+联系上一个例子中的第三条，由于$\F ^{n}$总能被这样一个向量组张成，它是有限维的.“维度”这个概念会在后面详细介绍，现在只是定性分析.
+
+现在介绍一个具体的例子：
+
+\begin{definition}{多项式，多项式的次数}
+	\begin{itemize}
+		\item 对于函数$p:\F \to \F$，若对任意$z \in \F$均存在$a_0, \cdots ,a_m \in \F$使得$$p(z) = a_0 + a_1z + a_2z^2 + \cdots a_mz^m$$
+		则称$p$是系数属于$\F$的\textbf{多项式}.
+		\item 特别地，对于上式，当要求$a_m \neq 0$时，称$p$的\textbf{次数}为$m$，记为$\deg p = m$.规定恒等于$0$的多项式的次数为$-\infty$.
+		\item 定义$\mathcal{P} (\F)$是系数属于$\F$的所有多项式构成的集合.
+		\item 对于非负整数$m$，定义$\mathcal{P}_{m} (\F)$表示系数在$\F$中且次数不超过$m$的所有多项式构成的集合.(约定$-\infty < m$).
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	请证明： \\
+	(1)对每个非负整数$m$，$\mathcal{P} _{m} (\F)$是有限维向量空间. \\
+	(2)$\mathcal{P} (\F)$是无限维向量空间.
+\end{example}
+\begin{proof}
+	(1)由于$\mathcal{P} _{m} (\F) = \spn (1,z, \cdots ,z^m)$，可知$\mathcal{P} _{m} (\F)$是有限维向量空间. \\
+	(2)假设$\mathcal{P} (\F)$中的一组多项式可以张成$\mathcal{P} (\F)$，记这组多项式中次数最高的多项式的次数为$m$，那么总能找到$z^{m+1}$不属于该张成空间，这与假设矛盾.故不存在任何一组多项式可以张成$\mathcal{P} (\F)$，即$\mathcal{P} (\F)$是无限维向量空间.
+\end{proof}
+
+\newpage
+\section{线性无关}
+
+\subsection{线性无关}
+
+与子空间的和一样，我们倾向于研究那些有唯一表示形式的元素.
+
+\begin{definition}{线性无关，线性相关}
+	\begin{itemize}
+		\item $V$中的一组向量$v_1, \cdots , v_m$称为\textbf{线性无关}，如果$\spn (v_1, \cdots ,v_m)$中每个向量可以唯一地表示成$v_1, \cdots ,v_m$的线性组合.规定空组$()$是线性无关的.
+		\item 相对应地，如果一组向量不是线性无关的，则称这组向量\textbf{线性相关}.也就是说，对于这组向量的张成空间，如果其中存在向量有不唯一的表示，它就是线性相关的.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}{线性相关性的判定}
+	\begin{itemize}
+		\item $V$中一组向量$v_1, \cdots ,v_m$线性无关当且仅当使得$a_1v_1 + \cdots + a_mv_m = 0$成立的$a_1 , \cdots ,a_m \in \F$只有$a_1= \cdots =a_m =0$.
+		\item 由线性相关的定义可知，$V$中一组向量$v_1, \cdots ,v_m$线性相关当且仅当存在不全为$0$的$a_1 , \cdots ,a_m \in \F$使得$a_1v_1 + \cdots + a_mv_m = 0$成立.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 充分性：假设$v \in \spn (v_1, \cdots , v_m)$有两种不同的线性组合表示，即
+	$$v = a_1v_1 + \cdots + a_mv_m \qquad v = b_1v_1 + \cdots + b_mv_m$$
+	两式相减，得到$0=(a_1-b_1)v_1 + \cdots + (a_m-b_m)v_m$.由所给条件，知$a_j=b_j ~(j=1,\cdots ,m)$，这与假设矛盾，于是$v$只有一种表示方法，即$v_1, \cdots ,v_m$线性无关. \\
+	\buzhou{2} 必要性：首先，若令$a_1, \cdots , a_m$全为$0$，则有$0=0v_1 + \cdots + 0v_m$，这是$0$的一种表示形式；其次，由于$v_1, \cdots ,v_m$线性无关，$0$只有一种表示形式.综上，$0$的唯一表示形式就是$a_1= \cdots = a_m =0$.
+\end{proof}
+
+\begin{example}{\examplefont{线性无关的判断}}
+	请证明： \\
+	(1)$V$中一个向量$v$所构成的向量组是线性无关的当且仅当$v \neq 0$. \\
+	(2)$V$中两个向量构成的向量组线性无关当且仅当每个向量都不能写成另一个向量的标量倍. \\
+	(3)对每个非负整数$m$，$\mathcal{P} (\F)$中的组$1,z, \cdots ,z^m$线性无关. \\
+	(4)设$v_1,v_2,v_3,v_4$在$V$中是线性无关的，则$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也是线性无关的. \\
+	(5)设$v_1, \cdots ,v_m$在$V$中线性无关，并设$w \in V$.证明：若$v_1+w , \cdots ,v_m+w$线性相关，则$w \in \spn (v_1 , \cdots ,v_m)$.
+\end{example}
+\begin{proof}
+	(1)分别证明充分性和必要性的逆否命题成立，即证明“$v$构成的向量组线性相关当且仅当$v=0$”.充分性：当$v=0$，设$av=0~(a\in F )$，则存在不为$0$的$a$；必要性：设存在不为$0$的$a\in F$使$av=0$，则$v=0$. \\
+	(2)设向量$u,v \in V$.分别证明充分性和必要性的逆否命题成立，即证明“$u,v$线性相关当且仅当每个向量可以写成另一个向量的标量倍”.充分性：记$u=\lambda v~(\lambda \neq 0)$，则存在不全为零的$a_1,a_2 \in \F $满足$a_1+a_2 \lambda =0$使$a_1v+a_2 u =0$成立；必要性：设存在不全为零的$a_1,a_2 \in \F $使$a_1 v + a_2 u=0$成立，不妨设$a_2 \neq 0$，则$u=-\dfrac{a_1}{a_2}v$. \\
+	(3)首先不加证明地阐释一个引理：若一个多项式是零函数，则其所有系数均为$0$(会在第四章进行证明).于是，对于$p(z)=a_0+a_1z+ \cdots +a_mz^m=0$，必然有$a_0=a_1= \cdots =a_m$，即$1,z,\cdots ,z^m$线性无关. \\
+	(4)由$v_1,v_2,v_3,v_4$线性无关，设\begin{equation}
+		a_1v_1+a_2v_2+a_3v_3+a_4v_4=0 \label{202303251}
+	\end{equation}
+	其中$a_1,a_2,a_3,a_4 \in \F $.则必有$a_1=a_2=a_3=a_4=0$.对式\ref{202303251}进行变形，得到$$a_1(v_1-v_2)+(a_1+a_2)(v_2-v_3)+(a_1+a_2+a_3)(v_3-v_4)+(a_1+a_2+a_3+a_4)v_4=0$$
+	由上可得此时$a_1=a_1+a_2=a_1+a_2+a_3=a_1+a_2+a_3+a_4=0$，即$v_1-v_2,v_2-v_3,v_3-v_4,v_4$线性无关. \\
+	(5)设不全为$0$的$c_1,\cdots ,c_m \in \F $满足$$c_1(v_1+w)+ \cdots + c_m(v_m+w)=0$$
+	即$$c_1v_1+ \cdots + c_mv_m = -(c_1+ \cdots + c_m)w$$
+	由$v_1,\cdots ,v_m$线性无关，左式一定不为$0$.当$w=0$时，必然可以表示为$v_1,\cdots ,v_m$的线性组合形式，命题成立；当$w \neq 0$时，$c_1+ \cdots + c_m \neq 0$，故$$w=\frac{-c_1}{c_1+ \cdots + c_m}v_1 + \cdots + \frac{-c_m}{c_1+ \cdots + c_m}v_m$$
+	则命题成立.
+\end{proof}
+
+\begin{example}{\examplefont{线性相关的判断}}
+	请证明： \\
+	(1)$\F ^{3}$中的向量组$(2,3,1),(1,-1,2),(7,3,8)$线性相关. \\
+	(2)$\F ^{3}$中的向量组$(2,3,1),(1,-1,2),(7,3,c)$线性相关当且仅当$c=8$. \\
+	(3)包含$0$向量的向量组线性相关.
+\end{example}
+
+\begin{proof}
+	(1)设$a_1,a_2,a_3 \in \F$满足$$a_1(2,3,1)+a_2(1,-1,2)+a_3(7,3,8)=(0,0,0)$$
+	即$$(2a_1+a_2+7a_3,3a_1-a_2+3a_3,a_1+2a_2+8a_3)=(0,0,0)$$
+	可得$$\begin{cases}
+		2a_1+a_2+7a_3=0 \\
+		3a_1-a_2+3a_3=0 \\
+		a_1+2a_2+8a_3=0
+	\end{cases}$$
+	化简之，得到任意满足$a_1=-2a_3,a_2=-3a_3$的$(a_1,a_2,a_3)$均符合要求，则存在一组不全为$0$的$(a_1,a_2,a_3)$满足上式，即$(2,3,1),(1,-1,2),(7,3,8)$线性相关. \\
+	(实际上，将方程组中的第一个式子乘以$\dfrac{7}{5}$再与第二个式子乘以$-\dfrac{3}{5}$相加，就得到了第三个式子.也就是说，这三个式子中有一个式子是多余的，自然可以解出不全为$0$的$a_1,a_2,a_3$.) \\
+	(2)充分性同上，下证必要性：设$a_1,a_2,a_3 \in \F$满足$$a_1(2,3,1)+a_2(1,-1,2)+a_3(7,3,c)=(0,0,0)$$
+	即$$\begin{cases}
+		2a_1+a_2+7a_3=0 \\
+		3a_1-a_2+3a_3=0 \\
+		a_1+2a_2+ca_3=0
+	\end{cases}$$
+	容易发现，$(a_1,a_2,a_3)=(0,0,0)$是方程组的一组解.要得到另一组不同的解，要求有效方程的个数严格小于变量个数，即其中一个方程可以表示为另两个的线性组合形式，记$$a_1+2a_2+ca_3=x(2a_1+a_2+7a_3)+y(3a_1-a_2+3a_3)~(x,y \in \F )$$
+	化简之，即$$(2x+3y-1)a_1+(x-y-2)a_2+(7x+3y-c)a_3=0$$
+	对任意$a_1,a_2,a_3$均成立，即$2x+3y-1=x-y-2=7x+3y-c=0$，解得$x=\dfrac{7}{5},y=-\dfrac{3}{5}$，于是$c=8$.
+\end{proof}
+
+线性相关与下列定义等价：
+
+\begin{proposition}{线性相关的第二定义}
+	$V$中一组向量$v_1, \cdots ,v_m$线性相关当且仅当其中存在一个向量能表示为其余向量的线性组合形式.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 充分性：设该向量$v$能表示为$v_1, \cdots ,v_m$的线性组合形式，即$$v= a_1v_1 + \cdots + a_mv_m$$
+	那么$0=a_1v_1 + \cdots + a_mv_m + (-1)v$.其中$-1$显然不为$0$，因此$v_1, \cdots ,v_m,v$线性相关. \\
+	\buzhou{2} 必要性：设$0=a_1v_1 + \cdots + a_mv_m$.不妨令$a_j \neq 0$，那么有$$v_j = \frac{a_1}{-a_j} v_1 + \cdots + \frac{a_m}{-a_j} v_m$$
+	这说明$v_j$可以表示为其余元素的线性组合.
+\end{proof}
+\begin{remark}
+	在该证明过程中，不难发现定义里“其余”的重要性.
+\end{remark}
+
+实际上，利用这个定义更好理解线性相关的本质.上一小节的例题告诉我们，张成组(即张成某向量空间的向量组)的长度可以不同.容易证明，第一个例子中的向量组是线性无关的，而第二个例子中的向量组是线性相关的.实际上，像这样既是张成组又是线性无关的组，就称为基(详细内容在下一小节会讲到).
+
+
+\subsection{线性相关性与张成}
+
+下面的命题为我们阐释了线性相关性与张成的一个基本关系.
+
+\begin{proposition}{线性相关性引理}
+	设$v_1, \cdots ,v_m$是$V$中的一个线性相关的向量组，则存在$j \in \{ 1,2, \cdots ,m \}$使得： \\
+	(a)$v_j \in \spn (v_1, \cdots , v_{j-1})$； \\
+	(b)若从$v_1, \cdots ,v_m$中去掉第$j$项，则剩余组的张成空间等于$\spn (v_1, \cdots ,v_m)$.
+\end{proposition}
+\begin{proof}
+	(a)由于$v_1, \cdots ,v_m$线性相关，存在不全为$0$的数$a_1, \cdots ,a_m \in \F$使得$a_1v_1 + \cdots + a_mv_m = 0$.(人为地)设该向量组的顺序满足$a_1, \cdots ,a_j$均不为$0$，从而有
+	\begin{equation}
+		v_j = \frac{a_1}{-a_j} v_1 + \cdots + \frac{a_{j-1}}{-a_j} v_{j-1} \label{xmxkxlgr}
+	\end{equation}
+	这意味着$v_j \in \spn (v_1, \cdots , v_{j-1})$； \\
+	(b)取$\spn (v_1, \cdots ,v_m)$中某一元素$u$，设$u=b_1v_1 + \cdots + b_mv_m$，将式\ref{xmxkxlgr}代入可得
+	$$u = \ssb{\frac{a_1b_j}{-a_j}+b_1}v_1 + \cdots + \ssb{\frac{a_{j-1}b_j}{-a_j}+b_{j-1}}v_{j-1} + b_{j+1} v_{j+1} + \cdots b_mv_m$$
+	这表明对于$\spn (v_1, \cdots ,v_m)$中任一元素，它都在$\spn (v_1, \cdots ,v_{j-1} , v_{j+1}, \cdots ,v_m)$中，即原命题所述.
+\end{proof}
+
+由线性无关与张成的几何意义，我们能够想象：对于任意一个有限维向量空间，总是存在一组“基底”，这组基底可以线性表示任何向量空间中的元素，并且它们之间互不多余、缺一不可.这就类似于欧氏几何中的五条公理一样.通过这种直观的理解，不难得出以下命题，难的在于如何规整地证明.
+
+\begin{proposition}{线性无关组与张成组长度的关系}{xxwgvi}
+	在有限维向量空间$V$中，线性无关组的长度总是小于等于向量空间的每一个张成组的长度.
+\end{proposition}
+\begin{proof}
+	设$V$中一个线性无关组$u_1, \cdots ,u_m$与张成组$w_1, \cdots w_n$. \\
+	\buzhou{1}第$1$步：将线性无关组中的第$1$个元素$u_1$添加在张成组的开头，便形成组$$u_1,w_1, \cdots ,w_n$$
+	由线性相关性引理，我们可以去掉某个$w$使得新的组仍张成$V$. \\
+	\buzhou{2}第$j$步：将线性无关组中的第$j$个元素$u_j$添加在$u_{j-1}$后，由线性相关性引理，又因为$u_1, \cdots ,u_j$是线性无关的，我们可以去掉某个$w$使得新的组仍张成$V$. \\
+	每经过一步，都会将组中的一个$w$换成一个$u$.因为在第$m$步后把所有的$u$都换完，可知$n \geq m$，即原命题所述.
+\end{proof}
+
+利用这一“直观”的结论，我们可以“直观”地证伪某些命题.
+
+\begin{example}
+	证明下列结论： \\
+	(1)组$(1,2,3),(4,5,8),(9,6,7),(-3,2,8)$在$\R ^{3}$中一定不是线性无关的. \\
+	(2)组$(1,2,3,-5),(4,5,8,3),(9,6,7,-1)$一定不能张成$\R ^{4}$.
+\end{example}
+
+利用命题\ref{pro:xxwgvi}的证明思路，还可以说明更多直观的结论：
+
+\begin{proposition}{向量空间中的一些结论}{yixpjply}
+	\begin{itemize}
+		\item 在向量空间$V$中，每个线性相关的张成组都能通过去除某些元素得到一个线性无关的张成组.
+		\item $V$是无限维向量空间当且仅当$V$中存在一个向量序列$v_1, v_2, \cdots$使得当$m$是任意正整数时$v_1, \cdots ,v_m$都是线性无关的.
+		\item 有限维向量空间的子空间都是有限维的.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	(1)\buzhou{1} 第$1$步：设$\mathcal{W}_1 = v_1, \cdots ,v_m$张成$V$.若$v_1 \notin \spn (v_2, \cdots ,v_m)$，则保持该组不变，并停止操作；若$v_1 \in \spn (v_2, \cdots ,v_m)$，则去掉$v_1$，并记新组$v_2, \cdots , v_m$为$\mathcal{W}_2$. \\
+	\buzhou{2} 第$j$步：若$v_j \notin \spn (v_{j+1}, \cdots ,v_m)$，则保持$\mathcal{W}_j$不变，并停止操作；若$v_j \in \spn (v_{j+1}, \cdots ,v_m)$，则去掉$v_j$，并记新组$v_{j+1}, \cdots , v_m$为$\mathcal{W}_{j+1}$.在经过有限次操作后，一定会在某一步停止并返回一个线性无关的组，且能张成$V$. \\
+	(2)充分性显然.下证必要性： \\
+	\buzhou{1} 第$1$步：取$V$中的一个线性无关向量组$\mathcal{W}_1$，作它的张成空间$U_1$，取一元素$u \in (V \setjianfa U_1)$放入该组，得到一个新的组$\mathcal{W}_2$.显然该组仍是线性无关的(因为线性相关性的第二定义). \\
+	\buzhou{2} 第$j$步：作$\mathcal{W}_j$的张成空间$U_j$，取一元素$u \in (V \setjianfa U_j)$放入$\mathcal{W}_j$，得到一个新的组$\mathcal{W}_{j+1}$. \\
+	由于可以不断重复该过程，因此这样一个组$\mathcal{W}_j$会不断扩张并保持线性无关，即符合原命题要求. \\
+	(3)设有限维向量空间$V$及其子空间$U$.由命题\ref{pro:xxwgvi}，$V$中任意一个线性无关组的长度小于等于每一个$V$的张成组的长度，故该线性无关组的长度是有限的. \\
+	\buzhou{1} 第$1$步：若$U=\{ 0 \}$，即$U = \spn ()$，则$U$符合要求；否则存在非零向量$v_1 \in U$. \\
+	\buzhou{2} 第$j$步：若$U= \spn (v_1,\cdots ,v_{j-1})$，则$U$符合要求；否则存在$v_j \in U$满足$v_j \notin \spn (v_1,\cdots ,v_{j-1})$. \\
+	由于第$j+1$步能够说明存在$v_1, \cdots , v_j \in U$使$v_1, \cdots , v_j$线性无关，而$U$中任意一个线性无关组的长度是有限的，故一定会在某一步停止，此时$U$即符合要求.
+\end{proof}
+
+\subsection*{习题}
+
+\begin{exercise}
+	求数$t$使得$(3,1,4),(2,-3,5),(5,9,t)$在$\R ^{3}$中不是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	(1)证明：若将$\C$视为$\R$上的向量空间，则组$1+\ic ,1-\ic $是线性无关的. \\
+	(2)证明：若将$\C$视为$\C$上的向量空间，则组$1+\ic ,1-\ic $是线性相关的.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1,v_2, \cdots ,v_m$在$V$中线性无关，则$5v_1-4v_2,v_2,v_3, \cdots ,v_m$是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1,v_2, \cdots ,v_m$在$V$中线性无关，并设$\lambda \in \F$且$\lambda \neq 0$，则$\lambda v_1,\lambda v_2,\cdots ,\lambda v_m$是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1, \cdots ,v_m$和$w_1,\cdots ,w_m$都是$V$中的线性无关组，则$v_1+w_1, \cdots ,v_m+w_m$是线性无关的.
+\end{exercise}
+
+\begin{exercise}
+	设$v_1, \cdots ,v_m$在$V$中线性无关，并设$w \in V$.证明：若$v_1+w, \cdots ,v_m+w$线性相关，则$w \in \spn (v_1, \cdots ,v_m)$.
+\end{exercise}
+
+\begin{exercise}
+	证明$\F ^{\infty}$是无限维的.
+\end{exercise}
+
+\begin{exercise}
+	设$p_0,p_1, \cdots ,p_m$是$\mathcal{P}_m (\F)$中的多项式使得对每个$j$都有$p_{j}(2)=0$.证明$p_0,p_1, \cdots ,p_m$在$\mathcal{P}_m (\F)$中是线性相关的.
+\end{exercise}
+
+\newpage
+\section{基与维数}
+
+\subsection{基}
+
+上一节中多次出现“基底”这一关键词，现在我们来集中研究它：
+
+\begin{definition}{基}
+	若$V$中的一个向量组既线性无关又张成$V$，则称为$V$的\textbf{基}.
+\end{definition}
+
+\begin{example}{\examplefont{基的例子}}
+	请验证： \\
+	(1)组$(1,0,\cdots ,0),(0,1,0,\cdots ,0), \cdots ,(0,\cdots ,0,1)$是$\F ^{n}$的基.(实际上，这称为$\F ^{n}$的\textbf{标准基}) \\
+	(2)组$(1,1,0),(0,0,1)$是$\{ (x,x,y) \in \F ^{3}:x,y \in \F \}$的基. \\
+	(3)组$(1,-1,0),(1,0,-1)$是$\{ (x,y,z) \in \F ^{3}:x+y+z=0 \}$的基. \\
+	(4)组$1,z, \cdots ,z^{m}$是$\mathcal{P}_m (\F)$的基.
+\end{example}
+
+我们发现张成和线性无关的定义十分类似：都出现了“线性组合”这一形式.将它们综合起来，就是基的判定命题：
+
+\begin{proposition}{基的判定}
+	$V$中的向量组$v_1, \cdots ,v_m$是$V$的基当且仅当每个$v \in V$都能唯一地写成以下形式$$v = a_1v_1 + \cdots + a_mv_m$$
+	其中$a_1, \cdots ,a_m \in \F$.
+\end{proposition}
+\begin{proof}
+	必要性显然.直接来看充分性：在$V$中任取一元素$v$，设它可以唯一地表示为$v = a_1v_1 + \cdots + a_mv_m$的形式. \\
+	\buzhou{1} 张成：由张成的定义可知，$v_1, \cdots ,v_m$张成$V$. \\
+	\buzhou{2} 线性无关：令$a_1, \cdots , a_m$全为$0$，则有$0=0v_1 + \cdots + 0v_m$，这是$0$的唯一表示形式，因此$v_1, \cdots ,v_m$线性无关.
+\end{proof}
+
+回顾上一节中命题\ref{pro:yixpjply}的第一条，实际上现在我们就能将其写成基的形式.
+
+\begin{proposition}{基、线性无关组、张成组I}{kois}
+	在有限维向量空间$V$中，
+	\begin{itemize}
+		\item 每个张成组都可以化简成$V$的一个基.
+		\item 每个线性无关的向量组都可以扩充成$V$的一个基.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	第一条已经在命题\ref{pro:yixpjply}中证明过，这里只证明第二条. \\
+	设$V$中的线性无关组$v_1, \cdots ,v_m$与一个基$u_1, \cdots ,u_n$.作组$\mathcal{W} = v_1, \cdots ,v_m,u_1, \cdots ,u_n$，它显然张成$V$.由命题\ref{pro:xxwgvi}可知$m \leq n$.利用第一条的证明过程将$\mathcal{W}$化简为$v_1, \cdots , v_m , u_1, \cdots ,u_j$，可知它是$V$的一个基.
+\end{proof}
+
+以上的命题具有很强的可操作性.例如，取$\F ^{3}$的基的一部分(也就是一个线性无关组)$(1,1,4),(5,1,4)$，再取一个标准基$(1,0,0),(0,1,0),(0,0,1)$.在$(1,1,4),(5,1,4),(1,0,0),(0,1,0),(0,0,1)$中去掉$$(1,0,0)=-\frac{1}{4}(1,1,4)+\frac{1}{4}(5,1,4)$$
+在$(1,1,4),(5,1,4),(0,1,0),(0,0,1)$中，由于$(0,1,0),(0,0,1)$都不能被$(1,1,4),(5,1,4)$线性表示，所以最后可以保留其中任意一个，即$(1,1,4),(5,1,4),(0,1,0)$和$(1,1,4),(5,1,4),(0,0,1)$都是$\F ^{3}$的基.
+
+有了基这个工具之后，我们可以证明更多之前不能证明的结论：
+
+\begin{proposition}{子空间与直和的关系}
+	设$V$是有限维的，$U$是$V$的子空间，则存在$V$的子空间$W$使得$V=U \oplus W$.
+\end{proposition}
+\begin{proof}
+	设$U$的一个基$u_1, \cdots , u_m$，按照命题\ref{pro:kois}的方法将这个$V$中的线性无关组扩充为$V$的基，记为$u_1, \cdots ,u_m,w_1, \cdots ,w_n$.取$W = \spn (w_1, \cdots ,w_n)$，下证这样的$W$就是满足题目要求的子空间： \\
+	显然$U+W=V$.任取$v \in (U \cap W)$，设$$v=a_1u_1 + \cdots + a_mu
+	_m \qquad v = b_1w_1 + \cdots + b_nw_n$$
+	两式作差，得$0=a_1u_1 + \cdots a_mu_m + (-b_1)w_1 + \cdots + (-b_n)w_n$，由$u_1, \cdots ,u_m,w_1, \cdots ,w_n$是$V$的基可得$a_1 = \cdots = b_n = 0$，则$v=0$.由命题\ref{pro:ziksjmvihe}知$V=U \oplus W$.
+\end{proof}
+
+\subsection{维数}
+
+继续研究向量空间的几何意义，我们发现基已经被定义了，但是最小的基还不太清楚.实际上，容易说明所有基的长度都是相等的，而任意一个基的长度就称作\textbf{维数}.
+
+\begin{proposition}{基的长度不依赖于基的选取}
+	有限维向量空间的任意两个基的长度都相同.
+\end{proposition}
+\begin{proof}
+	由命题\ref{pro:xxwgvi}可知，因为任意两个基$\mathcal{U},\mathcal{V}$都同时是线性无关向量组与张成组，所以$\mathcal{U}$的长度小于等于$\mathcal{V}$的长度、$\mathcal{U}$的长度大于等于$\mathcal{V}$的长度，于是它们的长度相等.
+\end{proof}
+
+\begin{definition}{维数}
+	有限维向量空间$V$的任意基的长度称为这个向量空间的\textbf{维数}，记作$\dim V$.
+\end{definition}
+
+很明显，一个有限维向量空间的子空间也是有限维的，它的维数应当满足下列命题要求：
+
+\begin{proposition}{子空间的维数}
+	若$U$是有限维向量空间$V$的子空间，则$\dim U \leq \dim V$.
+\end{proposition}
+\begin{proof}
+	取$U$的一个基$\mathcal{U}$，取$V$的一个基$\mathcal{V}$.因为$\mathcal{U}$是$V$的一个线性无关的子空间，由命题\ref{pro:xxwgvi}可知，$\mathcal{U}$的长度小于等于$\mathcal{V}$的长度，即$\dim U \leq \dim V$.
+\end{proof}
+
+借助维数，可以更快捷地证明一个向量空间的基.
+
+\begin{proposition}{基、线性无关组、张成组II}
+	设$V$是有限维向量空间.
+	\begin{itemize}
+		\item $V$中每个长度为$\dim V$的线性无关向量组都是$V$的基.
+		\item $V$中每个长度为$\dim V$的张成组都是$V$的基.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	(1)设$V$中的一个线性无关向量组$v_1, \cdots ,v_m$，取$V$中一个基$w_1 , \cdots , w_n$，由命题\ref{pro:kois}可知，$v_1, \cdots ,v_m$可以扩充为基，然而在此过程中由于$m=n$，实际上没有发生任何扩充，故$v_1, \cdots ,v_m$本来就是一个基. \\
+	(2)证明过程同(1)，留作习题.
+\end{proof}
+
+\begin{example}
+	证明以下结论： \\
+	(1)组$(5,7),(4,3)$是$\F ^{2}$的基. \\
+	(2)证明$1,(x-5)^2,(x-5)^3$是$\mathcal{P}_{3} (\R)$的子空间$U$的一个基，其中$U$定义为$$U = \{ p \in \mathcal{P}_{3} (\R) : p'(5)=0 \}$$
+\end{example}
+
+类比并集的元素个数计算公式(即容斥原理)，子空间和的的维数计算公式如下：
+
+\begin{proposition}{子空间和的维数}
+	如果$U_1$和$U_2$是有限维向量空间的两个子空间，则$$\dim (U_1+U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$$
+\end{proposition}
+\begin{proof}
+	设$U_1 \cap U_2$的基$v_1, \cdots ,v_m$，则$v_1, \cdots ,v_m \in U_1,U_2$；设$U_1, U_2$的基分别为$v_1, \cdots ,v_m,u_1, \cdots ,u_j$与$v_1, \cdots ,v_m,u'_1, \cdots ,u'_k$. \\
+	取$U_1+U_2$中的$0$元素，它能被表示为$w_1+w_2$的形式(其中$w_1 \in U_1,w_2 \in U_2$).因此设
+	\begin{align*}
+		0 &= w_1 + w_2 = (a_1v_1 + \cdots a_mv_m + b_1u_1 + \cdots + b_ju_j) + (a'_1v_1 + \cdots a'_mv_m + b'_1u'_1 + \cdots + b'_ku'_k) \\
+		&= (a_1+a'_1)v_1 + \cdots + (a_m + a'_m)v_m + b_1u_1 + \cdots + b_ju_j + b'_1u'_1 + \cdots + b'_ku'_k
+	\end{align*}
+	于是
+	$$ (-a_1-a'_1)v_1 + \cdots + (-a_m - a'_m)v_m + (-b_1)u_1 + \cdots + (-b_j)u_j = b'_1u'_1 + \cdots + b'_ku'_k $$
+	等式左边属于$U_1$，等式右边属于$U_2$，因此$b'_1u'_1 + \cdots + b'_ku'_k \in U_1 \cap U_2$.设
+	$$b'_1u'_1 + \cdots + b'_ku'_k = c_1v_1 + \cdots + c_mv_m$$
+	于是$$b'_1u'_1 + \cdots + b'_ku'_k + (-c_1)v_1 + \cdots + (-c_m)v_m = 0$$
+	这个式子告诉我们$b'_1 = \cdots = b'_k = c_1 = \cdots c_m =0$.同理可得$b_1 = \cdots = b_j =0$.带入上式，可得
+	$$(a_1+a'_1)v_1 + \cdots + (a_m + a'_m)v_m = 0$$
+	所以$a_1+a'_1 = \cdots = a_m + a'_m =0$. \\
+	综上，对于$U_1+U_2$中的$0$，它只有唯一一种线性表示形式，即满足$$a_1+a'_1 = \cdots = a_m + a'_m = b'_1 = \cdots = b'_k = b_1 = \cdots = b_j$$
+	故$v_1, \cdots ,v_m,u_1, \cdots ,u_j,u'_1, \cdots ,u'_k$是$U_1+U_2$的基.于是$\dim (U_1+U_2)=m+j+k = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$.
+\end{proof}
+\begin{remark}
+	注意子空间的维数计算公式不一定能推广到更多元的情况，例如本节习题中所示.
+\end{remark}
+
+\subsection*{习题}
+
+\begin{exercise}
+	证明或反驳：$\mathcal{P}_{3} (\F)$有一个基$p_0,p_1,p_2,p_3$使得多项式$p_0,p_1,p_2,p_3$的次数都不等于$2$.
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：若$v_1,v_2,v_3,v_4$是$V$的基，且$U$是$V$的子空间使得$v_1,v_2 \in U,~ v_3 \notin U ,~ v_4 \notin U$，则$v_1,v_2$是$U$的基.
+\end{exercise}
+
+\begin{exercise}
+	设$U$和$W$是$V$的子空间使得$V=U \oplus W$.并设$u_1, \cdots ,u_m$是$U$的基，$w_1, \cdots ,w_n$是$W$的基.证明$u_1, \cdots ,u_m,w_1, \cdots ,w_n$是$V$的基.
+\end{exercise}
+
+\begin{exercise}
+	(1)证明$\R ^{2}$的子空间恰为：$\{ 0 \}$、$\R ^2$和$\R ^2$中过原点的所有直线. \\
+    (2)证明$\R ^{3}$的子空间恰为：$\{ 0 \}$、$\R ^3$、$\R ^3$中过原点的所有直线和$\R ^3$中过原点的所有平面.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U$是$\C ^{5}$的子空间，满足$$U= \{ (z_1,z_2,z_3,z_4,z_5) \in \C ^{5} : 6z_1=z_2,z_3+2z_4+3z_5=0 \}$$
+	求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\C ^{5}$的基. \\
+	(3)找出$\C ^{5}$的一个子空间$W$使得$\C ^{5} = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\F) : p(6)=0 \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\F)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\F)$的一个子空间$W$使得$\mathcal{P}_{4} (\F) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\R) : p''(6)=0 \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\R)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\R)$的一个子空间$W$使得$\mathcal{P}_{4} (\R) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\F) : p(2)=p(5) \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\F)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\F)$的一个子空间$W$使得$\mathcal{P}_{4} (\F) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	(1)设$U=\{ p \in \mathcal{P}_{4} (\F) : p(2)=p(5)=p(6) \}$，求$U$的一个基. \\
+	(2)将(1)中的基扩充为$\mathcal{P}_{4} (\F)$的基. \\
+	(3)找出$\mathcal{P}_{4} (\F)$的一个子空间$W$使得$\mathcal{P}_{4} (\F) = U \oplus W$.
+\end{exercise}
+
+\begin{exercise}
+	设$v_1, \cdots ,v_m$在$V$中是线性无关的，并设$w \in V$.证明$$\dim \spn (v_1+w, \cdots ,v_m+w) \geq m-1$$
+\end{exercise}
+
+\begin{exercise}
+	假设$p_0,p_1, \cdots ,p_m \in \mathcal{P} (\F)$使得每个$p_j$的次数为$j$.证明$p_0,p_1, \cdots ,p_m$是$\mathcal{P}_m (\F)$的基.
+\end{exercise}
+
+\begin{exercise}
+	设$U$和$W$均为$\C ^{6}$的$4$维子空间.证明在$U \cap W$中存在两个向量使得其中任何一个都不是另一个的标量倍.
+\end{exercise}
+
+\begin{exercise}
+	设$U_1,\cdots ,U_m$均为$V$的有限维子空间.证明$U_1 + \cdots + U_m$是有限维的且$$\dim (U_1 + \cdots + U_m) \leq \dim U_1 +\cdots + \dim U_m$$
+\end{exercise}
+
+\begin{exercise}
+	设$U_1,\cdots ,U_m$均为$V$的有限维子空间，使得$U_1 + \cdots + U_m$是直和.证明$U_1 \oplus \cdots \oplus U_m$是有限维的且$$\dim (U_1 \oplus \cdots \oplus U_m) = \dim U_1 +\cdots + \dim U_m$$
+\end{exercise}
+
+\begin{exercise}
+	证明或给出反例：设$U_1,U_2,U_3$是有限维向量空间的子空间，那么
+	\begin{align*}
+		\dim (U_1+U_2+U_3) = &\dim U_1 + \dim U_2 + \dim U_3 \\ 
+		&- \dim (U_1 \cap U_2) - \dim (U_1 \cap U_3) - \dim (U_2 \cap U_3) \\
+		&+ \dim (U_1 \cap U_2 \cap U_3)
+	\end{align*}
+\end{exercise}
+
+\chapter{线性映射}
+
+\section{向量空间的线性映射}
+
+说到线性映射，我们不得不想到所谓“线性函数(linear function)”，即一次函数.一次函数有一些很特殊的性质，例如，两个一次函数相加还是一次函数；如果这个一次函数过原点，那么它乘以任意常数得到的函数仍过原点.由此，可以引出线性代数中有关“线性”的一个重要概念.
+
+\begin{definition}{线性映射}
+	设函数$T:V \to W$，若该函数满足下列性质：
+	\begin{enumerate}
+		\item \textbf{加性}：$$\forall u,v \in V,~T(u+v)=Tu+Tv$$
+		\item \textbf{齐性}：$$\forall \lambda \in \F,~v \in V,~T(\lambda v)=\lambda Tv$$
+	\end{enumerate}
+	则称$T$是\textbf{线性映射}.
+\end{definition}
+\begin{remark}
+	为了表示简便，通常省略括号写成$Tv$，尽管$T(v)$更加规范.
+\end{remark}
+
+规定记号$\lmap (V,W)$，表示所有从$V$到$W$的线性映射构成的集合.
+
+\begin{example}{\examplefont{线性映射的例子}}
+	(1)零函数：定义$0 \in \lmap (V,W)$如下$$\forall v \in V, 0v=0$$
+	(2)恒等映射：定义$I \in \lmap (V,V)$如下$$\forall v \in V, Iv=v$$
+	(3)微分：定义$D \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$如下$$Dp=p'$$
+	(4)乘以$x^2$：定义$T \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$满足$$\forall x \in \R ,~(Tp)(x)=x^2p(x)$$
+	(5)向后移位：定义$T \in \lmap (\F ^{\infty},\F ^{\infty})$如下$$T(x_1,x_2,x_3, \cdots ) = (x_2,x_3, \cdots)$$
+	(6)从$\R ^3$到$\R ^2$：定义$T \in \lmap (\R ^{3},\R ^{2})$如下$$T(x,y,z)=(2x-y+3z,7x+5y-6z)$$
+	(7)从$\F ^n$到$\F ^m$：定义$T \in \lmap (\F ^{n},\F ^{m})$如下$$T(x_1,\cdots ,x_n) = (A_{1,1}x_1 + \cdots + A_{1,n}x_n, \cdots , A_{m,1}x_1+\cdots +A_{m,n}x_n)$$
+	其中，$A_{j,k} \in \F ,~j=1, \cdots ,m,~ k = 1, \cdots ,n$.事实上，从$\F ^n$到$\F ^m$的每个线性映射都是这种形式的.我们稍后会进行证明.
+\end{example}
+
+观察线性映射所具有的加性与齐性，似乎可以将其与线性组合联系起来.例如，对于$T \in \lmap (V,W)$，若给定$v_1, \cdots ,v_m$是$V$的基，设$c_1, \cdots ,c_m$是$\F$中的任意元素，则$$T(c_1v_1 + \cdots + c_mv_m) = c_1Tv_1 + \cdots + c_mTv_m$$
+由这种想法，以下的命题不难证明：
+
+\begin{proposition}{线性映射与定义域的基}{xmxkykuedkyiyu}
+	对于$T \in \lmap (V,W)$，设$v_1, \cdots ,v_m$是$V$的基，$w_1, \cdots ,w_m \in W$，则存在唯一一个线性映射$T \in \lmap (V,W)$使得对任意$j=1, \cdots ,m$都有$$Tv_j = w_j$$
+\end{proposition}
+\begin{proof}
+	\buzhou{1}存在性：利用先前得到的想法，构造$T:V \to W$如下：$$\forall c_j \in \F~(j=1, \cdots,m),~T(c_1v_1 + \cdots + c_mv_m) = c_1w_1 + \cdots + c_mw_m$$
+	由于$v_1, \cdots ,v_m$是$V$的基，$T$的定义域是$V$.下证$T \in \lmap (V,W)$. \\
+	取$u=a_1v_1 + \cdots + a_mv_m,~v=c_1v_1 + \cdots + a_mv_m,~ \lambda \in \F$，因为
+	\begin{align*}
+		T(u+v) &= T((a_1+c_1)v_1 + \cdots + (a_m+c_m)v_m) \\
+		&= (a_1+c_1)w_1 + \cdots + (a_m+c_m)w_m \\
+		Tu+Tv &= a_1w_1 + \cdots + a_mv_m + c_1v_1 + \cdots + c_mv_m
+	\end{align*}
+	所以$T(u+v)=Tu+Tv$，即$T$满足加性.因为
+	\begin{align*}
+		T(\lambda u) &= T((\lambda a_1)v_1 + \cdots + (\lambda a_m)v_m) \\
+		&= \lambda a_1 w_1 + \cdots + \lambda a_m w_m \\
+		\lambda T(u) &= \lambda (a_1w_1 + \cdots a_mw_m)
+	\end{align*}
+	所以$T(\lambda u)=\lambda T(u)$，即$T$满足齐性.综上，这样的$T \in \lmap (V,W)$. \\
+	\buzhou{2}唯一性：若$T \in \lmap (V,W)$，记$T v_j = w_j~(j=1,\cdots ,m)$，设$c_1, \cdots ,c_m$是$\F$中的任意元素，有$$T(c_1v_1 + \cdots + c_mv_m) = c_1w_1 + \cdots + c_mw_m$$
+	这表明任何一个满足题目要求的映射$T$都满足上述形式要求.结合\buzhou{1}，可知映射$T$的唯一形式即为该形式.
+\end{proof}
+
+
+我们接着完善线性映射的定义.先在$\lmap (V,W)$上定义加法和标量乘法：
+
+\begin{definition}{$\lmap (V,W)$上的加法和标量乘法}{lmapvwyysr}
+	设$S,T \in \lmap (V,W),~\lambda \in \F$. \\
+	(1)定义\textbf{和}$S+T$是$V$到$W$的映射，满足$$\forall u \in V,~(S+T)(u)=Su+Tu$$
+	(2)定义\textbf{积}$\lambda T$是$V$到$W$的映射，满足$$\forall u \in V,~(\lambda T)(u) = \lambda (Tu)$$
+\end{definition}
+\begin{remark}
+	实际上，定义中的$S+T,\lambda T$均为从$V$到$W$的线性映射，也即上述定义的加法、标量乘法是封闭的.更进一步，$\lmap (V,W)$就是一个向量空间.这个命题易于证明.
+\end{remark}
+
+一般来说，向量空间中元素之间的乘法是没有意义的.然而对于线性映射，我们倾向于将一种特殊的运算视作乘积：
+
+\begin{definition}{线性映射的乘积}
+	设$T \in \lmap (U,V),~S \in \lmap (V,W)$，定义\textbf{乘积}$ST$是$U$到$W$的映射，满足$$\forall u \in U,~(ST)(u)=S(Tu)$$
+\end{definition}
+\begin{remark}
+	同样的，这里的$ST$是从$U$到$W$的线性映射.
+\end{remark}
+\begin{remark}
+	此处线性映射的乘积就是所谓“函数复合”$S \circ T$.
+\end{remark}
+
+但是为什么要将复合硬生生地看做乘法呢？是因为它有很多好的性质：
+
+\begin{proposition}{线性映射乘积的代数性质}{xmxkykueigji}
+	(1)结合性：设线性映射$T_1,T_2,T_3$，在运算有意义的情况下，有$$(T_1T_2)T_3=T_1(T_2T_3)$$
+	(2)单位元：设$T \in \lmap (V,W)$，$I$是$W$上的恒等映射，则$$TI=IT=T$$
+	(3)分配性质：设$T,T_1,T_2 \in \lmap (U,V),~S,S_1,S_2 \in \lmap (V,W)$，则$$(S_1+S_2)T=S_1T+S_2T,\quad S(T_1+T_2)=ST_1+ST_2$$
+\end{proposition}
+
+请注意，线性映射的乘法不满足交换性，即$ST=TS$不一定成立.
+
+\subsection*{习题}
+
+\begin{exercise}
+	设$T \in \lmap (\F ^n,\F ^m)$.证明存在标量$A_{j,k} \in \F$~(其中$j=1, \cdots ,m,~k=1,\cdots ,n$)使得对任意$(x_1, \cdots ,x_n) \in \F ^n$都有$$T(x_1, \cdots ,x_n) = (A_{1,1}x_1+ \cdots +A_{1,n}x_n, \cdots ,A_{m,1}x_1+\cdots +A_{m,n}x_n)$$
+\end{exercise}
+
+\begin{exercise}
+	证明每个从一维向量空间到其自身的线性映射都是乘以某个标量.准确地说，证明：若$\dim V=1$且$T \in \lmap (V,V)$，则有$\lambda \in \F$使得对所有$v \in V$都有$Tv=\lambda v$.
+\end{exercise}
+
+\begin{exercise}
+	给出一个函数$\varphi :\R ^2 \to \R$，使得对所有$a \in \R$和所有$v \in \R ^2$有$$\varphi (av)=a\varphi (v)$$
+	但$\varphi$不是线性的.
+\end{exercise}
+
+\begin{exercise}
+	给出一个函数$\varphi :\C \to \C$，使得对所有$w,z \in \C$都有$$\varphi (w+z) = \varphi (w) + \varphi (z)$$
+	但$\varphi$不是线性的.这里$\C$视为一个复向量空间.
+\end{exercise}
+
+\begin{exercise}
+	设$V$是有限维的.证明$V$的子空间上的线性映射可以扩张成$V$上的线性映射.也就是说，证明：如果$U$是$V$的子空间，$S \in \lmap (U,W)$，那么存在$T \in \lmap (V,W)$使得对所有$u \in U$都有$Tu=Su$.
+\end{exercise}
+
+\begin{exercise}
+	设$V$是有限维的且$\dim V>0$，再设$W$是无限维的.证明$\lmap (V,W)$是无限维的.
+\end{exercise}
+
+\begin{exercise}
+	设$v_1, \cdots ,v_m$是$V$中的一个线性相关的向量组，并设$W \neq \{ 0 \}$.证明存在$w_1, \cdots ,w_m \in W$使得没有$T \in \lmap (V,W)$能满足$Tv_k=w_k,~k=1,\cdots ,m$.
+\end{exercise}
+
+\begin{exercise}
+	设$V$是有限维的且$\dim V \geq 2$.证明存在$S,T \in \lmap (V,V)$使得$ST \neq TS$.
+\end{exercise}
+
+\section{零空间与值域}
+
+\subsection{零空间与单射性}
+
+\begin{definition}{零空间}
+	对于$T \in \lmap (V,W)$，$T$的\textbf{零空间}(或称为“核”)定义如下：$$\nul T = \{ v \in V:Tv=0 \}$$
+\end{definition}
+
+\begin{example}{\examplefont{零空间的例子}}
+	(1)若$T$是$V$到$W$的零映射，则$\nul T=V$. \\
+	(2)设$\varphi \in \lmap (\C ^3,\F)$定义为$\varphi (z_1,z_2,z_3)=z_1+2z_2+3z_3$.则$$\nul \varphi = \{ (z_1,z_2,z_3) \in \C ^3 : z_1+2z_2+3z_3=0 \}$$
+	并且$\null \varphi$的一个基为$(-2,1,0),(-3,0,1)$. \\
+	(3)设$D \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$是微分映射$Dp=p'$.只有常函数的导数才能等于零函数，故$T$的零空间是常函数组成的集合. \\
+	(4)设$T \in \lmap (\F ^{\infty},\F ^{\infty})$是向后移位映射$$T(x_1,x_2,x_3, \cdots )=(x_2,x_3,\cdots )$$
+	为让$Tv=0$，要求$x_2=x_3=\cdots =0$，故$\nul T = \{ (a,0,0,\cdots ) :a \in \F \}$.
+\end{example}
+
+自然地，零空间是向量空间.
+
+\begin{proposition}{零空间是子空间}
+	设$T \in \lmap (V,W)$，则$\nul T$是$V$的子空间.
+\end{proposition}
+\begin{proof}
+	略.为证明上述命题，只需注意到$T(0)=0$~(因为$T(0+0)=T(0)+T(0)$).
+\end{proof}
+
+\begin{definition}{单射}
+	如果当$Tu=Tv$时必有$u=v$，则称映射$T:V \to W$是单射.
+\end{definition}
+
+\begin{proposition}{单射性的判定}
+	设$T \in \lmap (V,W)$，则$T$是单射当且仅当$\nul T=\{ 0 \}$.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 充分性：当$\nul T = \{ 0 \}$时，设$Tu=Tv$，则$Tu-Tv=T(u-v)=0$，于是$u-v=0$，即$u=v$.这表明$T$是单射. \\
+	\buzhou{2} 必要性：任取$\nul T$中的元素$v$，则$Tv=0$.因为$T0=0$且$T$是单射，所以必有$v=0$，即$\nul T = \{ 0 \}$.
+\end{proof}
+
+\subsection{值域与满射性}
+
+\begin{definition}{值域}
+	对于$T \in \lmap (V,W)$，$T$的\textbf{值域}(或称为“像”)定义如下：$$\rge T = \{ Tv : v \in V \}$$
+\end{definition}
+
+\begin{example}{\examplefont{值域的例子}}
+	(1)若$T$是$V$到$W$的零映射，则$\rge T=\{ 0 \}$. \\
+	(2)设$T \in \lmap (\R ^2,\R ^3)$定义为$T(x,y)=(2x,5y,x+y)$，则$$\rge T = \{ (2x,5y,x+y):x,y \in \R \}$$
+	并且$\rge T$的一个基为$(2,0,1),(0,5,1)$. \\
+	(3)设$D \in \lmap (\mathcal{P}(\R ),\mathcal{P}(\R ))$是微分映射$Dp=p'$.由于对每个多项式$q \in \mathcal{P}(\R )$均存在多项式$p$使得$p'=q$，故$D$的值域为$\mathcal{P}(\R )$.
+\end{example}
+
+自然地，值域是向量空间.
+
+\begin{proposition}{值域是子空间}
+	设$T \in \lmap (V,W)$，则$\rge T$是$V$的子空间.
+\end{proposition}
+\begin{proof}
+	略.
+\end{proof}
+
+\begin{definition}{满射}
+	如果函数$T:V \to W$的值域等于$W$，则称$T$为\textbf{满射}.
+\end{definition}
+
+上述例子中只有微分映射是满的.
+
+\subsection{线性映射基本定理}
+
+\begin{proposition}{线性映射基本定理}
+	设$V$是有限维的，$T \in \lmap (V,W)$.则$\rge T$是有限维的并且$$\dim V = \dim \nul T + \dim \rge T$$
+\end{proposition}
+\begin{proof}
+	设$v_1, \cdots ,v_m$是$\nul T$的基.将其扩展为$V$的一个基$v_1, \cdots ,v_m ,u_1, \cdots ,u_n$.注意到原命题等价于证明$\dim \rge T = n$，于是下证$Tu_1, \cdots ,Tu_n$为$T$的基： \\
+	首先，任取$v \in V$，记$v=a_1v_1 + \cdots + a_mv_m + b_1u_1 + \cdots + b_nu_n$，则$$Tv = a_1Tv_1 + \cdots + a_mTv_m + b_1Tu_1 + \cdots + b_nTu_n = b_1Tu_1 + \cdots + b_nTu_n$$
+	故$Tu_1, \cdots ,Tu_n$张成$\rge T$. \\
+	另外，若$b_1Tu_1 + \cdots + b_nTu_n=0$，则$$T(b_1u_1 + \cdots + b_nu_n)=0$$
+	这表明$b_1u_1 + \cdots + b_nu_n \in \nul T$.记$b_1u_1 + \cdots + b_nu_n = c_1v_1 + \cdots + c_mv_m$，则由$v_1, \cdots ,v_m,u_1, \cdots ,u_n$线性无关，可得$b_1= \cdots = b_n = c_1 = \cdots = c_m$，于是$Tu_1, \cdots ,Tu_n$线性无关.
+\end{proof}
+
+利用线性映射基本定理，可以快速证伪某些命题.
+
+\begin{proposition}
+	设有限维向量空间$V,W$.若$\dim V > \dim W$，那么$V$到$W$的线性映射$T$一定不是单射；相反地，若$\dim V < \dim W$，那么$V$到$W$的线性映射$T$一定不是满射.
+\end{proposition}
+\begin{proof}
+	只证明第一部分.由$\dim V > \dim W \geq \dim \rge T$，可知$\dim \nul T = \dim V - \dim \rge T > 0$，于是$T$不是单射.
+\end{proof}
+
+\begin{example}
+	用线性映射重述齐次线性方程组是否有非零解的问题.即，对给定的正整数$m,n$，设$A_{j,k} \in \F ~(j=1,\cdots ,m,~k=1,\cdots ,n)$，考虑齐次线性方程组$$\begin{cases}
+		\sum_{k=1}^{n} A_{1,k}x_k = 0 \\
+		\cdots \cdots \\
+		\sum_{k=1}^{n} A_{m,k}x_k = 0
+	\end{cases}$$是否有不全为$0$的解.
+\end{example}
+\begin{solution}
+	构造$T:\F ^n \to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb{\sum_{k=1}^{n} A_{1,k}x_k, \cdots , \sum_{k=1}^{n} A_{m,k}x_k}$$
+	易于证明$T$是线性映射.则原方程有不全为$0$的解等价于$T$不是单射.由上述命题可知，若$n>m$则$T$一定不是单射.故当$n > m$时原方程组有不全为$0$的解.(即变量个数大于方程个数时)
+\end{solution}
+
+\begin{example}
+	用线性映射重述是否可以选取常数项使得非齐次线性方程组无解的问题.即，对给定的正整数$m,n$，设$A_{j,k} \in \F ~(j=1,\cdots ,m,~k=1,\cdots ,n)$及$c_1, \cdots ,c_m \in \F$，考虑线性方程组$$\begin{cases}
+		\sum_{k=1}^{n} A_{1,k}x_k = c_1 \\
+		\cdots \cdots \\
+		\sum_{k=1}^{n} A_{m,k}x_k = c_m
+	\end{cases}$$
+	是否存在某些常数$c_1, \cdots ,c_m$使得上述方程组无解.
+\end{example}
+\begin{solution}
+	构造$T:\F ^n \to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb{\sum_{k=1}^{n} A_{1,k}x_k, \cdots , \sum_{k=1}^{n} A_{m,k}x_k}$$
+	易于证明$T$是线性映射.则存在这样的一组常数等价于$T$不是满的.由上述命题可知，若$n<m$则$T$一定不是满射.故当$n < m$存在这样一组常数.(即变量个数小于方程个数时)
+\end{solution}
+
+\subsection*{习题}
+
+\begin{exercise}
+	设$v_1,\cdots ,v_m$是$V$中的向量组.定义$T \in \lmap (\F ^m,V)$如下：$$T(z_1, \cdots ,z_m) = z_1v_1 + \cdots + z_mv_m$$
+	(1)$T$的什么性质相当于$v_1, \cdots ,v_m$张成$V$？ \\
+	(2)$T$的什么性质相当于$v_1, \cdots ,v_m$线性无关？
+\end{exercise}
+
+\begin{exercise}
+	证明$\{ T \in \lmap (\R ^5,\R ^4):\dim \null T>2 \}$不是$\lmap (\R ^5,\R ^4)$的子空间.
+\end{exercise}
+
+\begin{exercise}
+	给出线性映射$T : \R ^4 \to \R ^4$使得$\rge T = \null T$.
+\end{exercise}
+
+\begin{exercise}
+	证明不存在线性映射$T:\R ^5 \to \R ^5$使得$\rge T = \null T$.
+\end{exercise}
+
+\begin{exercise}
+	
+\end{exercise}
+
+\section{矩阵}
+
+\subsection{用矩阵表示线性映射}
+
+我们知道，对于线性映射$T:V \to W$，通过$V$的基的象$Tv_1, \cdots ,Tv_n$可以确定任意$V$中元素的象(见命题\ref{pro:xmxkykuedkyiyu}).稍后我们会利用$W$的基在矩阵上记录这些$Tv_j$的值.
+
+\begin{definition}{矩阵}
+	设正整数$m,n$，$m \times n$\textbf{矩阵}$A$是由$\F$的元素构成的$m$行$n$列的矩形阵列：$$A = 
+	\begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix}$$
+	其中，记号$A_{j,k}$表示$A$的第$j$行第$k$列的元素.
+\end{definition}
+
+例如，若$A=\begin{pmatrix}
+	8 & 4 & 5-3i \\ 1 & 9 & 7
+\end{pmatrix}$，则$A_{2,3}=7$.
+
+\begin{definition}{线性映射的矩阵}
+	设$T \in \lmap (V,W)$，并设$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_n$是$W$的基.规定$T$\textbf{关于这些基的矩阵}为$m \times n$矩阵$\mathcal{M}(T)$，其中$A_{j,k}$满足$$Tv_k = A_{1,k}w_1 + \cdots + A_{m,k}w_m$$
+	如果这些基不是上下文自明的，则采用记号$\mathcal{M}(T,(v_1, \cdots ,v_n),(w_1, \cdots ,w_m))$.
+\end{definition}
+
+构造$\mathcal{M}(T)$的方法如下图所示：把$Tv_k$写成$w_1, \cdots ,w_m$的线性组合形式$A_{1,k} w_1 + \cdots + A_{m,k} w_m$，那么所有系数自上而下构成的矩阵的第$k$列.
+	$$\mathcal{M}(T) = \begin{matrix}
+  	& Tv_1~~ \cdots ~~Tv_k~~ \cdots ~~Tv_n\\
+	\begin{matrix} w_1 \\ \vdots \\ w_m \end{matrix}  
+	&\begin{pmatrix} ~~~~~ & ~~~~~ & A_{1,k} & ~~~~~ & ~~~~~\\  &  & \vdots &  & \\  &  & A_{m,k} &  & \end{pmatrix}
+	\end{matrix}$$
+
+例如，对于线性映射$T:\F ^2 \to \F ^3$定义为$T(x,y)=(x+3y,2x+5y,7x+9y)$，则$T$关于$\F ^2$与$\F ^3$的标准基的矩阵为$$\mathcal{M}(T)= \begin{pmatrix}
+	1 & 3 \\ 2 & 5 \\ 7 & 9
+\end{pmatrix}$$
+这是因为$T(1,0)=(1,2,7)=1(1,0,0)+2(0,1,0)+7(0,0,1),~T(0,1)=(3,5,9)=3(1,0,0)+5(0,1,0)+9(0,0,1)$.
+
+对于微分映射$D:\mathcal{P}_3(\R) \to \mathcal{P}_2(\R)$满足$Dp=p'$，它关于$\mathcal{P}_3(\R)$和$\mathcal{P}_2(\R)$的标准基的矩阵为$$\begin{pmatrix}
+	0 & 1 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 3
+\end{pmatrix}$$
+
+\subsection{矩阵的运算}
+
+矩阵的加法与标量乘法定义很符合直觉：
+
+\begin{definition}{矩阵的加法与标量乘法}
+	\begin{itemize}
+		\item 规定两个同样大小的矩阵的\textbf{和}是将对应元素相加得到的矩阵：$$\begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix} + \begin{pmatrix}
+		C_{1,1} & \cdots & C_{1,n} \\
+		\vdots &  & \vdots \\
+		C_{m,1} & \cdots & C_{m,n}
+	\end{pmatrix} = \begin{pmatrix}
+		A_{1,1}+C_{1,1} & \cdots & A_{1,n}+C_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1}+C_{m,1} & \cdots & A_{m,n}+C_{m,n}
+	\end{pmatrix}$$
+		\item 规定标量与矩阵的\textbf{乘积}是将标量乘以每个元素得到的矩阵：$$\lambda \begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix} = \begin{pmatrix}
+		\lambda A_{1,1} & \cdots & \lambda A_{1,n} \\
+		\vdots &  & \vdots \\
+		\lambda A_{m,1} & \cdots & \lambda A_{m,n}
+	\end{pmatrix}$$
+	\end{itemize}
+\end{definition}
+
+因而，我们有
+
+\begin{proposition}{线性映射与矩阵运算}{xmxkykueyysrjuvf}
+	\begin{itemize}
+		\item 设$S,T \in \lmap (V,W)$，则$\mmatrix (S+T)=\mmatrix (S) + \mmatrix (T)$. 
+		\item 设$\lambda \in \F ,~T \in \lmap (V,W)$，则$\mmatrix (\lambda T) = \lambda \mmatrix (T)$.
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}{$\F ^{m,n}$是向量空间}
+	对于正整数$m,n$，元素取自$\F$的所有$m \times n$矩阵的集合记为$\F ^{m,n}$.按照矩阵运算的定义，$\F ^{m,n}$是$mn$维向量空间.
+\end{proposition}
+
+上述命题的证明是显然的.
+
+我们注意到，线性映射不止有加法和标量乘法，还有元素之间的乘法.联系命题\ref{pro:xmxkykueyysrjuvf}，猜测是否会有$\mmatrix (ST)= \mmatrix (S) \mmatrix (T)$？为了得到这个结果，尝试倒推矩阵乘法的定义：
+
+考虑$T \in \lmap (U,V),~S \in \lmap (V,W)$，并设$u_1, \cdots ,u_p$是$U$的基，$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_m$是$W$的基.记$\mmatrix (S)=A,~\mmatrix (T)=C$.那么对于任意的$1 \leq k \leq p$，有$$(ST)u_k = S\ssb{\sum_{r=1}^{n} C_{r,k}v_r} = \sum_{r=1}^{n} C_{r,k}Sv_r = \sum_{r=1}^{n} C_{r,k} \sum_{j=1}^{m} A_{j,r}w_j = \sum_{j=1}^{m} \ssb{\sum_{r=1}^{n} A_{j,r} C_{r,k}} w_j$$
+因此$\mmatrix (ST)$是$m \times p$矩阵，且满足$$\mmatrix (ST)_{j,k} = \sum_{r=1}^{n} A_{j,r} C_{r,k}$$
+于是可以定义：
+
+\begin{definition}{矩阵乘法}
+	设$A$是$m \times n$矩阵，$C$是$n \times p$矩阵.$AC$定义为$m \times p$矩阵，满足$$(AC)_{j,k} = \sum_{r=1}^{n} A_{j,r} C_{r,k}$$
+	也即，将$A$的第$j$行与$C$的第$k$列元素对应相乘再相加.
+\end{definition}
+
+例如，将一个$3 \times 2$矩阵与一个$2 \times 4$矩阵相乘，得到一个$3 \times 4$矩阵：$$\begin{pmatrix}
+	1 & 2 \\ 3 & 4 \\ 5 & 6
+\end{pmatrix} \begin{pmatrix}
+	6 & 5 & 4 & 3 \\ 2 & 1 & 0 & -1
+\end{pmatrix} = \begin{pmatrix}
+	10 & 7 & 4 & 1 \\ 26 & 19 & 12 & 5 \\ 42 & 31 & 20 & 9
+\end{pmatrix}$$
+
+这样的矩阵乘法脱胎于线性映射的乘法，因此其代数性质也类似命题\ref{pro:xmxkykueigji}中所述有结合性、单位元、分配性质，且不满足交换性.
+
+\subsection{矩阵乘法的再认识}
+
+为了换个角度思考矩阵乘法，我们需要回顾高中学过的平面向量内积、外积.这里先定义一个向量的矩阵.
+
+\begin{definition}{向量的矩阵}
+	设$v \in V$，并设$v_1, \cdots ,v_n$是$V$的基.若$v=c_1v_1 + \cdots + c_nv_n$，规定$v$关于这个基的矩阵是一个$n \times 1$矩阵$$\mmatrix(v) = \begin{pmatrix}
+		c_1 \\ \vdots \\ c_n
+	\end{pmatrix}$$
+\end{definition}
+
+\begin{definition}{平面向量的内积与外积}
+	对于两个平面向量$(x_1,y_1),(x_2,y_2)$，规定它们的：
+	\begin{itemize}
+		\item 内积：$$\begin{pmatrix}
+			x_2 & y_2
+		\end{pmatrix} \begin{pmatrix}
+			x_1 \\ y_1
+		\end{pmatrix} = \begin{pmatrix}
+			x_1x_2+y_1y_2
+		\end{pmatrix} = x_1x_2+y_1y_2$$
+		这里将一个$1 \times 1$矩阵视作与它内部唯一的那个元素相等.
+		\item 外积：$$\begin{pmatrix}
+		x_2 \\ y_2 \end{pmatrix} \begin{pmatrix}
+			x_1 & y_1 \end{pmatrix} = \begin{pmatrix}
+				x_1x_2 & x_2y_1 \\ x_1y_2 & y_1y_2
+			\end{pmatrix}$$
+	\end{itemize}
+\end{definition}
+
+\subsection*{习题}
+
+\section{可逆性与同构的向量空间}
+
+\subsection{线性映射的可逆性}
+
+类似于一般的函数，我们可以定义线性映射的可逆性：
+
+\begin{definition}{线性映射的可逆性}
+	线性映射$T \in \lmap (V,W)$称为\textbf{可逆的}，如果存在线性映射$S \in \lmap (W,V)$使得$ST$等于$V$上的恒等映射且$TS$等于$W$上的恒等映射.这样的$S$称作$T$的\textbf{逆}，记为$T^{-1}$.
+\end{definition}
+
+这里的“逆”，在线性映射的乘法意义下，即为其乘法逆元.自然它是唯一的.
+
+\begin{proposition}
+	可逆的线性映射有唯一的逆.
+\end{proposition}
+\begin{proof}
+	设$T \in \lmap (V,W)$可逆，且$S_1,S_2$均为$T$的不同的逆.由于$$S_1 = S_1I = S_1(TS_2) = (S_1T)S_2 = IS_2 = S_2$$
+	这与假设矛盾.故$T$的逆是唯一的.
+\end{proof}
+
+以映射的观点来看，一个函数可逆当且仅当它是双射.这一点对于线性映射也成立.
+
+\begin{proposition}{线性映射可逆性的判定}
+	一个线性映射是可逆的当且仅当它既是单的又是满的.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 必要性：设$T \in \lmap (V,W)$是可逆的.设$u_1,u_2 \in V$使得$Tu_1 = Tu_2$，那么$$u_1 = T^{-1} T u_1 = T^{-1} T u_2 = u_2$$
+	于是$T$是单的.另一方面，设$w \in W$，则由$w = T(T^{-1}w)$可知$W \subseteq \rge T$，又$\rge \subseteq W$，则$W = \rge T$，即$T$是满的. \\
+	\buzhou{2} 充分性：设$T$既是单的又是满的，构造映射$S$满足：对于每个$w \in W$，$Sw$表示使得$T(Sw)=w$成立的$V$中的唯一元素(这里的存在与唯一可以由$T$的单射与满射得到).我们证明$S$是线性映射且$ST$是$V$上的恒等映射. \\
+	首先，设$w_1,w_2 \in W$，由于$$T(Sw_1+Sw_2)=TSw_1 + TSw_2 = w_1 + w_2$$
+	$$T(S(w_1+w_2)) = w_1+w_2$$
+	所以$S(w_1+w_2)=Sw_1 + Sw_2$.类似地可得$S$的齐性.故$S$是线性映射. \\
+	接着，任取$v \in V$，由于$$T(STv) = (TS)Tv=ITv=Tv$$
+	所以$STv=v$，即$ST$是$V$上的恒等映射.
+\end{proof}
+
+\subsection{同构的向量空间}
+
+在高中数学中，“同构”这个词被大量滥用，但其也能为我们揭示同构的内涵.例如，我们说等式$$x(\ln x+1) = ye^{y-1}$$关于$x$和$y$是同构的，是因为若作换元$y=\ln t+1$，可得$x(\ln x +1) = t(\ln t +1)$.
+
+为什么$x$与$y$“同构”呢？因为$y$和$x$可以通过一个映射联系起来\footnote{实际上，这样的映射应当是双射，否则只是单侧的“同构”.然而这就是高中数学中“同构”说法的不严谨之处：最后一步不一定可以得到$x=t$.} .类似地，我们正式给出两个向量空间的同构定义：
+
+\begin{definition}{向量空间的同构}
+	\textbf{同构}就是可逆的线性映射.若两个向量空间之间存在一个同构，则称这两个向量空间是\textbf{同构的}.
+\end{definition}
+
+同构$T:V \to W$做了一步操作，将$v \in V$重新标记为$Tv \in W$；$T$的逆$T^{-1}$同等地将每个$Tv \in W$重新标记为$v \in V$.于是$V$与$W$中的元素只是形式不一样，其性质是一样的.
+
+回想之前提到的“矩阵乘法和线性映射乘法的代数性质一致”这件事，本质上是因为$\lmap (V,W)$与$\F ^{m,n}$同构.
+
+\begin{proposition}{$\lmap (V,W)$与$\F ^{m,n}$同构}
+	设$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_m$是$W$的基，则$\mmatrix$是$\lmap (V,W)$与$\F ^{m,n}$之间的一个同构.
+\end{proposition}
+\begin{proof}
+	将$\mmatrix$视作一个映射，那么由\ref{pro:xmxkykueyysrjuvf}可知它是线性的.现在只需证明它可逆. \\
+	一方面，若对于$T \in \lmap (V,W)$，$\mmatrix (T)=0$，则由定义可得$Tv_k=0,~k=1,\cdots ,n$，那么$T(c_1v_1 + \cdots + c_nv_n)=c_1Tv_1 + \cdots + c_nTv_n =0$，即$\nul \mmatrix = \{ 0 \}$，于是$\mmatrix$是单的. \\ 
+	另一方面，任取$A \in \F ^{m,n}$，构作线性映射$T:V \to W$满足$$Tv_k = \sum_{j=1}^{m} A_{j,k} w_j$$
+	则$\mmatrix (T) =A$.这表明$\mmatrix$是满射.
+\end{proof}
+
+注意到一个问题：类似于高中数学中“集合的对应原理”：若两个有限集合$A,B$之间存在一个双射$f$，则$|A|=|B|$.两个向量空间同构，它们的维数应当相同.而更进一步，由于“维数相同”这一概念比“集合元素个数相等”更强，上面的说法反过来也可以是对的.
+
+\begin{proposition}{向量空间同构的判定}
+	$\F$上两个有限维向量空间同构当且仅当其维数相同.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 必要性：设$V$和$W$是同构的有限维向量空间，即存在可逆的线性映射$T:V \to W$.于是$\dim \nul T = 0,~\dim \rge T =\dim W$.又由线性映射基本定理可知$$\dim V = \dim \nul T + \dim \rge T = \dim W$$
+	\buzhou{2} 充分性：设$V$和$W$维数相同，$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_n$是$W$的基.由命题\ref{pro:xmxkykuedkyiyu}可知存在一个线性映射$T:V \to W$满足$$T(c_1v_1 + \cdots + c_nv_n)=c_1w_1 + \cdots + c_nw_n$$
+	只需证明这个$T$是可逆的.实际上，若$T(c_1v_1 + \cdots + c_nv_n)=0$，由于$w_1, \cdots ,w_n$是线性无关的，必有$c_1= \cdots = c_n=0$，即$\nul T = \{ 0 \}$，即$T$是单的；另一方面，等式右侧是$w_1, \cdots ,w_n$的线性组合形式，于是$\rge T = W$，即$T$是满的.
+\end{proof}
+
+因而有$\dim \lmap (V,W)=(\dim V)(\dim W)$.这启示我们可以从与一个向量空间同构的另一个更简单(或已知)的向量空间来考察该向量空间.
+
+\subsection{线性映射与矩阵乘}
+
+\setcounter{chapter}{0}
+\part{数学分析I}
+
+\chapter{预备知识}
+
+\section{公理化的集合论}
+
+在高中我们已经学过朴素的集合论.但是，什么样的数学对象才是一个集合？描述同一群对象的集合是唯一的吗？为什么集合是无序的、不重复的？这些问题都需要通过引入公理体系来解决.
+
+本小节不会细致深入地讲解集合论的公理化体系，因为这样会严重脱离《数学分析》的主旨.
+
+\subsection{集合的基本性质}
+
+先来解决不同集合的等价问题.
+
+\begin{axiom}{外延公理}
+	两个集合$A$和$B$相等当且仅当它们的元素相同.
+\end{axiom}
+
+容易验证，集合的相等是一个等价关系(后面会提到)，也即它满足：
+\begin{enumerate}
+	\item 自反性：对于任一集合$A$都有$A=A$.
+	\item 对称性：若$A=B$，则$B=A$.
+	\item 传递性：若$A=B$且$B=C$，则$A=C$.
+\end{enumerate}
+
+外延公理告诉我们，描述同一群对象的任意集合都是相等的.因此，从等价类的角度来看，它的确是唯一的.
+
+接着解决集合的无序性、不重复性问题.
+
+\begin{axiom}{配对公理}
+	对于任意集合$X,Y$，存在一个集合$Z$使得$X$和$Y$是它唯一的元素.特别地，若$X=Y$，则将$Z$视作只有唯一元素.
+\end{axiom}
+
+由配对公理，存在集合$\{ X,Y \}$和$\{ Y,X \}$，而由外延公理这两个集合是相等的，于是集合是无序的.另一方面，容易说明集合$\{ X,X \}$就等于$\{ X \}$，于是集合是不重复的.
+
+\subsection{集合的运算}
+
+到目前为止，我们说明了集合的一些基本性质.为了从一堆双元素集中得到更大的集合，需要引入并运算.
+
+\begin{axiom}{并集公理}
+	对于一个集合族$M$(即元素都是集合的集合)，存在另一个集合$\bigcup M$，其元素恰包含所有属于$M$的集合的元素.这样的集合称作$M$的\textbf{并}(union).
+\end{axiom}
+
+特别地，若$M=\{ A,B \}$，则$\bigcup M$可以记作$A \cup B$.
+
+\begin{axiom}{分离公理}
+	任意集合$A$和性质$P$都对应另一个集合$B$，其元素恰包含那些在集合$A$中而具有性质$P$的.
+\end{axiom}
+
+这实际上是在说，$B=\{ x \in A : P(x) \}$也是一个集合.
+
+结合并集公理，马上可以定义集合族$M$的\textbf{交}(intersection)为：$$\bigcap M := \{ x \in \bigcup M : \forall X,X \in M \Rightarrow x \in X \}.$$
+特别地，若$M= \{ A,B \}$，则$\bigcap M$记作$A \cap B$.
+
+顺便还能定义集合的\textbf{差}(difference)和\textbf{补}(complement)：$$A - B := \{ x \in A : x \notin B \}.$$
+如果$A$是$M$的一个子集，则定义：$$A^c := M - A.$$
+
+另外，分离公理也表明，对任意集合$X$都存在一个不包含任何元素的子集$\varnothing _X$.由外延公理可知对任意集合$X,Y$都有$\varnothing _X = \varnothing _Y$.我们称该集合为\textbf{空集}(empty set)，记为$\varnothing$.
+
+由公理体系定义的集合运算，自然具有我们在朴素集合论中学过的那些性质.
+
+\begin{proposition}{集合运算的运算律}
+	设集合$A,B,C$，集合族$\{ B_{\alpha} : \alpha \in I \}$(这里$I$是指标集). \\
+	(1)交、并满足交换律，即$$A \cap B = B \cap A, \qquad A \cup B = B \cup A.$$
+	(2)交、并满足结合律，即
+	$$A \cap B \cap C = (A \cap B) \cap C = A \cap (B \cap C),$$
+	$$A \cup B \cup C = (A \cup B) \cup C = A \cup (B \cup C).$$
+	(3)交对并、并对交满足分配律，即
+	$$A \cap \ssb{\bigcup_{\alpha \in I} B_\alpha} = \bigcup_{\alpha \in I} \ssb{A \cap B_{\alpha}},$$
+	$$A \cup \ssb{\bigcap_{\alpha \in I} B_\alpha} = \bigcap_{\alpha \in I} \ssb{A \cup B_{\alpha}}.$$
+\end{proposition}
+
+就像中学数学所阐释的那样，补和交、并之间有一种特殊的运算律：
+
+\begin{theorem}{de Morgan定律}
+	设集合族$\{ E_{\alpha} : \alpha \in I \}$，其中$I$是指标集.则$$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c = \bigcap_{\alpha \in I} E_{\alpha}^c,\qquad \ssb{\bigcap_{\alpha \in I}E_{\alpha} }^c = \bigcup_{\alpha \in I} E_{\alpha}^c.$$
+\end{theorem}
+\begin{proof}
+	任取$x \in \ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c$，由定义得$x \notin \bigcup_{\alpha \in I}E_{\alpha}$，所以对任意$\alpha \in I$都有$x \notin E_{\alpha}$，即对任意$\alpha \in I$都有$x \in E_{\alpha}^c$，从而可得$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c \subseteq \bigcap_{\alpha \in I} E_{\alpha}^c$.
+	
+	同理可证$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c \supseteq \bigcap_{\alpha \in I} E_{\alpha}^c$，所以$$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c = \bigcap_{\alpha \in I} E_{\alpha}^c.$$
+	
+	在上式左右同取补集，立得第二个等式.
+\end{proof}
+
+最后一种构造更大集合的方式，就是枚举一个集合的所有子集.
+
+\begin{axiom}{幂集公理}
+	对任意集合$X$，总存在它的\textbf{幂集}(power set)$\mathcal{P}(X)$，其元素恰为$X$的所有子集.
+\end{axiom}
+
+幂集公理允许我们构造两个集合的Cartesian积(后面会讲到).
+
+前五个公理限制了构造新集合的方式，公理化体系下的集合论已经初步成型.接下来要介绍的三条公理，主要都是修修补补.
+
+\subsection{无限集}
+
+我们知道，自然数集$\mathbb{N}$理应当是无限的，然而利用前五条公理还无法说明这样的无限集存在.仿照中学学过的无限长度的数列，可以考虑利用递推的形式产生无限大的集合.更确切地说，由于现在只知道空集的存在，应该选用空集的迭代来构造无限集合.
+
+为了让下面的公理叙述更简单，首先引入集合的后继这一概念.定义集合$X$的\textbf{后继}(successor)为：$$X^{+} := X \cup \{ X \},$$
+也就是说，将$X$本身放入到$X$中.
+
+\begin{axiom}{无穷公理}
+	存在集合包含空集和自身任何一个元素的后继.
+\end{axiom}
+\begin{remark}
+	这样的集合称作是\textbf{归纳的}(inductive).
+\end{remark}
+
+联系公理一至四，von Neumann提出了一种构造自然数集的方法，通过定义自然数集为所有归纳集的交集，即最小的归纳集.
+
+要验证该交集为最小的归纳集并不难.首先注意到，任何归纳集都应包含以下元素：$$\varnothing ,\quad \varnothing ^{+}=\varnothing \cup \{ \varnothing \}=\{ \varnothing \} ,\quad (\varnothing ^{+})^{+} = \{ \varnothing \} \cup \{ \{ \varnothing \} \} = \{ \varnothing , \{ \varnothing \}\} ,\quad \cdots .$$
+把这些元素组成的集合记作$N_0$.\footnote{这里的写法不太严谨，因为在用该定义证明归纳原理之前并不十分清楚$N_0$具体是什么样子，但我们知道$N_0$就是$\varnothing$导出的一切后继的集合.}由交的定义可知$$\mathbb{N} \subseteq N_0.$$
+另一方面，由于$\varnothing \in \mathbb{N}$，所以$N_0 \subseteq \mathbb{N}$.从而$\mathbb{N} = N_0$.这也同时说明$\mathbb{N}$是最小的归纳集.
+
+将$\mathbb{N}$中$\varnothing$的$n$次后继这个特征提取出来，可知$\mathbb{N}$就是一般意义上认为的自然数集(在同构\footnote{认为两个集合同构，如果在它们之间存在一个双射，后文为讲到，本质上就是这两个集合特征相同.}的意义下).
+
+\begin{axiom}{替换公理}
+	令$\mathcal{F}(x,y)$是如下命题：对于$X$中的任意元素$x_0$，存在唯一的$y_0$使得$\mathcal{F}(x_0,y_0)$成立.那么满足以下条件的$y$构成一个集合：存在$x \in X$使得$\mathcal{F}(x,y)$成立.
+\end{axiom}
+
+或者，用映射的语言来描述，替换公理就是在说：$f$是定义在集合$X$上的一个映射，那么$f$的值域也是一个集合.
+
+替换公理在von Neumann宇宙的构造中起到一定作用，不过那会非常复杂，这里不展开讲.
+
+\subsection{Russell悖论}
+
+在构造无限集的过程中，可能会遇到如下问题：
+
+\begin{definition}{Russell悖论}
+	设集合$A$满足$$A = \{ x:x \notin x \}$$
+	那么$A \in A$是否成立？如果成立，那么由$A$的定义可知$A \notin A$；如果不成立，那么$A$就满足$x \notin x$，从而$A \in A$.该矛盾称作Russell悖论.
+\end{definition}
+
+正是Russell悖论推翻了朴素集合论，现在我们尝试用构造新公理的方法修补这个问题.
+
+\begin{axiom}{正则公理}
+	任何非空集合$X$都存在一个元素$x$，使得$x \cap X = \varnothing$.
+\end{axiom}
+
+结合配对公理，可以证明$X \in X$这种情况是不存在的.否则，当$X$不是空集时，考虑集合$\{ X,X \}$，其中存在一个元素$x$，此时只能是$X$，使得$X \cap \{ X,X \}=\varnothing$，然而$X \in X$告诉我们$X \cap \{ X,X \} \supseteq X$，出现矛盾.当$X$是空集时，$X$内存在一个元素本就与其定义矛盾.
+
+然而，使用正则公理只是人为禁用掉了Russell悖论出现的条件，使用减少集合论的可用范围的方式(实际上禁掉这个条件没有特别大的影响).Russell悖论不可能被最终解决.
+
+\subsection{选择公理}
+
+最后一条公理是选择公理，该公理可以得到许多重要的定理，然而它的否定形式与前八条公理也可相容.这种情况就类似于Euclid平面几何公理体系中的第五条，当存在的时候就是常见的Euclid几何体系，当不存在或存在其相反形式的时候就是另一套数学体系.因此，选择公理被独立于前八条之外.
+
+\begin{axiom}{选择公理}
+	对于任何由互不相交且非空的集合形成的集合族，存在另一个集合$C$，使得对该集合族中的任意元素$X$，$X \cap C$恰有一个元素.
+\end{axiom}
+
+至此，我们可以用一套公理体系来定义集合，这套体系被称作ZF(C)公理体系.
+
+\begin{definition}{ZF(C)公理体系}
+	以下八条公理组成的公理体系称作\textbf{ZF公理体系}(Zermelo–Fraenkel axiom system)：
+	\begin{enumerate}
+		\item \textbf{外延公理}(axiom of extensionality)
+		\item \textbf{配对公理}(axiom of pairing)
+		\item \textbf{并集公理}(axiom of union)
+		\item \textbf{分离公理}(axiom of separation)
+		\item \textbf{幂集公理}(axiom of power set)
+		\item \textbf{无穷公理}(axiom of infinity)
+		\item \textbf{替换公理}(axiom of replacement)
+		\item \textbf{正则公理}(axiom of regularity)
+	\end{enumerate}
+	最后，再加上\textbf{选择公理}(axiom of choice)，就是\textbf{ZFC公理体系}(Zermelo–Fraenkel axiom system with axiom of choice).
+\end{definition}
+
+\section{映射与函数}
+
+本节内容在高中数学里已经出现过，这里简要地复习概念并做一些推广.
+
+\begin{definition}{映射}
+	\begin{itemize}
+		\item 设$A$和$B$为两个集合，若对$A$中每个元素$x$，都存在$B$中唯一的元素$y$与之对应，则称此对应关系为一个\textbf{映射}(map)，记作$$f:A \to B,~~x \mapsto y.$$
+		\item $x$在$B$中的对应元素$y$称为$x$在$f$下的\textbf{象}(image)，$x$称为$y$在$f$下的\textbf{原象}(preimage)，记作$$f(x) = y,~ x \in A.$$
+		\item 集合$A$称作映射$f$的\textbf{定义域}(domain)；集合$B$称为映射$f$的\textbf{陪域}(codomain)；$A$中所有元素在$f$下的象组成的集合称为$f$的\textbf{值域}(range)，记作$f(A)$.
+		\item 两个映射相等，当且仅当它们的定义域、对应关系、值域相同.
+	\end{itemize}
+\end{definition}
+
+从集合论的视角看，一个映射其实就是确定的三元组$(A,B,f)$，其中$A$是定义域，$B$是陪域，$f$是对应关系.
+
+映射可以有不同的表现形式.一般地，我们称从数集到数集的映射为\textbf{函数}(function)，将函数映射为值域的映射为\textbf{泛函}(functional)，从集合$A$到它本身的映射为\textbf{变换}(transformation)，等等.
+
+\begin{definition}{部分映射}
+	设映射$f:X \to Y$与集合$A \subseteq X$，定义$f$在$A$上的\textbf{部分映射}(partial mapping)为：$$f|_A := A \to X,~~x \mapsto f(x).$$
+\end{definition}
+\begin{remark}
+	部分映射$f_A$的值域就是$f(A)$.
+\end{remark}
+
+利用部分映射，我们可以得到一个新的映射$f$，它将包含在定义域中的集合$A$映射为其在陪域中对应的那个集合，即$$f(A) := \{ y \in Y:\exists x, (x \in A) \wedge (y=f(x)) \}.$$
+在$A$就是定义域本身的时候，容易发现$f(A)$是$f$的值域.
+
+同样地，还能定义另一个映射$f^{-1}$，它将包含在值域中的集合$B$映射为其在定义域中对应的那个集合，即$$f^{-1}(B) := \{ x \in X:f(x) \in B \}.$$
+
+用一张图就能很好地表示上述定义(Zorich p16 Fig. 1.6)：
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=10cm]{attachment/Acr1745354698752707434.pdf}
+\end{figure}
+
+\begin{definition}{双射}
+	设映射$f:A \to B$.
+	\begin{itemize}
+		\item 若$A$中的每一个$x$的唯一对应$B$中的一个$f(x)$，则称$f$是\textbf{单射}(injection).
+		\item 若对于$B$中的每一个元素$y$，总能找到$A$中的一个$x$使得$f(x)=y$，则称$f$是\textbf{满射}(surjection).
+		\item 若$f$既是单射，又是满射，则称$f$是\textbf{双射}(bijection)或一一映射.
+	\end{itemize}
+\end{definition}
+
+\begin{definition}{映射的乘法}
+    设映射$f:A \to B$，$g:B \to C$，则它们的\textbf{复合映射}(composite mapping)~$gf:A \to C$定义为$$(gf)(x)=g(f(x)) \ (x \in A).$$
+    注意复合运算有先后顺序.容易说明映射$gf$的定义域为$A$，值域为$C$.
+\end{definition}
+\begin{remark}
+	为了强调复合运算，$gf$也可记作$g \circ f$.
+\end{remark}
+
+容易验证，这样的“乘法”运算满足结合律与分配律、不满足交换律.
+
+一般将$f \circ f \circ \cdots \circ f~(n\textit{次复合})$称作$f$的$n$次迭代\footnote{严格来说，在获得自然数集的定义之前，还不能这样写.} ，记作$f^n$.
+
+\begin{definition}{恒等映射}
+	设映射$f:A \to A$.称$f$是$A$上的一个\textbf{恒等映射}(identity mapping)，如果$$\forall x\in A,~f(x)=x.$$
+	并把$f$记作$\mathcal{I}_A$.
+\end{definition}
+\begin{remark}
+	设映射$f : A \to B$，容易验证有$$f\mathcal{I}_A=f,\quad \mathcal{I}_Bf=f.$$
+\end{remark}
+
+下面来证明恒等映射是良定义的，即集合$A$上的所有恒等映射是相等的.假设存在两个不同的恒等映射$\mathcal{I}_1,\mathcal{I}_2$，那么由$$\mathcal{I}_1 = \mathcal{I}_1 \mathcal{I}_2 = \mathcal{I}_2,$$
+可知$\mathcal{I}_1 = \mathcal{I}_2$，这与假设矛盾.
+
+\begin{definition}{逆映射}
+	设映射$f:A \to B$.称$f$是\textbf{可逆的}(inverible)，如果存在映射$g:B \to A$满足$$fg=\mathcal{I}_B,\quad gf=\mathcal{I}_A.$$
+	特别地，称$g$为$f$的\textbf{逆映射}(inverse mapping).
+\end{definition}
+\begin{remark}
+	必须要求$g$和$f$的两种复合均等于恒等映射，否则容易出现不满足良定义的情况.
+\end{remark}
+
+逆映射也是良定义的.设映射$g_1,g_2$为$f:A \to B$的不同的逆映射，那么由$$g_1 = g_1\mathcal{I}_B = g_1fg_2 = \mathcal{I}_Ag_2 = g_2,$$
+可知$g_1=g_2$，这与假设矛盾.
+
+既然一个映射的逆映射是唯一的，我们被允许用一个符号来表示它，即$f^{-1}$.需要区分逆映射与原象集.
+
+下面的命题刻画了何时映射是可逆的.
+
+\begin{proposition}{可逆性等价于双射性}
+	设映射$f:A \to B$，则$f$可逆当且仅当它是双射.
+\end{proposition}
+\begin{proof}
+	\buzhou{1}必要性：设$f$可逆，即存在映射$g:B \to A$满足$fg=\mathcal{I}_B,gf=\mathcal{I}_A$.下面证明$f$是双射. \\
+	设$x,y \in A$使得$f(x)=f(y)$，那么由$$x=gf(x)=gf(y)=y,$$可知$f$是单射. \\
+	另一方面，设$z \in B$，由于$z=fg(z)$，这表明$B \subseteq f(A)$，故$B = f(A)$，于是$f$是满射. \\
+	\buzhou{2}充分性：设$f$是单射和满射，下面证明存在映射$g:B \to A$满足$fg=\mathcal{I}_B,gf=\mathcal{I}_A$. \\
+	人为地取$g$，使得$g(x)$是$A$中唯一使得$f(g(x))=x$的那个元素(唯一存在性由$f$是双射可以得到保证).按照$g$的定义，自然有$fg=\mathcal{I}_B$. \\
+	另一方面，任取$x \in A$，由于$$f(gf(x)) = (fg)(f(x)) = f(x),$$并且$f$是单射，可得$gf(x)=x$，所以$gf=\mathcal{I}_A$.
+\end{proof}
+
+有些函数在定义域上并非是可逆的，然而利用部分映射可以得到其一部分的逆映射，例如三角函数.
+
+\section{二元关系}
+
+幂集公理现在允许我们构造两个集合的Cartesian积.
+
+\begin{definition}{Cartesian积}
+	设集合$A$和$B$，定义它们的\textbf{Cartesian积}(Cartesian product, direct product)如下：$$A \times B := \{ (a,b):a \in A,b \in B \}.$$
+\end{definition}
+\begin{remark}
+	不难发现Cartesian积是一个可逆的过程，也即任何一个在$A \times B$中的元素都可以回溯到其在$A$和$B$中的对应元素.因而Cartesian积不满足交换律和结合律.
+\end{remark}
+\begin{remark}
+	特别地，记$A^2:=A \times A$，以及$A^n := A^{n-1} \times A~(n \geq 2)$.
+\end{remark}
+
+\begin{definition}{二元关系}
+	设非空集合$S$，则称$S^2$的一个子集$\mathcal{R}$为$S$上的一个\textbf{二元关系}(binary relation).若$(a,b) \in \mathcal{R}$，则称$a,b$有$\mathcal{R}$关系，记作$a\mathcal{R}b$.
+\end{definition}
+
+例如，对于集合族$M$，定义在$M$上的关系$$\boldsymbol{=} := \{ (X,Y) \in M^2 : \forall x,(x \in X) \Leftrightarrow (x \in Y) \},$$
+那么集合$A,B$相等就可以表述为$A \boldsymbol{=} B$.
+
+\subsection{等价关系}
+
+一类在数学中很重要的关系就是等价关系，它为我们阐明了数学对象的相似性和一致的本质.
+
+\begin{definition}{等价关系}
+	设集合$S$及定义在$S$上的关系$\mathcal{R}$，如果对任意$a,b,c \in S$都有：
+	\begin{enumerate}
+		\item 自反性：$a\mathcal{R} a$；
+		\item 对称性：$a\mathcal{R} b \Rightarrow b\mathcal{R} a$；
+		\item 传递性：$a\mathcal{R} b \wedge b\mathcal{R} c \Rightarrow a\mathcal{R} c$.
+	\end{enumerate}
+	则称$\mathcal{R}$是$S$上的一个\textbf{等价关系}(equivalence relation)，记作$\sim$.
+\end{definition}
+
+把所有等价的元素放在一起，就形成了\textbf{等价类}(equivalence class).具体地，定义$$[a]_{\mathcal{R}} := \{ x \in S:x\mathcal{R}a \},$$如果$\mathcal{R}$是$S$上的一个等价关系.
+
+例如，数论中模$n$的同余关系就是一类等价关系，而模$n$的同余类就是等价类.
+
+等价类内元素都具有同等地位，都能代表整个等价类，否则它们也不会被称作是等价的.
+
+\begin{proposition}{等价类相等等价于代表元素等价}
+	设$\mathcal{R}$是$S$上的等价关系，对于$a,b \in S$有$$[a]_{\mathcal{R}} = [b]_{\mathcal{R}} \Leftrightarrow a\mathcal{R} b.$$
+\end{proposition}
+\begin{proof}
+	必要性显然.充分性：任取$c \in [a]_{\mathcal{R}}$，由传递性知$c \mathcal{R} b$，所以$c \in [b]_{\mathcal{R}}$，从而$[a]_{\mathcal{R}} \subseteq [b]_{\mathcal{R}}$.同理有$[b]_{\mathcal{R}} \subseteq [a]_{\mathcal{R}}$，所以$[a]_{\mathcal{R}} = [b]_{\mathcal{R}}$.
+\end{proof}
+
+还是以模$n$的同余类为例.我们发现，任何一个整数都会出现且仅会出现在一个同余类里，换句话说，所有的同余类构成类对整数集合的划分.
+
+一般地，所有的等价类都可以构成对特定集合的划分.
+
+\begin{definition}{集合的划分}
+	对于给定集合$S$，集合族$X=\{ S_{\alpha} : \alpha \in I \}$，其中$I$是指标集.称$X$是$A$的一个\textbf{划分}(partition)，如果
+	\begin{enumerate}
+		\item $S = \bigcup_{\alpha \in I} S_{\alpha}$.
+		\item $\forall \alpha \neq \beta ,~S_{\alpha} \cap S_{\beta}$.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	设$\mathcal{R}$是$S$上的一个等价关系，则集合族$$\{ [a]_{\mathcal{R}}:a \in S \}$$构成了$S$的一个划分.
+\end{theorem}
+\begin{proof}
+	首先我们证明，所有$[a]_{\mathcal{R}}$的并集恰等于$S$.注意到$$\forall a \in S,~a \in [a]_{\mathcal{R}} \wedge [a]_{\mathcal{R}} \subseteq S,$$
+	所以$S \subseteq \bigcup_{a \in S} [a]_{\mathcal{R}} \subseteq S$，从而$S = \bigcup_{a \in S} [a]_{\mathcal{R}}$. \\
+	接着证明这些集合都是不交并.对于$[a]_{\mathcal{R}} \neq [b]_{\mathcal{R}}$，假设存在$c \in [a]_{\mathcal{R}} \cap [b]_{\mathcal{R}}$，那么$c \in [a]_{\mathcal{R}} \wedge c \in [b]_{\mathcal{R}}$，由等价关系的传递性，$a\mathcal{R}b$，与假设矛盾.于是该集合族中任意两个元素交集为空.
+\end{proof}
+
+\subsection{序关系}
+
+类比等价关系，可以定义序关系.然而就像实数集中的$<$和$\leq$关系一样，序关系可能有两种形式：严格的和不严格的.一般地，我们更希望使用后者，因为这样可以包括更多的情况.
+
+容易看出，上面两种情况的区别在于自反性，所以只需要把下方定义中的自反性去掉，就能得到严格偏序关系的定义.
+
+\begin{definition}{偏序关系}
+	设集合$S$及定义在$S$上的关系$\mathcal{R}$，如果对任意$a,b,c \in S$都有：
+	\begin{enumerate}
+		\item 自反性：$a\mathcal{R} a$；
+		\item 反对称性：$a\mathcal{R} b \wedge b\mathcal{R} a \Rightarrow a=b$；
+		\item 传递性：$a\mathcal{R} b \wedge b\mathcal{R} c \Rightarrow a\mathcal{R} c$.
+	\end{enumerate}
+	则称$\mathcal{R}$是$S$上的一个\textbf{偏序关系}(partially ordered relation)，记作$\preceq$.
+\end{definition}
+
+为什么偏(partially，部分地)序关系不直接称作序关系呢？这是因为，有些序关系并不能覆盖所有元素.例如对于给定集合的幂集，其中某些元素并不存在包含关系.再例如，实数间的大小关系就可以覆盖所有元素.从而引出另一个概念，全序关系：
+
+\begin{definition}{偏序关系}
+	设集合$S$及定义在$S$上的关系$\mathcal{R}$，如果对任意$a,b,c \in S$都有：
+	\begin{enumerate}
+		\item 反对称性：$a\mathcal{R} b \wedge b\mathcal{R} a \Rightarrow a=b$；
+		\item 传递性：$a\mathcal{R} b \wedge b\mathcal{R} c \Rightarrow a\mathcal{R} c$；
+		\item 完全性：$a\mathcal{R} b \vee b\mathcal{R} a$.
+	\end{enumerate}
+	则称$\mathcal{R}$是$S$上的一个\textbf{全序关系}(totally ordered relation)，同时称$S$是一个\textbf{全序集}(totally ordered set).
+\end{definition}
+\begin{remark}
+	完全性蕴含了自反性.
+\end{remark}
+
+
+\section{集合的基数}
+
+高中数学中，我们学过有限集合的元素个数.从直观上看，似乎无限集合不会存在元素个数这一说法，但我们又熟知实数远比整数多，那么这种相对的元素个数比较是怎样建立的？
+
+来考虑这样一个问题：给定两个有限集合$A,B$，如何比较它们的元素个数.最一般的想法应该是在它们之间构造一个映射$f:A \to B$，如果$f$是双射则$A,B$元素个数相等，如果是单射则$A$的元素个数不多于$B$的元素个数，如果是满射则$B$的元素个数不多于$A$的元素个数(这些用反证法容易说明).
+
+相对应地，既然我们只需要考虑无限集合之间的相对“元素个数”多少，而不需要得到一个绝对数值，就可以仿照上方的方法定义一个无限集合的“相对元素个数”.为了引起你的直观感受，我们也将其称为“势”.这是否让你想起了电势？在接下来的内容中，你将看到集合的“势”的参考位置一般取用自然数集合.
+
+\begin{definition}{等势集合}
+	对于集合$A,B$，若存在单射$f:A \to B$，则称$A$的势小于等于$B$，记作$|A| \leq |B|$.特别地，若单射$f$同时也是一个满射，即$f$是双射，则称$A,B$\textbf{等势}(equipollent)，记作$|A|=|B|$.
+\end{definition}
+
+很自然地，我们可以证明集合的等势关系是一个等价关系.为了证明势的小于等于是一个全序关系，需要下方的定理：(解决这个定理需要一个巧妙的构造，看不懂也没关系，只要证明所给出的构造是双射即可)
+
+\begin{theorem}{Schröder–Bernstein}
+	给定集合$A,B$.若在$A,B$间存在两个单射$f:A \to B$与$g:B \to A$，则在它们之间也存在一个双射$h:A \to B$.
+\end{theorem}
+\begin{proof}
+	通过以下方法构造一个映射$h:A \to B$，我们断言它就是想要的那个双射. \\
+	递归地定义：$$C_0 = A - g(B),\quad C_{n+1}=g(f(C_n))~~\forall n \geq 0.$$
+	并记$C = \bigcup_{n=0}^{\infty} C_n$.对任意的$x \in A$定义映射$h: A\to B$满足$$h(x) = \begin{cases}
+ f(x) & \text{ if } x \in C \\
+ g^{-1}(x) & \text{ if } x \notin C
+\end{cases},$$并注意这里$g$的逆映射定义域被限制在了$g(B)$.由$C_0$的定义可知，若$x \notin C$，则$x \in g(B)$，所以这样的限制是合理的.接下来验证$h$是双射. \\
+\buzhou{1}单射性：假设不同的$a,b$导致$h(a)=h(b)$，对以下四种情况进行讨论：$$a \in C \wedge b \in C,\qquad a \notin C \wedge b \notin C,\qquad a \in C \wedge b \notin C,\qquad a \notin C \wedge b \in C.$$
+对于前两种情况，容易证明$a=b$.对于第三种情况，即有$g(f(a))=b$，而$a \in C$表明$g(f(a)) \in C$，从而与$b \notin C$矛盾.第四种情况同理. \\
+综上，对任意$a,b$都有$h(a)=h(b) \Rightarrow a=b$，故$h$是单射. \\
+\buzhou{2}满射性：任取$y \in B$.若$y \in f(A)$，则存在一个$x_1$使得$f(x_1)=y$，从而$h(x_1)=y$.若不然，则令$x_2=g(y)$.下面证明$x_2 \notin C$，这样就有$h(x_2)=g^{-1}(x_2)=y$： \\
+假设$x_2=g(y) \in C$，那么由$C$的定义且$g$为单射，可知存在一个$x_0$使得$f(x_0)=y$，这与$y \notin f(A)$矛盾. \\
+综上，对任意的$y \in B$，总能找到某个$x$使得$h(x)=y$，从而$h$是满射.
+\end{proof}
+
+由上方的定理，容易得到势的小于等于关系满足反对称性.该关系的完全性则是选择公理的推论(这里略去).再加上传递性(例如，$A,B$之间存在单射$f$，$B,C$之间存在单射$g$，则$gf$也是$A,C$间的单射)，马上得到该关系是一个全序关系.
+
+从而，我们可以利用等价类的思想刻画一个无限集合的相对元素个数.
+
+\begin{definition}{集合的基数}
+	\begin{itemize}
+		\item 设集合的等势关系$\mathcal{R}$.对于集合$X$，称$[X]_{\mathcal{R}}$为其\textbf{基数}(cardinal)或势，记作$\card X$.
+		\item 定义$\card X = \card Y$，如果$X$与$Y$等势.
+		\item 定义$\card X \leq \card Y$，如果$X$与$Y$的某个子集等势.
+	\end{itemize}
+\end{definition}
+
+容易证明集合基数的小于等于关系也是一个全序关系.
+
+关于无限集合，Cantor曾证明：(这里$(\card X < \card Y):= (\card X \leq \card Y) \wedge (\card X \neq \card Y)$.)
+
+\begin{theorem}
+	设集合$X$，则$\card X < \card \mathcal{P}(X)$.
+\end{theorem}
+\begin{proof}
+	\boxed{\text{证法$1$}}~
+	若$X$是空集，则显然成立.从而，只考虑$X$非空的情况. \\
+	由于$\mathcal{P}(X)$涵盖所有$X$的一元子集，故显然有$\card X \leq \card \mathcal{P}(X)$.假设有$\card X = \card \mathcal{P}(X)$，那么存在双射$f:X \to X$. \\
+	根据$f$，取$B=\{ x \in X:x \notin f(x) \}$，显然$B \in \mathcal{P}(A)$，从而存在$x$使得$f(x)=B$.此时，若$x \in B$，则由$B$的定义知$x \notin B$，矛盾；同理，若$x \notin B$，则可得$x \in B$，也矛盾. \\
+	\boxed{\text{证法$2$}}~(Cantor对角线法)留到第三章揭秘.
+\end{proof}
+
+\section*{一些习题}
+
+\begin{exercise}
+	The \textit{composition} $\mathcal{R}_2 \circ \mathcal{R}_1$ of the relations $\mathcal{R}_1$ and $\mathcal{R}_2$ is defined as follows:$$\mathcal{R}_2 \circ \mathcal{R}_1 := \{ (x,z):\exists y,~x \mathcal{R}_1 y \wedge y \mathcal{R}_2 z \}.$$
+	
+	a) Let $\Delta _X$ be the diagonal of $X^2$ and $\Delta _Y$ the diagonal of $Y^2$.  Show that if the relations $\mathcal{R}_1 \subset X \times Y$ and $\mathcal{R}_2 \subset Y \times X$ are such that $(\mathcal{R}_2 \circ \mathcal{R}_1 = \Delta _X) \wedge (\mathcal{R}_1 \circ \mathcal{R}_2 = \Delta _Y)$, then both relations are functional and define mutually inverse mappings of $X$ and $Y$.
+	
+	b) Let $\mathcal{R} \subset X^2$. Show that the condition of transitivity of the relation $\mathcal{R}$ is equivalent to the condition $\mathcal{R} \circ \mathcal{R} \subset \mathcal{R}$. 
+	
+	c) The relation $\mathcal{R}' \subset Y \times X$ is called the \textit{transpose} of the relation $\mathcal{R} \subset X \times Y$ if $(y\mathcal{R}' x) \Leftrightarrow (x\mathcal{R} y)$. Show that a relation $\mathcal{R} \subset X^2$ is antisymmetric if and only if $\mathcal{R} \cap \mathcal{R}' \subset \Delta _X$. 
+	
+	d) Verify that any two elements of $X$ are connected (in some order) by the relation $\mathcal{R} \subset X^2$ if and only if $\mathcal{R} \cup \mathcal{R}' = X^2$.
+\end{exercise}
+
+\begin{exercise}
+	Let $f:X \to Y$ be a mapping from $X$ into $Y$. Show that if $A$ and $B$ are subsets of $X$, then
+	
+	a) $(A \subset B) \Rightarrow (f(A) \subset f(B)) \nRightarrow (A \subset B)$,\qquad b) $(A \neq \varnothing) \Rightarrow (f(A) \neq \varnothing)$,
+	
+	c) $f(A \cap B) \subset f(A) \cap f(B)$,\qquad d) $f(A \cup B) = f(A) \cup f(B)$;
+	
+	\noindent
+	if $A'$ and $B'$ are subsets of $Y$, then
+	
+	e) $(A' \subset B') \Rightarrow (f^{-1}(A') \subset f^{-1}(B'))$,\qquad f) $f^{-1}(A' \cap B') = f^{-1}(A') \cap f^{-1}(B')$,
+	
+	g) $f^{-1}(A' \cup B') = f^{-1}(A') \cup f^{-1}(B')$;
+	
+	\noindent
+	if $Y \supset A' \supset B'$, then
+	
+	h) $f^{-1}(A'-B') = f^{-1}(A') - f^{-1}(B')$,\qquad i) $f^{-1}(Y-A') = X-f^{-1}(A')$;
+	
+	\noindent
+	and for any $A \subset X$ and $B' \subset Y$
+	
+	j) $f^{-1}(f(A)) \supset A$,\qquad k) $f(f^{-1}(B')) \subset B'$.
+\end{exercise}
+
+\begin{exercise}
+	Verify that the following statements about a mapping $f:X \to Y$ are equivalent:
+	
+	a) $f$ is injective; \qquad b) $f^{-1}(f(A))=A$ for every $A \subset X$;
+	
+	c) $f(A \cap B) = f(A) \cap f(B)$ for any two subsets $A$ and $B$ of X;
+	
+	d) $f(A) \cap f(B) = \varnothing \Leftrightarrow A \cap B = \varnothing$; \qquad e) $f(A-B) = f(A) - f(B)$ whenever $X \supset A \supset B$.
+\end{exercise}
+
+\begin{exercise}
+	Prove the equipotence of the closed interval $\{x \in \mathbb{R} : 0 \leq x \leq 1\}$ and the open interval $\{x \in \mathbb{R} : 0 < x < 1\}$ of the real line $\mathbb{R}$ both using the Schröder–Bernstein theorem and by direct exhibition of a suitable bijection.
+\end{exercise}
+
+\begin{exercise}
+	a) Using the axioms of extensionality, pairing, separation, union, and infinity, verify that the following statements hold for the elements of the set $\mathbb{N}_0$ of natural numbers in the sense of von Neumann: 
+	
+	i) $x=y \Rightarrow x^+ = y^+$; \qquad ii) $\forall x \in \mathbb{N}_0,~x^+ \neq \varnothing$;
+	
+	iii) $(A \subseteq \mathbb{N}_0) \wedge (\varnothing \in A) \wedge (\forall x \in A,~x^+ \in A) \Rightarrow A=\mathbb{N}_0$; \qquad iv) $x^+=y^+ \Rightarrow x=y$.
+\end{exercise}
+
+
+
+\chapter{在实数之前}
+
+\section{自然数集的构造与公理化}
+
+回顾第一章的练习1.5 a)，如果将$x \mapsto x^+$的过程视作后继映射$S:N_0 \to N_0$，我们在von Neumann构造的自然数集中实际上证明了以下四件事情：
+
+i) $x=y \Rightarrow x^+ = y^+$，即该映射的定义是合理的；
+
+ii) $\forall x \in N_0,~x^+ \neq \varnothing$，即$\varnothing \notin S(N_0)$；
+
+iii) $(A \subseteq N_0) \wedge (\varnothing \in A) \wedge (\forall x \in A,~x^+ \in A) \Rightarrow A=N_0$，即如果自然数集的子集也是归纳集，那么该子集就是自然数集本身；
+
+iv) $x^+=y^+ \Rightarrow x=y$，即$S$是一个单射.
+
+以上四件事情在熟知的那个自然数集中似乎也是成立的.那么，能否将所有具有如上性质的集合都考虑为自然数集呢？具体地讲，我们需要一些公理.
+
+\begin{axiom}{Peano公理}
+	设集合$X$及其上的一个映射$S$.若$X$和$S$满足
+	\begin{enumerate}
+		\item $x \in X$；
+		\item $x \notin S(X)$；
+		\item $S$是一个单射；
+		\item $X$对于$S$是封闭的.
+		\item (极小性公设)对任意$A \subseteq X$都有：若$x \in A$且$A$对$S$封闭，则$A=X$.
+	\end{enumerate}
+	则$X$是自然数集.
+\end{axiom}
+\begin{remark}
+	一般称$x$为初始元素，$S$为后继映射.由$(X,S,x)$构成的三元组称为一个Peano系统.一般记$0:=x$.
+\end{remark}
+
+如果第二条不成立，可能会存在某个元素的后继为初始元素，从而形成循环；如果第三条不成立，则有可能两个元素的后继是同样的；若第四条不成立，则会有某个元素后面没有后继元素；第五条也被称为归纳原理，用处在于排除多链的情况.Wikipedia上有一张很棒的图阐释了这种情况：
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=6cm]{attachment/440px-Domino_effect_visualizing_exclusion_of_junk_term_by_induction_axiom.jpg}
+\end{figure}
+
+图中深色的多米诺骨牌是我们不想要的.
+
+1.5 a)的四条结论和$N_0$的定义足以说明$N_0=\mathbb{N}$.也即，通过定义$\mathbb{N}$是最小的归纳集和利用Peano公理定义$\mathbb{N}$是完全等价的.
+
+定义前10个自然数的符号分别为$0,1,2,3,4,5,6,7,8,9$.
+
+这里再声明一次(第一)数学归纳法，方便后面使用.
+
+\begin{theorem}{第一数学归纳法}
+	设$P(n)$是关于自然数$n$的一个性质.如果
+	\begin{enumerate}
+		\item 当$n=0$时，$P(n)$成立；
+		\item 由$P(n)$成立可以推出$P(n+1)$成立.
+	\end{enumerate}
+	那么，对任意$n \in \mathbb{N}$，$P(n)$都成立.
+\end{theorem}
+
+\subsection{自然数集上的加法}
+
+自然数中可以一步完成的加法已经有明确的定义：$n+0=n,~n+1=S(n)$.从而可以归纳地定义完全的加法.
+
+\begin{definition}{自然数集上的加法}
+	设自然数集$\mathbb{N}$，$S$是$\mathbb{N}$上的后继映射.定义自然数集上的\textbf{加法}(addition)映射为满足如下条件的映射$+:\mathbb{N}^2 \to \mathbb{N},~(n,m) \to n+m$：
+	\begin{enumerate}
+		\item $n+0=n$.
+		\item $n+S(m)=S(n+m)$.
+	\end{enumerate}
+\end{definition}
+
+既然加法是归纳定义，我们同样可以利用归纳法证明加法的诸多性质：
+
+\begin{proposition}{自然数的加法运算律}
+	对于任意的$a,b,c \in \mathbb{N}$，都有
+	\begin{enumerate}
+		\item (结合律)~$(a+b)+c = a+(b+c)$.
+		\item (交换律)~$a+b=b+a$.
+		\item (消去律)~$a+c=b+c \Leftrightarrow a=b$.
+	\end{enumerate}
+\end{proposition}
+
+为了得到熟悉的减法定义与运算律，要先明确构造的可行性：(其中$\mathbb{N}^* := \mathbb{N} - \{ 0 \}$.)
+
+\begin{proposition}
+	对任意$b \in \mathbb{N}^*$，存在$a \in \mathbb{N}$使得$S(a)=b$.
+\end{proposition}
+
+\subsection{自然数集中的序关系}
+
+类似于利用整除关系比大小，可以利用加法来定义自然数的序关系.
+
+\begin{definition}{自然数集中的序关系}
+	设$a,b \in \mathbb{N}$.如果存在$k \in \mathbb{N}$使得$a+k=b$，则称$a$\textbf{小于等于}(less than or equal to)$b$，记作$a \leq b$.特别地，若$a \leq b$且$a \neq b$，则称$a$\textbf{小于}(less than)，记作$a<b$.
+\end{definition}
+
+自然数集中的小于等于关系是一个全序关系，因为利用定义和数学归纳法容易验证其满足传递性、反对称性、完全性.
+
+关于小于关系，还有一个类似完全性的命题：
+
+\begin{proposition}{自然数集的三歧性}
+	对于任意$a,b \in \mathbb{N}$，下列命题中恰有一个成立：$$a<b, \qquad a=b, \qquad a>b.$$
+\end{proposition}
+
+
+\begin{proposition}{自然数的加法保序性}
+	对于任意$a,b,c \in \mathbb{N}$，有$$a+c \geq b+c \Leftrightarrow a \geq b.$$
+\end{proposition}
+
+自然数还有一项重要的性质：
+
+\begin{proposition}{自然数的离散性}
+	对于任意$a,b \in \mathbb{N}$都有$$a>b \Leftrightarrow a \geq S(b).$$
+\end{proposition}
+
+现在，我们对数学归纳法做一些集中的研究.
+
+\begin{theorem}{第二数学归纳法}
+	设$P(n)$是关于自然数$n$的一个性质.如果
+	\begin{enumerate}
+		\item 当$n=0$时，$P$成立；
+		\item 假设$n \leq k$时$P(n)$都成立，则当$P(k+1)$也成立.
+	\end{enumerate}
+	那么，对任意$n \in \mathbb{N}$，$P(n)$都成立.
+\end{theorem}
+
+\begin{theorem}{良序定理}
+	对于任意非空集合$A \subseteq \mathbb{N}$，$A$中都存在一个元素$M$，使得$\forall a \in A,~a \geq M$.
+\end{theorem}
+\begin{proof}
+	假设对任意的$M$，总存在某个$a \in A$使得$a < M$.下面归纳证明$A^c = \mathbb{N}$. \\
+	(i)假设$0 \in A$，又由于任意自然数$n$有$n \geq 0$(利用命题2.2结合归纳法可以证明)，于是与$A$的定义矛盾，故$0 \notin A$，那么$0 \in A^c$. \\
+	(ii)假设对任意的$n \leq k$，都有$n \in A^c$即$n \notin A$，那么假若$k+1 \in A$，由于$n \leq k < k+1$，这与$A$的定义矛盾，所以$k+1 \notin A$，从而$k+1 \in A^c$. \\
+	由第二数学归纳法可知，$A^c = \mathbb{N}$，即$A = \varnothing$，与假设矛盾.所以原命题成立.
+\end{proof}
+
+反过来，利用反证法也能说明良序定理可以推导第一数学归纳法.从而，定理2.1,2.2,2.3是等价的.
+
+\subsection{自然数集中的乘法}
+
+仿照加法，继续归纳定义乘法：
+
+\begin{definition}{自然数集上的乘法}
+	设自然数集$\mathbb{N}$，$S$是$\mathbb{N}$上的后继映射.定义自然数集上的\textbf{乘法}(multiplication)映射为满足如下条件的映射$\times :\mathbb{N}^2 \to \mathbb{N},~(n,m) \to n \times m$：
+	\begin{enumerate}
+		\item $n\times 0=0$.
+		\item $n\times S(m)=n\times m+n$.
+	\end{enumerate}
+\end{definition}
+
+如此定义的乘法和我们心中的模样如出一辙：利用归纳法容易证明$n \times m = \overbrace{n+n+\cdots +n}^{m~ \text{times}}$.在获得乘法交换律之前，注意$m$和$n$的顺序！
+
+利用归纳法，不难证明下列命题：
+
+\begin{proposition}{自然数的乘法运算性质}
+	对于任意的$a,b,c \in \mathbb{N}$，都有
+	\begin{enumerate}
+		\item (分配律)~$(a+b)c = ab+ac$.
+		\item (单位元)~$a \times 0 = 0 \times a = 0,~a \times 1 = 1 \times n = n$.
+		\item (交换律)~$ab=ba$.
+		\item (结合律)~$(ab)c=a(bc)$.
+	\end{enumerate}
+\end{proposition}
+
+为了得到消去律，还要再做些准备：
+
+\begin{proposition}{自然数的乘法无零因子律}
+	对任意$a,b \in \mathbb{N}$，$ab=0$当且仅当$a=0$或$b=0$.
+\end{proposition}
+
+\begin{proposition}{自然数的乘法保序性}
+	对于任意$a,b,c \in \mathbb{N}$，其中$c \neq 0$，总有$$a>b \Leftrightarrow ac>bc.$$
+\end{proposition}
+
+结合乘法保序性，利用反证法可以得到乘法消去律.
+
+\begin{corollary}{自然数的乘法消去律}
+	对于任意$a,b,c \in \mathbb{N}$，其中$c \neq 0$，总有$$a=b \Leftrightarrow ac=bc.$$
+\end{corollary}
+
+乘法是对加法的累积，次幂则是对乘法的累积.
+
+\begin{definition}{自然数的次幂}
+	设自然数集$\mathbb{N}$，$S$是$\mathbb{N}$上的后继映射.定义自然数集上的\textbf{指数}(exponentiation)映射为满足如下条件的映射$\sigma :\mathbb{N}^2-\{ (0,0) \} \to \mathbb{N},~(n,m) \to n^m$：
+	\begin{enumerate}
+		\item 对于$n \neq 0$，有$n^0=1$，$n^{S(m)}=n^m \times n$.
+		\item 对于$n \neq 0$，若$m \neq 0$则$n^m=0$.
+	\end{enumerate}
+\end{definition}
+
+同样利用归纳法可以证明，$n^m = \overbrace{n\times n\times \cdots \times n}^{m~ \text{times}}$.
+
+
+
+\section{整数环的构造}
+
+继续在自然数集中定义减法.不过我们会注意到，并不是所有自然数相减都会得到自然数，也即自然数集对加法逆元不封闭.为了保证封闭，尝试在自然数的基础上构造整数.
+
+通过自然数的差来构造整数是一个好思路.不过，这种相对差量不能保证唯一性，即整数$a$可能通过任意的$(a+k)-k$得到.从而，可以考虑用等价类的方法定义整数.
+
+\begin{definition}{整数集}
+	在$\mathbb{N}^2$上定义等价关系$\sim$如下：$$(a_1,b_1) \sim (a_2,b_2) :\Leftrightarrow a_1+b_2=a_2+b_1.$$
+	将每个等价类视作一个\textbf{整数}(integer)，所有等价类构成的集合视作整数集，记作$\mathbb{Z}$.
+\end{definition}
+
+接着定义整数集里的加法与乘法：
+
+\begin{definition}{整数集的加法和乘法}
+	规定加法：$$[(a_1,b_1)]_{\sim} + [(a_2,b_2)]_{\sim} := [(a_1+b_1,b_1+b_2)]_{\sim}.$$
+	乘法：
+	$$[(a_1,b_1)]_{\sim} \times [(a_2,b_2)]_{\sim} := [(a_1a_2+b_1b_2,a_1b_2+a_2b_1)]_{\sim}.$$
+\end{definition}
+
+如此定义的加法和乘法是良定义的.这一点由命题1.3容易得到.
+
+接着可以得到最终的结果：上述定义的整数集同构于自然数集的某个母集.或者反过来更好描述：自然数集同构于整数集的某个子集，并且要求该同构不改变代数运算.
+
+\begin{proposition}
+	记$\mathbb{N}_1:=\{ [(a,b)]_{\sim} \in \mathbb{Z}:a \leq b \}$.那么存在双射$$\sigma :\mathbb{N}_1 \to \mathbb{N},~[(a,b)]_{\sim} \mapsto a-b,$$
+	并且有$$\sigma (\alpha) + \sigma (\beta) = \sigma (\alpha + \beta),\quad \sigma (\alpha) \times \sigma (\beta) = \sigma (\alpha  \beta)$$
+	对于所有$\alpha ,\beta \in \mathbb{N}_1$成立.
+\end{proposition}
+
+大一统的基业既已完成，我们终于得以见到熟悉的记号了：
+
+\begin{definition}
+	对于$[a,b]_{\sim} \in \mathbb{Z}$，由自然数的三歧性可知$a>b,a=b$或$a<b$. \\
+	当$a>b$时，记$n:=[(a,b)]_{\sim}$，其中$n$是满足$a=b+n$的自然数，此时称$n$为\textbf{正的}(positive)； \\
+	当$a<b$时，记$-n:=[(a,b)]_{\sim}$，其中$n$是满足$b=a+n$的自然数，此时称$-n$为\textbf{负的}(negative)； \\
+	当$a=b$时，记$0:=[(a,b)]_{\sim}$，这里$0$是自然数集的最小元素.
+\end{definition}
+
+将自然数集的一些性质推广，容易得到：
+
+\begin{proposition}{整数运算的性质}
+	(1) 单位元$$\forall a \in \Z , a + 0 = 0+ a = a , 1 a = a 1 = a .$$
+	(2) 加法逆元$$\forall a \in \Z , \exists ! b \in \Z , a + b = 0 .$$
+	(3) 结合性质$$\forall a , b , c \in \Z , (a + b) + c = a + (b + c) , (a b) c = a (b c) .$$
+	(4) 交换性质$$\forall a , b \in \Z , a + b = b + a , a b = b a .$$
+	(5) 分配性质$$\forall c , a , b \in \Z , c (a + b) = c a + c b,(a+b)c=ac+bc .$$
+\end{proposition}
+
+\begin{proposition}{整数的乘法无零因子律}
+	对任意$a,b \in \Z$，$ab=0$当且仅当$a=0$或$b=0$.
+\end{proposition}
+
+\begin{corollary}{整数的乘法消去律}
+	对于任意$a,b,c \in \Z$，其中$c \neq 0$，总有$$a=b \Leftrightarrow ac=bc.$$
+\end{corollary}
+
+实际上，如果集合$G$上的一个运算满足单位元、逆元、结合性质，我们就称$G$是一个\textbf{群}.如果它还满足交换性质，则称$G$是一个\textbf{交换群}或\textbf{Abel群}.
+
+在一个集合上，往往只定义了加法，例如平面向量(因为平面向量之间的内积和外积都不封闭).有些时候可以得到具有加法和乘法的集合，例如所有映射构成的集合，但是它们的乘法不满足交换性质.
+
+对于定义了加法和乘法的集合，可以得到所谓环的概念：
+
+\begin{axiom}{环}
+	设非空集合$R$，若$R$上定义了加法和乘法并满足： \\
+	(1)$R$上的加法构成Abel群； \\
+	(2)乘法满足结合性质； \\
+	(3)乘法对加法有分配性质. \\
+	则称$R$是一个\textbf{环}(ring).
+\end{axiom}
+
+整数集$\Z$显然是一个环.由两个集合间所有映射构成的集合也是一个环.
+
+考虑一整个代数结构而不是单纯的特例，可以方便我们迁移应用.例如，整数环与一元多项式环的性质非常相似，所以它们共享很多定理与定义(带余除法定理，素数和既约多项式等等).
+
+\begin{definition}{整数的减法}
+	记$-n$表示整数$n$的加法逆元.则定义减法映射$-:\Z ^2 \to \Z ,(a,b) \mapsto a-b$，满足$$a-b:=a+(-b).$$
+\end{definition}
+
+良定义是显然的.
+
+\begin{definition}{整数的序关系}
+	对于$[(a_1,b_1)]_{\sim},[(a_2,b_2)]_{\sim} \in \Z$，定义它们的序关系：$$[(a_1,b_1)]_{\sim} \leq [(a_2,b_2)]_{\sim} \Leftrightarrow a_1+b_2 \leq b_1+a_2.$$
+\end{definition}
+
+注意$n$为负就等价于$n<0$.
+
+容易验证，整数间的序关系是一个全序关系，并且自然数的三歧性在这里同样使用.
+
+整数间的序关系比较复杂，例如对于负数$c$，$a \leq b \Leftrightarrow ac \geq bc$.这些熟知性质就不一一罗列了.
+
+\section{有理数域的构造}
+
+从自然数集扩大得到的整数集虽然对减法封闭了，它对除法还是不封闭.用同样的方式可以将整数集扩大到有理数集.
+
+\begin{definition}{有理数集}
+	在$\mathbb{Z}^2$上定义等价关系$\sim$如下：$$(a_1,b_1) \sim (a_2,b_2) :\Leftrightarrow a_1b_2=a_2b_1.$$
+	将每个等价类$[(a,b)]_{\sim}$视作一个\textbf{有理数}(rational number)，记作$a/b$.所有等价类构成的集合视作有理数集，记作$\mathbb{Q}$.
+\end{definition}
+
+由定义可知，$(a,b)\in a/b$等价于$(ka,kb) \in a/b$，这里$k$为任意非零整数.
+
+\begin{definition}{有理数集的加法和乘法}
+	规定加法：$$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1b_2+a_2b_1}{b_1b_2}.$$
+	乘法：
+	$$\frac{a_1}{b_1} \frac{a_2}{b_2} = \frac{a_1a_2}{b_1b_2}.$$
+\end{definition}
+
+只需注意到，$\mathbb{Q}$中的加法单位元为$0/1$，乘法单位元为$1/1$，容易验证$\mathbb{Q}$也是一个环，并且乘法满足单位元、逆元、交换性质.
+
+类似地，可以将$\Z$与$\mathbb{Q}$中的某个子集同构.(这里$b \mid a,~a,b \in \Z$表示存在$n \in \Z$使得$a=nb$.)
+
+\begin{proposition}
+	记$\mathbb{Z}_1:=\{ a/b \in \mathbb{Q}:b \mid a \}$.那么存在双射$$\sigma :\mathbb{Z}_1 \to \mathbb{Q},a/b \mapsto n,$$
+	并且有$$\sigma (\alpha) + \sigma (\beta) = \sigma (\alpha + \beta),\quad \sigma (\alpha) \times \sigma (\beta) = \sigma (\alpha  \beta)$$
+	对于所有$\alpha ,\beta \in \mathbb{Z}_1$成立.
+\end{proposition}
+
+有理数的除法正如我们在小学学过的那样：
+
+\begin{definition}{有理数的除法}
+	记$a^{-1}$表示有理数$a\neq 0$的乘法逆元.则定义除法映射$-:\mathbb{Q} ^2 \to \mathbb{Q} ,(a,b) \mapsto a \div b$，满足$$a \div b:=a\times b^{-1}.$$
+\end{definition}
+
+良定义是显然的.
+
+从有理数集可以抽象出域公理：
+
+\begin{axiom}{域}
+	设非空集合$F$，若$F$上定义了加法和乘法并满足： \\
+	(1)$F$是一个环； \\
+	(2)乘法满足单位元、逆元、交换性质. \\
+	则称$F$是一个\textbf{域}(field).
+\end{axiom}
+
+有理数集是一个域.
+
+由乘法逆元可得消去律和无零因子律：
+
+\begin{proposition}{域的乘法消去律}
+	对于任意$a,b,c \in F$，其中$c \neq 0$，总有$$a=b \Leftrightarrow ac=bc.$$
+\end{proposition}
+
+\begin{corollary}{域的乘法无零因子律}
+	对任意$a,b \in F$，$ab=0$当且仅当$a=0$或$b=0$.
+\end{corollary}
+
+在规定有理数的序关系之前，先明确它与$0$的大小比较.对于$a/b \in \mathbb{Q}$，称其为\textbf{正的}(positive)，如果$a,b$均为正或均为负；称其为\textbf{负的}(negative)，如果$a,b$一正一负.
+
+\begin{definition}{有理数的序关系}
+	对于$p=a_1/b_1,q=a_2/b_2 \in \mathbb{Q}$，定义它们的序关系：在$p,q$一非负一非正时，不妨设$p$非负，则$q \leq p$.在$p,q$均为正或均为负时，
+	$$p \leq q \Leftrightarrow \begin{cases}
+		a_1b_2 \leq a_2b_1 & \textit{如果$p,q$均为正} \\
+		a_2b_1 \geq a_1b_2 & \textit{如果$p,q$均为负}
+	\end{cases}.$$
+\end{definition}
+
+可以验证，有理数$p$为正等价于$p>0$.有理数的序关系也是一个全序关系，且满足三歧性.
+
+有理数的序关系也满足整数序关系的那些性质，这里省略.
+
+\begin{theorem}{Archimedes性质}
+	对于给定的正数$n$和任意的有理数$x$，存在唯一一个正数$k$使得$$(k-1)n \leq x < kn.$$
+\end{theorem}
+\begin{proof}
+	构造集合$\{ n \in \Z : x/k <n \}$，易知其有下界，由良序定理可知该集合唯一存在一个最小元素，记作$k$，从而有$$k-1 \leq \frac{x}{n} < k.$$
+	由于$n$为正数，上式就等价于$(k-1)n \leq x < kn$.
+\end{proof}
+
+在定义完实数之后，利用同样的过程可以证明Archimedes性质对所有实数$x$也成立.所以，尽管Archimedes性质有许多好用的推论，我们选择在实数部分再介绍.
+
+
+
+\chapter{实数理论}
+
+\section{实数的构造}
+
+实数究竟是什么？
+
+中学课本说它就是有理数和无理数的总和，但是也定义无理数是“不是有理数的数”，这样的概念还是过于无力了：为什么复数集不能是实数集？
+
+一方面，从序关系的角度看，复数不能排序，所以实数集至少需要是一个全序集.另外，有理数通过代数运算可以得到无理数，无理数也能参与有理数的排序(例如$\sqrt{2}$)，所以有理数不适合作为实数使用.所以，我们想要找到一个\textit{比有理数集更加“完备”的全序集}作为实数集.
+
+另一方面，从图像的角度来看，复数并不能在数轴上出现，而有理数并不能覆盖整个数轴(例如，用尺规作图可以得到$\sqrt{2}$).这样就产生了定义实数的另一个想法：\textit{与数轴上的点一一对应的集合}.但这种定义也存在问题：数轴是什么？点是什么？避开这些抽象的概念，利用数轴的最本质特征就可以定义实数：数轴是\textit{连续不断}的一条直线.所以我们希望实数满足\textit{连续不断}这一特质.
+
+最后，考虑十进制小数.熟知有理数表示为十进制小数时总会是有限的或得到某些循环(这是数论里的一个定理)，而无理数均无法表示为有限小数或可循环的无限小数.截取无理数的小数点后任意长度的数字，总是能找到与这段数字相等的有理数.这意味着考虑实数(特别是无理数)时需要用到\textit{利用有理数进行逼近}的思想.
+
+实际上，上文提到的几种思考角度，分别对应实数的完备性(连续性)和实数构造的特点.
+
+我们首先通过Dedekind分割逼近地定义实数.
+
+\subsection{Dedekind分割}
+
+在数轴上抓住一个点进行研究.先以无理数为例，我们发现，比它小的有理数集合总是没有上界，而比它大的有理数集合总是没有下界.另外，这两个集合可以构成有理数集的一个划分.我们可以把一个划分一一对应为一个无理数.
+
+但是对于有理数，上述的两个有理数集合之并集就不能达到有理数集了.稍微修改一下，我们只需要将上集的定义从“大于”改为“不小于”，依然可以唯一确定有理数.
+
+还有一件事情要注意：并不是有理数集合的所有划分都能满足上述的理想状态，我们需要排除掉多个区间进行划分的情况.因此，可以规定这两个集合是“接连不断的”.(实际上只用一个就够了，因为划分会强制让另一个集合也接连不断)
+
+总结这些内容，就是所谓Dedekind分割的基本思想：
+
+\begin{definition}{Dedekind分割}
+	设$\alpha ,\beta$构成全序数集$K$的一个划分.若满足
+	\begin{enumerate}
+		\item $\forall x,y \in K,((x < y) \wedge (y \in \alpha)) \Rightarrow x \in \alpha$.
+		\item $\forall x \in \alpha ,\exists y \in \alpha (y>x)$.
+	\end{enumerate}
+	则称$\alpha$和$\beta$构成$K$的一个\textbf{Dedekind分割}(Dedekind cut)，记作$\alpha \mid \beta$.
+\end{definition}
+
+上述定义主要着眼于下集$\alpha$，所以考虑用下集定义实数：
+
+\begin{definition}
+	有理数域上Dedekind分割得到的每个下集称作一个\textbf{实数}(real number)，所有下集构成的集合称作实数集.
+\end{definition}
+
+\subsection{实数集上的序结构和代数结构}
+
+\begin{definition}{实数集上的序关系}
+	设$\alpha ,\beta \in \R$.称$\alpha \leq \beta$，如果$\alpha \subseteq \beta$.
+\end{definition}
+
+容易验证，虽然集合的包含关系并不是全序关系，但在Dedekind分割的限制下可以做到全序.亦可证明，实数的序关系满足三歧性.
+
+\begin{definition}{实数集上的加法}
+	定义$+:\R ^2 \to \R ,(\alpha ,\beta) \mapsto \alpha + \beta$，满足$$\alpha + \beta = \{ a+b:a \in \alpha ,b \in \beta \}.$$
+\end{definition}
+
+亦可验证，加法是良定义的.
+
+\begin{proposition}{实数集上加法的运算律}
+	实数集上的加法满足： \\
+	(1)结合性质：$$\forall \alpha ,\beta ,\gamma \in \R ,~(\alpha + \beta ) + \gamma = \alpha + (\beta + \gamma).$$
+	(2)交换性质：$$\forall \alpha ,\beta \in \R,~\alpha + \beta = \beta + \alpha .$$
+	(3)单位元：$$\exists ! 0 \in \R ,~\forall \alpha \in \R , \alpha + 0 = 0 + \alpha = \alpha .$$
+	(4)逆元：$$\forall \alpha \in \R ,~\exists ! \beta \in \R ,~\alpha + \beta = \beta + \alpha = 0.$$
+\end{proposition}
+\begin{proof}
+	只证明(3)和(4).注意这里的$0$并非自然数$0$，而是某个下集. \\
+	(3)单位元的唯一性可类比于整数单位元证明.下面构造地证明单位元的存在性：声明$0 := \mathbb{Q}_{-} \in \R$.任取$\alpha \in \R$，下面证明$\alpha + 0 = \alpha$： \\
+	(i)任取$a \in \alpha ,b \in 0$，因为$a + b < a$，所以$\alpha + 0 \subseteq \alpha$. \\
+	(ii)任取$a \in \alpha$.由定义知存在$a'>a$使得$a' \in \alpha$.记$x=a-a'<0$，所以$x \in 0$.从而$\alpha \subseteq \alpha + 0$. \\
+	综上可得，$\alpha +0 = \alpha$. \\
+	(4)逆元的唯一性可类比于整数逆元证明.下面构造地证明逆元的存在性：任取$\alpha \in \R$，声明$$\beta = \{ -a'+x:x \in 0,a' \in \alpha ^c \}$$是$\alpha$的逆元. \\
+	(i)任取$a \in \alpha ,b \in \beta$并记$b=-a'+x$.容易证明$a<a'$，于是$a+b <0$，从而$\alpha + \beta \subseteq 0$. \\
+	(ii)任取$b \in 0$，由定义知存在$a \in \alpha ,a' \in \alpha ^c$使得$a - a'>b$(否则存在$b$对任意的$a,a'$有$a'-a \geq 0-b$，显然矛盾).设$x>0$满足$a-a'=x+b$，那么$b=a+(-a'-x) \in \alpha + \beta$，从而$0 \subseteq \alpha + \beta$. \\
+	综上可得，$\alpha + \beta = 0$.
+\end{proof}
+
+\begin{proposition}{实数集上的加法保序性}
+	对任意的$\alpha ,\beta ,\gamma \in \R$有$$\alpha \leq \beta \Leftrightarrow \alpha + \gamma \leq \beta + \gamma .$$
+\end{proposition}
+
+乘法的定义比较复杂.
+
+\begin{definition}{实数集上的乘法}
+	定义$\times :\R ^2 \to \R ,(\alpha ,\beta) \mapsto \alpha \times \beta$.满足： \\
+	当$\alpha = 0 \vee \beta = 0$时，$\alpha \times \beta =0$；当$\alpha >0 \wedge \beta >0$时，$$\alpha \times \beta = \{ c:c<ab,a \in \alpha ,a>0,b \in \beta ,b>0 \}.$$
+	其余情况规定为$$\alpha \times \beta = \begin{cases}
+		(-\alpha) \times (-\beta)  & \alpha < 0 \wedge \beta < 0 \\
+		-((-\alpha) \times \beta)  & \alpha < 0 \wedge \beta > 0 \\
+		-(\alpha \times (-\beta))  & \alpha > 0 \wedge \beta < 0
+	\end{cases}.$$
+\end{definition}
+
+同样可以证明，乘法是良定义的.
+
+\begin{proposition}{实数集上乘法的运算律}
+	实数集上的乘法满足： \\
+	(1)结合性质：$$\forall \alpha ,\beta ,\gamma \in \R ,~(\alpha \cdot \beta ) \cdot \gamma = \alpha \cdot (\beta \cdot \gamma).$$
+	(2)交换性质：$$\forall \alpha ,\beta \in \R,~\alpha \cdot \beta = \beta \cdot \alpha .$$
+	(3)单位元：$$\exists ! 1 \in \R ,~\forall \alpha \in \R , \alpha \cdot 1 = 1 \cdot \alpha = \alpha .$$
+	(4)逆元：$$\forall \alpha \in \R~(\alpha \neq 0) ,~\exists ! \beta \in \R ,~\alpha \cdot \beta = \beta \cdot \alpha = 1.$$
+	(5)对加法的分配律：$$\forall \alpha ,\beta ,\gamma \in \R ,~\alpha \cdot (\beta + \gamma) = \alpha \cdot \beta + \alpha \cdot \gamma ,~ (\alpha + \beta) \cdot \gamma = \alpha \cdot \gamma + \beta \cdot \gamma . $$
+\end{proposition}
+
+\begin{proposition}{实数集上的乘法保序性}
+	对任意的$\alpha ,\beta ,\gamma \in \R$，其中$\gamma >0$，有$$\alpha \leq \beta \Leftrightarrow \alpha \cdot \gamma \leq \beta \cdot \gamma .$$
+\end{proposition}
+
+实数集是一个“有序域”.在全序域的基础上，如果序关系“$<$”满足传递性、三歧性且与加法、乘法结合时具有保序性，我们就称该全序域为“有序域”.
+
+\begin{proposition}
+	记$\mathbb{Q}_1:=\{ \alpha \in \R : \exists M \in \alpha ^c,~(\forall a \in \alpha ^c,~a \geq M) \}$.那么存在双射$$\sigma :\mathbb{Q}_1 \to \mathbb{Q},\alpha \mapsto a,$$
+	并且有$$\sigma (a) + \sigma (b) = \sigma (a + b),\quad \sigma (a) \times \sigma (b) = \sigma (a  b)$$
+	对于所有$a ,b \in \mathbb{Q}_1$成立.
+\end{proposition}
+
+\begin{corollary}
+	任意两个实数之间一定存在有理数和无理数.
+\end{corollary}
+\begin{proof}
+	(i)设实数$\alpha < \beta$，则可得$\alpha \subset \beta$，即存在有理数$a$使得$a \in \beta$而$a \in \alpha$.于是$\alpha < a < \beta$. \\
+	(ii)假设$\alpha ,\beta$之间全部为有理数，然而任取其中两个$a,b$，容易证明$a<a+(b-a)/\sqrt{2}<b$，而$a+(b-a)/\sqrt{2}$为无理数，矛盾.
+\end{proof}
+
+
+
+
+\section{实数的完备性}
+
+前文已经提到，实数区别于有理数的最大特点就在于其“完备(连续)性”.为了刻画完备性，可以从七个角度出发：Dedekind定理，确界原理，Heine-Borel定理(有限覆盖引理)，单调有界定理，闭区间套定理，Bolzano-Weierstrass定理(聚点引理)，Cauchy收敛原理.这七个命题是等价的，接下来会逐一看到.
+
+\subsection{Dedekind定理}
+
+注意，实数是建立在$\mathbb{Q}$的Dedekind分割上的，而下面的定理所阐释的是$\R$上的Dedekind分割.
+
+\begin{theorem}{Dedekind定理}
+	$\R$上任一Dedekind分割的上集均有最小元素.
+\end{theorem}
+\begin{proof}
+	记该分割为$\alpha ' \mid \beta '$.我们想要证明，$\beta '$的最小元素对应某个实数，确切地说是对应一个$\mathbb{Q}$上的Dedekind分割$\alpha \mid \beta$，其中$\alpha ,\beta$分别表示由$\alpha '$和$\beta '$中所有有理数构成的集合. \\
+	(i)根据上述定义，$\alpha$显然向下封闭.由于$\alpha '$中无最大元素，任取$a \in \alpha$都存在$M \in \alpha '$使得$a < M$.由推论3.1可知，存在有理数$m$使得$a<m<M$.即得$\alpha$中亦无最大元素，所以$\alpha \mid \beta$是$\mathbb{Q}$上的一个Dedekind分割. \\
+	(ii)将$\alpha$看做实数，假设$\alpha \in \alpha '$，同上易知存在另一个($\mathbb{Q}$上的)上集$\alpha _1$满足$\alpha < \alpha _1$.将$\alpha _1$看做有理数可知，其一定在$\beta$内，所以作为上集的$\alpha _1 \in \beta '$，矛盾. \\
+	(iii)同(ii)可得，$\alpha$是$\beta '$的最小元素.
+\end{proof}
+
+\subsection{确界原理}
+
+在高中我们已经了解到，一个开区间$(a,b)$中不会包括端点值$a,b$，但若取其上界构成的集合，该集合必然有最小值$a$.这种直觉用数学语言描述，就是所谓的确界原理.
+
+\begin{definition}{确界}
+	设非空集合$X \subseteq \R$.若存在$M \in \R$使得$\forall x \in X,x \leq M$，则称$M$是$X$的一个\textbf{上界}(upper bound).若$M$满足$\forall m<M,\exists x \in X (m<x)$即$M$为所有上界中最小的，则称其为$X$的\textbf{上确界}(least upper bound)，记作$\sup X$.同样地定义下界和下确界，其中下确界记作$\inf X$.
+\end{definition}
+
+\begin{theorem}{确界原理}
+	设非空集合$X \subseteq \R$.若其存在上界，则一定存在上确界.
+\end{theorem}
+\begin{proof}
+	若$X$中存在最大元素，则显然其上确界为该最大元素.假设$X$中不存在最大元素，设其上界组成集合$\beta$，取$\alpha = \beta ^c$.容易证明$\alpha \mid \beta$是$\R$上的一个Dedekind分割，从而由Dedekind定理可得$\beta$存在最小元素，即为$X$的上确界.
+\end{proof}
+
+\begin{proposition}
+	Dedekind定理和确界原理等价.
+\end{proposition}
+\begin{proof}
+	下面用确界原理证明Dedekind定理.取$\R$上的Dedekind分割$\alpha \mid \beta$，显然$\alpha$中的每个元素都是$\beta$的下界.那么由确界原理可知$\beta$存在下确界. \\
+	假设$\inf \beta$不是$\beta$的最小元素，即$\inf \beta \notin \beta$，则$\inf \beta \in \alpha$.由于存在$x \in \alpha$使得$x > \inf \beta$，故$x \in B$，矛盾.
+\end{proof}
+
+类似于有理数，实数集也具有Archimedes性质.
+
+\begin{theorem}{Archimedes性质}
+	对于给定的正实数$n$和任意的实数$x$，存在唯一一个整数$k$使得$$(k-1)n \leq x < kn.$$
+\end{theorem}
+
+\begin{corollary}
+	对于任意给定的正实数$\varepsilon$，总存在某个非零自然数$n$使得$0<1/n<\varepsilon$.
+\end{corollary}
+
+\begin{corollary}
+	设非负实数$x$满足：对任意非零自然数$n$均有$x<1/n$，则$x=0$.
+\end{corollary}
+
+\subsection{Heine-Borel定理}
+
+\begin{definition}{覆盖}
+	称集合族$S$\textbf{覆盖}(cover)集合$Y$，如果$$Y \subseteq \bigcup_{X \in S} X.$$
+\end{definition}
+
+\begin{theorem}{Heine-Borel定理}
+	对于给定闭区间，任何一个能够覆盖它的开区间族必然包含一个亦可覆盖它的有限子族.
+\end{theorem}
+\begin{hint}
+	我们实际上要做以下操作：在$a$附近取一个包含它的开区间，这个开区间一定会包含$a$右侧的某个点，再从这个点出发做一个新的开区间，则会包含该点右侧的另一个点.重复这样的操作，最后总能在有限步内覆盖到$b$.
+	
+	这种证明方法看似自然，然而存在两个问题：为什么要用开区间覆盖？为什么被覆盖的是闭区间？假设覆盖它的是闭区间集，那么在第一步中就有可能出现闭区间右侧端点为$a$的情况；假设被覆盖的是开区间，我们实际上就无法找到第一步该覆盖谁(利用下确界$a$来操作也不行).
+	
+	以上操作的本质在最后一步体现出来：类似于确界原理，将$b$看做想要逼近到的那个实数，通过不断取开区间来逼近.
+\end{hint}
+\begin{hint}
+	(有问题的证明)
+	设闭区间$[a,b]$和其开覆盖$S$.显然存在$I_0 \in S$满足$a \in I_0$，故存在$x_0 \in I_0$使得$x_0>a$.设$I_j \in S$表示满足$x_{j-1} \in S$的开区间，存在$x_j \in I_j$使得$x_j>x_{j-1}$.记$E_k=\bigcup_{j=0}^{k} I_j$.由于$b$为$E_k$的一个上界，可知$E_k$存在上确界.
+	
+	下面证明，存在$k$使得$\sup E_k=b$.否则，假设$\sup E_k<b$，由上确界的定义知，对任意正数$\delta$，$\sup E_k - \delta \in E_k$.现取$S$中包含$\sup E_k$的区间$I$，则存在$\delta >0$使得$N_{\delta}(\sup E_k) \subseteq I$，从而$E_k \cup I$包含$[a,\sup E_k+\delta]$.
+	
+	我们想要让$\sup E_k + \delta$也在$E_k$中，这样就能导出矛盾.需要让$E$是“自动延伸的”，即需要忽略$k$的作用.尝试后可以发现用区间的并不是很好描述，我们不妨用确定区间的那个数$x_j$来描述.
+\end{hint}
+\begin{proof}
+	设$E=\{ x \in [a,b]:[a,x]\text{存在一个$S$的有限子覆盖} \}$.同上可得$E$存在上确界并容易证明该上确界就是$b$.现在证明$b \in E$.假设$b \notin E$，类似地取包含$b$的$I' \in S$，容易得到$E$所确定的有限子覆盖族$\cup \{ I' \}$可以覆盖$[a,b]$.
+\end{proof}
+
+\begin{proposition}
+	确界原理与Heine-Borel定理等价.
+\end{proposition}
+\begin{proof}
+	下面用Heine-Borel定理证明确界原理.取不存在最大元素而存在上界$b$的集合$X$.假设$X$没有上确界.任取$a \in X$，构造$S=\{ N_{\delta}(x):x \in [a,b] \}$，其中$\delta$满足：
+	
+	(i)当$x$是$X$的上界时，总存在另一个上界$x'$使得$x'<x$，此时记$\delta =x-x'$；
+	
+	(ii)当$x$不是$X$的上界时，存在$x' \in X$使得$x'>x$，即$\delta = x'-x$.
+	
+	由Heine-Borel定理知存在$S$的一个有限子覆盖$S'$.考虑$S'$中所有(i)类的区间，取它们之中左端点的最小值$m$，可知$m$为$X$的上界，则存在另一个$m'<m$亦为$X$的上界，这样的$m$不可能在(i)中，即得矛盾.
+\end{proof}
+
+\section{实数公理与进制系统}
+
+将前文得到的实数性质总结为公理，即形成了关于实数的具体定义.
+
+\begin{axiom}{实数公理}
+	设非空集合$\R$，其中存在元素$0,1$，其上定义了加法$+$、乘法$\cdot$和序关系$\leq$.称$\R$是实数集，如果它满足下列条件：
+	
+	(\uppercase\expandafter{\romannumeral1})加法公理：
+	\begin{enumerate}
+		\item $\forall x \in \R ,x+0=0+x=x$.
+		\item $\forall x \in \R ,\exists -x \in \R \ssb{x+(-x)=(-x)+x=0}$.
+		\item $\forall x,y,z \in \R ,x+(y+z)=(x+y)+z$.
+		\item $\forall x,y \in \R ,x+y=y+x$.
+	\end{enumerate}
+	
+	(\uppercase\expandafter{\romannumeral2})乘法公理：
+	\begin{enumerate}
+		\item $\forall x \in \R ,x \cdot 1=1 \cdot x=x$.
+		\item $\forall x \in \R -\{ 0 \} ,\exists x^{-1} \in \R \ssb{x \cdot x^{-1} =x^{-1} \cdot x=1}$.
+		\item $\forall x,y,z \in \R ,x \cdot (y \cdot z)=(x \cdot y) \cdot z$.
+		\item $\forall x,y \in \R ,x\cdot y=y\cdot x$.
+	\end{enumerate}
+	
+	(\uppercase\expandafter{\romannumeral1},\uppercase\expandafter{\romannumeral2})加法与乘法连接公理：$\forall x,y,z \in \R ,(x+y)z=xz+yz$.
+	
+	(\uppercase\expandafter{\romannumeral3})序公理：
+	\begin{enumerate}
+		\item $\forall x,y \in \R ,(x \leq y) \wedge (y \leq x) \Rightarrow (x=y)$.
+		\item $\forall x,y,z \in \R ,(x \leq y) \wedge (y \leq z) \Rightarrow (x \leq z)$.
+		\item $\forall x,y \in \R ,(x \leq y) \vee (y \leq x)$.
+	\end{enumerate}
+	
+	(\uppercase\expandafter{\romannumeral1},\uppercase\expandafter{\romannumeral3})序与加法连接公理：$\forall x,y,z \in \R ,(x \leq y)\Rightarrow (x+z \leq y+z)$.
+	
+	(\uppercase\expandafter{\romannumeral2},\uppercase\expandafter{\romannumeral3})序与乘法连接公理：$\forall x,y \in \R ,(0\leq x) \wedge (0 \leq y) \Rightarrow (0 \leq x \cdot y)$.
+	
+	(\uppercase\expandafter{\romannumeral4})完备性公理.
+\end{axiom}
+\begin{remark}
+	完备性公理可以选择之前所述七个等价定理中任一个.
+\end{remark}
+
+容易验证，利用Dedekind分割定义得到的实数满足实数公理.
+
+我们也可以通过$q$进制小数的方式定义实数.这里从实数公理角度出发尝试说明如此定义的合理性.
+
+由实数集的Archimedes性质，容易得到对于给定的$q^p$(其中$p,q \in \Z$且$q>1$)和任意的实数$x$，总存在$\alpha _p \in \Z$满足$\alpha _p q^p \leq x < (\alpha _p +1)q^p$.我们希望这里的$\alpha _p \in \{ 0,1,\cdots ,q-1 \}$，所以需要以下引理：
+
+\begin{lemma}
+	对给定的正整数$q>1$，对任意实数$x$都存在唯一一个整数$k$使得$q^{k} \leq x < q^{k+1}$.
+\end{lemma}
+\begin{proof}
+	唯一性显然.存在性：一方面，由于$\{ q^n \}$是无上界的(这一点显然)，存在$N$使得当$n \geq N$时有$q^n > x$.另一方面，存在$M$使得对$m \geq M$有$1/q^m < 1/x$(推论3.2和上述结论)即$x > q^m$，从而$\{ q^n \}$存在下界，进而存在下确界$k$，即$q^k \leq x < q^{k+1}$. 
+\end{proof}
+
+将以上结果不断重复，可以得到如下逼近：
+
+$$\alpha _p q^p + \alpha _{p-1}q^{p-1} \leq x < \alpha _p q^p + (\alpha _{p-1}+1) q^{p-1},$$
+$$\alpha _p q^p + \alpha _{p-1}q^{p-1} + \alpha _{p-2}q^{p-2}  \leq x < \alpha _p q^p + \alpha _{p-1}q^{p-1} + (\alpha _{p-2}+1)q^{p-2} ,$$
+$$\cdots \cdots $$
+$$\alpha _p q^p + \alpha _{p-1}q^{p-1} + \cdots + \alpha _{p-n}q^{p-n}  \leq x < \alpha _p q^p + \alpha _{p-1}q^{p-1} + \cdots + (\alpha _{p-n}+1)q^{p-n}$$
+
+一般地，我们将左边的式子称作$x$的$n-$\textbf{不足近似值}(approximations from below)，右侧称为$x$的$n-$\textbf{过剩近似值}(approximations from above).将不足近似值中所有系数$\alpha$提取出来，得到所谓$q$进制下的记号：$\overline{\alpha_p \alpha_{p-1} \cdots \alpha_1 \alpha _0 . \alpha_{-1}\alpha_{-2} \cdots}_{(q)}$，其中约定$\alpha_p \neq 0$.
+
+容易验证，每个实数都会对应一个记号，且两个不同实数对应的记号不会相同.然而反过来，并不是所有的记号都会对应某个实数.例外情况为：从某位开始后面全为$q-1$.利用级数的知识很快能解决该问题.
+
+现在设$x$的所有$n-$不足近似值$r_n$构成数列$\{ r_n \}$.对于另一个不足近似值构成的数列$\{ s_n \}$，若$x=\sup s_n$(等价地有$x=\inf (s_n+1/q^{n-p})$)，可以验证$\{ s_n \}=\{ r_n \}$.由此，我们建立了实数和$q$进制表示之间的一一对应关系.
+
+在《初等数论》中，会证明如下命题：
+
+\begin{proposition}
+	循环小数(即$q$进制表示中系数存在循环节的小数)和有理数一一对应.
+\end{proposition}
+
+将上方的命题反过来即：不循环小数与无理数一一对应.
+
+\section{可数集}
+
+\begin{definition}{可数集}
+	称一个集合$X$\textbf{可数的}(countable)，如果$\card X = \card \mathbb{N}$.如果$X$满足$\card X \leq \card \mathbb{N}$，则称其为\textbf{至多可数的}(at most countable).
+\end{definition}
+
+一个比较形象的解释是，如果一个集合内元素可以按某种方法排成一列，则它为可数的.
+
+\begin{proposition}
+	可数集的无穷子集是可数集.
+\end{proposition}
+\begin{remark}
+	等价地有：存在一个无穷子集是不可数集的集合为不可数集.
+\end{remark}
+\begin{proof}
+	等价于说明$\mathbb{N}$的无穷子集$E$是可数集.取$E$中的最小元素$x_0$对应$0$，再取$E-\{ x_0 \}$的最小元素$x_1$对应$1$，如此地归纳构造，由于$E$是无穷集合，故这一构造不会中断，所以可将其视作映射$f:E \to \mathbb{N}$，显然$f$是单射.同样可以得到映射$f^{-1}:\mathbb{N} \to E$，故$f$是双射.
+\end{proof}
+
+\begin{proposition}
+	可数个可数集的并集也是可数集.
+\end{proposition}
+\begin{proof}
+	设$C_j$中的元素可排为$x_{j1},x_{j2},\cdots $，构作如下无限矩阵：$$\begin{pmatrix}
+ x_{11} & x_{12} & x_{13} & \cdots \\
+ x_{21} & x_{22} & x_{23} & \cdots \\
+ x_{31} & x_{32} & x_{33} & \cdots \\
+ \vdots & \vdots & \vdots & \ddots
+\end{pmatrix}.$$
+	将并集中的元素按照$x_{11},x_{21},x_{12},x_{31},x_{22},x_{13},\cdots$的方式排列，故该集合为可数集.考虑并集中出现的重复元素，由命题3.9可得最后的结果仍是可数集.
+\end{proof}
+
+\begin{proposition}
+	$n$个可数集的笛卡尔积也是可数集.
+\end{proposition}
+\begin{proof}
+	\boxed{\text{证法$1$}}~利用数学归纳法，转化为证明两个可数集的笛卡尔积为可数集，亦等价于$\mathbb{N} \times \mathbb{N}$为可数集.将$\mathbb{N} \times \mathbb{N}$的元素视作二维向量，构造如下排列即可：
+	\begin{center}
+		\includegraphics[width=6cm]{attachment/iShot_2023-08-04_15.19.06.png}
+	\end{center}
+	
+	\boxed{\text{证法$2$}}~等价于证明$\mathbb{N}^n$是可数的.构造双射$\sigma :\mathbb{N}^n \to N,~(\alpha _1, \cdots ,\alpha _n) \mapsto p_1^{\alpha _1} \cdots p_n^{\alpha _n}$.于是$\card \mathbb{N}^n = \card N = \card \mathbb{N}$.
+\end{proof}
+
+容易确定：
+
+\begin{proposition}
+	$\card \mathbb{Z} = \card \mathbb{N} = \card \mathbb{Q} = \card \{ x:\exists n \in \mathbb{Z}_+,a_0, \cdots ,a_n \in \mathbb{Z}(a_0+a_1x+\cdots +a_nx^n=0) \}$.
+\end{proposition}
+\begin{remark}
+	最后一个集合意思就是全体代数数构成的集合.
+\end{remark}
+\begin{proof}
+	只证明最后一项.将$n$次整系数多项式的系数提取出来，做双射于$\Z ^{n+1}$，容易证明$n$次整系数多项式构成的集合是可数集.进而所有整系数多项式构成的集合也是可数集.
+	
+	利用代数基本定理可以完成后续证明.
+\end{proof}
+
+虽然整数集、有理数集甚至代数数集都是可数的，我们仍然能找到许多不可数集.
+
+\begin{proposition}
+	区间$(0,1)$是不可数的.
+\end{proposition}
+\begin{proof}
+	设$(0,1)$可数，记$(0,1)-\{ x/9:x \in \mathbb{Z}, 1 \leq x \leq 8 \}=\{ a_1, a_2, \cdots ,a_n ,\cdots \}$，并令$a_i$的十进制小数表示为$a_i=0.k_{i1}k_{i2}\cdots$.构作如下无限矩阵：
+	
+	$$\begin{pmatrix}
+ \color{red} k_{11} & k_{12} & k_{13} & \cdots & k_{1m} & \cdots \\
+ k_{21} & \color{red} k_{22} & k_{23} & \cdots & k_{2m} & \cdots \\
+ k_{31} & k_{32} & \color{red} k_{33} & \cdots & k_{3m} & \cdots \\
+ \vdots & \vdots & \vdots & \color{red} \ddots & \vdots & \cdots \\
+ k_{m1} & k_{m2} & k_{m3} & \cdots & \color{red} k_{mm} & \cdots \\
+ \vdots & \vdots & \vdots & \vdots & \vdots & \color{red} \ddots
+\end{pmatrix}.$$
+
+	选取对角线上的数码$k_{11},k_{22},\cdots $.现在任取$k_j \neq k_{jj}$使得$1 \leq k_j \leq 8$.(假设不存在满足不等的$k_j$，则$a_j$小数点后数码均相同，必然为$\{ x/9:x \in \mathbb{Z}, 1 \leq x \leq 8 \}$中某个元素，矛盾).
+	
+	构造$a=0.k_1k_2k_3\cdots$，由上面的构造可知$a$的十进制小数表示唯一，又因为存在$m$使得$a=a_m$，可得$k_m=k_{mm}$，矛盾.
+\end{proof}
+
+\begin{corollary}
+	实数集$\R$是不可数的.
+\end{corollary}
+\begin{remark}
+	也可用闭区间套方法证明.(后面会提到)
+\end{remark}
+\begin{proof}
+	构造函数$f(x)=\tan \ssb{\pi x-\frac{\pi}{2}}$，易知$f$为$(0,1)$到$\R$的双射，故$\card \R = \card (0,1) > \card \mathbb{N}$.
+\end{proof}
+
+现在来看一些常用定理：
+
+\begin{lemma}
+	任一无限集均存在可数子集.
+\end{lemma}
+\begin{proof}
+	设无限集$X$，取其中任意元素$x_0$放入集合$E$.接着在$X-\{ x_0 \}$中取任意元素$x_1$放入$E$.如此重复便得到一可数集$E \subseteq X$.
+\end{proof}
+
+\begin{theorem}
+	无限集与至多可数集的并集与原无限集等势.
+\end{theorem}
+\begin{proof}
+	有限集的情况显然；考虑无限集$X$与可数集$Y=\{ y_1,y_2,\cdots \}$且$X \cap Y = \varnothing$.由引理3.2可知$X$中存在一个可数集$E=\{ x_1,x_2,\cdots \}$.构造映射$f$使得$f(x_j)=x_{2j},f(y_j)=x_{2j-1}, \forall j \in \mathbb{N}^*$和$f(x)=x,\forall x \in X-E$.容易验证$f$是$X \cup Y \to X$的双射.
+\end{proof}
+
+\begin{theorem}
+	一个集合是无限集等且仅当其包含与自身等势的真子集.(这也被称作Dedekind无限)
+\end{theorem}
+\begin{proof}
+	充分性：设$X$存在真子集$E$与$X$等势，假设$X$是有限集，显然其不可能包含比自己基数大的集合，矛盾.
+	
+	必要性：任取$x \in X$，可知$E:=X-\{x\}$满足$E \subset X$且$E$与$X$等势.
+\end{proof}
+
+从而我们可以证明：
+
+\begin{proposition}
+	无理数集与实数集等势.类似地有超越数(即不是代数数的实数)与实数集等势.
+\end{proposition}
+
+\begin{definition}{连续统}
+	和实数集$\R$等势的集合称作\textbf{连续统}(continuum).连续统的基数称作\textbf{连续基数}，记作$\aleph _1$.
+\end{definition}
+
+一个著名的猜想：连续统假设.现在知道，这个猜想不可能被ZFC公理系统证明或证伪.
+
+
+
+
+
+
+\chapter{数列与函数的极限}
+
+\section{数列的极限}
+
+\subsection{数列极限的定义和性质}
+
+\begin{definition}{序列}
+	定义域为$\mathbb{N}$的映射称作\textbf{序列}(sequence).特别地，值域为实数集的称作\textbf{数列}(numerical sequence)，一般记作$\{ x_n \}$.
+\end{definition}
+
+\begin{definition}{数列的极限}
+	称数$A$为数列$\{ x_n \}$的\textbf{极限}(limit)，如果对任意的$A$的邻域$N(A)$都存在$N$使得当$n \geq N$时$x_n \in N(A)$.记为$$A = \lim_{n \to \infty} x_n ~~ \text{或} ~~ x_n \to A,~n \to \infty$$且称$\{ x_n \}$\textbf{收敛}(convergent)于$A$.若$\{ x_n \}$不存在极限，则称其\textbf{发散}(divergent).
+\end{definition}
+\begin{remark}
+	这里用邻域的写法只是方便理解“不断收缩至一个点”的过程.等价的(且更为广泛的)写法是：$$\ssb{\lim_{n \to \infty} x_n = A} := \forall \varepsilon > 0 , \exists N \in \mathbb{N} (\forall n>N,|x_n-A|<\varepsilon ).$$
+	这一定义也被称作“$\varepsilon -N$”定义.
+\end{remark}
+
+\begin{example}
+	考虑如下数列在$n\to \infty$时是否存在极限并证明：$$x_n=\frac{1}{n},\qquad 1+\frac{(-1)^n}{n},\qquad \frac{1}{q^n}~(|q|>1),\qquad n^{(-1)^n}.$$
+\end{example}
+\begin{solution}
+	前三个数列的极限存在，分别为$0,1,0$.最后一个数列极限不存在.
+	
+	(1)(2)对任意的$\varepsilon$，当$n>\lfloor \frac{1}{\varepsilon} \rfloor$时有$|\frac{1}{n} -0|<\varepsilon$和$|(1+\frac{(-1)^n}{n})-1|<\varepsilon$.
+	
+	(3)由引理3.1可知，对任意的$\varepsilon$都存在$N$使得$\frac{1}{|q|^N}<\varepsilon$，故当$n>N$时总有$|\frac{1}{a^n}-0|<\varepsilon$.
+	
+	(4)假设该数列存在极限$A$.当$A \neq 0$时，取$\varepsilon = \frac{|A|}{2}$可知当$n=2k+1 > \frac{2}{|A|}$时总有$|x_n-A|>\varepsilon$.当$a=0$时，取$\varepsilon =1$立得矛盾.
+\end{solution}
+
+数列的极限应当是良定义的.
+
+\begin{proposition}
+	收敛数列有且仅有一个极限.
+\end{proposition}
+\begin{proof}
+	假设$\{ x_n \}$存在两个不同极限$A_1,A_2$，取$\delta < \frac{1}{2}|A_1-A_2|$，则存在$N_1,N_2$使得$x_n \in N_{\delta}(A_1),n > N_1$和$x_n \in N_{\delta}(A_2),n > N_2$.然而当$n>\max \{ N_1,N_2 \}$时，$x_n \in N_{\delta}(A_1) \cap N_{\delta}(A_2) = \varnothing$，矛盾.
+\end{proof}
+
+将数列视作集合而定义数列的上(下)界、上(下)确界，容易想到：
+
+\begin{proposition}
+	收敛数列必有界.
+\end{proposition}
+\begin{proof}
+	设$\{ x_n \}$极限为$A$.令$\varepsilon = 1$可得当$n>N$时有$|x_n-A|<1$，又因为$|x_n-A|>||x_n|-|A||$，故$|x_n|<|A|-1$.设$M=\max \{ x_1, \cdots ,x_N,|A|-1 \}$，容易验证$M$为$\{ x_n \}$上界.
+\end{proof}
+
+之前都是先猜测极限再给出证明，利用数列极限的运算我们可以较为主动地算出极限.
+
+\begin{theorem}{数列极限的运算}
+	设数列$\{ a_n \},\{ b_n \}$.若$\lim_{n \to \infty} a_n=a,~\lim_{n \to \infty} b_n=b$，则 \\
+	(1)加减法$$\lim_{n \to \infty}{(a_n \pm b_n)} = a \pm b.$$
+
+	(2)乘法$$\lim_{n \to \infty}{a_nb_n} = ab.$$
+	(3)除法(当$b \neq 0$且$b_n \neq 0$时)$$\lim_{n \to \infty}{\frac{a_n}{b_n}} = \frac{a}{b}.$$
+\end{theorem}
+\begin{remark}
+	利用上方性质容易推导：标量乘法(其中$c$为给定的实数)$$\lim_{n \to \infty}{ca_n}=ca.$$
+	
+\end{remark}
+\begin{proof}
+	(1)只需证明加法.任取$\varepsilon$，设存在$N_1,N_2$使得$|a_n-a|<\varepsilon /2,n>N_1$和$|b_n-b|<\varepsilon /2,n>N_2$，则当$n>\max \{ N_1,N_2 \}$时有$|a_n+b_n-(a+b)| \leq |a_n-a|+|b_n-b| < \varepsilon$.
+	
+	(2)先对$|a_nb_n-ab|$做一些放缩：$$|a_nb_n-ab| = |(a_n-a)b_n + a(b_n-b)| < |b_n||a_n-a| + |a||b_n-b|.$$
+	设定$\{ b_n \}$的上界$M$，则进一步有$|a_nb_n-ab|<M|a_n-a| + |a||b_n-b|$.对任意$\varepsilon$，同上可知当$n$足够大时$|a_nb_n-ab|<\varepsilon$.
+	
+	(3)只需证明$\lim_{n\to \infty}(\frac{1}{b_n})=\frac{1}{b}$.考虑当$\lambda > |b_n-b| > ||b_n|-|b||$即$|b_n|>b-\lambda$且$b>\lambda$时有$$\left| \frac{1}{b_n} - \frac{1}{b} \right| = \frac{|b-b_n|}{|b||b_n|} < \frac{1}{|b(b-\lambda)|} \cdot |b-b_n|.$$
+	同上可以证得对任意的$\varepsilon$都有$|\frac{1}{b_n}-\frac{1}{b} |<\varepsilon$.
+\end{proof}
+
+\subsection{数列极限的求解}
+
+\begin{theorem}{夹逼定理}
+	设三数列$\{ x_n \},\{ y_n \},\{ z_n \}$满足$x_n \leq y_n \leq z_n$对足够大的$n$总成立.若$\{ x_n \}$与$\{ z_n \}$具有相同的极限，则$\{ y_n \}$也具有相同的极限.
+\end{theorem}
+\begin{proof}
+	记该极限值为$A$.当$n$足够大时有$|x_n-A|<\varepsilon$和$|z_n-A|<\varepsilon$，从而$A-\varepsilon < x_n \leq y_n \leq z_n < A+\varepsilon$，即$|y_n-A|<\varepsilon$对足够大的$n$成立.
+\end{proof}
+
+\begin{theorem}{数列极限的保序性}
+	对于两收敛数列$\{ x_n \},\{ y_n \}$，若$\lim_{n \to \infty} x_n < \lim_{n \to \infty} y_n$，则对足够大的$n$有$x_n<y_n$.
+\end{theorem}
+\begin{remark}
+	取逆否命题立得，若$n$足够大时有$x_n \geq y_n$，则$\lim_{n \to \infty} x_n \geq \lim_{n \to \infty} y_n$.
+\end{remark}
+\begin{proof}
+	选取两极限值$A,B$中间的某数$C$，当$n$足够大时有$|x_n-A|<C-A$和$|y_n-B|<B_C$，从而$x_n<C<y_n$对足够大的$n$成立.
+\end{proof}
+
+利用数列极限的运算和夹逼定理，我们可以处理很多数列极限(虽然有一些技术性较强).下面介绍一种求解未定式极限的方法，可以理解为离散版本的L'Hopital法则.
+
+\begin{theorem}{Stolz–Cesàro定理}
+	设数列$\{ x_n \},\{ y_n \}$.那么$$\lim_{n\to \infty} \frac{x_n}{y_n} = \lim_{n\to \infty} \frac{x_{n+1}-x_n}{y_{n+1}-y_n}$$(假若极限存在)成立，如果满足以下两情况之一：
+	\begin{itemize}
+		\item ($\cdot / \infty$型)$\{ y_n \}$严格递增且发散(即认为极限为$+\infty$).
+		\item ($0/0$型)$x_n,y_n \to 0$且$\{ y_n \}$严格单调.
+	\end{itemize}
+\end{theorem}
+
+\section{数列的敛散性}
+
+\subsection{单调数列}
+
+\begin{theorem}{单调有界定理}
+	单调不减数列$\{ x_n \}$收敛于$\sup \{ x_n \}$当且仅当其有上界.
+\end{theorem}
+\begin{proof}
+	只证明充分性：若$\{ x_n \}$存在上界，则其存在上确界$\sup \{ x_n \}$，意即对任意的$\varepsilon$都存在$N$使得$\sup \{x_n\}-\varepsilon < x_N \leq \sup \{ x_n \}$.取$n>N$可知$$\sup \{x_n\}-\varepsilon < x_N \leq a_n \leq \sup \{ x_n \}.$$
+	这表明$\{ x_n \}$收敛于$\sup \{ x_n \}$.
+\end{proof}
+
+\begin{example}
+	计算$\lim_{n\to \infty} \frac{n}{q^n}$，其中$q>1$.从而得到$\lim_{n\to \infty} \sqrt[n]{n}$.
+\end{example}
+\begin{solution}
+	(1)定义$x_n=\frac{n}{q^n}$，则$x_{n+1}=\frac{n+1}{qn}x_n$.计算可得$$\lim_{n \to \infty} \frac{n+1}{qn} = \lim_{n \to \infty} \ssb{1+\frac{1}{n}} \cdot \lim_{n \to \infty} \frac{1}{q} = \frac{1}{q} < 1.$$
+	于是当$n$足够大时$\{ x_n \}$单调递减，又显然$\{ x_n \}$有下界$0$，故其极限存在.由$$\lim_{n \to \infty} x_{n} = \lim_{n \to \infty} x_{n+1} = \lim_{n \to \infty} \frac{n+1}{qn} x_n = \frac{1}{q} \cdot \lim_{n \to \infty} x_n,$$可知该极限为$0$.
+	
+	(2)对给定的$\varepsilon > 0$，当$n$足够大时有$n<(1+\varepsilon)^n$，从而$\lim_{n\to \infty} \sqrt[n]{n} =1$.
+\end{solution}
+
+\begin{example}
+	证明下列极限存在：$$\lim_{n\to \infty} \ssb{1+\frac{1}{n}}^n.$$
+\end{example}
+\begin{proof}
+	\boxed{\text{证法$1$}}~定义$x_n=(1+\frac{1}{n})^n$.由均值不等式易证$\{ x_n \}$单调递增.另一方面，由二项式定理可以得到$x_n<3$，故极限存在.
+	
+	\boxed{\text{证法$2$}}~定义$y_n=(1+\frac{1}{n})^{n+1}$，放缩可得$y_{n-1}>y_n$，又$y_n>0$，故$\{ y_n \}$极限存在.亦容易验证$\{ x_n \}$与$\{ y_n \}$具有相同的极限.
+\end{proof}
+
+实际上，我们定义自然常数$e$为上述极限.在上个例子的证明中我们可以得到$$\ssb{1+\frac{1}{n}}^n < e < \ssb{1+\frac{1}{n}}^{n+1} ~~\Rightarrow ~~ \frac{1}{n+1} < \ln \frac{n+1}{n} < \frac{1}{n}.$$
+
+\begin{example}
+	证明下列极限存在：$$\lim_{n\to \infty} \ssb{ 1+\frac{1}{2}+\cdots + \frac{1}{n}-\ln n }.$$
+\end{example}
+\begin{proof}
+	记$x_n=1+\frac{1}{2}+\cdots + \frac{1}{n}-\ln n$.计算可得$\{ x_n \}$单调递增且存在上界$1$.这里会用到上方的不等式.
+\end{proof}
+
+注意，调和级数发散，而调和级数与对数函数的差值收敛.将该极限记作Euler常数$\gamma$.
+
+\begin{theorem}{闭区间套定理}
+	设闭区间$I_n=[a_n,b_n]$，若$I_1 \supseteq I_2 \supseteq \cdots $，且$\lim_{n\to \infty} (a_n-b_n)=0$，则存在唯一的$c$属于所有闭区间.
+\end{theorem}
+\begin{proof}
+	显然$\{ a_n \},\{ b_n \}$均单调且有界，故存在极限.注意到$\lim_{n\to \infty} a_n = \lim_{n\to \infty} b_n$，记为$c$，即$\sup \{ a_n \} = \inf \{ b_n \} = c$，从而对任意$n$都有$a_n \leq c \leq b_n$，存在性即得证.
+	
+	现假设存在不同的$c'$亦满足$a_n \leq c' \leq b_n$对所有$n$都成立，那么$c' \leq \lim_{n\to \infty} b_n = \lim_{n\to \infty} a_n \leq c$，同理$c \leq c'$，即得$c=c'$，矛盾.
+\end{proof}
+
+\subsection{聚点与上下极限}
+
+\begin{definition}{子列}
+	设数列$\{ x_n \}$.若单调递增无穷数列$\{ n_k \} \subseteq \mathbb{Z}$，则称$\{ x_n:n \in  \{ n_k \} \}$是$\{ x_n \}$的一个\textbf{子列}(subsequence).
+\end{definition}
+
+\begin{proposition}
+	设数列$\{ x_n \}$可以划分为一些子列$\{ x_{1_n} \},\{ x_{2_n} \},\cdots$.则$x_n \to A$当且仅当这些子列都收敛于$A$.
+\end{proposition}
+\begin{proof}
+	必要性：任取$\varepsilon >0$，对$n>N$有$|x_n-A|<\varepsilon$，那么对任意一个子列，归纳易得$j_n>n>N$，此时总有$|x_{j_n}-A|<\varepsilon$.
+	
+	充分性：对任意的$\varepsilon >0$，设存在$N_1,N_2,\cdots$满足当$n>N_j$时有$|x_{j_n}-A|<\varepsilon$，则取$N=\max \{ N_1,N_2,\cdots \}$可知当$n>N$时有$|x_n-A|<\varepsilon$.
+\end{proof}
+
+\begin{definition}
+	称$p$是集合$X$的\textbf{聚点}(limit point)，如果任意$p$的邻域都包含$X$的一个无穷子集.
+\end{definition}
+
+下面的看法非常有用：
+
+\begin{proposition}
+	数列的聚点就是某个子列的极限.
+\end{proposition}
+\begin{proof}
+	一方面，设数列$\{ x_n \}$具有聚点$p$.对任意$k$，我们选取$|x_{n_k}-p|<\frac{1}{k}$，则由$p$为聚点可知存在$n_{k+1}>n_k$满足$|x_{n_{k+1}}-p|<\frac{1}{k+1}$.由于$\frac{1}{k} \to 0$，故对任意$\varepsilon >0$都存在足够大的$k$满足$|x_{n_k}-p||<\frac{1}{k}<\varepsilon$，即子列$\{ x_{n_k} \}$收敛于$p$.
+	
+	另一方面，设数列$\{ x_n \}$的某个子列$\{ x_{k_n} \}$收敛于$p$.对任意$N_{\delta}(p)$都存在$N$使得当$k_n>N$时有$x_{k_n} \in N_{\delta}(p)$，又$\{ x_{k_n} \}$是一个无穷数列，故$N_{\delta}(p)$包含$\{ x_n \}$的一个无穷子集.
+\end{proof}
+
+\begin{lemma}{Bolzano-Weierstrass原则}
+	有界无限实数集$X$必有聚点.
+\end{lemma}
+\begin{proof}
+	由$X$有界可知存在闭区间$I \supseteq X$.我们声明$I$中至少有一个元素是$X$的聚点，否则对任意$x \in I$都存在邻域$N(x)$不包含$X$中无限个元素.然而由于$\{ N(x):x \in I \}$构成$X$的开覆盖，由Henite-Borel定理可知存在一些邻域$\{ U(x_1),\cdots ,U(x_n) \}$亦能覆盖$X$，这时可以得到$X$中只包含有限个元素，与$X$是无限集矛盾.
+\end{proof}
+
+\begin{theorem}{Bolzano-Weierstrass定理}
+	有界无限实数列必有收敛子列.
+\end{theorem}
+\begin{proof}
+	\boxed{\text{证法$1$}}~如果数列$\{ x_n \}$的值域有限，则存在无穷个$x' \in x_n$相等，那么子列$\{ x' \}$为常数列，从而收敛.现在设$\{ x_n \}$值域无限，由引理可知$\{ x_n \}$存在聚点，由命题4.4可知存在某个子列，其极限恰为该聚点.
+	
+	\boxed{\text{证法$2$}}~若$\{ x_n \}$单调，由单调收敛定理知其存在极限.若$\{ x_n \}$不单调，考虑这样的$N$：对所有的$n>N$都有$x_n<x_N$.若这样的$N$有无穷多个，取所有的$\{ x_N \}$即得单调递减；若这样的$N$只有有限个，则最后一个$x_N$之后存在单调递增的子列.
+\end{proof}
+
+如果认为$+\infty ,-\infty$也是实数的话(即所谓扩展实数集)，容易得到下方的命题：
+
+\begin{proposition}
+	实数数列包含收敛于实数或$\pm \infty$的子列.
+\end{proposition}
+
+\begin{definition}{上极限，下极限}
+	设数列$\{ x_n \}$，定义$\liminf_{k\to \infty} x_k:=\lim_{n\to \infty} \inf_{k \geq n} x_k$为$\{ x_n \}$的\textbf{下极限}(inferior limit).类似定义$\limsup_{k\to \infty} x_k$为$\{ x_n \}$的\textbf{上极限}(superior limit).上极限和下极限可以为$\pm \infty$.
+\end{definition}
+
+在以下的论述中，我们认为\textbf{部分极限}(partial limit)是可以为$\pm \infty$的聚点.
+
+\begin{proposition}
+	数列上下极限分别是其部分极限的最大、小元素.
+\end{proposition}
+\begin{proof}
+	先来证明：有界数列的上下极限分别是其部分极限的最大、小元素.以下极限为例：
+	
+	定义$i_n=\inf_{k\geq n}x_k$，记$i=\lim_{n\to \infty} i_{n}$，容易说明其是单调不减的.我们可以归纳地得到所有$k_n$满足$k_n<k_{n+1}$且$i_{k_n} \leq x_{k_n} < i_{k_n}+\frac{1}{n}$.由于$\lim_{n\to \infty} i_{k_n} = \lim_{n\to \infty} (i_{k_n}+\frac{1}{n} ) = i$，由夹逼定理得$\lim_{n\to \infty} x_{k_n}=i$，即下极限是某个部分极限.声明该部分极限为最小的：对于任意$\varepsilon >0$，足够大的$n$满足$i-\varepsilon < i_n \leq x_k$对所有$k \geq n$成立.由$\varepsilon$的任意性可知所有的部分极限至少为$i$.
+	
+	接着证明无界的情况.例如若无下界，即存在一个极限为$-\infty$的子列，容易得到$i=-\infty$，我们约定其为部分极限的最小元素.
+\end{proof}
+
+容易验证，数列收敛当且仅当其只存在一个聚点.由上方的命题马上得到：数列收敛当且仅当其上下极限相等.
+
+\subsection{Cauchy收敛准则}
+
+\begin{definition}{Cauchy列}
+	一个数列$\{ x_n \}$被称作\textbf{Cauchy列}(Cauchy sequence)，如果对于任意的$\varepsilon >0$都存在自然数$N$使得$|x_m-x_n|<\varepsilon$对$m,n>N$恒成立.
+\end{definition}
+
+\begin{theorem}{Cauchy收敛准则}
+	一个数列收敛当且仅当它是一个Cauchy列.
+\end{theorem}
+\begin{remark}
+	将Cauchy收敛准则和单调收敛原理对比可以发现：前者是收敛的充要条件，而后者只是充分条件.
+\end{remark}
+\begin{proof}
+	必要性：设数列$\{ x_n \}$收敛于$A$.则对任意$\varepsilon >0$都存在足够大的$m,m$满足$|x_m-A|<\varepsilon ,|x_n-A|<\varepsilon$，从而可得$|x_m-x_n|<|x_m-A|+|x_n-A|<2\varepsilon$对足够大的$m,n$成立.
+	
+	充分性：类似命题4.2可以证得Cauchy列$\{ x_n \}$一定有界.由Bolzano-Weierstrass定理可知$\{ x_n \}$存在某个子列$\{ x_{n_k} \}$有极限$A$.对任意$\varepsilon >0$，当$n_k$足够大时有$|x_{n_k} - A|<\varepsilon$.从而当$n$足够大时有$|x_n-A|<|x_n-x_{n_k}|+|x_{n_k}-A|<2\varepsilon$.
+\end{proof}
+
+\subsection{实数完备性定理的大一统}
+
+至此，我们按照$$\textit{确界原理} \Rightarrow \textit{单调收敛定理} \Rightarrow \textit{闭区间套定理} \Rightarrow \textit{Bolzano-Weierstrass定理} \Rightarrow \textit{Cauchy收敛准则}$$的路线证明了实数完备性定理中所有定理的正确性.是时候补上等价性的最后一块砖了：
+
+\begin{proposition}
+	Cauchy收敛准则可以推导确界原理.从而，实数完备性的7个定理互相等价.
+\end{proposition}
+\begin{proof}
+	设非空集合$X$存在上界，由Archimedes性质可知，对任意的$n$都存在唯一的整数$k_n$使得$q_n=\frac{k_n}{n}$是$X$的上界而$\frac{k_n-1}{n}$不是.我们断言$\{ q_n \}$是一个Cauchy列，从而其存在极限$q$.这里的$q$显然是$X$的上界，而对每个$n$都存在$x \in X$使得$x>q_n-\frac{1}{n}$，容易得到$q$就是$X$的上确界.
+	
+	断言的证明：对任意的$m,n$分别存在$x_m,x_n \in X$使得$q_m-\frac{1}{m} < x_m,q_n-\frac{1}{n} < x_n$，而$q_m \geq x_n,q_n \geq x_m$，所以$|q_m-q_n|<\max \{ \frac{1}{m},\frac{1}{n} \}$，易知断言成立.
+\end{proof}
+
+\section{级数}
+
+\begin{definition}{级数}
+	我们简记$a_1+a_2+\cdots +a_n + \cdots = \sum_{n=1}^{\infty} a_n$，称之为\textbf{级数}(series).
+	
+	如果部分和数列$s_n=\sum_{k=1}^n a_n$的极限$s$存在，则称该极限为级数的\textbf{和}(sum)，记作$s=\sum_{n=1}^{\infty} a_n$，并称该级数\textbf{收敛}(convergent)，否则\textbf{发散}(divergent).
+\end{definition}
+
+\begin{example}
+	$(a)$~\textbf{几何级数}$1+q+q^2+\cdots +q^n+\cdots$在$|q|<1$时收敛于$\frac{1-q^n}{1-q}$，而$|q|\geq 1$时发散.
+	
+	$(b)$~\textbf{调和级数}$1+\frac{1}{2}+\frac{1}{3}+\cdots + \frac{1}{n} + \cdots$发散.
+\end{example}
+
+\begin{proposition}
+	当级数中只有有限项改变时，级数的敛散性不变.
+\end{proposition}
+\begin{proof}
+	对级数应用Cauchy收敛准则可得：级数$\sum_{n=1}^{\infty} a_n$收敛当且仅当对任意的$\varepsilon >0$都存在足够大的$m \leq n$使得$|a_m + \cdots + a_n|<\varepsilon$.从而上述命题显然.
+\end{proof}
+
+\begin{proposition}
+	级数收敛的必要条件是其所有项构成的数列极限为$0$.
+\end{proposition}
+\begin{proof}
+	设级数部分和$s_n \to s$，即对任意的$\varepsilon >0$都存在足够大的$n$使得$|s_n-s|<\varepsilon$，从而$a_n \to 0$.
+\end{proof}
+
+\begin{example}
+	级数$1+(-1)+1+(-1)+\cdots +(-1)^{n+1}+\cdots$发散，然而将该级数中的一些项合并与交换位置，可以得到：
+	$$(1-1)+(1-1)+\cdots ~~\textit{收敛于}~0 \qquad 1+(-1+1)+(-1+1)+\cdots ~~\textit{收敛于}~1.$$
+	$$1+1+(-1)+1+(-1)+\cdots \textit{收敛于}~2.$$
+\end{example}
+
+例4.3.2中意外出现的原因比较明显：在对有限项进行交换、结合等操作时不会造成求和的改变，然而无限操作可能会影响整个部分和序列.
+
+下面来看一个进行无穷次操作的例子：
+
+\begin{example}
+	已知调和级数的部分和可以按照如下方式估计：$s_n=\gamma + \ln n + o(1)$.对于交错调和级数$1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots + \frac{(-1)^{n+1}}{n}+\cdots $，可以通过某些重排，使得新级数的和为任意实数.
+\end{example}
+\begin{proof}
+	我们选取其中的偶数项，记$s_{n-}=-\sum_{k=1}^{n} \frac{1}{2n} = -\frac{1}{2}\gamma -\frac{1}{2}\ln n+o(1)$.那么奇数项的部分和$s_{n+}=s_n-s_{n-}=\ln 2+\frac{1}{2}\gamma + \frac{1}{2}\ln n + o(1)$.这两个部分和都是发散的.
+	
+	对任意实数$x$，声明以下算法：第$1$步，将所有奇数项依次放入新级数，直到这些数的和超过$x$；第$2$步，将所有偶数项依次放入新级数，直到所有的和低于$x$.
+	
+	其中，由于交错取出的部分和序列均发散，每一步必然都会超出$x$或低于$x$，意味着以上算法将会不断重复.注意到，在跨越$x$的瞬间，只能变化$\frac{1}{n}$，而$\frac{1}{n} \to 0$，所以最后的新级数和即为$x$.
+\end{proof}
+
+从这个例子里可以抽象出两个特点：一个级数满足上述性质，如果它的正项级数与负项级数均发散，并且单独的每一项趋于$0$.我们可以有如下定义：
+
+\begin{definition}{绝对收敛，条件收敛}
+	称一个级数$\sum_{n=1}^{\infty} a_n$\textbf{绝对收敛}(absolutely convergent)，如果$\sum_{n=1}^{\infty} a_n$和$\sum_{n=1}^{\infty} |a_n|$均收敛.
+	
+	反之，若$\sum_{n=1}^{\infty} a_n$收敛而$\sum_{n=1}^{\infty} a_n$发散，则称该级数\textbf{条件收敛}(conditionally convergent).
+\end{definition}
+\begin{remark}
+	可以将绝对收敛的条件简化为$\sum_{n=1}^{\infty} |a_n|$收敛.
+\end{remark}
+
+从而有：
+
+\begin{theorem}{Riemann重排定理}
+	对一个条件收敛的无穷级数，可以给出一种重排方案，使得新级数的和等于任意实数或$\pm \infty$.
+\end{theorem}
+\begin{remark}
+	取逆否命题知，无论如何重排级数和均不变的级数是绝对收敛的.
+\end{remark}
+
+接着来研究一下级数的敛散性.
+
+\begin{lemma}
+	非负项级数收敛当且仅当部分和序列有上界.
+\end{lemma}
+
+\begin{proposition}
+	对于非负项级数$\sum_{n=1}^{\infty} a_n,\sum_{n=1}^{\infty} b_n$，若对足够大的$n$均有$a_n \leq b_n$，则$\sum_{n=1}^{\infty} b_n$收敛可推$\sum_{n=1}^{\infty} a_n$收敛.
+\end{proposition}
+\begin{proof}
+	不妨设对所有的$n$都有$a_n \leq b_n$，则$A_n = \sum_{k=1}^{n} a_n \leq \sum_{k=1}^n b_n = B_n$.若$B_n \to B$，则$\{ B_n \}$存在上界$B$，从而$\{ A_n \}$亦有上界$B$，由引理可知$\sum_{n=1}^{\infty} a_n$收敛.
+\end{proof}
+
+\begin{example}
+	由于$\frac{1}{n^2}<\frac{1}{n(n-1)}$，而$\sum_{n=1}^{\infty}\frac{1}{n(n-1)} = \lim_{n\to \infty} \sum_{k=1}^{n} \frac{1}{k(k+1)} = \lim_{n\to \infty} (1-\frac{1}{n+1}=1$，故$\sum_{n=1}^{\infty} \frac{1}{n^2}$收敛.(实际上它等于$\frac{\pi ^2}{6}$，不过暂时无法证明)
+\end{example}
+
+
+
+\newpage
+
+\begin{exercise}
+	已知单调函数$f:\R \to \R$满足$f|_{\mathbb{Q}}(x)=x$，求证：$f(x)=x$.
+\end{exercise}
+\begin{proof}
+	
+\end{proof}
+
+
+
+\setcounter{chapter}{0}
+\part{一些杂碎}
+
+\chapter*{Catalan数}
+
+预备知识：
+
+\begin{theorem}{Legendre定理}
+	设$S_p(n)$表示正整数$n$在$p$进制下的数码之和.那么$$v_p(n!) = \sum_{i=0}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \frac{n-S_p(n)}{p-1}$$
+\end{theorem}
+
+\begin{corollary}
+	同上，用$S_p(n)$表示正整数$n$在$p$进制下的数码之和.那么$$v_p(C_n^m) = \frac{S_p(m)+S_p(n-m)-S_p(n)}{p-1}$$
+	换句话说，$v_p(C_n^m)$就是在$p$进制下计算$n-m$发生的借位次数.
+\end{corollary}
+
+Catalan数是组合计数问题中常见的一类数，以比利时的数学家Eugène Charles Catalan命名.可以用组合数的形式表示：$$C_n = \frac{1}{n+1} C_{2n}^{n} = C_{2n}^n - C_{2n}^{n+1}$$
+所以显然每个Catalan数都是整数.
+
+它具有一些有意思的组合与数论性质.
+
+\begin{example}{\examplefont{递推关系}}
+	$$C_0=1,\qquad C_{n+1} = \sum_{i=0}^{n} C_iC_{n-i} = \frac{4n+2}{n+2} C_n$$
+\end{example}
+
+\begin{example}{\examplefont{组合性质}}
+	(a)给定一个凸$n+2$边形，通过连接其部分顶点将其分割为$n$个三角形的不同方法数恰为$C_n$.例如$n=4$的情况(图源Wikipedia)：
+	\begin{figure}[h!]
+	\centering
+	\includesvg[width=8cm]{attachment/Catalan-Hexagons-example.svg}
+	\end{figure}
+	
+	\noindent
+	(b)包含$n$组括号的合法运算式的个数恰为$C_n$，例如$n=3$的情况：$$((())) \quad ()(()) \quad ()()() \quad (())() \quad (()())$$
+\end{example}
+
+\begin{example}{\examplefont{相关的数论性质}}
+	除了$1$以外的整数$k$满足下述性质：存在无穷多个正整数$n$，使得$n+k$不能整除$C_{2n}^{n}$.
+\end{example}
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

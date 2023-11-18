@@ -1,0 +1,684 @@
+\chapter{数列与函数的极限}
+
+\section{数列的极限}
+
+\subsection{数列极限的定义和性质}
+
+\begin{definition}{序列}
+	定义域为$\mathbb{N}$的映射称作\textit{序列}(sequence).特别地，值域为实数集的称作\textit{数列}(numerical sequence)，一般记作$\{ x_n \}$.
+\end{definition}
+
+\begin{definition}{数列的极限}
+	称数$A$为数列$\{ x_n \}$的\textit{极限}(limit)，如果对任意的$A$的邻域$N(A)$都存在$N$使得当$n \geq N$时$x_n \in N(A)$.记为$$A = \lim_{n \to \infty} x_n ~~ \text{或} ~~ x_n \to A,~n \to \infty$$且称$\{ x_n \}$\textit{收敛}(convergent)于$A$.若$\{ x_n \}$不存在极限，则称其\textit{发散}(divergent).
+\end{definition}
+\begin{remark}
+	这里用邻域的写法只是方便理解“不断收缩至一个点”的过程.等价的(且更为广泛的)写法是：$$\ssb{\lim_{n \to \infty} x_n = A} := \forall \varepsilon > 0 , \exists N \in \mathbb{N} (\forall n>N,|x_n-A|<\varepsilon ).$$
+	这一定义也被称作“$\varepsilon -N$”定义.
+\end{remark}
+
+\begin{example}
+	考虑如下数列在$n\to \infty$时是否存在极限并证明：$$x_n=\frac{1}{n},\qquad 1+\frac{(-1)^n}{n},\qquad \frac{1}{q^n}~(|q|>1),\qquad n^{(-1)^n}.$$
+\end{example}
+\begin{solution}
+	前三个数列的极限存在，分别为$0,1,0$.最后一个数列极限不存在.
+	
+	(1)(2)对任意的$\varepsilon$，当$n>\lfloor \frac{1}{\varepsilon} \rfloor$时有$|\frac{1}{n} -0|<\varepsilon$和$|(1+\frac{(-1)^n}{n})-1|<\varepsilon$.
+	
+	(3)由引理3.1可知，对任意的$\varepsilon$都存在$N$使得$\frac{1}{|q|^N}<\varepsilon$，故当$n>N$时总有$|\frac{1}{a^n}-0|<\varepsilon$.
+	
+	(4)假设该数列存在极限$A$.当$A \neq 0$时，取$\varepsilon = \frac{|A|}{2}$可知当$n=2k+1 > \frac{2}{|A|}$时总有$|x_n-A|>\varepsilon$.当$a=0$时，取$\varepsilon =1$立得矛盾.
+\end{solution}
+
+数列的极限应当是良定义的.
+
+\begin{proposition}{}
+	收敛数列有且仅有一个极限.
+\end{proposition}
+\begin{proof}
+	假设$\{ x_n \}$存在两个不同极限$A_1,A_2$，取$\delta < \frac{1}{2}|A_1-A_2|$，则存在$N_1,N_2$使得$x_n \in N_{\delta}(A_1),n > N_1$和$x_n \in N_{\delta}(A_2),n > N_2$.然而当$n>\max \{ N_1,N_2 \}$时，$x_n \in N_{\delta}(A_1) \cap N_{\delta}(A_2) = \varnothing$，矛盾.
+\end{proof}
+
+将数列视作集合而定义数列的上(下)界、上(下)确界，容易想到：
+
+\begin{proposition}{}
+	收敛数列必有界.
+\end{proposition}
+\begin{proof}
+	设$\{ x_n \}$极限为$A$.令$\varepsilon = 1$可得当$n>N$时有$|x_n-A|<1$，又因为$|x_n-A|>||x_n|-|A||$，故$|x_n|<|A|-1$.设$M=\max \{ x_1, \cdots ,x_N,|A|-1 \}$，容易验证$M$为$\{ x_n \}$上界.
+\end{proof}
+
+之前都是先猜测极限再给出证明，利用数列极限的运算我们可以较为主动地算出极限.
+
+\begin{theorem}{数列极限的运算}
+	设数列$\{ a_n \},\{ b_n \}$.若$\lim_{n \to \infty} a_n=a,~\lim_{n \to \infty} b_n=b$，则 \\
+	(1)加减法$$\lim_{n \to \infty}{(a_n \pm b_n)} = a \pm b.$$
+	(2)乘法$$\lim_{n \to \infty}{a_nb_n} = ab.$$
+	(3)除法(当$b \neq 0$且$b_n \neq 0$时)$$\lim_{n \to \infty}{\frac{a_n}{b_n}} = \frac{a}{b}.$$
+\end{theorem}
+\begin{remark}
+	利用上方性质容易推导：标量乘法(其中$c$为给定的实数)$$\lim_{n \to \infty}{ca_n}=ca.$$
+	
+\end{remark}
+\begin{proof}
+	(1)只需证明加法.任取$\varepsilon$，设存在$N_1,N_2$使得$|a_n-a|<\varepsilon /2,n>N_1$和$|b_n-b|<\varepsilon /2,n>N_2$，则当$n>\max \{ N_1,N_2 \}$时有$|a_n+b_n-(a+b)| \leq |a_n-a|+|b_n-b| < \varepsilon$.
+	
+	(2)先对$|a_nb_n-ab|$做一些放缩：$$|a_nb_n-ab| = |(a_n-a)b_n + a(b_n-b)| < |b_n||a_n-a| + |a||b_n-b|.$$
+	设定$\{ b_n \}$的上界$M$，则进一步有$|a_nb_n-ab|<M|a_n-a| + |a||b_n-b|$.对任意$\varepsilon$，同上可知当$n$足够大时$|a_nb_n-ab|<\varepsilon$.
+	
+	(3)只需证明$\lim_{n\to \infty}(\frac{1}{b_n})=\frac{1}{b}$.考虑当$\lambda > |b_n-b| > ||b_n|-|b||$即$|b_n|>b-\lambda$且$b>\lambda$时有$$\left| \frac{1}{b_n} - \frac{1}{b} \right| = \frac{|b-b_n|}{|b||b_n|} < \frac{1}{|b(b-\lambda)|} \cdot |b-b_n|.$$
+	同上可以证得对任意的$\varepsilon$都有$|\frac{1}{b_n}-\frac{1}{b} |<\varepsilon$.
+\end{proof}
+
+\subsection{数列极限的求解}
+
+\begin{theorem}{夹逼定理}
+	设三数列$\{ x_n \},\{ y_n \},\{ z_n \}$满足$x_n \leq y_n \leq z_n$对足够大的$n$总成立.若$\{ x_n \}$与$\{ z_n \}$具有相同的极限，则$\{ y_n \}$也具有相同的极限.
+\end{theorem}
+\begin{proof}
+	记该极限值为$A$.当$n$足够大时有$|x_n-A|<\varepsilon$和$|z_n-A|<\varepsilon$，从而$A-\varepsilon < x_n \leq y_n \leq z_n < A+\varepsilon$，即$|y_n-A|<\varepsilon$对足够大的$n$成立.
+\end{proof}
+
+\begin{theorem}{数列极限的保序性}
+	对于两收敛数列$\{ x_n \},\{ y_n \}$，若$\lim_{n \to \infty} x_n < \lim_{n \to \infty} y_n$，则对足够大的$n$有$x_n<y_n$.
+\end{theorem}
+\begin{remark}
+	取逆否命题立得，若$n$足够大时有$x_n \geq y_n$，则$\lim_{n \to \infty} x_n \geq \lim_{n \to \infty} y_n$.
+\end{remark}
+\begin{proof}
+	选取两极限值$A,B$中间的某数$C$，当$n$足够大时有$|x_n-A|<C-A$和$|y_n-B|<B_C$，从而$x_n<C<y_n$对足够大的$n$成立.
+\end{proof}
+
+利用数列极限的运算和夹逼定理，我们可以处理很多数列极限(虽然有一些技术性较强).下面介绍一种求解未定式极限的方法，可以理解为离散版本的L'Hopital法则.
+
+\begin{theorem}{Stolz–Cesàro定理}
+	设数列$\{ x_n \},\{ y_n \}$.那么$$\lim_{n\to \infty} \frac{x_n}{y_n} = \lim_{n\to \infty} \frac{x_{n+1}-x_n}{y_{n+1}-y_n}$$(假若极限存在)成立，如果满足以下两情况之一：
+	\begin{itemize}
+		\item ($\cdot / \infty$型)$\{ y_n \}$严格递增且发散(即认为极限为$+\infty$).
+		\item ($0/0$型)$x_n,y_n \to 0$且$\{ y_n \}$严格单调.
+	\end{itemize}
+\end{theorem}
+
+\section{数列的敛散性}
+
+\subsection{单调数列}
+
+\begin{theorem}{单调有界定理}
+	单调不减数列$\{ x_n \}$收敛于$\sup \{ x_n \}$当且仅当其有上界.
+\end{theorem}
+\begin{proof}
+	只证明充分性：若$\{ x_n \}$存在上界，则其存在上确界$\sup \{ x_n \}$，意即对任意的$\varepsilon$都存在$N$使得$\sup \{x_n\}-\varepsilon < x_N \leq \sup \{ x_n \}$.取$n>N$可知$$\sup \{x_n\}-\varepsilon < x_N \leq a_n \leq \sup \{ x_n \}.$$
+	这表明$\{ x_n \}$收敛于$\sup \{ x_n \}$.
+\end{proof}
+
+\begin{example}
+	计算$\lim_{n\to \infty} \frac{n}{q^n}$，其中$q>1$.从而得到$\lim_{n\to \infty} \sqrt[n]{n}$.
+\end{example}
+\begin{solution}
+	(1)定义$x_n=\frac{n}{q^n}$，则$x_{n+1}=\frac{n+1}{qn}x_n$.计算可得$$\lim_{n \to \infty} \frac{n+1}{qn} = \lim_{n \to \infty} \ssb{1+\frac{1}{n}} \cdot \lim_{n \to \infty} \frac{1}{q} = \frac{1}{q} < 1.$$
+	于是当$n$足够大时$\{ x_n \}$单调递减，又显然$\{ x_n \}$有下界$0$，故其极限存在.由$$\lim_{n \to \infty} x_{n} = \lim_{n \to \infty} x_{n+1} = \lim_{n \to \infty} \frac{n+1}{qn} x_n = \frac{1}{q} \cdot \lim_{n \to \infty} x_n,$$可知该极限为$0$.
+	
+	(2)对给定的$\varepsilon > 0$，当$n$足够大时有$n<(1+\varepsilon)^n$，从而$\lim_{n\to \infty} \sqrt[n]{n} =1$.
+\end{solution}
+
+\begin{example}
+	证明下列极限存在：$$\lim_{n\to \infty} \ssb{1+\frac{1}{n}}^n.$$
+\end{example}
+\begin{proof}
+	\boxed{\text{证法$1$}}~定义$x_n=(1+\frac{1}{n})^n$.由均值不等式易证$\{ x_n \}$单调递增.另一方面，由二项式定理可以得到$x_n<3$，故极限存在.
+	
+	\boxed{\text{证法$2$}}~定义$y_n=(1+\frac{1}{n})^{n+1}$，放缩可得$y_{n-1}>y_n$，又$y_n>0$，故$\{ y_n \}$极限存在.亦容易验证$\{ x_n \}$与$\{ y_n \}$具有相同的极限.
+\end{proof}
+
+实际上，我们定义自然常数$e$为上述极限.在上个例子的证明中我们可以得到$$\ssb{1+\frac{1}{n}}^n < e < \ssb{1+\frac{1}{n}}^{n+1} ~~\Rightarrow ~~ \frac{1}{n+1} < \ln \frac{n+1}{n} < \frac{1}{n}.$$
+
+\begin{example}
+	证明下列极限存在：$$\lim_{n\to \infty} \ssb{ 1+\frac{1}{2}+\cdots + \frac{1}{n}-\ln n }.$$
+\end{example}
+\begin{proof}
+	记$x_n=1+\frac{1}{2}+\cdots + \frac{1}{n}-\ln n$.计算可得$\{ x_n \}$单调递增且存在上界$1$.这里会用到上方的不等式.
+\end{proof}
+
+注意，调和级数发散，而调和级数与对数函数的差值收敛.将该极限记作Euler常数$\gamma$.
+
+\begin{theorem}{闭区间套定理}
+	设闭区间$I_n=[a_n,b_n]$，若$I_1 \supseteq I_2 \supseteq \cdots $，且$\lim_{n\to \infty} (a_n-b_n)=0$，则存在唯一的$c$属于所有闭区间.
+\end{theorem}
+\begin{proof}
+	显然$\{ a_n \},\{ b_n \}$均单调且有界，故存在极限.注意到$\lim_{n\to \infty} a_n = \lim_{n\to \infty} b_n$，记为$c$，即$\sup \{ a_n \} = \inf \{ b_n \} = c$，从而对任意$n$都有$a_n \leq c \leq b_n$，存在性即得证.
+	
+	现假设存在不同的$c'$亦满足$a_n \leq c' \leq b_n$对所有$n$都成立，那么$c' \leq \lim_{n\to \infty} b_n = \lim_{n\to \infty} a_n \leq c$，同理$c \leq c'$，即得$c=c'$，矛盾.
+\end{proof}
+
+\subsection{聚点与上下极限}
+
+\begin{definition}{子列}
+	设数列$\{ x_n \}$.若单调递增无穷数列$\{ n_k \} \subseteq \mathbb{Z}$，则称$\{ x_n:n \in  \{ n_k \} \}$是$\{ x_n \}$的一个\textit{子列}(subsequence).
+\end{definition}
+
+\begin{proposition}{}
+	设数列$\{ x_n \}$可以划分为一些子列$\{ x_{1_n} \},\{ x_{2_n} \},\cdots$.则$x_n \to A$当且仅当这些子列都收敛于$A$.
+\end{proposition}
+\begin{proof}
+	必要性：任取$\varepsilon >0$，对$n>N$有$|x_n-A|<\varepsilon$，那么对任意一个子列，归纳易得$j_n>n>N$，此时总有$|x_{j_n}-A|<\varepsilon$.
+	
+	充分性：对任意的$\varepsilon >0$，设存在$N_1,N_2,\cdots$满足当$n>N_j$时有$|x_{j_n}-A|<\varepsilon$，则取$N=\max \{ N_1,N_2,\cdots \}$可知当$n>N$时有$|x_n-A|<\varepsilon$.
+\end{proof}
+
+\begin{definition}{聚点}
+	称$p$是集合$X$的\textit{聚点}(limit point)，如果任意$p$的邻域都包含$X$的一个无穷子集.
+\end{definition}
+
+下面的看法非常有用：
+
+\begin{proposition}{}
+	数列的聚点就是某个子列的极限.
+\end{proposition}
+\begin{proof}
+	一方面，设数列$\{ x_n \}$具有聚点$p$.对任意$k$，我们选取$|x_{n_k}-p|<\frac{1}{k}$，则由$p$为聚点可知存在$n_{k+1}>n_k$满足$|x_{n_{k+1}}-p|<\frac{1}{k+1}$.由于$\frac{1}{k} \to 0$，故对任意$\varepsilon >0$都存在足够大的$k$满足$|x_{n_k}-p||<\frac{1}{k}<\varepsilon$，即子列$\{ x_{n_k} \}$收敛于$p$.
+	
+	另一方面，设数列$\{ x_n \}$的某个子列$\{ x_{k_n} \}$收敛于$p$.对任意$N_{\delta}(p)$都存在$N$使得当$k_n>N$时有$x_{k_n} \in N_{\delta}(p)$，又$\{ x_{k_n} \}$是一个无穷数列，故$N_{\delta}(p)$包含$\{ x_n \}$的一个无穷子集.
+\end{proof}
+
+\begin{lemma}{Bolzano-Weierstrass原则}
+	有界无限实数集$X$必有聚点.
+\end{lemma}
+\begin{proof}
+	由$X$有界可知存在闭区间$I \supseteq X$.我们声明$I$中至少有一个元素是$X$的聚点，否则对任意$x \in I$都存在邻域$N(x)$不包含$X$中无限个元素.然而由于$\{ N(x):x \in I \}$构成$X$的开覆盖，由Henite-Borel定理可知存在一些邻域$\{ U(x_1),\cdots ,U(x_n) \}$亦能覆盖$X$，这时可以得到$X$中只包含有限个元素，与$X$是无限集矛盾.
+\end{proof}
+
+\begin{theorem}{Bolzano-Weierstrass定理}
+	有界无限实数列必有收敛子列.
+\end{theorem}
+\begin{proof}
+	\boxed{\text{证法$1$}}~如果数列$\{ x_n \}$的值域有限，则存在无穷个$x' \in x_n$相等，那么子列$\{ x' \}$为常数列，从而收敛.现在设$\{ x_n \}$值域无限，由引理可知$\{ x_n \}$存在聚点，由命题4.4可知存在某个子列，其极限恰为该聚点.
+	
+	\boxed{\text{证法$2$}}~若$\{ x_n \}$单调，由单调收敛定理知其存在极限.若$\{ x_n \}$不单调，考虑这样的$N$：对所有的$n>N$都有$x_n<x_N$.若这样的$N$有无穷多个，取所有的$\{ x_N \}$即得单调递减；若这样的$N$只有有限个，则最后一个$x_N$之后存在单调递增的子列.
+\end{proof}
+
+如果认为$+\infty ,-\infty$也是实数的话(即所谓扩展实数集)，容易得到下方的命题：
+
+\begin{proposition}{}
+	实数数列包含收敛于实数或$\pm \infty$的子列.
+\end{proposition}
+
+\begin{definition}{上极限，下极限}
+	设数列$\{ x_n \}$，定义$\liminf_{k\to \infty} x_k:=\lim_{n\to \infty} \inf_{k \geq n} x_k$为$\{ x_n \}$的\textit{下极限}(inferior limit).类似定义$\limsup_{k\to \infty} x_k$为$\{ x_n \}$的\textit{上极限}(superior limit).上极限和下极限可以为$\pm \infty$.
+\end{definition}
+
+在以下的论述中，我们认为\textit{部分极限}(partial limit)是可以为$\pm \infty$的聚点.
+
+\begin{proposition}{}
+	数列上下极限分别是其部分极限的最大、小元素.
+\end{proposition}
+\begin{proof}
+	先来证明：有界数列的上下极限分别是其部分极限的最大、小元素.以下极限为例：
+	
+	定义$i_n=\inf_{k\geq n}x_k$，记$i=\lim_{n\to \infty} i_{n}$，容易说明其是单调不减的.我们可以归纳地得到所有$k_n$满足$k_n<k_{n+1}$且$i_{k_n} \leq x_{k_n} < i_{k_n}+\frac{1}{n}$.由于$\lim_{n\to \infty} i_{k_n} = \lim_{n\to \infty} (i_{k_n}+\frac{1}{n} ) = i$，由夹逼定理得$\lim_{n\to \infty} x_{k_n}=i$，即下极限是某个部分极限.声明该部分极限为最小的：对于任意$\varepsilon >0$，足够大的$n$满足$i-\varepsilon < i_n \leq x_k$对所有$k \geq n$成立.由$\varepsilon$的任意性可知所有的部分极限至少为$i$.
+	
+	接着证明无界的情况.例如若无下界，即存在一个极限为$-\infty$的子列，容易得到$i=-\infty$，我们约定其为部分极限的最小元素.
+\end{proof}
+
+容易验证，数列收敛当且仅当其只存在一个聚点.由上方的命题马上得到：数列收敛当且仅当其上下极限相等.
+
+\subsection{Cauchy收敛准则}
+
+\begin{definition}{Cauchy列}
+	一个数列$\{ x_n \}$被称作\textit{Cauchy列}(Cauchy sequence)，如果对于任意的$\varepsilon >0$都存在自然数$N$使得$|x_m-x_n|<\varepsilon$对$m,n>N$恒成立.
+\end{definition}
+
+\begin{theorem}{Cauchy收敛准则}
+	一个数列收敛当且仅当它是一个Cauchy列.
+\end{theorem}
+\begin{remark}
+	将Cauchy收敛准则和单调收敛原理对比可以发现：前者是收敛的充要条件，而后者只是充分条件.
+\end{remark}
+\begin{proof}
+	必要性：设数列$\{ x_n \}$收敛于$A$.则对任意$\varepsilon >0$都存在足够大的$m,m$满足$|x_m-A|<\varepsilon ,|x_n-A|<\varepsilon$，从而可得$|x_m-x_n|<|x_m-A|+|x_n-A|<2\varepsilon$对足够大的$m,n$成立.
+	
+	充分性：类似命题4.2可以证得Cauchy列$\{ x_n \}$一定有界.由Bolzano-Weierstrass定理可知$\{ x_n \}$存在某个子列$\{ x_{n_k} \}$有极限$A$.对任意$\varepsilon >0$，当$n_k$足够大时有$|x_{n_k} - A|<\varepsilon$.从而当$n$足够大时有$|x_n-A|<|x_n-x_{n_k}|+|x_{n_k}-A|<2\varepsilon$.
+\end{proof}
+
+\subsection{实数完备性定理的大一统}
+
+至此，我们按照$$\textit{确界原理} \Rightarrow \textit{单调收敛定理} \Rightarrow \textit{闭区间套定理} \Rightarrow \textit{Bolzano-Weierstrass定理} \Rightarrow \textit{Cauchy收敛准则}$$的路线证明了实数完备性定理中所有定理的正确性.是时候补上等价性的最后一块砖了：
+
+\begin{proposition}{}
+	Cauchy收敛准则可以推导确界原理.从而，实数完备性的7个定理互相等价.
+\end{proposition}
+\begin{proof}
+	设非空集合$X$存在上界，由Archimedes性质可知，对任意的$n$都存在唯一的整数$k_n$使得$q_n=\frac{k_n}{n}$是$X$的上界而$\frac{k_n-1}{n}$不是.我们断言$\{ q_n \}$是一个Cauchy列，从而其存在极限$q$.这里的$q$显然是$X$的上界，而对每个$n$都存在$x \in X$使得$x>q_n-\frac{1}{n}$，容易得到$q$就是$X$的上确界.
+	
+	断言的证明：对任意的$m,n$分别存在$x_m,x_n \in X$使得$q_m-\frac{1}{m} < x_m,q_n-\frac{1}{n} < x_n$，而$q_m \geq x_n,q_n \geq x_m$，所以$|q_m-q_n|<\max \{ \frac{1}{m},\frac{1}{n} \}$，易知断言成立.
+\end{proof}
+
+\section{级数}
+
+\subsection{基本概念}
+
+\begin{definition}{级数}
+	我们简记$a_1+a_2+\cdots +a_n + \cdots = \sum_{n=1}^{\infty} a_n$，称之为\textit{级数}(series).
+	
+	如果部分和数列$s_n=\sum_{k=1}^n a_n$的极限$s$存在，则称该极限为级数的\textit{和}(sum)，记作$s=\sum_{n=1}^{\infty} a_n$，并称该级数\textit{收敛}(convergent)，否则\textit{发散}(divergent).
+\end{definition}
+
+\begin{example}
+	$(a)$~\textit{几何级数}$1+q+q^2+\cdots +q^n+\cdots$在$|q|<1$时收敛于$\frac{1-q^n}{1-q}$，而$|q|\geq 1$时发散.
+	
+	$(b)$~\textit{调和级数}$1+\frac{1}{2}+\frac{1}{3}+\cdots + \frac{1}{n} + \cdots$发散.
+\end{example}
+
+\begin{proposition}{}
+	当级数中只有有限项改变时，级数的敛散性不变.
+\end{proposition}
+\begin{proof}
+	对级数应用Cauchy收敛准则可得：级数$\sum_{n=1}^{\infty} a_n$收敛当且仅当对任意的$\varepsilon >0$都存在足够大的$m \leq n$使得$|a_m + \cdots + a_n|<\varepsilon$.从而上述命题显然.
+\end{proof}
+
+\begin{proposition}{}
+	级数收敛的必要条件是其所有项构成的数列极限为$0$.
+\end{proposition}
+\begin{proof}
+	设级数部分和$s_n \to s$，即对任意的$\varepsilon >0$都存在足够大的$n$使得$|s_n-s|<\varepsilon$，从而$a_n \to 0$.
+\end{proof}
+
+\begin{example}
+	级数$1+(-1)+1+(-1)+\cdots +(-1)^{n+1}+\cdots$发散，然而将该级数中的一些项合并与交换位置，可以得到：
+	$$(1-1)+(1-1)+\cdots ~~\textit{收敛于}~0, \qquad 1+(-1+1)+(-1+1)+\cdots ~~\textit{收敛于}~1,$$
+	$$1+1+(-1)+1+(-1)+\cdots \textit{收敛于}~2.$$
+\end{example}
+
+例3.6中意外出现的原因比较明显：在对有限项进行交换、结合等操作时不会造成求和的改变，然而无限操作可能会影响整个部分和序列.
+
+下面来看一个进行无穷次操作的例子：
+
+\begin{example}
+	已知调和级数的部分和可以按照如下方式估计：$s_n=\gamma + \ln n + o(1)$.对于交错调和级数$1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots + \frac{(-1)^{n+1}}{n}+\cdots $，可以通过某些重排，使得新级数的和为任意实数.
+\end{example}
+\begin{proof}
+	我们选取其中的偶数项，记$s_{n-}=-\sum_{k=1}^{n} \frac{1}{2n} = -\frac{1}{2}\gamma -\frac{1}{2}\ln n+o(1)$.那么奇数项的部分和$s_{n+}=s_n-s_{n-}=\ln 2+\frac{1}{2}\gamma + \frac{1}{2}\ln n + o(1)$.这两个部分和都是发散的.
+	
+	对任意实数$x$，声明以下算法：第$1$步，将所有奇数项依次放入新级数，直到这些数的和超过$x$；第$2$步，将所有偶数项依次放入新级数，直到所有的和低于$x$.
+	
+	其中，由于交错取出的部分和序列均发散，每一步必然都会超出$x$或低于$x$，意味着以上算法将会不断重复.注意到，在跨越$x$的瞬间，只能变化$\frac{1}{n}$，而$\frac{1}{n} \to 0$，所以最后的新级数和即为$x$.
+\end{proof}
+
+从这个例子里可以抽象出两个特点：一个级数满足上述性质，如果它的正项级数与负项级数均发散，并且单独的每一项趋于$0$.我们可以有如下定义：
+
+\begin{definition}{绝对收敛，条件收敛}
+	称一个级数$\sum_{n=1}^{\infty} a_n$\textit{绝对收敛}(absolutely convergent)，如果$\sum_{n=1}^{\infty} a_n$和$\sum_{n=1}^{\infty} |a_n|$均收敛.
+	
+	反之，若$\sum_{n=1}^{\infty} a_n$收敛而$\sum_{n=1}^{\infty} a_n$发散，则称该级数\textit{条件收敛}(conditionally convergent).
+\end{definition}
+\begin{remark}
+	可以将绝对收敛的条件简化为$\sum_{n=1}^{\infty} |a_n|$收敛.
+\end{remark}
+
+从而有：
+
+\begin{theorem}{Riemann重排定理}
+	对一个条件收敛的无穷级数，可以给出一种重排方案，使得新级数的和等于任意实数或$\pm \infty$.
+\end{theorem}
+\begin{remark}
+	取逆否命题知，无论如何重排级数和均不变的级数是绝对收敛的.
+\end{remark}
+
+\subsection{级数的敛散性}
+
+\begin{lemma}{}
+	非负项级数收敛当且仅当部分和序列有上界.
+\end{lemma}
+
+\begin{proposition}{}
+	对于非负项级数$\sum_{n=1}^{\infty} a_n,\sum_{n=1}^{\infty} b_n$，若对足够大的$n$均有$a_n \leq b_n$，则$\sum_{n=1}^{\infty} b_n$收敛可推$\sum_{n=1}^{\infty} a_n$收敛.
+\end{proposition}
+\begin{proof}
+	不妨设对所有的$n$都有$a_n \leq b_n$，则$A_n = \sum_{k=1}^{n} a_n \leq \sum_{k=1}^n b_n = B_n$.若$B_n \to B$，则$\{ B_n \}$存在上界$B$，从而$\{ A_n \}$亦有上界$B$，由引理可知$\sum_{n=1}^{\infty} a_n$收敛.
+\end{proof}
+
+\begin{example}
+	由于$\frac{1}{n^2}<\frac{1}{n(n-1)}$，而$\sum_{n=1}^{\infty}\frac{1}{n(n-1)} = \lim_{n\to \infty} \sum_{k=1}^{n} \frac{1}{k(k+1)} = \lim_{n\to \infty} (1-\frac{1}{n+1})=1$，故$\sum_{n=1}^{\infty} \frac{1}{n^2}$收敛.(实际上它等于$\frac{\pi ^2}{6}$，不过暂时无法证明)
+\end{example}
+
+\begin{corollary}{Weierstrass}
+	设级数$\sum_{n=1}^{\infty} a_n,\sum_{n=1}^{\infty} b_n$，若对足够大的$n$有$|a_n|<b_n$，则$\sum_{n=1}^{\infty} b_n$收敛可推$\sum_{n=1}^{\infty} a_n$绝对收敛.
+\end{corollary}
+
+\begin{corollary}{Cauchy}
+	设级数$\sum_{n=1}^{\infty} a_n$，记$\alpha = \limsup_{n\to \infty} \sqrt[n]{|a_n|}$.则有：
+	
+	a) 当$\alpha >1$时，级数$\sum_{n=1}^{\infty} a_n$发散；
+	
+	b) 当$\alpha <1$时，级数$\sum_{n=1}^{\infty} a_n$绝对收敛；
+	
+	c) 当$\alpha =1$时，级数$\sum_{n=1}^{\infty} a_n$可能发散或绝对收敛.
+\end{corollary}
+\begin{proof}
+	a) 用反证法.假设级数收敛,则$a_n \to 0$.但由题知存在$\{ a_n \}$的子列$\{ a_{n_k} \}$使得$\lim_{k\to \infty} \sqrt[n_k]{|a_{n_k}|} = \alpha > 1$,由极限保序性知对足够大的$k$有$a_{n_k}>1$,矛盾.
+	
+	b) 构造级数$Q=\sum_{n=1}^{\infty} q^n$,其中$q$满足$\alpha < q <1$.熟知$Q$收敛,而对足够大的$n$有$\sqrt[n]{|a_n|}<q$即$|a_n|<q^n$,故原级数绝对收敛.
+	
+	c) 熟知$\sum_{n=1}^{\infty} \frac{1}{n}$和$\sum_{n=1}^{\infty} \frac{1}{n^2}$分别发散和绝对收敛,它们都满足c)的条件.
+\end{proof}
+
+\begin{example}
+	求所有$x \in \R$使得下述级数收敛:$$\sum_{n=1}^{\infty} \ssb{2+(-1)^n}^n x^n.$$
+\end{example}
+\begin{solution}
+	计算$\alpha = \limsup_{n\to \infty} \sqrt[n]{\ssb{2+(-1)^n}^n |x|^n}= |x|\limsup_{n\to \infty} (2+(-1)^n)=3|x|$.故当$|x|<\frac{1}{3}$时,原级数绝对收敛;当$|x|=\frac{1}{3}$时,注意到对所有的$n=2k$有$\ssb{2+(-1)^n}^n x^n = (3|x|)^{2k}=1$,显然原级数不收敛.
+\end{solution}
+
+\begin{corollary}{d’Alembert}
+	若对于级数$\sum_{n=1}^{\infty} a_n$,极限$\lim_{n\to \infty}|\frac{a_{n+1}}{a_n} |=\alpha$存在,则有:
+	
+	a) 当$\alpha >1$时,级数$\sum_{n=1}^{\infty} a_n$发散;
+	
+	b) 当$\alpha <1$时,级数$\sum_{n=1}^{\infty} a_n$绝对收敛;
+	
+	c) 当$\alpha =1$时,级数$\sum_{n=1}^{\infty} a_n$可能发散或绝对收敛.
+\end{corollary}
+\begin{proof}
+	a) 对足够大的$n$有$|a_{n+1}|>|a_n|$,显然与$a_n\to 0$矛盾.
+	
+	b) 取$q$使得$\alpha < q <1$,则对足够大$n$有$|a_{n+1}|<q|a_n|<\cdots < q^n|a_1|$,构造级数$\sum_{n=0}^{\infty} |a_1|q^n$显然收敛,故原级数绝对收敛.
+	
+	c) 同推论3.2中例子.
+\end{proof}
+
+\begin{example}
+	求所有的$x \in \R$使得下述级数收敛:$$\sum_{n=1}^{\infty} \frac{1}{n!}x^n.$$
+\end{example}
+\begin{solution}
+	计算$\alpha = \lim_{n\to \infty}|\frac{a_{n+1}}{a_n} | = \lim_{n\to \infty} \frac{|x|}{n+1} = 0$,故原级数对所有实数$x$都是收敛的.
+\end{solution}
+
+\begin{proposition}{Cauchy}
+	若非负数列$\{ a_n \}$单调不增,则级数$\sum_{n=1}^{\infty} a_n$收敛当且仅当级数$\sum_{k=0}^{\infty} 2^ka_{2^k}$收敛.
+\end{proposition}
+\begin{proof}
+	记$S_n=a_1+\cdots +a_n,T_n=a_1+2a_2+\cdots +2^na_{2^n}$,注意到$$a_2 \leq a_2 \leq a_1,\qquad 2a_4\leq a_3+a_4 \leq 2a_2,\qquad 4a_8 \leq a_5+a_6+a_7+a_8 \leq 4a_4 \cdots$$
+	累加可得$\frac{1}{2}(T_{n+1}-a_1) \leq S_{2^{n+1}}-a_1 \leq T_n$.这说明$S_n,T_n$必然同时拥有上界,即敛散性等价.
+\end{proof}
+
+\begin{example}
+	对于不同的$p$,讨论级数$\sum_{n=1}^{\infty} \frac{1}{n^p}$的敛散性.
+\end{example}
+\begin{solution}
+	若$p\leq 0$,显然每一项都不小于$1$,级数发散;若$p>0$,计算$$\sum_{k=0}^{\infty} 2^k \frac{1}{(2^k)^p} = \sum_{k=0}^{\infty} \ssb{2^{1-p}}^k.$$
+	该级数收敛等价于$2^{1-p}<1$即$p>1$,亦等价于原级数收敛.
+\end{solution}
+
+\subsection{$e$的级数表示}
+
+我们熟知定义为极限$\lim_{n\to \infty} \ssb{1+\frac{1}{n}}^n$的自然常数$e$有如下级数展开式:$$e=1+\frac{1}{1!}+\frac{1}{2!} + \cdots + \frac{1}{n!} + \cdots .$$
+实际上,不用Taylor定理我们同样可以证明该展开式.只需注意到:
+$$\ssb{1+\frac{1}{n}}^n = \sum_{k=0}^{n} C_n^k \frac{1}{n^k} = \sum_{k=0}^{n} \frac{n(n-1)\cdots (n-k+1)}{k!n^k} = \sum_{k=0}^{n} \frac{1}{k!} \ssb{1-\frac{1}{n}} \ssb{1-\frac{2}{n}} \cdots \ssb{1-\frac{k-1}{n}}.$$
+两侧同时取极限即得上式.
+
+我们来估计一下该展开式的误差:
+$$e-s_n = \frac{1}{(n+1)!} + \cdots = \frac{1}{(n+1)!} \ssb{1+\frac{1}{n+2} + \frac{1}{(n+2)(n+3)} + \cdots} < \frac{1}{(n+1)!} \ssb{ 1+\frac{1}{n+2}+\frac{1}{(n+2)^2}+\cdots }$$
+$$= \frac{1}{(n+1)!} \cdot \frac{1}{1-\frac{1}{n+2}} = \ssb{1-\frac{1}{(n+1)^2}} \frac{1}{n!n} < \frac{1}{n!n}.$$
+实际上,可以借此写出更精确的估计式:$e=s_n+\frac{\theta _n}{n!n}$,其中$\theta _n \in (0,1)$.从而当假设$e=p/q$时可得$$\frac{p}{q} = \ssb{1+\frac{1}{1!} + \cdots + \frac{1}{q!}} + \frac{\theta _q}{q!q} \Rightarrow p(q-1)!-\ssb{q!+\frac{q!}{1!} + \cdots + \frac{q!}{q!}} = \frac{\theta _q}{q} \in \mathbb{Z}.$$
+显然矛盾.即$e$是无理数.
+
+\newpage
+\section{函数的极限}
+
+\subsection{基本概念}
+
+\begin{definition}{函数的极限}
+	设函数$f$在$\mathring{N}_{r}(a)$上有定义.称数$A$为$f$在$x\to a$时的\textit{极限}(limit),如果对$A$的任一邻域$N_{\varepsilon}(A)$,都存在$a$的一个去心邻域$\mathring{N}_{\delta}(a)$使得$f\ssb{\mathring{N}_{\delta}(a)} \subseteq N_{\varepsilon}(A)$.记为$$A = \lim_{x \to a} f(x) ~~ \text{或} ~~ f(x) \to A,~x \to a.$$
+\end{definition}
+\begin{remark}
+	考察$f$在$a$处的极限时,无需$f$在$a$处有定义.
+\end{remark}
+\begin{remark}
+	$\varepsilon - \delta$语言表述为如下形式:$$\forall \varepsilon >0, \exists \delta >0 \ssb{\forall x \in (a-\delta ,a+\delta) \setminus \{ a\},|f(x)-A|<\varepsilon}.$$
+\end{remark}
+
+\begin{example}
+	求$f(x)=a_nx^n + \cdots + a_1x+a_0$在$x_0$处的极限.
+\end{example}
+\begin{solution}
+	下证该极限值为$f(x_0)$.取$M=\max_{0 \leq i \leq n}|a_i|$,待定$\delta$使得$|x-x_0|<\delta <const$,则有:
+	$$|f(x)-f(x_0)|\leq M(|x^n-x_0^n| + \cdots + |x-x_0|) \leq M\delta\sum_{i=1}^{n} \sum_{j=0}^{i-1} |x_0|^j |(x-x_0)+x_0|^{i-1-j}$$
+	$$\leq M\delta\sum_{i=1}^{n} \sum_{j=0}^{i-1} |x_0|^j (const +|x_0|)^{i-1-j}.$$
+	故只需取$\delta = \min \{ \varepsilon \cdot \ssb{M\sum_{i=1}^{n} \sum_{j=0}^{i-1} |x_0|^j (1 +|x_0|)^{i-1-j}}^{-1},1 \}$即可.
+\end{solution}
+
+\begin{example}
+	$\sgn x$在$0$处不存在极限,而$|\sgn x|$在$0$处的极限是$1$.其中,定义$$\sgn x = \begin{cases}
+		1,&x>0 \\ 0,&x=0 \\ -1,&x<0
+	\end{cases}.$$
+\end{example}
+\begin{proof}
+	a) 假设存在极限,该极限值必为$0,-1,1$其中一个.若为$0$,实际上任意的$\delta >0$都会使得对$x \in \mathring{N}_{\delta} (0)$,$f(x)=\pm 1$,显然矛盾;若为$1$($-1$同理),任意的$\delta >0$都会使得对$x \in N_{\delta}^{-}(0)$有$f(x)=-1$,显然矛盾.
+	
+	b) 超级显然.
+\end{proof}
+
+上个例子实际是在说: $\sgn x$在$0$处有单侧极限.
+
+\begin{definition}{单侧极限}
+	设函数$f$在$N_{r}^{-}(a)$上有定义.称数$A$为$f$在$x\to a$时的\textit{左极限}(left limit),如果对$A$的任一邻域$N_{\varepsilon}(A)$,都存在$a$的一个左邻域$N_{\delta}^{-}(a)$使得$f\ssb{N_{\delta}^{-}(a)} \subseteq N_{\varepsilon}(A)$.记为$$A = \lim_{x \to a^-} f(x) ~~ \text{或} ~~ f(x) \to A,~x \to a^{-}.$$
+	右极限的定义类似.
+\end{definition}
+
+类似于数列, 我们有: 
+
+\begin{proposition}{}
+	设函数$f$在$\mathring{N}_{r}(a)$上有定义, 则$f(x)$在$a$处有极限$A$当且仅当此处的左右极限均等于$A$.
+\end{proposition}
+
+\begin{example}
+	证明$\lim_{x\to 0} \frac{\sin x}{x}=1$.
+\end{example}
+\begin{solution}
+	我们需要这样一个引理: 当$x\in (0,\frac{\pi}{2})$时有$\sin x < x < \tan x$.该引理实际上需要三角函数的幂级数形式证明.
+	
+	引理说, 当$x \in (0,\frac{\pi}{2})$时有$$0<1-\frac{\sin x}{x} < 1-\cos x = 2\sin^2 \frac{x}{2} < \frac{x^2}{2} < \frac{\pi}{4} x.$$
+	故对任意的$\varepsilon >0$, 取$\delta = \min \{ \frac{\pi}{2},\frac{4\varepsilon}{\pi} \}$即可. 这说明$f$在$0$处的右极限为$1$. 由对称性立得左极限亦为$1$, 故极限为$1$. 
+\end{solution}
+
+
+我们可以将函数极限中$f(x)$的$x$视为一个数列$\{ x_n \}$并考虑数列$\{ f(\{ x_n \}) \}$是否存在极限. (更一般地,之后会考虑复合函数的极限)
+
+\begin{theorem}{Heine归结原理}
+	设函数$f$在空心邻域$\mathring{N}(a)$上有定义, 则$\lim_{x\to a} f(x)=A$当且仅当所有$\mathring{N}(a)$中趋于$a$的数列$\{ x_n \}$都满足$\lim_{n\to \infty} f(x_n) =A$.
+\end{theorem}
+\begin{proof}
+	必要性由定义是显然的. 充分性: 用反证法. 假设$f$在$a$处的极限不为$A$, 则存在$N_{\varepsilon}(A)$使得对任意的正整数$n$, 存在$x_n \in N_{1/n}(a)$使得$f(x_n) \notin N_{\varepsilon}(A)$. 所有这样的$x_n$构成一个收敛于$a$的数列, 但不符合题目条件, 即得矛盾. 
+\end{proof}
+
+\begin{example}
+	设Dirichlet函数$D(x)$满足: $$D(x) = \begin{cases}
+		1,&x\in \mathbb{Q} \\ 0,& x \in \R \setminus \mathbb{Q}
+	\end{cases}.$$
+	求证: $D(x)$在所有实数点均不存在极限. 
+\end{example}
+\begin{proof}
+	任取$a \in \R$.由引理3.1知存在一个有理数列$\{ p_n \}$和一个无理数列$\{ q_n \}$均收敛至$a$, 但是它们的极限分别为$1,0$, 由定理3.10立得原命题成立. 
+\end{proof}
+
+\subsection{函数极限的性质}
+
+函数极限的诸多性质和数列是相同的, 这里只不过是重复罗列而已. 
+
+\begin{proposition}{}
+	设$f:E \to \R$, $a \in E$.
+	
+	a) $f$在$a$的某个邻域中为常值$A$, 则$\lim_{x\to a}f(x) = A$.
+	
+	b) $f$在$x\to a$时存在极限, 则$f$在$a$的某个邻域中有界.
+	
+	c) $f$在$x\to a$时的极限是唯一的.
+\end{proposition}
+\begin{proof}
+	只证明c). 设$f$在$x\to a$时有两个不同极限$A_1, A_2$. 取$\varepsilon < \frac{1}{2} |A_1-A_2|$, 则$N_{\varepsilon}(A_1) \cap N_{\varepsilon}(A_2) = \varnothing$. 由定义可知存在$\delta _1,\delta _2$使得$f(N_{\delta _1}(a)) \subset N_{\varepsilon}(A_1), f(N_{\delta _2}(a)) \subset N_{\varepsilon}(A_2)$. 现在取$\delta = \min \{ \delta _1,\delta _2 \}$, 对所有$x\in N_{\delta}(a)$都应有$f(x) \in N_{\varepsilon}(A_1) \cap N_{\varepsilon}(A_2) = \varnothing$, 所以$N_{\delta}(a)=\varnothing$, 显然矛盾. 
+\end{proof}
+
+\begin{proposition}{函数极限的保序性}
+	设$f,g$在$a$处存在极限.
+	
+	a) 若对所有在$a$的某个邻域中的$x$均有$f(x) \leq g(x)$, 则$\lim_{x \to a} f(x) \leq \lim_{x \to a} g(x) $.
+	
+	b) 若$\lim_{x \to a} f(x) < \lim_{x \to a} g(x) $, 则存在$a$的某个邻域使得其中的所有$x$都满足$f(x) < g(x)$. 
+\end{proposition}
+
+\begin{theorem}{函数极限的算术运算}
+	设函数$f:E \to \R, g:E\to \R$且对$a\in E$有$\lim_{x\to a} f(x) = A, \lim_{x\to a} g(x) = B$.则有:  \\
+	a) 加减法. $$\lim_{x\to a} (f\pm g)(x) = A\pm B.$$
+	b) 乘法. $$\lim_{x\to a} (f\cdot g)(x) = A \cdot B.$$
+	c) 除法.($B\neq 0$) $$\lim_{x\to a} \ssb{\frac{f}{g}}(x) = \frac{A}{B}.$$
+\end{theorem}
+\begin{proof}
+	利用Heine定理可以将其转化为数列极限问题. 以a)为例, 任取一个包含于$E$而收敛于$a$的数列$\{ x_n \}$, 则$\lim_{x\to \infty} f(x_n) = A,\lim_{x\to \infty} g(x_n) = B$, 从而$\lim_{x\to \infty} (f+g)(x_n) = \lim_{x\to \infty} f(x_n)+g(x_n) = A+B$. 
+	
+	我们来考虑另一种证明方法. 记$e_i(x):E \to \R ,i=1,2$满足$\lim_{x\to a} e_i(x)=0$, 用定义可以证明$(e_1+e_2)(x) \to 0 ,(e_1 \cdot e_2) \to 0$. 注意到$\lim_{x\to a} f(x) = A \Leftrightarrow f(x) = A+e_1(x)$即可证明. 
+\end{proof}
+
+\begin{theorem}{函数极限的夹逼定理}
+	设$f,g,h$在$\mathring{N}_r(a)$上有定义, 且满足$$f(x) \leq g(x) \leq h(x), \quad \forall x \in \mathring{N}_r(a),$$则$$\lim_{x\to a}f(x) = \lim_{x\to a}h(x) = A \quad \Rightarrow \quad \lim_{x\to a}g(x)=A.$$
+\end{theorem}
+
+\begin{example}
+	用夹逼定理再次证明: $\lim_{x\to 0} \frac{\sin x}{x} = 1$.
+\end{example}
+\begin{proof}
+	只考虑$x\to \ssb{0,\frac{\pi}{2}}$, $\cos x < \frac{\sin x}{x} < 1$. 下面证明$\lim_{x\to 0}\cos x=1$: 任取$\varepsilon >0$, 待定$\delta$使得$x \in (0,\delta)$, 那么$$1-\cos x = 2\sin ^2 \frac{x}{2} < \frac{x^2}{2}<\frac{\pi}{4}\delta .$$只需让$\delta = \frac{4\varepsilon}{\pi}$即可. 从而由夹逼定理知$f$在$0$处的右极限为$1$.其余同例3.14. 
+\end{proof}
+
+
+
+接着我们来做一件重要的事情: 利用函数极限理论定义指数函数、对数函数和幂函数. 
+
+A) \textit{指数函数}(exponential function) $f(x)=a^x$. 不妨考虑$a>1$. 
+
+A1) 在$\mathbb{N}$上归纳地定义函数$a^n$: $a^1:=a, a^{n+1}:=a^n \cdot a$, 接着在$\mathbb{Z}$上定义$a^n:=\begin{cases}
+	a^n, &n\in \mathbb{N} \\ 1, &n=0 \\ \ssb{a^{-n}}^{-1}, &n<0
+\end{cases}$. 用归纳法容易验证, 这样定义的指数函数$a^n$满足: ($x,y \in \mathbb{Z}_+,n>0$)$$a^{m+n}=a^m+a^n,\quad (x<y) \Leftrightarrow (x^n<y^n)  ~~\textit{从而} ~~ (x=y) \Leftrightarrow (x^n=y^n).$$
+
+A2) 拓广到$\mathbb{Q}$上. 对于$n\in \mathbb{N},m\in \mathbb{Z}$, $a^{m/n}:= (a^{1/n})^m, a^{-1/n}:=(a^{1/n})^{-1}$. 利用A1)中的结论可以证明: ($r_1,r_2 \in \mathbb{Q}$) $$a^{m_1/n_1} \cdot a^{m_2/n_2} = a^{m_1/n_1+m_2/n_2},\quad (r_1<r_2) \Leftrightarrow (a^{r_1} < a^{r_2}).$$
+
+A3) 现在考虑证明如下结论(实际上就是说$a^r$在$\mathbb{Q}$上连续): 给定$r_0 \in \mathbb{Q}$, 则对任意的$r \in \mathbb{Q}$都有: $$\lim_{r \to r_0} a^r = a^{r_0}.$$
+\begin{proof}
+	类似于定理3.11的第二种证法, 我们先证明对于$r \in \mathbb{Q}$有$\lim_{r\to 0} a^r = 1$. 选取$n \in \mathbb{N}$使得$|r|<\frac{1}{n}$, 那么$a^{-1/n} < a^p < a^{1/n}$. 由$a_n = a^{1/n} \to 1, n\to 0~$(这是因为显然极限存在且$\lim_{n\to \infty} a^{1/2n} = \lim_{n\to \infty} a^{1/n}$)可知$a^{-1/n} \to 1, n\to 0$.用定义(注意不能用夹逼)容易完成剩下的证明. 
+	
+	回到原题, 任取$\varepsilon >0$, 待定$\delta$使得任意的$|r-r_0|<\delta$都有$|a^r-a^{r_0}|\leq |a^r-1|+a^{r_0}+1=\varepsilon$. 由上方结论知对于$\varepsilon _0 = \varepsilon - a^{r_0} -1$, 总是存在$\delta _0$使得所有的$|r|<\delta _0$都有$|a^r-1|<\varepsilon _0$, 即有$|a^r-a^{r_0}|<\varepsilon$对于$|r|<\delta _0$成立. 取$\delta = \delta _0+r_0$即可. 
+\end{proof}
+
+A4) 拓广至$\R$上. 对于$x \in \R$, 记$\displaystyle  s=\sup_{\mathbb{Q} \ni r < x} a^r, i=\inf_{\mathbb{Q} \ni r > x} a^r$. 下面证明$s=i$并将其定义为$a^x$. 
+
+\begin{proof}
+	任取$r_1<x<r_2$, 此时$a^{r_1} \leq s \leq i \leq a^{r_2}$, 从而$0\leq i-s \leq a^{r_2}-a^{r_1}$. 由A3)可知对任意的$\varepsilon >0$都存在$\delta$使得所有$r_2-r_1<\delta$都满足$a^{r_2-r_1} - 1<\varepsilon$, 则$i-s < s\varepsilon$. 这说明$i=s$. 
+\end{proof}
+同时容易说明, 如此定义的$a^x = \lim_{\mathbb{Q} \ni r \to x} a^r$. 
+
+\vspace{0.5em}
+A5) 现在证明一些与先前类似的性质: 
+$$(x_1 < x_2) \Rightarrow (a^{x_1} < a^{x_2}), \qquad a^{x_1+x_2} = a^{x_1} \cdot a^{x_2}.$$
+
+\begin{proof}
+	a) 选取$(x_1,x_2)$上的两个有理数$r_1,r_2$满足$x_1<r_1<r_2<x_2$, 则$a^{x_1} = \inf_{\mathbb{Q} \ni r > x_1} a^r < a^{r_1} < a^{r_2} < \sup_{\mathbb{Q} \ni r < x_2}=a^{x_2}$.
+	
+	b) 待定$\varepsilon >0$, 则存在$\delta$使得对所有$|x_1-r_1|<\delta ,|x_2-r_2|<\delta$都有$|a^{r_1}-a^{x_1}|<\varepsilon ,|a^{r_2}-a^{x_2}|<\varepsilon$即$a^{r_1}-\varepsilon < a^{x_1} < a^{r_1} + \varepsilon , a^{r_2}-\varepsilon < a^{x_2} < a^{r_2} + \varepsilon$. 直接相乘可得$$a^{x_1} \cdot a^{x_2} > a^{r_1+r_2}+\varepsilon ^2 - \varepsilon (a^{r_1}+a^{r_2}) > a^{r_1+r_2}+\varepsilon ^2 - \varepsilon (a^{x_1+\delta}+a^{x_2+\delta}),$$
+		$$a^{x_1} \cdot a^{x_2} < a^{r_1+r_2}+\varepsilon ^2 + \varepsilon (a^{r_1}+a^{r_2}) < a^{r_1+r_2}+\varepsilon ^2 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta}).$$
+	待定$\varepsilon _0$, 存在$\delta _0$使得对任意$|x_1+x_2-r_1-r_2|<\delta _0$都有$|a^{r_1+r_2} - a^{x_1+x_2}|<\varepsilon _0$即$$-a^{r_1+r_2} + \varepsilon _0 < -a^{x_1+x_2} < -a^{r_1+r_2} - \varepsilon _0.$$
+	两式相加, 可得$\varepsilon ^2+\varepsilon _0 - \varepsilon (a^{x_1+\delta}+a^{x_2+\delta}) < a^{x_1} \cdot a^{x_2} - a^{x_1+x_2} < \varepsilon ^2 -\varepsilon _0 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta})$. 取$\varepsilon _0 > -\varepsilon ^2 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta})$则$0 < a^{x_1} \cdot a^{x_2} - a^{x_1+x_2} < 2\varepsilon ^2$. 由$\varepsilon$选取的任意性及实数开方运算的存在性可知$a^{x_1} \cdot a^{x_2} = a^{x_1+x_2}$. 
+\end{proof}
+
+A6) $a^x$在$\R$上连续, 即对于给定的$x_0 \in \R$, 对任意的$x \in \R$有$\lim_{x \to x_0} a^x = a^{x_0}$. 证明同A3) .
+
+A7) 结合介值定理容易得到$a^x$的值域为$\R _+$.
+
+\vspace{1em}
+B) \textit{对数函数}(logarithmic function) $f(x)=\log_a{x}$. 从A5) 可以得到$a^x$是单射, 从而取其逆映射作为$f:\R _+ \to \R ,~x=a^y \mapsto y$.
+
+B1) 证明对数函数是连续的. 即, 对于$x_0 \in \R$, 任意的$x \in \R$都有$\lim_{x \to x_0} \log_a{x} = \log_a{x_0}$. 
+
+\begin{proof}
+	以$a>1$为例. 任取$\varepsilon >0$. 易知$-\varepsilon < \log_a{x} - \log_a{x_0} < \varepsilon$等价于$x_0(a^{-\varepsilon}-1) < x-x_0 < x_0(a^{\varepsilon}-1)$, 即$|x-x_0|<|x_0| \cdot \min \{ 1-a^{-\varepsilon},a^{\varepsilon}-1 \} :=\delta$即可. 
+\end{proof}
+
+\vspace{1em}
+C) \textit{幂函数}(power function) $f: \R _+ \to \R ,x \mapsto x^{\alpha}$. 实际上可以认为$x^{\alpha} = a^{\log_a{x^{\alpha}}}$. 
+
+
+\subsection{一般化的极限定义}
+
+在证明极限的性质时, 我们实际上只用了两条关于去心邻域的结论: 任意一个去心邻域不为空, 两个(相同点处的)去心邻域的交集包含(该点处的)去心邻域. 将这两条结论抽象出来, 便成为所谓基.
+
+\begin{definition}{基}
+	设集合$X$. 称$\mathcal{B} \subseteq \mathcal{P}(X)$为集合$X$中的\textit{基}(base), 如果: 
+	
+	a) $\forall B \in \mathcal{B} (B\neq \varnothing)$;
+	
+	b) $\forall B_1,B_2 \in \mathcal{B} ,\exists B \in \mathcal{B} (B \subseteq B_1 \cap B_2)$. 
+\end{definition}
+
+常用的基如下: 
+
+\begin{table}[h]
+	\centering
+	\renewcommand\arraystretch{1.3}
+	\begin{tabular}{cc}
+		\toprule
+		基的记号           & 其中的元素                    \\
+		\midrule
+		$x \to a$         & $\mathring{N}_{\delta}(a):=(a-\delta  , a)\cup (a,a+\delta )$, \textit{其中}$\delta >0$      \\
+		$x \to \infty$ & $N(\infty) := \{ x\in \R : |x|>\delta \}$, \textit{其中}$\delta \in \R$ \\
+		$E \ni x \to a$ & $\mathring{N}_E(a):=E \cap \mathring{N}_{\delta}(a)$          \\
+		$E \ni x \to \infty$ & $N_E(\infty) := E \cap N(\infty)$ \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{remark}
+	第三、四种分别默认$a$是$E$的极限点、$E$无界. 
+\end{remark}
+
+结合单侧极限, 实际上我们可以得到6种极限过程. 
+
+接下来定义基上的极限(a limit over a filter base). 
+
+\begin{definition}{基上的极限}
+	设$f:X \to \R$, $\mathcal{B}$是$X$上的基. 称$A$为函数$f$\textit{在基$\mathcal{B}$上的极限}, 如果对于$A \in \R$的任何邻域$N_{\varepsilon}(A)$都存在$B \in \mathcal{B}$使得$f(B) \subseteq N_{\varepsilon}(A)$. 记作$$\lim_{\mathcal{B}}f(x)=A.$$
+	类似于$\varepsilon - \delta$的表述: $$\forall \varepsilon > 0, \exists B \in \mathcal{B}(\forall x \in B (|f(x)-A|<\varepsilon)).$$
+\end{definition}
+
+引入无穷邻域之后, 下面的说法亦是合理的: $$\ssb{\lim_{\mathcal{B}} f(x) = \infty }:=\forall \varepsilon > 0, \exists B \in \mathcal{B} (\forall x \in B (|f(x)|>\varepsilon)).$$
+
+通过改变$|f(x)|>\varepsilon$, 可以得到4种极限值. 
+
+前文已证明的所有关于函数极限的性质, 都可以应用在基上的极限上. 
+
+\begin{example}
+	证明: $$\lim_{x\to +\infty} \ssb{1+\frac{1}{x}}^x = e.$$
+\end{example}
+\begin{proof}
+	容易证明$\lim_{x\to +\infty} \ssb{1+\frac{1}{\lfloor x \rfloor}}^{\lfloor x \rfloor} = e$. 进一步有$\lim_{x\to +\infty} \ssb{1+\frac{1}{\lfloor x \rfloor + 1}}^{\lfloor x \rfloor} = \lim_{x\to +\infty} \ssb{1+\frac{1}{\lfloor x \rfloor}}^{\lfloor x \rfloor + 1} = e$. 结合$\lfloor x \rfloor \leq x < \lfloor x \rfloor +1$, 由夹逼定理易证. 
+\end{proof}
+
+\subsection{函数极限的存在性}
+
+\begin{theorem}{单调函数的极限}
+	设函数$f:X \to \R$, $\mathcal{B}$是$X$上的基. 若$f$在某个$B \in \mathcal{B}$上单调递增且有上界, 则$\lim_{\mathcal{B}}$存在且为$f(B)$的上确界. 
+\end{theorem}
+
+称$$\omega (f;E):=\sup_{x_1,x_2 \in E} |f(x_1)-f(x_2)|$$为$f:X \to \R$在$E \subseteq X$上的\textit{振幅}(oscillation). 例如, $\omega (x^2;(-1,2))=4$. 
+
+\begin{theorem}{函数极限的Cauchy准则}
+	设函数$f:X \to \R$, $\mathcal{B}$是$X$上的基. $f$在$\mathcal{B}$上有极限当且仅当对任意$\varepsilon >0$存在$B \in \mathcal{B}$使得$\omega (f;B) < \varepsilon$. 
+\end{theorem}
+
+
+\newpage
+\section*{一些习题}
+
+\begin{exercise}
+	We mark all the points on a circle obtained from a fixed point by rotations of the circle through angles of $n$ radians, where $n \in \mathbb{Z}$ ranges over all integers. Describe all the limit points of the set so constructed.
+\end{exercise}
+
+
+\begin{exercise}
+	已知单调函数$f:\R \to \R$满足$f|_{\mathbb{Q}}(x)=x$，求证：$f(x)=x$.
+\end{exercise}
