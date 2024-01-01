@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  27 OCT 2023 20:35
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  1 JAN 2024 10:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -689,27 +689,27 @@ Package csquotes Info: ... none found.
  (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/1_linear_algebra.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/2_analysis.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/3_elementary_number_theory.aux))
 \openout1 = `book.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-Package hyperref Info: Link coloring ON on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+Package hyperref Info: Link coloring ON on input line 59.
  (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.out) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.out)
 \@outlinefile=\write4
 \openout4 = `book.out'.
@@ -755,56 +755,56 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 58.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 58.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 58.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 58.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 58.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 58.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 58.
-LaTeX Font Info:    Redeclaring math accent \check on input line 58.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 58.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 58.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 58.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 58.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 58.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 59.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 59.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 59.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 59.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 59.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 59.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 59.
+LaTeX Font Info:    Redeclaring math accent \check on input line 59.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 59.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 59.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 59.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 59.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 59.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 58.
+(Font)              `operators' in the math version `normal' on input line 59.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 58.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 59.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 58.
+(Font)              `operators' in the math version `bold' on input line 59.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 58.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 59.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 58.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 59.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 58.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 59.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 58.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 59.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 58.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 59.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 58.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 59.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 58.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 59.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 58.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 59.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 58.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 59.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 58.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 59.
 (|'inkscape' -V )
 
 Package svg Warning: No version of Inkscape was detected by invoking
@@ -812,7 +812,7 @@ Package svg Warning: No version of Inkscape was detected by invoking
 (svg)                so the Inkscape export will fail quite sure as the
 (svg)                command is probably unknown to your OS. You could set
 (svg)                `inkscapeversion=<version>' manually but this is very
-(svg)                unlikely to work on input line 58.
+(svg)                unlikely to work on input line 59.
 
 \openout2 = `./FrontMatter/titlepage.aux'.
 
@@ -910,17 +910,368 @@ Chapter 1.
 
  (./MainMatter/2_analysis.tex
 Chapter 2.
-) [2
+./MainMatter/2_analysis.tex:19: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.19 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:29: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.29 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 1895) detected at line 44
+ []
+
+[2
 
 
 
 
 ]
+./MainMatter/2_analysis.tex:48: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.48 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:54: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.54 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:64: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.64 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (1.51526pt too high) detected at line 72
+ []
+
+LaTeX Font Info:    Font shape `TU/FZShuSong-Z01(0)/m/sl' in size <10.53937> not available
+(Font)              Font shape `TU/FZShuSong-Z01(0)/m/it' tried instead on input line 72.
+[3]
+./MainMatter/2_analysis.tex:76: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.76 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:82: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.82 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:90: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.90 \begin{solution}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:101: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.101 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[4]
+./MainMatter/2_analysis.tex:113: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.113 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:120: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.120 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:128: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.128 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:134: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.134 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:142: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.142 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5]
+./MainMatter/2_analysis.tex:154: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.154 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:169: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.169 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[6]
+./MainMatter/2_analysis.tex:205: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.205 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (3.32576pt too high) detected at line 209
+ []
+
+[7]
+./MainMatter/2_analysis.tex:213: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.213 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:219: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.219 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:232: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.232 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \vbox (badness 10000) detected at line 240
+ []
+
+[8]
+./MainMatter/2_analysis.tex:244: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.244 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:245: Misplaced alignment tab character &.
+l.245 ^^I直接应用C4)有: $$e^{z_1}\cdot e^{z_2}&
+                                           = (\sum_{k=0}^\infty \frac{z_1^k}...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./MainMatter/2_analysis.tex:258: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.258 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[9]
+./MainMatter/2_analysis.tex:290: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.290 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:298: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.298 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Font Warning: Font shape `TU/FZShuSong-Z01(0)/b/it' undefined
+(Font)              using `TU/FZShuSong-Z01(0)/b/n' instead on input line 299.
+
+[10]
+./MainMatter/2_analysis.tex:316: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.316 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[11]
+./MainMatter/2_analysis.tex:361: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.361 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:377: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.377 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[12]
+./MainMatter/2_analysis.tex:387: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.387 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [13]
 \openout2 = `./MainMatter/3_elementary_number_theory.aux'.
 
  (./MainMatter/3_elementary_number_theory.tex
 Chapter 3.
-) [3
+) [14
 
 
 
@@ -930,15 +1281,15 @@ Chapter 3.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: 8FD1F136AA06DEE69B495D01A3DF5547;524.
+(rerunfilecheck)             Checksum: E1C94A3C17D3EBDF6EB1FC3F5964669E;706.
  ) 
 Here is how much of TeX's memory you used:
- 19818 strings out of 476683
- 427287 string characters out of 5804047
- 1847018 words of memory out of 5000000
- 39608 multiletter control sequences out of 15000+600000
- 522295 words of font info for 118 fonts, out of 8000000 for 9000
+ 19918 strings out of 476683
+ 433007 string characters out of 5804047
+ 1869018 words of memory out of 5000000
+ 39693 multiletter control sequences out of 15000+600000
+ 522391 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,6n,111p,389b,409s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,13n,111p,516b,425s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.pdf (8 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.pdf (19 pages).

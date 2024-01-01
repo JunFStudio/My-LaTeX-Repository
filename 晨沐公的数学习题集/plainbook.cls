@@ -220,10 +220,10 @@
 }
 
 % Solution
-\newenvironment{solution}{
-	\par\noindent\textbf{\color{example}{\text{解}}~~} \itshape
+\newenvironment{solution}{\begin{framed}
+	\par\noindent\textbf{{\text{解.}}} \itshape
 	\citshape
-}
+}{\end{framed}}
 
 % Proof
 \newenvironment{proof}{

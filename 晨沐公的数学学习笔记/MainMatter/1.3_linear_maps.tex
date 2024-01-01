@@ -5,7 +5,7 @@
 
 \subsection{向量空间的线性映射}
 
-在描述一种颜色时, 我们会给出几个不同方面的数据进行叠加. 以RGB颜色为例, 其通过对红(R), 绿(G), 蓝(B)三个通道分别赋予$0\sim 255$的值再进行组合而产生出$256^3$种颜色. 设颜色向量$c_1,c_2,c_3$. 如果想将$c_1,c_2$叠加, 我们会考虑一种加权平均, 也即新的颜色$c_4=tc_1+(1-t)c_2, 0\leq t \leq 1$. 如果考虑$c_5$为另一种方式的叠加, 即$c_5=sc_1+(1-s)c_2, 0 \leq s \leq 1$, 再定义两种颜色的直接和$\tilde{+}$为其算术平均, 那么会有$c_4 \tilde{+} c_5= (t \tilde{+} s) c_1 + ((1-t) \tilde{+} (1-s)) c_2$. 将$t$与$s$视作映射$C$的自变量, 即可得到$C(t \tilde{+} s) = C(t) \tilde{+} C(s)$. 同样地, 如果定义标量乘法$\tilde{\times}$表示将白色$(0,0,0)$与该颜色按量$\lambda$混合, 可以得到$C(\lambda \tilde{\times} t) = \lambda \tilde{\times} t$. 
+在描述一种颜色时, 我们会给出几个不同方面的数据进行叠加. 以RGB颜色为例, 其通过对红(R), 绿(G), 蓝(B)三个通道分别赋予$0\sim 255$的值再进行组合而产生出$256^3$种颜色. 设颜色向量$c_1,c_2,c_3$. 如果想将$c_1,c_2$叠加, 我们会考虑一种加权平均, 也即新的颜色$c_4=tc_1+(1-t)c_2, 0\leq t \leq 1$. 如果考虑$c_5$为另一种方式的叠加, 即$c_5=sc_1+(1-s)c_2, 0 \leq s \leq 1$, 再定义两种颜色的直接和$\tilde{+}$为其算术平均, 那么会有$c_4 \tilde{+} c_5= (t \tilde{+} s) c_1 + ((1-t) \tilde{+} (1-s)) c_2$. 将$t$与$s$视作映射$C$的自变量, 即可得到$C(t \tilde{+} s) = C(t) \tilde{+} C(s)$. 同样地, 如果定义标量乘法$\tilde{\times}$表示将白色$(0,0,0)$与该颜色按量$\lambda$混合, 可以得到$C(\lambda \tilde{\times} t) = \lambda \tilde{\times} C(t)$. 
 
 上方的例子解释了所谓\textit{叠加原理}: 即和的输入所得输出等于输入所得输出的和, 标量倍输入所得输出等于输入所得输出的标量倍. 由此引入线性映射的概念. 
 
@@ -22,6 +22,8 @@
 \end{remark}
 
 规定记号$\lmap (V,W)$，表示所有从$V$到$W$的线性映射构成的集合.
+
+另一种理解线性映射的方式: 记$T$的图为$\{ (v,Tv)\in V \times W : v \in V \}$, 则$T$是线性映射当且仅当$T$的图是$V \times W$的子空间. (这里, $\times$表示笛卡尔积)
 
 \begin{example}{\examplefont{线性映射的例子}}
 	(1)零函数：定义$0 \in \lmap (V,W)$如下$$\forall v \in V, 0v=0.$$
@@ -313,9 +315,10 @@ $$\begin{pmatrix}
 \end{proposition}
 
 \newpage
-\section{矩阵理论: 更进一步}
+\section{零空间与值域}
 
-\subsection{线性方程组问题}
+\subsection{解线性方程组问题}
+
 
 考虑解一个非齐次线性方程组(即右侧常数不全为$0$): $$\begin{cases}
 	4x_1+3x_2-6x_3=-17 \\ x_1+2x_2+3x_3=22 \\ 2x_1+3x_2 = 11
@@ -354,6 +357,8 @@ $$\begin{pmatrix}
 从而$x_1 = -\frac{1}{2}x_4+\frac{65}{8}, x_2=\frac{1}{3}x_4-\frac{15}{4},x_3=\frac{2}{3}x_4-\frac{1}{3}$. 
 
 从上述例子中, 尝试提取一些共性: 通过三种变换(倍乘变换, 倍加变换, 对换变换, 统称为\textit{基本变换}), 我们总是能将一个增广矩阵化简为一部分列恰存在一个$1$元素的矩阵.(利用归纳法容易证明) 这样的列对应主变量, 称作\textit{主列}; 而剩下的列对应自由变量, 称作\textit{自由列}. 最后化简出来的矩阵称作原矩阵$A$的\textit{行简化阶梯型矩阵}, 记作$\textrm{rref}(A)$. 
+
+容易验证, 一个齐次线性方程组只有零解当且仅当其系数矩阵的行简化阶梯型矩阵的阶梯数等于未知数个数; 一个非齐次线性方程组有解当且仅当增广矩阵和系数矩阵的行简化阶梯型矩阵的阶梯数相等. 
 
 既然是变换, 能否找到其对应的(线性)映射呢? 在$\F ^n$上考虑, 我们从最简单的恒等变换开始: 
 
@@ -396,6 +401,9 @@ $$\begin{pmatrix}
 \begin{definition}{矩阵的逆}
 	设$A$是$n$阶方阵, 若存在$n$阶方阵$B$满足$AB=BA=I_n$, 则称$A$是\textit{可逆的}, $B$为其\textit{逆}. 
 \end{definition}
+\begin{remark}
+	广义的矩阵逆定义如上. 然而, 研究矩阵的“左逆”和“右逆”往往更有趣(这是因为, $AB=I_n$足以推出$BA=I_n$了, 这一点将在后文说明), 只不过原书中没有涉及这一部分内容, 只好忍痛删去. 
+\end{remark}
 
 容易验证, 一个矩阵若可逆, 则其逆一定唯一. 因此, 我们得以用$A^{-1}$来指代$A$的逆. 
 
@@ -446,17 +454,7 @@ $$\begin{pmatrix}
 	矛盾! 
 \end{proof}
 
-\subsection{用矩阵描述向量的关系}
-
-设线性映射$A$的表示矩阵$\begin{pmatrix}
-	v_1 & \cdots & v_n
-\end{pmatrix}=\begin{pmatrix}
-	u_1^{\T} & \cdots & u_n^{\T}
-\end{pmatrix}^{\T}$. 一方面, 容易证明$\spn (v_1,\cdots ,v_n) = \rge A$. 因此, 我们常称$\rge A$为矩阵$A$的\textit{列空间}. 另一方面, 亦容易验证矩阵$A^{\T}$所对应的线性映射$A'$满足$\spn (u_1^{\T} , \cdots , u_n^{\T}) = \rge A'$. 
-
-\section{零空间与值域}
-
-\subsection{零空间与单射性}
+\subsection{零空间与值域}
 
 \begin{definition}{零空间}
 	对于$T \in \lmap (V,W)$，$T$的\textit{零空间}(或称为“核”)定义如下：$$\nul T = \{ v \in V:Tv=0 \}$$
@@ -491,8 +489,6 @@ $$\begin{pmatrix}
 	\buzhou{1} 充分性：当$\nul T = \{ 0 \}$时，设$Tu=Tv$，则$Tu-Tv=T(u-v)=0$，于是$u-v=0$，即$u=v$.这表明$T$是单射. \\
 	\buzhou{2} 必要性：任取$\nul T$中的元素$v$，则$Tv=0$.因为$T0=0$且$T$是单射，所以必有$v=0$，即$\nul T = \{ 0 \}$.
 \end{proof}
-
-\subsection{值域与满射性}
 
 \begin{definition}{值域}
 	对于$T \in \lmap (V,W)$，$T$的\textit{值域}(或称为“像”)定义如下：$$\rge T = \{ Tv : v \in V \}$$
@@ -532,6 +528,9 @@ $$\begin{pmatrix}
 	另外，若$b_1Tu_1 + \cdots + b_nTu_n=0$，则$$T(b_1u_1 + \cdots + b_nu_n)=0$$
 	这表明$b_1u_1 + \cdots + b_nu_n \in \nul T$.记$b_1u_1 + \cdots + b_nu_n = c_1v_1 + \cdots + c_mv_m$，则由$v_1, \cdots ,v_m,u_1, \cdots ,u_n$线性无关，可得$b_1= \cdots = b_n = c_1 = \cdots = c_m$，于是$Tu_1, \cdots ,Tu_n$线性无关.
 \end{proof}
+\begin{remark}
+	需要注意的是, 证明线性映射基本定理的前提是$V$为有限维.
+\end{remark}
 
 利用线性映射基本定理，可以快速证伪某些命题.
 
@@ -567,7 +566,9 @@ $$\begin{pmatrix}
 	易于证明$T$是线性映射.则存在这样的一组常数等价于$T$不是满的.由上述命题可知，若$n<m$则$T$一定不是满射.故当$n < m$存在这样一组常数.(即变量个数小于方程个数时)
 \end{solution}
 
-\subsection*{习题}
+
+
+\subsection*{习题  ~~\small 对应原书3.B习题}
 
 \begin{exercise} %LADR 练习3B.4
 	证明$\{ T \in \lmap (\R ^5,\R ^4):\dim \nul T>2 \}$不是$\lmap (\R ^5,\R ^4)$的子空间.
@@ -654,8 +655,6 @@ $$\begin{pmatrix}
 	若$\nul \varphi _1=\nul \varphi _2=V$, 则$\varphi _1 = \varphi _2=0$. 否则考虑$u\in V$且$u \notin \nul \varphi _1$. 由上一题可知$V = \nul \varphi _1 \oplus \{ au:a \in \F \}$. 任取$v \in V$, 将其表示为$v = w + au$, 那么$\frac{\varphi _1(v)}{\varphi _2(v)} = \frac{\varphi _1(u)}{\varphi _2(u)}$, 为定值. 
 \end{proof}
 
-
-
 \section{可逆性与同构的向量空间}
 
 \subsection{线性映射的可逆性}
@@ -668,7 +667,7 @@ $$\begin{pmatrix}
 
 这里的“逆”，在线性映射的乘法意义下，即为其乘法逆元.自然它是唯一的.
 
-\begin{proposition}
+\begin{proposition}{}
 	可逆的线性映射有唯一的逆.
 \end{proposition}
 \begin{proof}
@@ -698,6 +697,14 @@ $$\begin{pmatrix}
 	(1) 设$W$是有限维的, $T \in \lmap (V,W)$. 证明$T$是单的当且仅当存在$S \in \lmap (W,V)$使得$ST$是$V$上的恒等映射. \\
 	(2) 设$V$是有限维的, $T \in \lmap (V,W)$. 证明$T$是满的当且仅当存在$S \in \lmap (W,V)$使得$TS$是$W$上的恒等映射.
 \end{example}
+\begin{proof}
+	(1) "$\Rightarrow$": 假设$T$是单的. 记$S':\rge T \to V$使得$S'(Tv)=v$(由于$Tv$一定对应一个$v$, 这是良定义的). 将$S'$延伸到$S:W \to V$即可. \\
+	"$\Leftarrow$": 设$u,v$使得$Tu=Tv$, 则$ST(u)=ST(v)$, 从而$u=v$. \\
+	(2) "$\Rightarrow$": 假设$T$是满的. 设$Tv_1,\cdots ,Tv_m$是$W$的一组基(由于任意$W$中元素都能表示为$Tv$的形式, 这是良定义的). 记$S:W \to V$使得$S(c_1Tv_1+\cdots + c_mTv_m)=c_1v_1+\cdots + c_mv_m$. 容易验证$S$是线性的. \\
+	"$\Leftarrow$": 对于任意$w \in W$, $TS(w)=w$, 即$T$是满的.
+\end{proof}
+
+一般来说, 单射性和满射性并不相互蕴含. 然而对于从向量空间映射到自身的线性映射, 称为\textit{算子}, 满射性和单射性是等价的. 设$V$是有限维的, $T \in \lmap (V)$, 则$T$是单的等价于$\dim \nul T = 0$, $T$是满的等价于$\dim \rge T = \dim V$, 由线性映射基本定理就可以得到结论. 
 
 \subsection{同构的向量空间}
 
@@ -736,4 +743,8 @@ $$\begin{pmatrix}
 
 因而有$\dim \lmap (V,W)=(\dim V)(\dim W)$.这启示我们可以从与一个向量空间同构的另一个更简单(或已知)的向量空间来考察该向量空间.
 
-\subsection{线性映射与矩阵乘}
+\section{向量空间的积与商}
+
+
+
+\section{对偶与矩阵的秩}

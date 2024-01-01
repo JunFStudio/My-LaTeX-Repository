@@ -353,7 +353,7 @@ iv) $x^+=y^+ \Rightarrow x=y$，即$S$是一个单射.
 \end{theorem}
 \begin{proof}
 	构造集合$\{ n \in \Z : x/k <n \}$，易知其有下界，由良序定理可知该集合唯一存在一个最小元素，记作$k$，从而有$$k-1 \leq \frac{x}{n} < k.$$
-	由于$n$为正数，上式就等价于$(k-1)n \leq x < kn$.
+	由于$n$为正数，上式就等价于$(k-1)n \leq x < kn$. 
 \end{proof}
 
 在定义完实数之后，利用同样的过程可以证明Archimedes性质对所有实数$x$也成立.所以，尽管Archimedes性质有许多好用的推论，我们选择在实数部分再介绍.
@@ -685,11 +685,14 @@ $$\alpha _p q^p + \alpha _{p-1}q^{p-1} + \cdots + \alpha _{p-n}q^{p-n}  \leq x <
 	将并集中的元素按照$x_{11},x_{21},x_{12},x_{31},x_{22},x_{13},\cdots$的方式排列，故该集合为可数集.考虑并集中出现的重复元素，由命题3.9可得最后的结果仍是可数集.
 \end{proof}
 
-\begin{proposition}
-	$n$个可数集的笛卡尔积也是可数集.
+\begin{proposition}{}
+	$n$个可数集的Cartesian积也是可数集.
 \end{proposition}
+\begin{remark}
+	可数个可数集的Cartesian积未必是可数集. 利用对角线法(命题2.26)可以证明$A=\{ 0,1 \}$的可数次积不可数. (实际上就是二进制)
+\end{remark}
 \begin{proof}
-	\boxed{\text{证法$1$}}~利用数学归纳法，转化为证明两个可数集的笛卡尔积为可数集，亦等价于$\mathbb{N} \times \mathbb{N}$为可数集.将$\mathbb{N} \times \mathbb{N}$的元素视作二维向量，构造如下排列即可：
+	\boxed{\text{证法$1$}}~利用数学归纳法，转化为证明两个可数集的Cartesian积为可数集，亦等价于$\mathbb{N} \times \mathbb{N}$为可数集.将$\mathbb{N} \times \mathbb{N}$的元素视作二维向量，构造如下排列即可：
 	\begin{center}
 		\includegraphics[width=6cm]{attachment/iShot_2023-08-04_15.19.06.png}
 	\end{center}
@@ -779,3 +782,16 @@ $$\alpha _p q^p + \alpha _{p-1}q^{p-1} + \cdots + \alpha _{p-n}q^{p-n}  \leq x <
 \end{definition}
 
 一个著名的猜想：连续统假设.现在知道，这个猜想不可能被ZFC公理系统证明或证伪.
+
+\begin{theorem}{Cantor}
+	设非空集合$X$, 则$|X|<|\mathcal{P}(X)|$.
+\end{theorem}
+\begin{proof}
+	只考虑$X$是无限集. 显然$|X| \leq |\mathcal{P}(X)|$. 假设$X \sim \mathcal{P}(X)$, 则存在$X \to \mathcal{P}(X)$的双射$\sigma$. 设$A=\{ x \in X:x \notin \sigma (x) \}$. 显见$A \in \mathcal{P}(X)$但$A \notin \sigma (X)$, 从而$|X| \neq |\mathcal{P}(X)|$. 
+\end{proof}
+
+
+
+
+
+

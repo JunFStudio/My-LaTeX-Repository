@@ -1,3 +1,4 @@
 \contentsline {chapter}{\numberline {1}线性代数 Linear Algebra}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}数学分析 Analysis}{2}{chapter.2}%
-\contentsline {chapter}{\numberline {3}初等数论 Elementary Number Theory}{3}{chapter.3}%
+\contentsline {section}{\numberline {2.1}实数定义, 数列极限, 级数}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}初等数论 Elementary Number Theory}{14}{chapter.3}%
