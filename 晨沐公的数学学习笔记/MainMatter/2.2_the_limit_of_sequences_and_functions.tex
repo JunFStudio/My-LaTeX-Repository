@@ -561,7 +561,7 @@ A2) 拓广到$\mathbb{Q}$上. 对于$n\in \mathbb{N},m\in \mathbb{Z}$, $a^{m/n}:
 
 A3) 现在考虑证明如下结论(实际上就是说$a^r$在$\mathbb{Q}$上连续): 给定$r_0 \in \mathbb{Q}$, 则对任意的$r \in \mathbb{Q}$都有: $$\lim_{r \to r_0} a^r = a^{r_0}.$$
 \begin{proof}
-	类似于定理3.11的第二种证法, 我们先证明对于$r \in \mathbb{Q}$有$\lim_{r\to 0} a^r = 1$. 选取$n \in \mathbb{N}$使得$|r|<\frac{1}{n}$, 那么$a^{-1/n} < a^r < a^{1/n}$. 由$a_n = a^{1/n} \to 1, n\to 0~$(这是因为显然极限存在且$\lim_{n\to \infty} a^{1/2n} = \lim_{n\to \infty} a^{1/n}$)可知$a^{-1/n} \to 1, n\to 0$. 由夹逼定理可证该命题成立. 
+	我们先证明对于$r \in \mathbb{Q}$有$\lim_{r\to 0} a^r = 1$. 选取$n \in \mathbb{N}$使得$|r|<\frac{1}{n}$, 那么$a^{-1/n} < a^r < a^{1/n}$. 由$a_n = a^{1/n} \to 1, n\to 0~$(这是因为显然极限存在且$\lim_{n\to \infty} a^{1/2n} = \lim_{n\to \infty} a^{1/n}$)可知$a^{-1/n} \to 1, n\to 0$. 由夹逼定理可证该命题成立. 
 	
 	回到原题, 任取$\varepsilon >0$, 待定$\delta$使得任意的$|r-r_0|<\delta$都有$|a^r-a^{r_0}|\leq |a^r-1|+a^{r_0}+1=\varepsilon$. 由上方结论知对于$\varepsilon _0 = \varepsilon - a^{r_0} -1$, 总是存在$\delta _0$使得所有的$|r|<\delta _0$都有$|a^r-1|<\varepsilon _0$, 即有$|a^r-a^{r_0}|<\varepsilon$对于$|r|<\delta _0$成立. 取$\delta = \delta _0+r_0$即可. 
 \end{proof}
@@ -583,7 +583,7 @@ $$(x_1 < x_2) \Rightarrow (a^{x_1} < a^{x_2}), \qquad a^{x_1+x_2} = a^{x_1} \cdo
 	b) 待定$\varepsilon >0$, 则存在$\delta$使得对所有$|x_1-r_1|<\delta ,|x_2-r_2|<\delta$都有$|a^{r_1}-a^{x_1}|<\varepsilon ,|a^{r_2}-a^{x_2}|<\varepsilon$即$a^{r_1}-\varepsilon < a^{x_1} < a^{r_1} + \varepsilon , a^{r_2}-\varepsilon < a^{x_2} < a^{r_2} + \varepsilon$. 直接相乘可得$$a^{x_1} \cdot a^{x_2} > a^{r_1+r_2}+\varepsilon ^2 - \varepsilon (a^{r_1}+a^{r_2}) > a^{r_1+r_2}+\varepsilon ^2 - \varepsilon (a^{x_1+\delta}+a^{x_2+\delta}),$$
 		$$a^{x_1} \cdot a^{x_2} < a^{r_1+r_2}+\varepsilon ^2 + \varepsilon (a^{r_1}+a^{r_2}) < a^{r_1+r_2}+\varepsilon ^2 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta}).$$
 	待定$\varepsilon _0$, 存在$\delta _0$使得对任意$|x_1+x_2-r_1-r_2|<\delta _0$都有$|a^{r_1+r_2} - a^{x_1+x_2}|<\varepsilon _0$即$$-a^{r_1+r_2} + \varepsilon _0 < -a^{x_1+x_2} < -a^{r_1+r_2} - \varepsilon _0.$$
-	两式相加, 可得$\varepsilon ^2+\varepsilon _0 - \varepsilon (a^{x_1+\delta}+a^{x_2+\delta}) < a^{x_1} \cdot a^{x_2} - a^{x_1+x_2} < \varepsilon ^2 -\varepsilon _0 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta})$. 取$\varepsilon _0 > -\varepsilon ^2 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta})$则$0 < a^{x_1} \cdot a^{x_2} - a^{x_1+x_2} < 2\varepsilon ^2$. 由$\varepsilon$选取的任意性及实数开方运算的存在性可知$a^{x_1} \cdot a^{x_2} = a^{x_1+x_2}$. 
+	两式相加, 可得$\varepsilon ^2+\varepsilon _0 - \varepsilon (a^{x_1+\delta}+a^{x_2+\delta}) < a^{x_1} \cdot a^{x_2} - a^{x_1+x_2} < \varepsilon ^2 -\varepsilon _0 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta})$. 取$\varepsilon _0 > -\varepsilon ^2 + \varepsilon (a^{x_1+\delta}+a^{x_2+\delta})$则$|a^{x_1} \cdot a^{x_2} - a^{x_1+x_2} |< 2\varepsilon ^2$. 由$\varepsilon$选取的任意性可知$a^{x_1} \cdot a^{x_2} = a^{x_1+x_2}$. 
 \end{proof}
 
 A6) $a^x$在$\R$上连续, 即对于给定的$x_0 \in \R$, 对任意的$x \in \R$有$\lim_{x \to x_0} a^x = a^{x_0}$. 证明同A3) .
@@ -660,19 +660,186 @@ C) \textit{幂函数}(power function) $f: \R _+ \to \R ,x \mapsto x^{\alpha}$. �
 
 \subsection{函数极限的存在性}
 
-\begin{theorem}{单调函数的极限}
-	设函数$f:X \to \R$, $\mathcal{B}$是$X$上的基. 若$f$在某个$B \in \mathcal{B}$上单调递增且有上界, 则$\lim_{\mathcal{B}}$存在且为$f(B)$的上确界. 
-\end{theorem}
-
 称$$\omega (f;E):=\sup_{x_1,x_2 \in E} |f(x_1)-f(x_2)|$$为$f:X \to \R$在$E \subseteq X$上的\textit{振幅}(oscillation). 例如, $\omega (x^2;(-1,2))=4$. 
 
 \begin{theorem}{函数极限的Cauchy准则}
 	设函数$f:X \to \R$, $\mathcal{B}$是$X$上的基. $f$在$\mathcal{B}$上有极限当且仅当对任意$\varepsilon >0$存在$B \in \mathcal{B}$使得$\omega (f;B) < \varepsilon$. 
 \end{theorem}
+\begin{remark}
+	等价的描述: 对任意的$\varepsilon > 0$, 存在$B \in \mathcal{B}$使得任意的$x_1,x_2 \in B$都有$|f(x_1)-f(x_2)|<\varepsilon$. 
+\end{remark}
+\begin{proof}
+	必要性显然. 充分性: 
+	
+	\underline{\textbf{证法一}}~~依次取$\{ B_n \} \subseteq \mathcal{B}$使得$\omega (f;B_n)<1/n$, 在$B_n$中任取元素$x_n$. 取$x \in B_m \cap B_n$, 那么对任意$m,n$都有$$|f(x_n)-f(x_m)| \leq |f(x_n)-f(x)| + |f(x)-f(x_m)| < \frac{1}{n} + \frac{1}{m}. $$
+	容易见得$\{ f(x_n) \}$是Cauchy列. 设其极限为$A$, 令$m\to \infty$可得$|f(x_n)-A| \leq 1/n$. 这就说明$f$在$\mathcal{B}$上有极限$A$. 
+	
+	\underline{\textbf{证法二}}~~设$i_B = \inf_{x \in B}f(x), s_B = \sup_{x \in B}f(x)$. 同上选取$\{ B_n \}$, 那么$[i_{B_1},s_{B_1}] \supseteq \cdots \supseteq [i_{B_n},s_{B_n}] \supseteq \cdots$构成一个闭区间套且区间长度$\to 0$, 则存在唯一的元素$A \in [i_{B_n},s_{B_n}], n\in \mathbb{N}^*$. 对于任意的$\varepsilon >0$, 可以选择$n$使得$|f(x)-A|<\varepsilon$, 其中$x \in B_n$. 
+\end{proof}
+
+\begin{theorem}{复合函数的极限}
+	设集合$X,Y$, $\mathcal{B}_X, \mathcal{B}_Y$分别是在$X,Y$上的基. 映射$f:X \to Y, g:Y \to \R$. 若满足
+	\begin{equation}
+		\forall B_Y \in \mathcal{B}_Y, \exists B_X \in \mathcal{B}_X (f(B_X) \subseteq B_Y),\label{fuhehjuudejixm}
+	\end{equation}
+	且$g$在$\mathcal{B}_Y$上存在极限, 则$gf:X \to \R$在$\mathcal{B}_X$上存在极限$\lim_{\mathcal{B}_Y} g(y)$. 
+\end{theorem}
+\begin{proof}
+	设$\lim_{\mathcal{B}_Y} g(y)=A$. 任取$A$的邻域$N_{\varepsilon} (A)$, 存在$B_Y \in \mathcal{B}_Y$使得$g(B_Y) \subseteq N_{\varepsilon} (A)$. 对于这样的$B_Y$, 再取$B_X \in \mathcal{B}_X$使得$f(B_X) \subseteq B_Y$. 进而$gf(B_X) \subseteq g(B_Y) \subseteq N_{\varepsilon} (A)$. 
+\end{proof}
+
+\begin{example}
+	判断函数极限是否存在. 若存在, 则求之. $$1)~\lim_{x\to 0} \frac{\sin 7x}{7x}, \qquad 2)~\lim_{x \to 0} |\sgn (x\sin \frac{1}{x})|.$$
+\end{example}
+\begin{solution}
+	1) 记$g(y)=\frac{\sin y}{y}, f(x)=7x$. 熟知$g(y) \to 1, y \to 0$. 另外, 任取$\mathring{N}_{\varepsilon}(0)$都, 只要取$\delta = \frac{\varepsilon}{7}$则有$f(\mathring{N}_{\delta}(0)) \subseteq \mathring{N}_{\varepsilon}(0)$. 从而$\lim_{x\to 0} \frac{\sin 7x}{7x} = \lim_{y\to 0} \frac{\sin y}{y} = 1$. 
+	
+	2) 记$g(y) = |\sgn y|, f(x) = x\sin \frac{1}{x}$. 注意到$g(y) \to 1, y \to 0$和$f(x) \to 0, x \to 0$. 但是$gf(x) \nrightarrow 1, x \to 0$, 因为在任意$N_{\delta} (0)$上, 都存在$x$使得$f(x)=0$, 进而$gf(x)=0$. 
+\end{solution}
+\begin{remark}
+	实际上, 2)并不与复合函数极限的定理冲突. 问题的关键在于, 我们需要对任意的$\color{red} \mathring{N}_{\varepsilon} (0)$, 都存在$\mathring{N}_{\delta} (0)$使得$f(\mathring{N}_{\delta} (0)) \subseteq \mathring{N}_{\varepsilon} (0)$, 但是存在$x$使得$f(x)=0$. 
+\end{remark}
+
+每次都手动判断式\ref{fuhehjuudejixm}是否成立比较麻烦, 而且我们注意到其形式(以$\mathcal{B}_Y = (y \to y_0)$为例)和$\lim_{\mathcal{B}_X} f(x) = y_0$比较接近, 自然猜测能否加上一个条件使式\ref{fuhehjuudejixm}成立. 
+
+以一般的基$x\to x_0$作为示范. 设$\lim_{x \to x_0} f(x) = y_0, \lim_{y \to y_0} g(y) = A$, 我们希望有$\lim_{x \to x_0} (gf)(x) = A$. 将这三个式子写作定义的形式: 
+
+$$\forall \delta >0, \exists \sigma >0 \ssb{f(\mathring{N}_{\sigma} (x_0)) \subseteq N_{\delta} (y_0)},\qquad \forall \varepsilon >0, \exists \delta >0 \ssb{g(\mathring{N}_{\delta} (y_0)) \subseteq N_{\varepsilon} (A)},$$
+$$\forall \varepsilon >0, \exists \sigma >0 \ssb{(gf)(\mathring{N}_{\sigma} (x_0)) \subseteq N_{\varepsilon} (A)}.$$ 
+我们注意到, 若第一个式子中的$N_{\delta} (y_0)$能够变为空心的, 则由前两个式子立得第三个. 一种可行的\underline{充分条件}是: 在$x_0$的一个空心邻域$\mathring{N}_{r}(x_0)$中$f(x) \neq y_0$. 从而, 通过取$\sigma ' =\min \{\sigma , r\}$可以满足条件. 
+
+\begin{example}
+	证明: $$\lim_{x\to -\infty} \ssb{1+\frac{1}{x}}^x = e.$$
+\end{example}
+\begin{proof}
+	我们已经证明过, $\lim_{x\to +\infty} \ssb{1+\frac{1}{x}}^x = e$. 那么$$\lim_{x\to -\infty} \ssb{1+\frac{1}{x}}^x = \lim_{t\to +\infty} \ssb{1-\frac{1}{t}}^{-t} = \lim_{t\to +\infty} \ssb{1+\frac{1}{t-1}}^{t} = \lim_{t\to +\infty} \ssb{1+\frac{1}{t-1}}^{t-1} = e. $$
+\end{proof}
+
+\begin{theorem}{单调函数的极限}
+	设单调不减函数$f:E \to \R$. 记$\R \cup \{+\infty \} \ni s = \sup E$, 那么$f$在$x \to s^-$时存在极限(如果右侧式子是实数)$$\lim_{x \to s^-} f(x) = \sup_{x \in E \cap (-\infty ,s)} f(x) .$$
+\end{theorem}
+\begin{proof}
+	任取数列$\{ x_n \}$使得$x_n \to s$. 记$y_0 = \sup_{x \in E \cap (-\infty ,s)} f(x)$. 由上确界的定义, 任意的$f(x_n) \leq y_0$, 且对任意的$\varepsilon >0$都存在$x_0 < s$使得$0 \leq y_0-f(x_0) <\varepsilon$. 从而我们能找到$N$使得任意$n>N$都有$x_n>x_0$, 进而$f(x_n) \geq f(x_0) > y_0-\varepsilon$, 这就说明$f(x_n) \to y_0$, 进而说明原式成立. 
+\end{proof}
+
+\subsection{函数渐进行为的比较}
+
+我们说$e^x$在足够大时比$x^2$增长速度快(实际上它比任意的多项式函数都快), 主要是认为$\lim_{x\to +\infty} \frac{e^x}{x^2} = +\infty$. 这告诉我们可以通过无穷小(大)的方式比较两个函数的增长速度. 一般地, 我们有: 
+
+\begin{definition}{小$o$记号}
+	设函数$f,g$满足$f(x) = \alpha (x) \cdot g(x)$在基$\mathcal{B}$上最终成立, 其中$\alpha (x)$是在$\mathcal{B}$上的无穷小函数(即其极限值为$0$), 那么称$f$是\textit{基$\mathcal{B}$上相对于$g$的无穷小}, 记作$f=o(g)$. 特别地, 上述$\alpha = o(1)$. 
+\end{definition}
+
+\begin{example}
+	证明: $$1) \lim_{x \to +\infty} \frac{x^{\alpha}}{a^x}=0, \forall \alpha >0, a>1; \qquad 2) \lim_{x \to +\infty} \frac{\log_a x}{x^{\alpha}} = 0, \forall a>0, \alpha >0. $$
+\end{example}
+\begin{proof}
+	只证明1), 2)是其显然推论. 不妨考虑$\alpha$为自然数, 则$$\lim_{x \to +\infty} \frac{x^{\alpha}}{a^x} =  \ssb{\lim_{x \to +\infty} \frac{x}{(\sqrt[\alpha]{a})^x} }^{\alpha}. $$
+	而对于$q>1, \lim_{n\to \infty} \frac{n}{q^n} = 0$(例3.2), 通过用$$\frac{1}{q} \cdot\frac{\qz{x}}{q^{\qz{x}}} < \frac{x}{q^x} < q \cdot \frac{\qz{x}+1}{q^{\qz{x}+1}}$$控制立得原式成立. 
+\end{proof}
+
+类似地, 我们有更精确的: 
+
+\begin{definition}{}
+	设函数$f,g$满足$f(x) = \beta (x) \cdot g(x)$在基$\mathcal{B}$上最终成立, 其中$\beta (x)$在$\mathcal{B}$上极限值为$1$, 那么称$f$\textit{在基$\mathcal{B}$上等价于$g$}, 记作$f \sim g$. 
+\end{definition}
+\begin{remark}
+	(1) 容易验证, 这确实是一种等价关系;
+	
+	(2) $f \sim g$等价于$f(x) = g(x) + o(g(x))$. 
+\end{remark}
+
+这种关于渐进行为的估计可以直接带入计算. 
+
+\begin{example}
+	(1) $\frac{x^2}{x^2+x} \to 1, x \to \infty$, 从而$x^2+x \sim x^2, x \to \infty$, 这意味着我们可以忽略相对无穷小. 
+	
+	(2) $\lim_{x \to 0} x\sin x = \lim_{x \to 0} x^2 \frac{\sin x}{x} = \lim_{x \to 0} x^2$. 这意味着可以在乘法中以等价函数替换. 
+\end{example}
+
+\begin{proposition}{常见的等价函数}
+	在$x \to 0$时, 
+	
+	\begin{center}
+		$\sin x \sim x \sim \tan x, \quad 1-\cos x \sim \dfrac{1}{2}x^2,\quad e^x-1 \sim x,\quad \ln (1+x) \sim x,\quad (1+x)^{\alpha}-1 \sim \alpha x $.
+	\end{center}
+\end{proposition}
+
+\begin{definition}{大$O$记号}
+	设函数$f,g$满足$f(x) = \gamma (x) \cdot g(x)$在基$\mathcal{B}$上最终成立, 其中$\gamma (x)$是在$\mathcal{B}$上的最终有界函数, 那么记$f=O(g)$. 特别地, 若$f=O(g)$且$g=O(f)$, 则称$f,g$\textit{在基$\mathcal{B}$上同阶}, 记作$f \asymp g$. 
+\end{definition}
+\begin{remark}
+	(1) 该记号常用于表示算法复杂度; 
+	
+	(2) $f \asymp g$等价于存在$c_1,c_2 >0$使得$c_1|g(x)| \leq |f(x)| \leq c_2|g(x)|$在某个$B \in \mathcal{B}$中成立. 
+\end{remark}
+
+\begin{proposition}{}
+	在给定的基上, 我们有
+	
+	\begin{center}
+		1) $o(f)+o(f)=o(f)$; \quad 2) $o(f)+O(f)=O(f)$; \quad 3) $O(f)+O(f)=O(f)$; 
+	\end{center}
+	
+	\begin{center}
+		4) $f \cdot o(g) = o(f \cdot g), f \cdot O(g) = O(f \cdot g)$.
+	\end{center}
+\end{proposition}
+
+\begin{example}
+	计算$$\lim_{x \to +\infty} (\sqrt{x^2+x}-x).$$
+\end{example}
+\begin{solution}
+	$$\lim_{x \to +\infty} (\sqrt{x^2+x}-x) = \lim_{x \to +\infty} x(\sqrt{1+\frac{1}{x}}-1) = \lim_{x \to +\infty} x(\frac{1}{2} \cdot \frac{1}{x} + o(\frac{1}{x})) = \lim_{x \to +\infty} (\frac{1}{2} +o(1)) = \frac{1}{2}. $$
+\end{solution}
+
+由Taylor展开式, 我们可以得到一些估计, 如
+$$e^x = 1 + \frac{1}{1!}x + \cdots + \frac{1}{n!} x^n + O(x^{n+1}), x\to 0,$$
+$$\cos x = 1-\frac{1}{2!} x^2 + \cdots + \frac{(-1)^k}{2k}x^{2k} + O(x^{2k+2}),x\to 0,$$
+$$\ln (1+x) = x - \frac{1}{2}x^2 + \cdots + \frac{(-1)^{n-1}}{n} x^n + O(x^{n+1}), x \to 0, $$
+$$(1+x)^{\alpha} = 1 + \frac{\alpha}{1!}x + \cdots \frac{\alpha \cdots (\alpha -n+1)}{n!} x^n + O(x^{n+1}), x \to 0.$$
+
+另外, 注意到$O(x^{m+1})=x^{m+1} \cdot O(1) = x^m \cdot o(1) = o(x^m), x\to 0$. 这样上面的估计式就变成了带Peano余项的Taylor展开式. 
+
+\begin{example}
+	计算$$\lim_{x \to \infty} x^2 \ssb{  \sqrt[7]{\frac{x^3+x}{x^3+1}} - \cos \frac{1}{x}  }. $$
+\end{example}
+\begin{solution}
+	当$x \to \infty$, 注意到
+	$$\cos \frac{1}{x} = 1- \frac{1}{2x^2} + O\ssb{\frac{1}{x^4}},$$
+	\begin{align*}
+		\frac{x^3+x}{x^3+1} &= \ssb{1+\frac{1}{x^2}} \ssb{1+\frac{1}{x^3}}^{-1} = \ssb{1+\frac{1}{x^2}} \ssb{1-\frac{1}{x^3}+O\ssb{\frac{1}{x^6}}} \\
+		&= 1 + \frac{x^3-x^2-1}{x^5} + O\ssb{\frac{x^2+1}{x^8}} = 1 + \frac{1}{x^2} + O\ssb{\frac{1}{x^3}}. 
+	\end{align*}
+	从而
+	$$\sqrt[7]{\frac{x^3+x}{x^3+1}} = \ssb{1 + \frac{1}{x^2} + O\ssb{\frac{1}{x^3}}}^{1/7} = 1+ \frac{1}{7x^2} + O\ssb{\frac{1}{x^{3}}}.$$
+	那么
+	$$\text{原式}~ = \lim_{x \to \infty} x^2 \ssb{  \frac{9}{14} \cdot \frac{1}{x^2} + O\ssb{\frac{1}{x^{3}}} } = \frac{9}{14}. $$
+\end{solution}
 
 
 
 
-\begin{exercise}
-	已知单调函数$f:\R \to \R$满足$f|_{\mathbb{Q}}(x)=x$,求证：$f(x)=x$.
-\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

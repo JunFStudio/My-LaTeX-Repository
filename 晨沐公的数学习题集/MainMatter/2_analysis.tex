@@ -196,7 +196,7 @@ d) 可以按照如下方式递归地构造$R_k$的分子$P_k$与分母$Q_k$. (�
 $$P_1=q_1, P_2=q_1q_2+1, P_k=P_{k-1}q_k+P_{k-2}~(k \geq 3); $$
 $$Q_1=1, Q_2=q_2, Q_k=Q_{k-1}q_k+Q_{k-2}~(k \geq 3).$$
 
-e) $\frac{1+\sqrt{5}}{2}$的渐进分数$R_k=\frac{P_k}{Q_k}$满足$$\big| \frac{1+\sqrt{5}}{2} - \frac{P_k}{Q-k} \big|>\frac{1}{\sqrt{5} Q_k^2}, k \geq 1.$$
+e) $\frac{1+\sqrt{5}}{2}$的渐进分数$R_k=\frac{P_k}{Q_k}$满足$$\big| \frac{1+\sqrt{5}}{2} - \frac{P_k}{Q_k} \big|>\frac{1}{\sqrt{5} Q_k^2}, k \geq 1.$$
 
 \subsection*{C: 利用级数定义指数函数$e^x$} %yp p61
 
@@ -314,19 +314,50 @@ a) $\liminf_{k\to \infty} x_k:=\lim_{n\to \infty} \inf_{k \geq n} x_k$;\qquad b)
 c) $\liminf_{k\to \infty} x_k:= \sup \{ a\in \R \cup \{ -\infty \}: \forall \varepsilon >0, \exists N \in \mathbb{N}^{*} (\forall n>N, x_n>a-\varepsilon ) \}$
 
 \begin{solution}
-	a) $\Rightarrow$ b): 若数列有界, 定义$i_n=\inf_{k\geq n}x_k$, 记$i=\lim_{n\to \infty} i_{n}$, 容易说明其是单调不减的. 我们可以归纳地得到所有$k_n$满足$k_n<k_{n+1}$且$i_{k_n} \leq x_{k_n} < i_{k_n}+\frac{1}{n}$. 由于$\lim_{n\to \infty} i_{k_n} = \lim_{n\to \infty} (i_{k_n}+\frac{1}{n} ) = i$, 由夹逼定理得$\lim_{n\to \infty} x_{k_n}=i$, 即下极限是某个部分极限. 声明该部分极限为最小的: 对于任意$\varepsilon >0$, 足够大的$n$满足$i-\varepsilon < i_n \leq x_k$对所有$k \geq n$成立. 由$\varepsilon$的任意性可知所有的部分极限至少为$i$. 
+	a) $\Rightarrow$ b): 若数列有下界, 定义$i_n=\inf_{k\geq n}x_k$, 记$i=\lim_{n\to \infty} i_{n}$, 容易说明其是单调不减的. 我们可以归纳地得到所有$k_n$满足$k_n<k_{n+1}$且$i_{k_n} \leq x_{k_n} < i_{k_n}+\frac{1}{n}$. 由于$\lim_{n\to \infty} i_{k_n} = \lim_{n\to \infty} (i_{k_n}+\frac{1}{n} ) = i$, 由夹逼定理得$\lim_{n\to \infty} x_{k_n}=i$, 即下极限是某个部分极限. 声明该部分极限为最小的: 对于任意$\varepsilon >0$, 足够大的$n$满足$i-\varepsilon < i_n \leq x_k$对所有$k \geq n$成立. 由$\varepsilon$的任意性可知所有的部分极限至少为$i$. 
 	
-	若数列无(下)界, 即存在一个极限为$-\infty$的子列, 容易得到$i=-\infty$, 我们约定其为部分极限的最小元素. 
+	若数列无下界, 即存在一个极限为$-\infty$的子列, 容易得到$i=-\infty$, 我们约定其为部分极限的最小元素. 
 	
 	b) $\Rightarrow$ c): 记$i=\min  \{\{ x_n \}\text{的聚点} \}$, $E = \{ a\in \R \cup \{ -\infty \}: \forall \varepsilon >0, \exists N \in \mathbb{N}^{*} (\forall n>N, x_n>a-\varepsilon ) \}$. 
 	
-	若数列有界. 先证明$i \leq \sup E$: 若不然, 即存在$\varepsilon >0$使得存在无穷多个$x_n$使得$x_n+\varepsilon >i$, 进而由Bolzano-Weierstrass定理, $(-\infty ,i-\varepsilon)$中存在聚点, 这与$i$的定义矛盾. 
+	若数列有下界. 先证明$i \leq \sup E$: 若不然, 即存在$\varepsilon >0$使得存在无穷多个$x_n$使得$x_n+\varepsilon >i$, 进而由Bolzano-Weierstrass定理, $(-\infty ,i-\varepsilon)$中存在聚点, 这与$i$的定义矛盾. 
 	
 	再证明$i \geq \sup E$: 若不然, 即存在$a \in E$使得$a>i$, 进而存在$\varepsilon >0$使得$a-\varepsilon >i$. 针对该$\varepsilon$, 存在$N$使得任意$n>N$都有$x_n>a-\varepsilon$, 说明$(-\infty ,a-\varepsilon)$中只有有限项, 故不存在聚点, 矛盾. 
 	
-	若数列无(下)界, 显然$i=-\infty$, 同时$E=\{ -\infty \}$. 
+	若数列无下界, 显然$i=-\infty$, 同时$E=\{ -\infty \}$. 
 	
-	c) $\Rightarrow$ a): 
+	c) $\Rightarrow$ a): 若数列有下界. 先证明$i \leq \lim_{n\to \infty} i_n$: 由定义, 任取$\varepsilon >0$, 存在$N$使得当$n>N$时$x_n > i-\varepsilon$, 进而$i_n > i-\varepsilon$, 取极限可知$\lim_{n\to \infty} i_n \geq i-\varepsilon$. 从而$i \leq \lim_{n\to \infty} i_n$. 
+	
+	再证明$i \geq \lim_{n\to \infty} i_n$. 若否, 存在$N$使得当$n>N$时$i<i_n$, 则此时$E \cap \{ x_n \}_{n>N} = \varnothing$. 即存在$\varepsilon >0$使得对任意$k>N$, $x_k > x_n-\varepsilon$, 矛盾. 
+\end{solution}
+
+F2) 设数列$\{ a_n \}, \{ b_n \}$, 则其下极限是超可加的, 上极限是次可加的, 即
+$$\underline{\liminf_{n\to \infty} a_n + \liminf_{n\to \infty} b_n \leq \liminf_{n\to \infty} (a_n+b_n) }\leq \liminf_{n\to \infty} a_n + \limsup_{n\to \infty} b_n \leq \underline{\limsup_{n\to \infty} (a_n+b_n) \leq \limsup_{n\to \infty} a_n + \limsup_{n\to \infty} b_n}.$$
+
+特别地, $$\liminf_{n\to \infty} (a_n+b_n)  = \lim_{n\to \infty} a_n + \liminf_{n\to \infty} b_n , \qquad \limsup_{n\to \infty} (a_n+b_n)  = \lim_{n\to \infty} a_n + \limsup_{n\to \infty} b_n. $$
+
+\begin{solution}
+	以左侧为例. 对于$n$, 任取$l >n$, 则$\inf_{k \geq n}a_k \leq a_l, \inf_{k \geq n}b_k \leq a_l$, 从而$\inf_{k \geq n}a_k + \inf_{k \geq n}b_k \leq \inf_{k \geq n}(a_k+b_k)$. 两侧对$n$取极限即得左边不等式. 
+	
+	进一步地, $\inf_{k \geq n}a_k + \sup_{k \geq n}b_k \geq \inf_{k \geq n}(a_k+b_k) + \inf_{k \geq n}(-b_k) + \sup_{k \geq n}b_k = \inf_{k \geq n}(a_k+b_k)$. 同上可得中间不等式. 
+\end{solution}
+
+F3-1) 设非负数列$\{ a_n \}, \{ b_n \}$, 类似于F2)有如下结论: 
+$$\underline{\ssb{\liminf_{n\to \infty} a_n}\ssb{ \liminf_{n\to \infty} b_n} \leq \liminf_{n\to \infty} (a_nb_n) }\leq \ssb{\liminf_{n\to \infty} a_n}\ssb{ \limsup_{n\to \infty} b_n} \leq \underline{\limsup_{n\to \infty} (a_nb_n) \leq \ssb{\limsup_{n\to \infty} a_n}\ssb{ \limsup_{n\to \infty} b_n}}.$$
+
+\begin{solution}
+	以左侧为例. 同F2)可证$\ssb{\inf_{k\geq n}a_n} \ssb{\inf_{k\geq n}b_n} \leq \inf_{k\geq n}(a_nb_n)$. 任取$\varepsilon >0$, 存在$l \geq n$使得$a_l < \varepsilon + \inf_{k\geq n} a_k$, 又$b_l \leq \sup_{k\geq n}b_k$, 故$$\ssb{\varepsilon + \inf_{k\geq n} a_k} \ssb{\sup_{k\geq n}b_k} >a_lb_l \geq \liminf_{n\to \infty} (a_nb_n). $$
+	令$\varepsilon \to 0$即得所需不等式. 最后令$n\to \infty$可证原命题成立. 
+\end{solution}
+
+F3-2) 特别地, 对非负数列$\{ a_n \}$和任意数列$\{ b_n \}$都有$$\liminf_{n\to \infty} (a_nb_n) = \ssb{\lim_{n\to \infty} a_n} \ssb{\liminf_{n\to \infty} b_n}, \qquad \limsup_{n\to \infty} (a_nb_n) = \ssb{\lim_{n\to \infty} a_n} \ssb{\limsup_{n\to \infty} b_n}.$$
+
+\begin{solution}
+	以上极限为例. 记$\limsup_{n\to \infty} b_n=s$, $\lim_{n\to \infty} a_n =a$. 
+	
+	若$s>0$, 令$b_n^+=\frac{|b_n|+b_n}{2} \geq 0$, 且$\limsup_{n\to \infty} b_n^+ = s$. 易见$as = \limsup_{n\to \infty}(a_nb_n^+) = \limsup_{n\to \infty}(a_nb_n)$. 
+	
+	若$s \leq 0$, 存在$\varepsilon >0$使得$s + \varepsilon >0$, 令$b_n' = b_n+\varepsilon$. 应用F3-1)和F2)可以得到$$\limsup_{n\to \infty}(a_nb_n+\varepsilon a_n) = a\limsup_{n\to \infty} (b_n+\varepsilon) \quad \Rightarrow \quad  \limsup_{n\to \infty} (a_nb_n) + \varepsilon a = \limsup_{n\to \infty} b_n + \varepsilon a. $$
 \end{solution}
 
 

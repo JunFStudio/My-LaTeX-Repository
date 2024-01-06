@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  1 JAN 2024 10:00
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  6 JAN 2024 23:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1231,11 +1231,16 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+
+Overfull \hbox (9.71553pt too wide) detected at line 335
+[] \OMS/cmsy/m/n/10.53937 ^^T [] \OML/cmm/m/it/10.53937 a[] \OT1/cmr/m/n/10.53937 + [] \OML/cmm/m/it/10.53937 b[] \OMS/cmsy/m/n/10.53937 ^^T []\OML/cmm/m/it/10.53937 :
+ []
+
 [11]
-./MainMatter/2_analysis.tex:361: Undefined control sequence.
+./MainMatter/2_analysis.tex:339: Undefined control sequence.
 \solution ...bf {{\text {解.}}} \itshape \citshape 
                                                   
-l.361 \begin{solution}
+l.339 \begin{solution}
                       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1243,10 +1248,26 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/2_analysis.tex:377: Undefined control sequence.
+
+Overfull \hbox (18.49863pt too wide) detected at line 346
+[] \OMS/cmsy/m/n/10.53937 ^^T [] [] \OML/cmm/m/it/10.53937 a[][][] [] b[][] \OMS/cmsy/m/n/10.53937 ^^T []\OML/cmm/m/it/10.53937 :
+ []
+
+./MainMatter/2_analysis.tex:348: Undefined control sequence.
 \solution ...bf {{\text {解.}}} \itshape \citshape 
                                                   
-l.377 \begin{solution}
+l.348 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:355: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.355 \begin{solution}
                       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1255,10 +1276,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [12]
-./MainMatter/2_analysis.tex:387: Undefined control sequence.
+./MainMatter/2_analysis.tex:392: Undefined control sequence.
 \solution ...bf {{\text {解.}}} \itshape \citshape 
                                                   
-l.387 \begin{solution}
+l.392 \begin{solution}
                       
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1266,30 +1287,136 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [13]
+[13]
+./MainMatter/2_analysis.tex:408: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.408 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2_analysis.tex:418: Undefined control sequence.
+\solution ...bf {{\text {解.}}} \itshape \citshape 
+                                                  
+l.418 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [14]
 \openout2 = `./MainMatter/3_elementary_number_theory.aux'.
 
  (./MainMatter/3_elementary_number_theory.tex
 Chapter 3.
-) [14
+./MainMatter/3_elementary_number_theory.tex:14: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.14 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[15
 
 
 
 
-] (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/1_linear_algebra.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/2_analysis.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/3_elementary_number_theory.aux))
+]
+./MainMatter/3_elementary_number_theory.tex:27: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.27 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/3_elementary_number_theory.tex:35: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.35 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/3_elementary_number_theory.tex:45: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.45 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[16]
+File: attachment/iShot_2024-01-06_21.42.59.png Graphic file (type bmp)
+<attachment/iShot_2024-01-06_21.42.59.png>
+
+./MainMatter/3_elementary_number_theory.tex:62: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.62 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+File: attachment/iShot_2024-01-06_21.53.15.png Graphic file (type bmp)
+<attachment/iShot_2024-01-06_21.53.15.png>
+[17]
+./MainMatter/3_elementary_number_theory.tex:89: Extra }, or forgotten $.
+l.89 ...rac{P_k}{Q_k} = \frac{(-1)^k}{Q_{k+1}Q_k}}
+                                                  . $$
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./MainMatter/3_elementary_number_theory.tex:90: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.90 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[18]) [19] (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/1_linear_algebra.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/2_analysis.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/./MainMatter/3_elementary_number_theory.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: E1C94A3C17D3EBDF6EB1FC3F5964669E;706.
+(rerunfilecheck)             Checksum: CE7E57C8AB6D28C116F63D2314231934;1267.
  ) 
 Here is how much of TeX's memory you used:
- 19918 strings out of 476683
- 433007 string characters out of 5804047
- 1869018 words of memory out of 5000000
- 39693 multiletter control sequences out of 15000+600000
+ 19939 strings out of 476683
+ 433737 string characters out of 5804047
+ 1870018 words of memory out of 5000000
+ 39709 multiletter control sequences out of 15000+600000
  522391 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,13n,111p,516b,425s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,13n,111p,538b,495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.pdf (19 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学习题集/.texpadtmp/book.pdf (24 pages).
