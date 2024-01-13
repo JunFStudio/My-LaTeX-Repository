@@ -81,3 +81,10 @@
 \contentsline {subsection}{\numberline {3.4.3}一般化的极限定义}{103}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}函数极限的存在性}{105}{subsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.4.5}函数渐进行为的比较}{106}{subsection.3.4.5}%
+\contentsline {chapter}{\numberline {4}连续函数}{111}{chapter.4}%
+\contentsline {section}{\numberline {4.1}函数的逐点连续和间断}{111}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}基本概念}{111}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}函数的间断点}{113}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}闭区间上连续函数的性质}{114}{section.4.2}%
+\contentsline {section}{\numberline {4.3}铺垫: 度量空间, 拓扑空间}{118}{section.4.3}%
+\contentsline {section}{\numberline {4.4}连续函数的一般化}{118}{section.4.4}%

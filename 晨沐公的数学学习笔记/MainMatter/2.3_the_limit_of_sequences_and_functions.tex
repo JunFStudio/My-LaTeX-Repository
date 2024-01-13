@@ -715,7 +715,7 @@ $$\forall \varepsilon >0, \exists \sigma >0 \ssb{(gf)(\mathring{N}_{\sigma} (x_0
 	我们已经证明过, $\lim_{x\to +\infty} \ssb{1+\frac{1}{x}}^x = e$. 那么$$\lim_{x\to -\infty} \ssb{1+\frac{1}{x}}^x = \lim_{t\to +\infty} \ssb{1-\frac{1}{t}}^{-t} = \lim_{t\to +\infty} \ssb{1+\frac{1}{t-1}}^{t} = \lim_{t\to +\infty} \ssb{1+\frac{1}{t-1}}^{t-1} = e. $$
 \end{proof}
 
-\begin{theorem}{单调函数的极限}
+\begin{theorem}{单调函数的极限}{\label{thm:djdnhjuudejixm}}
 	设单调不减函数$f:E \to \R$. 记$\R \cup \{+\infty \} \ni s = \sup E$, 那么$f$在$x \to s^-$时存在极限(如果右侧式子是实数)$$\lim_{x \to s^-} f(x) = \sup_{x \in E \cap (-\infty ,s)} f(x) .$$
 \end{theorem}
 \begin{proof}
@@ -817,14 +817,58 @@ $$(1+x)^{\alpha} = 1 + \frac{\alpha}{1!}x + \cdots \frac{\alpha \cdots (\alpha -
 	$$\text{原式}~ = \lim_{x \to \infty} x^2 \ssb{  \frac{9}{14} \cdot \frac{1}{x^2} + O\ssb{\frac{1}{x^{3}}} } = \frac{9}{14}. $$
 \end{solution}
 
+\section*{一些习题 ~~\small 对应原书3.2习题}
+
+\subsection*{A: Cauchy函数方程}
+
+A1) 证明: 存在唯一的函数$f: \R \to \R $满足: $$f(1)=a , \qquad \forall x,y \in \R , f(x)+ f(y) = f(x+y),\qquad \forall x_0 \in \R, \lim_{x \to x_0} f(x)=f(x_0).$$
+
+A2) 证明: 存在唯一的函数$f: \R \to \R $满足: $$f(1)=a ~(a>0,a \neq 1), \qquad \forall x,y \in \R , f(x)\cdot f(y) = f(x+y),\qquad \forall x_0 \in \R, \lim_{x \to x_0} f(x)=f(x_0).$$
+
+\subsection*{B: 数项级数与渐进行为比较}
+
+B1) 设正项级数$\sum_{n=1}^{\infty} a_n, \sum_{n=1}^{\infty} a_n$, 且当$n\to \infty$时$a_n \sim b_n$, 则这两个级数敛散性相同. 以此证明, $\sum_{n=1}^{\infty} \sin (1/n^p)$在$p>1$时收敛. 
+\vspace{1em}
+
+B2-1) 若对任意$n \in \mathbb{N}^*$都有$a_n \geq a_{n+1}>0$且级数$\sum_{n=1}^{\infty} a_n$收敛, 则当$n\to \infty$时$a_n=o(1/n)$. 
+\vspace{1em}
+
+B2-2) 若$b_n=o(1/n)$, 总存在数列$a_n$使得级数$\sum_{n=1}^{\infty} a_n$收敛且当$n\to \infty$时$b_n=o(a_n)$. 
+\vspace{1em}
+
+B3-1) 若正项级数$\sum_{n=1}^{\infty} a_n$收敛, 那么级数$\sum_{n=1}^{\infty} A_n$亦收敛, 并且当$n\to \infty$时$a_n=o(A_n)$. 其中$$A_n=\sqrt{\sum_{k=n}^{\infty} a_k} - \sqrt{\sum_{k=n+1}^{\infty} a_k}.$$
+
+B3-2) 若正项级数$\sum_{n=1}^{\infty} a_n$收敛, 那么级数$\sum_{n=2}^{\infty} A_n$亦收敛, 并且当$n\to \infty$时$A_n=o(a_n)$. 其中$$A_n=\sqrt{\sum_{k=1}^{n} a_k} - \sqrt{\sum_{k=1}^{n-1} a_k}.$$
+
+B4-1) 若$\frac{b_n}{b_{n+1}}=1+\beta _n$对所有$n \in \mathbb{N}^*$成立, 且级数$\sum_{n=1}^{\infty} \beta _n$绝对收敛, 则$\lim_{n\to \infty} b_n$存在. 
+\vspace{1em}
+
+B4-2) 若$\frac{a_n}{a_{n+1}}=1+\frac{p}{n} +\alpha _n$对所有$n \in \mathbb{N}^*$成立, 且级数$\sum_{n=1}^{\infty} \alpha _n$绝对收敛, 则当$n\to \infty$时$a_n \sim c/n^p$. 
+\vspace{1em}
+
+B4-3) (Gauss判别法) 若数列$\{ a_n \}$满足$\frac{a_n}{a_{n+1}}=1+\frac{p}{n} +\alpha _n$对所有$n \in \mathbb{N}^*$成立, 且级数$\sum_{n=1}^{\infty} \alpha _n$绝对收敛, 那么$\sum_{n=1}^{\infty} a_n$在$p>1$时绝对收敛, 反之发散. 
+\vspace{1em}
+
+B5) 证明对任意正项数列$\{ a_n \}$都有最优估计$$\limsup_{n\to \infty} \left(\frac{1+a_{n+1}}{a_n} \right)^n \geq e.$$
 
 
+\subsection*{C: 无限乘积}
 
+给定(复数)数列$\{ a_n \}$, 其中$a_n \neq 0$对任意的$n$成立. 令$P_n = \prod_{k=1}^{n} a_n$, 若$\{ P_n \}$的极限存在且不为$0$, 则称无限乘积$\prod_{n \geq 1}a_n$收敛且其值为$\lim_{n \to \infty} P_n$. 
+\vspace{1em}
 
+C1) (Cauchy判别准则) $\prod_{n \geq 1}a_n$收敛当且仅当对任意的$\varepsilon >0$, 存在$N$使得任意的$n \geq N$和任意的$p \geq 0$有$$|a_n \cdot \cdots \cdot a_{n+p}-1|<\varepsilon .$$
 
+C2) 设$\{ a_n \}$是正实数序列, 则无限乘积$\prod_{n \geq 1} (1+a_n)$收敛当且仅当级数$\sum_{n\geq 1}a_n$收敛. 特别地, 对于复数列$\{ b_n \}$, 若$\sum_{n\geq 1}b_n$绝对收敛, 则$\prod_{n \geq 1} (1+|b_n|)$收敛, 进而$\prod_{n \geq 1} (1+b_n)$收敛. 
+\vspace{1em}
 
+C3) 计算: $$\prod_{n=1}^{\infty} \ssb{1+x^{2^{n-1}}},\qquad \prod_{n=1}^{\infty} \cos \frac{x}{2^n}.$$
 
+C4-1) 设$\mathcal{P}$是所有素数构成的集合. 对于$s>1$, $\zeta$-函数$$\zeta (s) = \sum_{n=1}^{\infty} \frac{1}{n^s}$$
+是良好定义的, 并且$$\zeta (s) = \prod_{p \in \mathcal{P}} \frac{1}{1-p^{-s}}. $$
 
+C4-2) 利用按$2^k$为长度分组放缩的方式, 可以得到$\zeta (s)$的下界估计: $$\zeta (s) \geq \sum_{k=1}^{\infty} \frac{1}{2^{ks}} \times 2^{k-1} = \frac{1/2}{1-\frac{1}{2^{s-1}}}.$$
+从而当$s \to 1$时$\zeta (s) \to \infty$. 借此证明: $\mathcal{P}$是无限集合. 
 
 
 
