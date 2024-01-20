@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{svg}
 \usepackage{booktabs}
+\usepackage{graphicx}
 
 
 % font; do not use in overleaf
@@ -55,7 +56,12 @@
 	\DeclareMathOperator{\rge}{range}
 	\DeclareMathOperator{\sgn}{sgn}
 	\DeclareMathOperator{\T}{T}
-
+	
+	
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
 
 % Begin the document.
 \begin{document}

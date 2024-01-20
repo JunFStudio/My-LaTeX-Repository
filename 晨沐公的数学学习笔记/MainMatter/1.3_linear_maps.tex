@@ -257,7 +257,7 @@ $$\begin{pmatrix}
 
 因而，我们有
 
-\begin{proposition}{线性映射与矩阵运算}
+\begin{proposition}{线性映射与矩阵运算}\label{pro:xmxkykueyysrjuvf}
 	(1) 设$S,T \in \lmap (V,W)$，则$\mmatrix (S+T)=\mmatrix (S) + \mmatrix (T)$; \\
 	(2) 设$\lambda \in \F ,~T \in \lmap (V,W)$，则$\mmatrix (\lambda T) = \lambda \mmatrix (T)$. 
 \end{proposition}
@@ -693,10 +693,10 @@ $$\begin{pmatrix}
 
 其实我们可以做出更为细致的分析:
 
-\begin{example} %LADR 练习3.20,21
-	(1) 设$W$是有限维的, $T \in \lmap (V,W)$. 证明$T$是单的当且仅当存在$S \in \lmap (W,V)$使得$ST$是$V$上的恒等映射. \\
-	(2) 设$V$是有限维的, $T \in \lmap (V,W)$. 证明$T$是满的当且仅当存在$S \in \lmap (W,V)$使得$TS$是$W$上的恒等映射.
-\end{example}
+\begin{proposition}{} %LADR 练习3.20,21
+	(1) 设$W$是有限维的, $T \in \lmap (V,W)$, 则$T$是单的当且仅当存在$S \in \lmap (W,V)$使得$ST=I$. \\
+	(2) 设$V$是有限维的, $T \in \lmap (V,W)$, 则$T$是满的当且仅当存在$S \in \lmap (W,V)$使得$TS=I$.
+\end{proposition}
 \begin{proof}
 	(1) "$\Rightarrow$": 假设$T$是单的. 记$S':\rge T \to V$使得$S'(Tv)=v$(由于$Tv$一定对应一个$v$, 这是良定义的). 将$S'$延伸到$S:W \to V$即可. \\
 	"$\Leftarrow$": 设$u,v$使得$Tu=Tv$, 则$ST(u)=ST(v)$, 从而$u=v$. \\
@@ -704,13 +704,20 @@ $$\begin{pmatrix}
 	"$\Leftarrow$": 对于任意$w \in W$, $TS(w)=w$, 即$T$是满的.
 \end{proof}
 
-一般来说, 单射性和满射性并不相互蕴含. 然而对于从向量空间映射到自身的线性映射, 称为\textit{算子}, 满射性和单射性是等价的. 设$V$是有限维的, $T \in \lmap (V)$, 则$T$是单的等价于$\dim \nul T = 0$, $T$是满的等价于$\dim \rge T = \dim V$, 由线性映射基本定理就可以得到结论. 
+一般来说, 单射性和满射性并不相互蕴含. 然而对于从向量空间映射到自身的线性映射, 称为\textit{算子}, 满射性和单射性是等价的(如果有限维). 设$V$是有限维的, $T \in \lmap (V)$, 则$T$是单的等价于$\dim \nul T = 0$, $T$是满的等价于$\dim \rge T = \dim V$, 由线性映射基本定理就可以得到结论. 利用这一点我们可以得到: 
+
+\begin{proposition}{}
+	若$V,W$都是有限维向量空间, $S \in \lmap (V,W), T \in \lmap (W,V)$, 那么$ST=I$等价于$TS=I$. 
+\end{proposition}
+\begin{proof}
+	只证明必要性. 由上一个命题我们知道$T$是单的, 则$T$是满的, 进而$T$可逆. 所以$ST=I$就得到$S=T^{-1}$, 进一步有$TS = TT^{-1} = I$. 
+\end{proof}
 
 \subsection{同构的向量空间}
 
 在高中数学中，“同构”这个词被大量滥用，但其也能为我们揭示同构的内涵.例如，我们说等式$$x(\ln x+1) = ye^{y-1}$$关于$x$和$y$是同构的，是因为若作换元$y=\ln t+1$，可得$x(\ln x +1) = t(\ln t +1)$.
 
-为什么$x$与$y$“同构”呢？因为$y$和$x$可以通过一个映射联系起来\footnote{实际上，这样的映射应当是双射，否则只是单侧的“同构”.然而这就是高中数学中“同构”说法的不严谨之处：最后一步不一定可以得到$x=t$.} .类似地，我们正式给出两个向量空间的同构定义：
+为什么$x$与$y$“同构”呢？因为$y$和$x$可以通过一个映射联系起来\footnote{请注意, 这是直观而不严格的说法. } .类似地，我们正式给出两个向量空间的同构定义：
 
 \begin{definition}{向量空间的同构}
 	\textit{同构}就是可逆的线性映射.若两个向量空间之间存在一个同构，则称这两个向量空间是\textit{同构的}.
@@ -724,11 +731,15 @@ $$\begin{pmatrix}
 	设$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_m$是$W$的基，则$\mmatrix$是$\lmap (V,W)$与$\F ^{m,n}$之间的一个同构.
 \end{proposition}
 \begin{proof}
-	将$\mmatrix$视作一个映射，那么由\ref{pro:xmxkykueyysrjuvf}可知它是线性的.现在只需证明它可逆. \\
-	一方面，若对于$T \in \lmap (V,W)$，$\mmatrix (T)=0$，则由定义可得$Tv_k=0,~k=1,\cdots ,n$，那么$T(c_1v_1 + \cdots + c_nv_n)=c_1Tv_1 + \cdots + c_nTv_n =0$，即$\nul \mmatrix = \{ 0 \}$，于是$\mmatrix$是单的. \\ 
+	将$\mmatrix$视作一个映射，那么由命题\ref{pro:xmxkykueyysrjuvf}可知它是线性的.现在只需证明它可逆. 
+	
+	一方面，若对于$T \in \lmap (V,W)$，$\mmatrix (T)=0$，则由定义可得$Tv_k=0,~k=1,\cdots ,n$，那么$T(c_1v_1 + \cdots + c_nv_n)=c_1Tv_1 + \cdots + c_nTv_n =0$，即$\nul \mmatrix = \{ 0 \}$，于是$\mmatrix$是单的. 
+	
 	另一方面，任取$A \in \F ^{m,n}$，构作线性映射$T:V \to W$满足$$Tv_k = \sum_{j=1}^{m} A_{j,k} w_j$$
 	则$\mmatrix (T) =A$.这表明$\mmatrix$是满射.
 \end{proof}
+
+作为一个例子, 我们注意到为证明$\dim \lmap (V,W) = \dim V \cdot \dim W$需要一些构造, 但是将其转化为矩阵空间则是显然的. 这启示我们可以从与一个向量空间同构的另一个更简单(或已知)的向量空间来考察该向量空间.
 
 注意到一个问题：类似于高中数学中“集合的对应原理”：若两个有限集合$A,B$之间存在一个双射$f$，则$|A|=|B|$.两个向量空间同构，它们的维数应当相同.而更进一步，由于“维数相同”这一概念比“集合元素个数相等”更强，上面的说法反过来也可以是对的.
 
@@ -741,10 +752,117 @@ $$\begin{pmatrix}
 	只需证明这个$T$是可逆的.实际上，若$T(c_1v_1 + \cdots + c_nv_n)=0$，由于$w_1, \cdots ,w_n$是线性无关的，必有$c_1= \cdots = c_n=0$，即$\nul T = \{ 0 \}$，即$T$是单的；另一方面，等式右侧是$w_1, \cdots ,w_n$的线性组合形式，于是$\rge T = W$，即$T$是满的.
 \end{proof}
 
-因而有$\dim \lmap (V,W)=(\dim V)(\dim W)$.这启示我们可以从与一个向量空间同构的另一个更简单(或已知)的向量空间来考察该向量空间.
+\subsection{基的变换}
 
+在开始下方的命题之前, 我们先来看一个显然而有用的等式: 设$T \in \lmap (V,W)$, $V$和$W$的一组基分别为$v_1,\cdots ,v_n, w_1,\cdots ,w_m$, 记$A = \mathcal{M} (T, (v_1,\cdots ,v_n),( w_1,\cdots ,w_m))$, 那么$$\begin{pmatrix}
+ w_1 & \cdots & w_m
+\end{pmatrix} A = \begin{pmatrix}
+ Tv_1 & \cdots & Tv_n
+\end{pmatrix}.$$注意, 由于我们不在乎左右两侧的矩阵对应的线性映射, 请不要认为它们和基的选取相关. 
+
+\begin{proposition}{线性映射之积的矩阵}
+	设$T \in \lmap (U,V), S \in \lmap (V,W)$. 我们有
+	\begin{align*}
+		\mathcal{M} (ST, &(u_1,\cdots ,u_m), (w_1,\cdots ,w_p)) = \\
+		&\mathcal{M} (S,(v_1,\cdots ,v_n),(w_1,\cdots ,w_p)) \mathcal{M} (T,(u_1,\cdots ,u_m),(v_1,\cdots ,v_n)).
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	我们定义矩阵乘法就是为了这个命题. 
+\end{proof}
+
+\begin{example}
+	矩阵$$\mathcal{M} (I,(u_1,\cdots ,u_n),(v_1,\cdots ,v_n)),\qquad \mathcal{M} (I,(v_1,\cdots ,v_n),(u_1,\cdots ,u_n))$$
+	是可逆的, 且互为逆矩阵. 
+\end{example}
+
+\begin{proposition}{换基公式}
+	设$T\in \lmap (V)$, $V$有两组基$v_1,\cdots ,v_n$和$u_1,\cdots ,u_n$. 记$$A = \mathcal{M}(T,(u_1,\cdots ,u_n)),\qquad B=\mathcal{M}(T,(v_1,\cdots ,v_n)),\qquad C=\mathcal{M}(I,(u_1,\cdots ,u_n),(v_1,\cdots ,v_n)).$$
+	那么我们有$$A=C^{-1}BC.$$
+\end{proposition}
+
+形式化的证明直接来源于前面的命题, 这里省略. 上述命题的另一种理解方式是$$\begin{pmatrix}
+ u_1 & \cdots & u_n
+\end{pmatrix} A = \begin{pmatrix}
+ Tu_1 & \cdots & Tu_n
+\end{pmatrix},\qquad \begin{pmatrix}
+ v_1 & \cdots & v_n
+\end{pmatrix} B = \begin{pmatrix}
+ Tv_1 & \cdots & Tv_n
+\end{pmatrix}, $$
+$$\begin{pmatrix}
+ v_1 & \cdots & v_n
+\end{pmatrix} C = \begin{pmatrix}
+ u_1 & \cdots & u_n
+\end{pmatrix}. $$
+只需注意到$$\begin{pmatrix}
+ Tv_1 & \cdots & Tv_n
+\end{pmatrix} = T\begin{pmatrix}
+ v_1 & \cdots & v_n
+\end{pmatrix}, $$
+即可完成同样的证明. 
+
+\newpage
+\subsection*{习题  ~~\small 对应原书3.D习题}
+
+\begin{exercise} %(3e) 4
+	设$W$是有限维的, $S,T \in \lmap (V,W)$. 证明: $\nul S = \nul T$当且仅当存在可逆的算子$E \in \lmap (W)$使得$S=ET$. 
+\end{exercise}
+\vspace{1em}
+
+\begin{exercise} %(3e) 5
+	设$V$是有限维的, $S,T \in \lmap (V,W)$. 证明: $\rge S = \rge T$当且仅当存在可逆的算子$E \in \lmap (V)$使得$S=TE$. 
+\end{exercise}
+\vspace{1em}
+
+\begin{exercise} %(3e) 6
+	设$V,W$都是有限维的, $S,T \in \lmap (V,W)$. 证明$\dim \nul S = \dim \nul T$当且仅当存在可逆的$E_1 \in \lmap (V)$和$E_2 \in \lmap (W)$使得$S=E_2TE_1$. 
+\end{exercise}
+\vspace{1em}
+
+\begin{exercise} %(3e) 16
+	设$V$是有限维的, $T \in \lmap (V)$. 证明: $T$是标量乘以恒等映射当且仅当对每个$S \in \lmap (V)$都有$ST=TS$. 
+\end{exercise}
+\vspace{1em}
+
+\begin{exercise} %(3e) 17
+	设$V$是有限维的, $\mathcal{E}$是$\lmap (V)$的子空间使得对所有$S \in \lmap (V)$和$T \in \mathcal{E}$都有$ST \in \mathcal{E}$和$TS \in \mathcal{E}$. 证明$\mathcal{E}=\{ 0 \}$或$\mathcal{E}=\lmap (V)$. 
+\end{exercise}
+\vspace{1em}
+
+\begin{exercise} %(4e) 10
+	设$V,W$都是有限维的, $U$是$V$的一个子空间. 记$\mathcal{E} = \{ T \in \lmap (V,W):U \subseteq \nul T \}$. 
+	
+	(a) 证明$\mathcal{E}$是$\lmap (V,W)$的一个子空间. 
+	
+	(b) 求$\dim \mathcal{E}$. 
+\end{exercise}
+\vspace{1em}
+
+\begin{exercise} %(4e) 19
+	设$V$是有限维的, $T \in \lmap (V)$. 证明: $T$对$V$的任何一组基有相同的表示矩阵, 当且仅当$T$是标量乘以恒等映射. 
+\end{exercise}
+\vspace{1em}
+
+\begin{exercise} %(3e) 19
+	设$T \in \lmap (\mathcal{P} (\R))$是单的, 且对每个非零多项式$p \in \mathcal{P}(\R)$都有$\deg Tp \leq \deg p$. 
+	
+	(a) 证明$T$是满的. 
+	
+	(b) 证明对每个非零多项式$p \in \mathcal{P}(\R)$都有$\deg Tp = \deg p$. 
+\end{exercise}
+
+
+\newpage
 \section{向量空间的积与商}
 
 
 
 \section{对偶与矩阵的秩}
+
+
+% LADR 新增内容: Column–Row Factorization and Rank of a Matrix (3C)
+
+
+
+

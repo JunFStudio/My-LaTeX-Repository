@@ -114,9 +114,9 @@
 	$I$是区间, $f:I \to \R$是$I$上的单调函数. 记$f$在$I$上间断点的集合为$D(f)$, 则$D(f)$是至多可数的. 
 \end{theorem}
 \begin{proof}
-	不妨考虑$f$单调不减, 由引理可知对$x_0 \in D(f)$有$\lim_{x \to x_0^-} f(x) < \lim_{x \to x_0^+} f(x)$. 因此, $x_0$确定了一个开区间$I_{x_0}=(\lim_{x \to x_0^-} f(x) , \lim_{x \to x_0^+} f(x))$. 我们在$I_{x_0}$中选取一个有理数$q_{x_0}$, 下面证明映射$q_{\bullet}$是单射, 也就是说对$x_1,x_2 \in D(f)$, $I_{x_1} \cap I_{x_2} = \varnothing$: 不妨设$x_1<x_2$. 由引理可知$\lim_{x \to x_1^+} f(x) \leq \lim_{x \to x_2^-} f(x)$, 而$I_{x_1},I_{x_2}$均为开区间, 所以它们不交. 
+	不妨考虑$f$单调不减, 由引理可知对$x_0 \in D(f)$有$\lim_{x \to x_0^-} f(x) < \lim_{x \to x_0^+} f(x)$. 因此, $x_0$确定了一个开区间$I_{x_0}=(\lim_{x \to x_0^-} f(x) , \lim_{x \to x_0^+} f(x))$. 我们在$I_{x_0}$中选取一个有理数$q_{x_0}$, 下面证明映射$q_{\bigcdot}$是单射, 也就是说对$x_1,x_2 \in D(f)$, $I_{x_1} \cap I_{x_2} = \varnothing$: 不妨设$x_1<x_2$. 由引理可知$\lim_{x \to x_1^+} f(x) \leq \lim_{x \to x_2^-} f(x)$, 而$I_{x_1},I_{x_2}$均为开区间, 所以它们不交. 
 	
-	既然$q_{\bullet}$是单射, 那么$D(f)$是至多可数的. 
+	既然$q_{\bigcdot}$是单射, 那么$D(f)$是至多可数的. 
 \end{proof}
 
 下方的命题能促进对这一方法的进一步理解. 
@@ -251,8 +251,113 @@
 
 
 \newpage
-\section{铺垫: 度量空间, 拓扑空间}
+\section{度量空间, 拓扑空间}
 
+在涉及更一般的连续函数理论之前, 我们不得不补充一些拓扑学的知识. 
+
+\subsection{度量空间及其完备化}
+
+\begin{definition}{度量空间}
+	设集合$X$. 若存在$d:X \times X \to \R _{\geq 0}$满足: 
+	
+	a) 对任意$x,y \in X$, $d(x,y)\geq 0$且取等号当且仅当$x=y$; 
+	
+	b) 对任意$x,y \in X$, $d(x,y)=d(y,x)$; 
+	
+	c) 三角不等式: 对任意$x,y,z \in X$, $d(x,z) \leq d(x,y)+d(y,z)$. 
+	
+	\noindent
+	则称$(X,d)$是一个\textit{度量空间}(metric space), $d$是该度量空间上的\textit{距离函数}(metric function). 
+\end{definition}
+\begin{remark}
+	需要注意, 度量空间都是建立在$\R$上的. 
+\end{remark}
+
+例如, $\R ^n$上可以定义三种距离函数: $$d_1(x,y) := \sum_{j=1}^n |x_j-y_j|,\qquad d_n(x,y) := \sqrt[n]{\sum_{j=1}^n |x_j-y_j|^n},\qquad d_{\infty}(x,y) := \sup_{1 \leq j \leq n}|x_j-y_j|. $$
+由基本的代数不等式技巧可以验证它们确实是距离函数. 
+
+接着我们定义度量空间$(X,d)$的\textit{子空间}$(Y,d_Y)$, 如果$Y \subseteq X$并且$d_Y = d|_{Y \times Y}$. 
+
+\begin{definition}{度量空间中的极限}
+	设点列$\{ x_n \}$, 若存在$x \in X$使得对任意的$\varepsilon >0$都存在正整数$N$, 使得对任意正整数$n\geq N$都有$d(x_n,x)<\varepsilon$, 就称$\{ x_n \}$的\textit{极限}(limit)是$x$. 
+\end{definition}
+\begin{remark}
+	$\R$上数列极限的绝大多数性质都可以用同样的方法在度量空间中得到证明, 因此后文直接假设这些性质已经证过了. 
+\end{remark}
+
+我们可以在同一个集合$X$上定义不同的距离函数$d_1,d_2$. 称$d_1,d_2$是等价的, 如果存在正的常数$c_1,c_2$使得$$\forall x,y \in X, c_1d_1(x,y) \leq d_2(x,y) \leq c_2d_1(x,y).$$
+容易证明, $x_n \stackrel{d_1}{\longrightarrow} x$和$x_n \stackrel{d_2}{\longrightarrow} x$是等价的. 因此只需考虑一种(好算)的距离即可. 
+
+我们称$\{ x_n \}$为一个\textit{Cauchy列}, 如果对任意的$\varepsilon >0$, 都存在$N$使得任意$m,n \geq N$都有$d(x_m,x_n)$. 有关度量空间很重要的一个主题是, 其是否是\textit{完备}的, 这里我们定义\textit{完备}就是指所有Cauchy列都收敛. 
+
+类似于$\mathbb{Q}$在$\R$中的稠密性, 对于度量空间$(X,d)$和$Y \subseteq X$, 称$Y$在$X$中\textit{稠密}(dense), 如果对任意$x \in X, \varepsilon >0$都存在$y \in Y$使得$d(y,x) < \varepsilon$. 
+
+\begin{definition}{赋范向量空间, 范数}
+	设$V$是$\R$(或者$\C$)上的向量空间. 若存在$\| \bigcdot \|:V \to \R _{\geq 0}$满足: 
+	
+	a) 齐次性: 对任意$x \in V, \lambda \in \R$, $\| \lambda x \|=|\lambda | \| x \|$; 
+	
+	b) 非退化性: 对任意$x \in V$, $\| x \|=0$当且仅当$x=0$; 
+	
+	c) 三角不等式: 对任意$x,y \in V$, $\| x+y \| \leq \| x \|+\| y \|$. 
+	
+	\noindent
+	则称$(V,\| \bigcdot \| )$是一个\textit{赋范向量空间}(normed vector space), $\| \bigcdot \|$是该空间上的\textit{范数}(norm). 
+\end{definition}
+\begin{remark}
+	如果不加解释, 我们通过定义$(V,d(x,y)=\| x-y \|)$将赋范向量空间看作度量空间. 
+\end{remark}
+
+例如, $\R ^n$上可以定义三种范数: $$\| x \|_1 := \sum_{j=1}^n |x_j|,\qquad | x \|_n := \sqrt[n]{\sum_{j=1}^n |x_j|^n},\qquad | x \|_{\infty} := \sup_{1 \leq j \leq n}|x_j|. $$
+
+同样地可以定义赋范向量空间上的等价范数. 
+
+如果一个赋范向量空间是完备的, 我们通常称其为Banach空间. 
+
+赋范向量空间较于一般的度量空间的优势在于: 它对于加法和标量乘法是封闭的. 也就是说我们会有显然的性质$\lim_{n\to \infty} (x_n+y_n) = \lim_{n\to \infty} x_n + \lim_{n\to \infty} y_n$和$\lim_{n\to \infty} \lambda x_n = \lambda \lim_{n\to \infty} x_n$. 特别地, 考虑矩阵的空间$(\mathbf{M}_n(\R),\| \bigcdot \|)$, 其中$$\| A \| := \sup_{1 \leq i,j \leq n} |A_{ij}|,$$
+我们希望得到$\lim_{n\to \infty} (x_n \cdot y_n) = \lim_{n\to \infty} x_n \cdot \lim_{n\to \infty} y_n$. 
+\begin{proof}
+	问题的关键在于, 在$\R$上$|xy|=|x||y|$, 而在矩阵空间中这一点未必成立. 不过我们可以有$$\| A \cdot B \| = \sup_{1 \leq i,j \leq n} |\sum_{k=1}^{n}A_{ik}B_{kj}| \leq \sum_{k=1}^n (\sup_{1 \leq i,j \leq n} |A_{ij}|)(\sup_{1 \leq i,j \leq n} |B_{ij}|) = n\| A \| \| B \|,$$
+	也就是说存在一个常数$C$使得$\| x\cdot y \| \leq C\| x \| \| y \|$. 于是我们有$$d(x_n \cdot y_n,x \cdot y) \leq \| (x_n-x)y_n \| 
+		+ \| x(y_n-y) \| \leq C(\| x_n-x \| \| y_n \| 
+		+ \| x \| \| y_n-y \|),$$
+	接下来的控制就是熟知的了. 
+\end{proof}
+
+下面进行一项有趣的操作: 将任何一个度量空间$(X,d)$完备化. 直观上来讲, 我们希望$(X,d)$的完备化空间$(\overline{X},\overline{d})$是最小的. 以$\mathbb{Q}$为例, 我们可以将其认作$\tilde{\mathbb{Q}}=\{ (x,0):x \in \mathbb{Q} \}$, 并将$\R$认作$\tilde{\R}=\{ (x,0):x \in \R \}$. 注意到$\tilde{\mathbb{Q}}$在$\tilde{\R}$中稠密, 但在$\R ^2$中不稠密. 因此我们可以通过稠密性来确定这一最小性:
+
+\begin{definition}{完备化空间}
+	设度量空间$(X,d)$是$(\overline{X},\overline{d})$的子空间, 称其是$(X,d)$的\textit{完备化空间}(completion), 如果$X$在$\overline{X}$中稠密. 
+\end{definition}
+
+当然要证明度量空间的完备化空间是唯一的, 或者至少在某种等价条件下是唯一的. 这种等价条件就是所谓等距: 
+
+\begin{definition}{等距的度量空间}
+	称$(X_1,d_1)$与$(X_2,d_2)$\textit{等距}(isometric), 如果存在\textit{等距映射}(isometry)$f:X_1 \to X_2$满足: 
+	
+	a) $f$是双射; \qquad b) 对任意的$x,y \in X_1$都有$d_2(f(x),f(y))=d_1(x,y)$. 
+\end{definition}
+
+\begin{proposition}{}
+	若$(X_1,d_1),(X_2,d_2)$均为$(X,d)$的完备化空间, 则它们是等距的. 
+\end{proposition}
+\begin{proof}
+	如下构造等距映射$f$: 若$x \in X$则$f(x) = x$; 若$x_1 \in X_1-X$, 由$X$在$X_1$中稠密可知存在$\{ z_n \} \subseteq X$使得$z_n \stackrel{d_1}{\longrightarrow} x_1$, 因此$\{ z_n \}$在$d_1$下是Cauchy列. 由于在$X$上$d,d_1,d_2$是一样的, 所以$\{ z_n \}$在$d_2$下也是Cauchy列, 记$z_n \stackrel{d_1}{\longrightarrow} x_2$, 并令$f(x_1)=x_2$. 显然$f$是单射, 并且将这个过程反过来就得到$f$是满射. 
+	
+	下面证明$f$是等距映射: 对于$x,x'$, 选择$\{ z_n \},\{ z'_n \} \subseteq X$使得它们在$d_1$下极限分别为$x,x'$. 注意到$$|d_1(z_n,z'_n)-d_1(x,x')| \leq d_1(z_n,x) + d_1(z'_n,x'),$$
+	因此$$d_1(x,x') = \lim_{n\to \infty} d_1(z_n,z'_n) = \lim_{n\to \infty} d_2(z_n,z'_n) = d_2(f(x),f(x')).$$
+\end{proof}
+
+现在我们考虑构造完备化空间的一般方法. 
+
+
+
+
+
+
+
+
+\newpage
 \section{连续函数的一般化}
 
 
