@@ -290,9 +290,9 @@
 
 
 \newpage
-\section{度量空间, 拓扑空间} 
+\section{度量空间及其完备化}
 
-\subsection{度量空间及其完备化}
+\subsection{度量空间的基本概念}
 
 \begin{definition}{度量空间}
 	设集合$X$. 若存在$d:X \times X \to \R _{\geq 0}$满足: 
@@ -345,9 +345,16 @@
 	如果不加解释, 我们通过定义$(V,d(x,y)=\| x-y \|)$将赋范向量空间看作度量空间. 
 \end{remark}
 
-例如, $\R ^n$上可以定义三种范数: $$\| x \|_1 := \sum_{j=1}^n |x_j|,\qquad | x \|_n := \sqrt[n]{\sum_{j=1}^n |x_j|^n},\qquad | x \|_{\infty} := \sup_{1 \leq j \leq n}|x_j|. $$
+例如, $\R ^n$上可以定义三种范数: $$\| x \|_1 := \sum_{j=1}^n |x_j|,\qquad \| x \|_n := \sqrt[n]{\sum_{j=1}^n |x_j|^n},\qquad \| x \|_{\infty} := \sup_{1 \leq j \leq n}|x_j|. $$
 
-同样地可以定义赋范向量空间上的等价范数. 
+同样地可以定义赋范向量空间上的等价范数. 事实上, 对于有限维赋范向量空间, 上面所有的范数都是等价的. 
+
+\begin{proposition}{}
+	$n$维向量空间$V$上的所有范数都等价. 
+\end{proposition}
+\begin{proof}
+	在该命题的证明中需要用到$\R ^n$上函数的连续性相关命题, 我们先承认这些命题正确. 
+\end{proof}
 
 如果一个赋范向量空间是完备的, 我们通常称其为Banach空间. 
 
@@ -360,6 +367,8 @@
 		+ \| x \| \| y_n-y \|),$$
 	接下来的控制就是熟知的了. 
 \end{proof}
+
+\subsection{度量空间的完备化}
 
 下面进行一项有趣的操作: 将任何一个度量空间$(X,d)$完备化. 直观上来讲, 我们希望$(X,d)$的完备化空间$(\overline{X},\overline{d})$是最小的. 以$\mathbb{Q}$为例, 我们可以将其认作$\tilde{\mathbb{Q}}=\{ (x,0):x \in \mathbb{Q} \}$, 并将$\R$认作$\tilde{\R}=\{ (x,0):x \in \R \}$. 注意到$\tilde{\mathbb{Q}}$在$\tilde{\R}$中稠密, 但在$\R ^2$中不稠密. 因此我们可以通过稠密性来确定这一最小性:
 
@@ -420,6 +429,12 @@
 
 需要注意的是, 度量空间的完备化针对距离函数来说是唯一的, 但我们可以选择不同的距离函数构造完备化空间. 例如, 利用Euclid度量$d(x-y)=|x-y|$将$\mathbb{Q}$完备化得到$\R$, 而利用$p$进绝对值$d_p(x,y) = p^{-v_p(x-y)}$将$\mathbb{Q}$完备化得到的不是$\R$. 
 
+\subsection{压缩映射原理}
+
+
+
+\newpage
+\section{拓扑空间的基本概念}
 
 \subsection{$\R$上的通常拓扑}
 
@@ -457,6 +472,31 @@
 \begin{remark}
 	这是$\R$上的特殊性质, 无法推广. 
 \end{remark}
+\begin{proof}
+	问题的关键是在于: 对每个$x \in U$需要找到一个最大的包含$x$的开区间$I_x$, 那么对于$x, y\in U$, 要么$I_x = I_y$, 要么$I_x \cap I_y = \varnothing$(否则, 存在$z \in I_x \cap I_y$, 所以$I_z = I_x = I_y$), 从而类似于Froda定理可以得到结论. 
+	
+	\underline{\textbf{证法一}}~~对于$x \in U$, 按如下方式构造$I_x$: 取最大的$\varepsilon \in \R \cup \{ +\infty \}$使得$X_0 = B(x,\varepsilon) \subseteq U$. 递归地定义$X_{n+1} = \bigcup_{x' \in X_n} B(x',\varepsilon _{x'})$, 其中$\varepsilon _{x'}$都是最大的. 最后令$I_x = \bigcup_{n \geq 0}X_n$. 
+	
+	由构造过程显然$I_x$是开区间, 现在证明它是最大的. 对于任意包含$x$的开区间$I$, 记$I=(a,b)$. 
+	
+	当$a,b$均有限时, $\varepsilon '_x = \min \{ x-a,b-x \}$是使得$B(x,\varepsilon '_x)$成立的最大值. 现在, 递归地定义$x_{n+1} = \varepsilon '_{x_n}$, 不妨设$x<\frac{a+b}{2}$, 那么在有限次递归后必然有$x_N \geq \frac{a+b}{2}$, 进而$\bigcup_{n=0}^{N} B(x_n, \varepsilon '_{x_n}) = I$. 注意所有的$\varepsilon '_{x_n}$不超过$I_x$构造中$x_n$对应的$\varepsilon$, 因此$I \subseteq I_x$. 
+	
+	当$a,b$中至少一个是无穷时, 令$U'=U-I$, 则转化为有限的情况. 
+	
+	注意, 在说明$\min \{ x-a,b-x \}$是最大可能值时, 我们实际上隐含地用了确界的定义和开区间的上下确界就是其端点这一事实. 
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=7cm]{attachment/IMG_3538.jpg}
+	\caption{\underline{\textbf{证法一}}的示意图, 手绘勿喷}
+\end{figure}
+	
+	\underline{\textbf{证法二}}~~记$\mathcal{E}_x = \{ E \subseteq U: x \in E,E\textit{是开区间} \}$, 令$I_x = \bigcup_{E \in \mathcal{E}_x} E$. 下面证明$I_x \in \mathcal{E}_x$, 从而它就是包含$x$的最大开区间. 
+	
+	任取$x_1,x_2 \in I_x$, 不妨$x_1<x_2$. 由于存在分别包含$x_1,x_2$的开区间$E_{x_1}, E_{x_2}$, 所以$x_1,x_2 \in E_{x_1} \cup E_{x_2}$. 另一方面, 由于$x \in E_{x_1} \cap E_{x_2}$, $E_{x_1} \cup E_{x_2} \in \mathcal{E}_x$, 进一步$(x_1,x_2) \in \mathcal{E}_x$. 
+	
+	现在, 记$a = \inf I_x,b = \sup I_x$, 其中$a,b$可以是无穷. 那么对任意$c \in (a,b)$都存在$x_1,x_2$使得$a \leq x_1 < c < x_2 \leq b$, 从而$(a,b) \subseteq I_x \subseteq [a,b]$. 又$I_x$是开集, 可知$I_x = (a,b)$. 
+\end{proof}
 
 与开集相对应的概念是所谓闭集. 
 
@@ -489,18 +529,130 @@
 	“$\Leftarrow$”: 设$U$的任意聚点都在$U$中. 假设$\R - U$不是开集, 即存在$x \notin U$使得任意包含$x$的开球$B(x) \nsubseteq \R - U$即$B(x) \cap U \neq \varnothing$. 选取$x_n \in B(x,1/n) \cap U$可知$x_n \to x$, 矛盾. 
 \end{proof}
 
+现在我们给出一个重磅结论: 
 
+\begin{theorem}{($\R$上)连续函数的拓扑表示}
+	对于$f:\R \to \R$, $f$是连续函数当且仅当开集的原像是开集, 即对任意的$U\in \tau$, $f^{-1}(U) \in \tau$. 
+\end{theorem}
+\begin{remark}
+	通过取补集的方法, 在此定理的基础上, 我们亦可以证明$f$是连续函数当且仅当闭集的原像是闭集. 
+\end{remark}
+\begin{proof}
+	“$\Rightarrow$”: 任取$x_0 \in f^{-1}(U)$, 记$y_0=f(x_0)$, 存在$\varepsilon$使得对任意$y \in B(y_0,\varepsilon)$都有$y \in U$. 由于$f$连续, 对$\varepsilon$存在$\delta >0$使得对任意$x \in B(x_0,\delta)$都有$|f(x)-y_0|<\varepsilon$, 进而$f(x) \in U$, 说明$x \in f^{-1}(U)$. 
+	
+	“$\Leftarrow$”: 任取$x_0$, 记$y_0=f(x_0)$, 对任意的$\varepsilon >0$, $f^{-1}(B(y_0, \varepsilon))$是开集, 从而存在$\delta >0$使得$B(x_0,\delta) \subseteq f^{-1}(B(y_0, \varepsilon))$, 这就是说$f(B(x_0,\delta)) \subseteq B(y_0, \varepsilon)$. 
+\end{proof}
 
-\subsection{紧性}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{attachment/IMG_3539.jpg}
+	\caption{两种刻画函数连续性方式的示意图, 手绘勿喷}
+\end{figure}
 
-回顾$\R$上闭区间$I$所拥有的良好性质: 连续函数$f$在$I$上有界且能取到极值, 而且$f$在$I$上一致连续. 在上述定理的证明中, 我们都用到了\textit{$I$中的数列存在子列使得其极限也在$I$中}这一事实, 即是说$I$是闭集. 另一方面, 在后者中, 由于利用有限覆盖定理也能完成证明, 我们会猜想是否闭集都能满足有限覆盖定理. 实际上, 这就是所谓紧性的一般化. 
+\subsection{拓扑空间}
 
+将开集及其性质抽象出来, 就构成一般的拓扑空间的定义. 
 
+\begin{definition}{拓扑空间}
+	设$X$为非空集合, 称$\tau \in \mathcal{P}(X)$是$X$上的一个\textit{拓扑}(topology), 如果: 
+	\begin{itemize}
+		\item $X \in \tau$, $\varnothing \in \tau$; 
+		\item $\bigcup_{\alpha \in A} U_{\alpha} \in \tau$, 其中$U_{\alpha} \in \tau$, $A$是指标集; 
+		\item $\bigcap_{1 \leq i \leq n} U_i \in \tau$, 其中$U_i \in \tau(i=1,\cdots ,n)$. 
+	\end{itemize}
+	接着, 称$(X,\tau)$是一个\textit{拓扑空间}(topological space), 称$\tau$中的集合为\textit{开集}(open set), 称$U \subseteq X$为\textit{闭集}(closed set)如果$X - U$是开集. 
+\end{definition}
+
+\begin{example}
+	设非空集合$X$, 那么
+	\begin{itemize}
+		\item $\tau = \{ \varnothing ,X\}$称为$X$上的平凡拓扑, 这是$X$上最小的拓扑. 
+		\item $\tau = \mathcal{P}(X)$称为$X$上的离散拓扑, 这是$X$上最大的拓扑. 
+	\end{itemize}
+\end{example}
+
+类似于$\R$, 我们可以由度量自然地引出拓扑. 
+
+\begin{proposition}{}
+	设度量空间$(X,d)$, 称$U \subseteq X$是开集, 如果对任意$x \in U$都存在$\varepsilon >0$使得$B(x,\varepsilon) \subseteq U$. 那么, 由$(X,d)$上开集构成的集合是$X$上的一个拓扑. 
+\end{proposition}
+
+\begin{example}
+	设非空集合$X$. 
+	\begin{itemize}
+		\item 拓扑空间不一定都由度量引出, 例如上面例子中的平凡拓扑. 
+		\item 定义$d(x,y)= \begin{cases}
+ 0 &  x=y \\
+ 1 &  x\neq y
+\end{cases}$, 则$d$引出了$X$上的离散拓扑. 
+	\end{itemize}
+\end{example}
+\begin{proof}
+	(1) 否则所有开球都要是$X$, 说明$X$上任意两点的距离可以足够小, 进而任意两点间的距离都为$0$, 不满足正定性要求. 
+	
+	(2) 我们先验证$d$是一个合理的距离函数, 关键在于三角不等式: 设若不然, 即存在$x,y,z \in X$使得$d(x,z)>d(x,y)+d(y,z)$, 那么必然有$d(x,z)=1,d(x,y)=d(y,z)=0$, 矛盾. 
+	
+	接下来证明其引出离散拓扑, 只要说明对任意$x \in X$, $\{ x \}$是开集. 注意到$\{ x \}=B(x,1/2)$即可. 
+\end{proof}
+
+现在来看看一般拓扑空间$(X,\tau)$上和开集和闭集有关的(几何的)概念. 
+
+之前提到过, 在定义$\R$上点列的极限时, 邻域$N_{\varepsilon}(x)$的半径其实不影响最终的敛散性. 另一方面, 拓扑空间上也有可能不存在度量. 因此, 现在有必要将其一般化. 
+
+\begin{definition}{邻域}
+	设$x \in X$, 称$A \subseteq X$是$x$的一个\textit{邻域}(neighbourhood), 如果$x \in A \in \tau$. 
+\end{definition}
+
+\begin{definition}{导集, 闭包}
+	设$A \subseteq X$. 
+	\begin{itemize}
+		\item 称$x$是$A$的一个\textit{极限点}(limited point), 如果对$x$的任意邻域$U$都有$(U \cap A) - \{ x \} = \varnothing$. 进一步, 称$A$的所有极限点组成的集合为$A$的\textit{导集}(derived set), 记作$A'$. 
+		\item 称$x$是$A$的一个\textit{闭包点}(closure point), 如果对$x$的任意邻域$U$都有$U \cap A = \varnothing$. 进一步, 称$A$的所有闭包点组成的集合为$A$的\textit{闭包}(closure), 记作$\overline{A}$. 
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	之前在实数章节所定义的聚点, 对应到拓扑空间上就是闭包点. (这也是为什么当时称其为聚点而不是极限点)
+\end{remark}
+
+容易证明, $A$是闭集当且仅当$A=\overline{A}$. 另外, 若$X$在$Y$中稠密, 等价地是说$\overline{X}=Y$. 
+
+\begin{definition}{内部, 外部, 边界}
+	设$A \subseteq X$. 
+	\begin{itemize}
+		\item 称$x$为$A$的\textit{内点}(interior point), 如果存在$x$的一个邻域是$A$的子集. 进一步, 称$A$的所有内点组成的集合为$A$的\textit{内部}(interior), 记作$\Int A$. 
+		\item 称$x$为$A$的\textit{外点}(exterior point), 如果$x$是$X-A$的内点. 进一步, 称$A$的所有外点组成的集合为$A$的\textit{外部}(exterior), 记作$\Ext A$. 
+		\item 称$x$为$A$的\textit{边界点}(boundary point), 如果$x$既不是$A$的内点也不是$A$的外点. 进一步, 称$A$的所有边界点组成的集合为$A$的\textit{边界}(boundary), 记作$\partial A$. 
+	\end{itemize}
+\end{definition}
+
+容易证明, $A$是开集当且仅当$A= \Int A$. 另外, $\overline{A} = \Int A \cup \partial A$(这一点并不显然). 
 
 
 
 \newpage
-\section{连续函数的一般化}
+\section{函数列的逐点收敛与一致收敛}
+
+\subsection{基本概念}
+
+\subsection{度量空间$(C([a,b]),\| \bigcdot \|_{\infty})$的完备性}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
