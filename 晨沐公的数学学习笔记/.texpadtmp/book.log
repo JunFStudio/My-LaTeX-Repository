@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  20 JAN 2024 21:42
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  26 JAN 2024 20:58
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -3013,7 +3013,120 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[51]) [52] [53
+[51]
+./MainMatter/1.3_linear_maps.tex:876: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.876 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[52]
+./MainMatter/1.3_linear_maps.tex:903: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.903 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[53]
+./MainMatter/1.3_linear_maps.tex:943: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.943 \begin{exercise}
+                       %(3e) 4
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/1.3_linear_maps.tex:948: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.948 \begin{exercise}
+                       %(3e) 5
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/1.3_linear_maps.tex:953: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.953 \begin{exercise}
+                       %(3e) 6
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/1.3_linear_maps.tex:958: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.958 \begin{exercise}
+                       %(3e) 11
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/1.3_linear_maps.tex:969: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.969 \begin{exercise}
+                       %(3e) 12
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/1.3_linear_maps.tex:974: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.974 \begin{exercise}
+                       %(3e) 14
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/1.3_linear_maps.tex:983: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.983 \begin{exercise}
+                       %(3e) 15,16
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/1.3_linear_maps.tex:990: Undefined control sequence.
+\exercise ...apter .\arabic {exer}}}~~} \citshape 
+                                                  
+l.990 \begin{exercise}
+                       %(3e) 18,20
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[54]) [55] [56
 
 
 
@@ -3022,10 +3135,10 @@ and I'll forget about whatever was undefined.
 
  (./MainMatter/2.1_preliminary.tex
 Chapter 1.
-[54
+[57
 
 
-] [55]
+] [58]
 ./MainMatter/2.1_preliminary.tex:76: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3037,7 +3150,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[56]
+[59]
 ./MainMatter/2.1_preliminary.tex:104: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3049,12 +3162,12 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[57] [58]
+[60] [61]
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
-[59]
+[62]
 ./MainMatter/2.1_preliminary.tex:188: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3079,7 +3192,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[60]
+[63]
 ./MainMatter/2.1_preliminary.tex:229: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3102,7 +3215,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[61]
+[64]
 ./MainMatter/2.1_preliminary.tex:254: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3136,7 +3249,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[62]
+[65]
 ./MainMatter/2.1_preliminary.tex:309: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3148,7 +3261,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[63]
+[66]
 ./MainMatter/2.1_preliminary.tex:328: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3160,7 +3273,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[64]
+[67]
 ./MainMatter/2.1_preliminary.tex:361: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3183,7 +3296,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[65]
+[68]
 Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
@@ -3199,7 +3312,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[66]) [67]
+[69]) [70]
 \openout2 = `./MainMatter/2.2_the_construction_of_real_numbers.aux'.
 
  (./MainMatter/2.2_the_construction_of_real_numbers.tex
@@ -3220,12 +3333,12 @@ File: attachment/440px-Domino_effect_visualizing_exclusion_of_junk_term_by_induc
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[68
+[71
 
 
 
 
-] [69] [70]
+] [72] [73]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:126: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3237,7 +3350,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[71] [72] [73] [74] [75] [76] [77]
+[74] [75] [76] [77] [78] [79] [80]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:354: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3249,7 +3362,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[78] [79]
+[81] [82]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:423: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3261,11 +3374,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[80]
+[83]
 Underfull \vbox (badness 1648) detected at line 464
  []
 
-[81]
+[84]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:477: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3288,7 +3401,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[82]
+[85]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:514: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3311,7 +3424,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[83]
+[86]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:549: Undefined control sequence.
 \hint ...ition}{\text {提示}}~~} \itshape \citshape 
                                                   
@@ -3345,7 +3458,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[84]
+[87]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:571: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3357,7 +3470,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[85]
+[88]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:619: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3380,7 +3493,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[86]
+[89]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:668: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3438,7 +3551,7 @@ and I'll forget about whatever was undefined.
 
 File: attachment/iShot_2023-08-04_15.19.06.png Graphic file (type bmp)
 <attachment/iShot_2023-08-04_15.19.06.png>
-[87]
+[90]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:706: Extra }, or forgotten $.
 <recently read> \egroup 
                         
@@ -3494,7 +3607,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[88]
+[91]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:742: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3550,7 +3663,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[89]
+[92]
 ./MainMatter/2.2_the_construction_of_real_numbers.tex:789: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3562,7 +3675,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [90]
+) [93]
 \openout2 = `./MainMatter/2.3_the_limit_of_sequences_and_functions.aux'.
 
  (./MainMatter/2.3_the_limit_of_sequences_and_functions.tex
@@ -3600,7 +3713,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[91
+[94
 
 
 
@@ -3650,7 +3763,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[92]
+[95]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:77: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3684,7 +3797,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[93]
+[96]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:108: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3762,7 +3875,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[94]
+[97]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:146: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3796,7 +3909,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[95]
+[98]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:185: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -3830,7 +3943,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[96]
+[99]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:232: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3864,7 +3977,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[97]
+[100]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:264: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
@@ -3931,7 +4044,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[98]
+[101]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:312: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -3976,7 +4089,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[99]
+[102]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:355: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -4054,7 +4167,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[100]
+[103]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:402: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
@@ -4090,7 +4203,7 @@ Overfull \hbox (24.47731pt too wide) detected at line 418
 \OML/cmm/m/it/10.53937 e \OMS/cmsy/m/n/10.53937 ^^@ \OML/cmm/m/it/10.53937 s[] \OT1/cmr/m/n/10.53937 = [] + [] = [] [] \OML/cmm/m/it/10.53937 < [] []
  []
 
-[101]
+[104]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:431: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -4157,7 +4270,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[102]
+[105]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:472: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
@@ -4213,7 +4326,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[103]
+[106]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:515: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -4236,7 +4349,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[104]
+[107]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:543: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
@@ -4270,7 +4383,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[105]
+[108]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:571: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -4304,7 +4417,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[106]
+[109]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:635: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -4343,7 +4456,7 @@ Overfull \hbox (11.86859pt too wide) in paragraph at lines 657--659
 [][]  []  \TU/FZShuSong-Z01(0)/m/it/10.53937 容 易 证 明 $[][] [][] \OT1/cmr/m/n/10.53937 = \OML/cmm/m/it/10.53937 e$\TU/lmr/m/it/10.53937 . \TU/FZShuSong-Z01(0)/m/it/10.53937 进 一 步 有 $[][] [][] \OT1/cmr/m/n/10.53937 = [][] [][] =
  []
 
-[107]
+[110]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:668: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
@@ -4414,7 +4527,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[108]
+[111]
 Overfull \hbox (2.03084pt too wide) in paragraph at lines 708--710
 \TU/FZShuSong-Z01(0)/m/n/10.53937 我 们 注 意 到\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 若 第 一 个 式 子 中 的 $\OML/cmm/m/it/10.53937 N[]\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 y[]\OT1/cmr/m/n/10.53937 )$ \TU/FZShuSong-Z01(0)/m/n/10.53937 能 够 变 为 空 心 的\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 则 由 前 两 个 式 子 立 得 第 三 个\TU/lmr/m/n/10.53937 . \TU/FZShuSong-Z01(0)/m/n/10.53937 一 种 可 行 的$[]$
  []
@@ -4468,7 +4581,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[109]
+[112]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:736: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -4513,7 +4626,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[110]
+[113]
 ./MainMatter/2.3_the_limit_of_sequences_and_functions.tex:789: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
@@ -4558,7 +4671,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[111] [112]) [113]
+[114] [115]) [116]
 \openout2 = `./MainMatter/2.4_continuous_functions.aux'.
 
  (./MainMatter/2.4_continuous_functions.tex
@@ -4585,7 +4698,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[114
+[117
 
 
 
@@ -4712,7 +4825,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[115]
+[118]
 ./MainMatter/2.4_continuous_functions.tex:107: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -4724,7 +4837,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[116]
+[119]
 ./MainMatter/2.4_continuous_functions.tex:116: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
@@ -4780,11 +4893,22 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[117]
-./MainMatter/2.4_continuous_functions.tex:159: Undefined control sequence.
+[120]
+./MainMatter/2.4_continuous_functions.tex:161: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.161 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:171: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
-l.159 \begin{remark}
+l.171 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4792,10 +4916,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/2.4_continuous_functions.tex:162: Undefined control sequence.
+./MainMatter/2.4_continuous_functions.tex:174: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.162 \begin{proof}
+l.174 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4803,67 +4927,34 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/2.4_continuous_functions.tex:176: Undefined control sequence.
-\example ...hapter .\arabic {exam}}}~~} \citshape 
-                                                  
-l.176 \begin{example}
-                     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/2.4_continuous_functions.tex:179: Undefined control sequence.
-\proof ...eral}{\text {证明}}~~} \itshape \citshape 
-                                                  
-l.179 \begin{proof}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[118]
-./MainMatter/2.4_continuous_functions.tex:197: Undefined control sequence.
-\proof ...eral}{\text {证明}}~~} \itshape \citshape 
-                                                  
-l.197 \begin{proof}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/2.4_continuous_functions.tex:201: Undefined control sequence.
-\example ...hapter .\arabic {exam}}}~~} \citshape 
-                                                  
-l.201 \begin{example}
-                     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/2.4_continuous_functions.tex:204: Undefined control sequence.
-\proof ...eral}{\text {证明}}~~} \itshape \citshape 
-                                                  
-l.204 \begin{proof}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/2.4_continuous_functions.tex:213: Undefined control sequence.
+./MainMatter/2.4_continuous_functions.tex:191: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
-l.213 \begin{remark}
+l.191 \begin{remark}
                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[121]
+./MainMatter/2.4_continuous_functions.tex:195: Undefined control sequence.
+\example ...hapter .\arabic {exam}}}~~} \citshape 
+                                                  
+l.195 \begin{example}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:198: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.198 \begin{proof}
+                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -4881,10 +4972,21 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/2.4_continuous_functions.tex:225: Undefined control sequence.
+./MainMatter/2.4_continuous_functions.tex:220: Undefined control sequence.
+\example ...hapter .\arabic {exam}}}~~} \citshape 
+                                                  
+l.220 \begin{example}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:223: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.225 \begin{proof}
+l.223 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4892,11 +4994,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[119] [120]
-./MainMatter/2.4_continuous_functions.tex:272: Undefined control sequence.
+./MainMatter/2.4_continuous_functions.tex:232: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
-l.272 \begin{remark}
+l.232 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4904,33 +5005,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/2.4_continuous_functions.tex:284: Undefined control sequence.
-\remark ...eral}{\text {注}}~~} \itshape \citshape 
-                                                  
-l.284 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[121]
-./MainMatter/2.4_continuous_functions.tex:307: Undefined control sequence.
-\remark ...eral}{\text {注}}~~} \itshape \citshape 
-                                                  
-l.307 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/2.4_continuous_functions.tex:319: Undefined control sequence.
+./MainMatter/2.4_continuous_functions.tex:235: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.319 \begin{proof}
+l.235 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4939,10 +5017,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [122]
-./MainMatter/2.4_continuous_functions.tex:344: Undefined control sequence.
+./MainMatter/2.4_continuous_functions.tex:246: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.344 \begin{proof}
+l.246 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4950,7 +5028,185 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[123]) [124] (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/1.1_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/1.2_finite-dimensional_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/1.3_linear_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.4_continuous_functions.aux))
+./MainMatter/2.4_continuous_functions.tex:261: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.261 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:270: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.270 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[123] [124]
+./MainMatter/2.4_continuous_functions.tex:309: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.309 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:321: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.321 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[125]
+./MainMatter/2.4_continuous_functions.tex:344: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.344 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:356: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.356 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[126]
+./MainMatter/2.4_continuous_functions.tex:381: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.381 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:399: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.399 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[127]
+./MainMatter/2.4_continuous_functions.tex:416: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.416 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 424.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 424.
+
+./MainMatter/2.4_continuous_functions.tex:431: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.431 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[128]
+./MainMatter/2.4_continuous_functions.tex:445: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.445 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:448: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.448 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:457: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.457 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:477: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.477 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/2.4_continuous_functions.tex:486: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.486 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[129] [130]) [131] (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/1.1_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/1.2_finite-dimensional_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/1.3_linear_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/./MainMatter/2.4_continuous_functions.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -4958,15 +5214,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: E4C3D00534A70AEF699C7DD40602FEEB;12393.
+(rerunfilecheck)             Checksum: C887CC546155694DA7462423856E0ACA;12934.
  ) 
 Here is how much of TeX's memory you used:
- 20451 strings out of 476683
- 465836 string characters out of 5804047
+ 20428 strings out of 476683
+ 464060 string characters out of 5804047
  1873018 words of memory out of 5000000
- 40171 multiletter control sequences out of 15000+600000
+ 40148 multiletter control sequences out of 15000+600000
  529852 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  104i,14n,111p,639b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/book.pdf (131 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/晨沐公的数学学习笔记/.texpadtmp/book.pdf (138 pages).

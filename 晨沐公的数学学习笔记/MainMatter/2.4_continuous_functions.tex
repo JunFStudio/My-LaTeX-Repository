@@ -153,6 +153,18 @@
 	\underline{\textbf{证法二}}~~同上构造闭区间套, 我们取$I_n$的左右端点构成数列$\{ x_n \}$和$\{ y_n \}$, 利用函数的连续性可得$\lim_{n\to \infty} x_n = f(c) \leq 0$, $\lim_{n\to \infty} y_n = f(c) \geq 0$, 故$f(c)=0$. 
 \end{proof}
 
+利用中值定理, 我们可以证明压缩映射原理在$\R$上的特殊情况: 
+
+\begin{proposition}{($\R$上的)压缩映射原理}
+	设$f:\R \to \R$是压缩映射, 即存在常数$0 < c < 1$使得对任意$x,y \in \R$都有$|f(x)-f(y)| \leq c|x-y|$. 那么, $f$必有唯一的不动点, 即存在唯一的$x_0 \in \R$使得$f(x_0)=x_0$. 
+\end{proposition}
+\begin{proof}
+	令$F(x) = f(x) - x$, 任取$x<y$可得$F(x)-F(y) = (f(x)-f(y)) - (x-y) \geq (1-c)(y-x) >0$, 从而$F(x)$在$\R$上严格单调递减. 
+	
+	任取$M>0$, 由于$f(x) \leq f(0)+cx$, 只要取$x > \frac{M+f(0)}{1-c}$就有$f(x)-x<-M$, 从而说明$F(x) \to -\infty ,x \to +\infty$, 同理可得$F(x) \to +\infty ,x \to -\infty$. 又显然$f$连续, 所以$F$连续, 从而$F$在$\R$上存在唯一零点. 
+\end{proof}
+
+
 \begin{theorem}{Weierstrass最大值定理}
 	设$f \in C([a,b])$, 那么$f$有界, 且存在$x_1,x_2 \in [a,b]$使得$f(x_1) = \inf_{x \in [a,b]} f(x), f(x_2) = \sup_{x \in [a,b]}f(x)$. 
 \end{theorem}
@@ -164,7 +176,11 @@
 	
 	\underline{\textbf{证法二}}~~显然对任意$x_0 \in I$, 存在$x_0$的一个邻域$N(x_0)$使得$f$在$N(x_0)$上有界. 由于$\bigcup_{x \in I} N(x)$构成$I$的一个开覆盖, 可取其中的有限个, 设为$N(x_1), \cdots ,N(x_n)$, 而$f$在这些邻域上均有界, 故在$[a,b]$上亦有界. 
 	
-	(2) 以上确界为例. 设$M=\sup_{x \in I}f(x)$, 假设$M-f(x)$在$I$上处处不为零, 但我们注意到其可以无限接近零, 那么连续函数$\frac{1}{M-f(x)}$是无界的, 与(1)矛盾. 
+	(2) \underline{\textbf{证法一}}~~以上确界为例. 设$M=\sup_{x \in I}f(x)$, 假设$M-f(x)$在$I$上处处不为零, 但我们注意到其可以无限接近零, 那么连续函数$\frac{1}{M-f(x)}$是无界的, 与(1)矛盾. 
+	
+	\underline{\textbf{证法二}}~~由上确界的定义可知, 对任意的$n$都存在$x_n \in I$使得$M-\frac{1}{n} < f(x_n) \leq M$, 通过选取$\{x_n\}$的子列我们不妨让$x_n \to x \in I$, 从而在上式的两侧取极限得$f(x)=M$. 
+	
+	在证明中, 请注意子列的极限在$I$中是由于数列极限对不严格不等号的保序性. 
 \end{proof}
 
 下面介绍所谓一致连续性. 
@@ -172,6 +188,9 @@
 \begin{definition}{函数的一致连续性}
 	设$f:E \to \R$, 称$f$在$E$上\textit{一致连续}(uniformly continuous), 如果对任意$\varepsilon >0$都存在$\delta >0$使得对任意$x,y \in E$, 只要$|x-y|<\delta$就有$|f(x)-f(y)|<\varepsilon$. 
 \end{definition}
+\begin{remark}
+	有些书上将一致连续性的定义缩小到区间上, 这样做是合理的, 因为可以证明: 若$f$在有限个区间上分别一致连续, 则在它们的并集上也一致连续, 具体参考定理4.4. 我们接下来也会专注于某个区间上的函数的一致连续性. 
+\end{remark}
 
 \begin{example}
 	证明$f(x)=\frac{1}{x}$在$(0,+\infty)$上并非一致连续, 而在$(c ,+\infty ), c >0$上一致连续. 
@@ -214,7 +233,9 @@
 	类似于上一个定理, 我们可以将$[a,b]$拓广到所谓“紧的”集合上. 
 \end{remark}
 \begin{proof}
-	任取$\varepsilon >0$, 显然对任意$x_0 \in I$, 存在$x_0$的一个邻域$N_{\delta(x_0)}(x_0)$使得$f$在$N(x_0)$上的振幅$\omega (f;N_{\delta(x_0)}(x_0)) <\varepsilon$. 由于$\bigcup_{x \in I} N_{\delta(x_0)}(x_0)$构成$I$的一个开覆盖, 可取其中的有限个使得它们仍然构成一个开覆盖, 设为$N_{\delta (x_1)}(x_1), \cdots ,N_{\delta (x_n)}(x_n)$. 我们选取$\delta _0 = \frac{1}{2}\min \{ \delta (x_1),\cdots ,\delta (x_n) \}$, 考虑$|x-y|<\delta _0$, 显然存在$\ell$使得$x,y \in N_{\delta (x_{\ell})}(x_{\ell})$, 所以立得$|f(x)-f(y)|<\varepsilon$. 
+	\underline{\textbf{证法一}}~~任取$\varepsilon >0$, 显然对任意$x_0 \in I$, 存在$x_0$的一个邻域$N_{\delta(x_0)}(x_0)$使得$f$在$N(x_0)$上的振幅$\omega (f;N_{\delta(x_0)}(x_0)) <\varepsilon$. 由于$\bigcup_{x \in I} N_{\delta(x_0)}(x_0)$构成$I$的一个开覆盖, 可取其中的有限个使得它们仍然构成一个开覆盖, 设为$N_{\delta (x_1)}(x_1), \cdots ,N_{\delta (x_n)}(x_n)$. 我们选取$\delta _0 = \frac{1}{2}\min \{ \delta (x_1),\cdots ,\delta (x_n) \}$, 考虑$|x-y|<\delta _0$, 显然存在$\ell$使得$x,y \in N_{\delta (x_{\ell})}(x_{\ell})$, 所以立得$|f(x)-f(y)|<\varepsilon$. 
+	
+	\underline{\textbf{证法二}}~~设若不然, 则存在$\varepsilon >0$使得对任意$n >0$, 存在$|x_n-y_n|<1/n$且$|f(x_n)-f(y_n)| \geq \varepsilon$. 通过选取$\{ x_n \}$的子列, 不妨设其极限为$x \in I$, 进而显然有$y_n \to x$. 由于$f$在$x$处连续, 可知$\lim_{n\to \infty} f(x_n) = \lim_{n\to \infty} f(y_n) = x$, 得到矛盾. 
 \end{proof}
 
 对于开区间我们也有一致连续的充要条件, $f(x)=\frac{1}{x}$的例子就是一个印证. 
@@ -230,6 +251,24 @@
  f(a^+) & x=a \\
  f(b^-) & x=b
 \end{cases}.$$
+\end{proof}
+
+最后介绍一个刻画一致连续性的优雅命题: 
+
+\begin{proposition}{}
+	设$f:E \to \R$, 其中$E$是长度有限的区间, 则$f$在$E$上一致连续当且仅当对所有Cauchy列$\{ x_n \} \subseteq E$, $\{ f(x_n) \}$仍然是Cauchy列. 
+\end{proposition}
+\begin{proof}
+	必要性显然. 充分性: 假设$f$并非一致连续, 即存在$\varepsilon >0$使任意$\delta >0$都有$|x-y|<\delta \Rightarrow |f(x)-f(y)| \geq \varepsilon$. 特别地, 取$\delta = 1/n$, 构造数列$\{ x_n \},\{ y_n \}$使得$|x_n-y_n|<1/n$. 由于$E$有界, $\{ x_n \}$和$\{ y_n \}$都存在收敛子列, 将两个收敛子列的点交错排序得到Cauchy列$\{ z_n \}$, 但是$\{ f(z_n) \}$不是Cauchy列, 矛盾. 
+\end{proof}
+
+关于一致连续函数的运算, 设$f,g$分别在区间$I$上一致连续, 显然有$f+g$在$I$上一致连续. 由于乘法需要用到有界性来约束, 自然会考虑: 
+
+\begin{proposition}{}
+	设$f,g$在有限区间$I$上一致连续, 则$f \cdot g$在$I$上一致连续. 
+\end{proposition}
+\begin{proof}
+	问题的关键是在于证明: 若$f$在$I$上一致连续, 则有界. 当$I$是闭区间时结论显然; 当$I$有至少一边是开的时, 利用命题4.6的方法将其补全为闭区间上的函数, 由于$f$在$I$两端的极限均为实数, 这样的补全是合理的, 从而证明了结论. 
 \end{proof}
 
 \newpage
@@ -251,18 +290,16 @@
 
 
 \newpage
-\section{度量空间, 拓扑空间}
-
-在涉及更一般的连续函数理论之前, 我们不得不补充一些拓扑学的知识. 
+\section{度量空间, 拓扑空间} 
 
 \subsection{度量空间及其完备化}
 
 \begin{definition}{度量空间}
 	设集合$X$. 若存在$d:X \times X \to \R _{\geq 0}$满足: 
 	
-	a) 对任意$x,y \in X$, $d(x,y)\geq 0$且取等号当且仅当$x=y$; 
+	a) 正定性: 对任意$x,y \in X$, $d(x,y)\geq 0$且取等号当且仅当$x=y$; 
 	
-	b) 对任意$x,y \in X$, $d(x,y)=d(y,x)$; 
+	b) 可交换性: 对任意$x,y \in X$, $d(x,y)=d(y,x)$; 
 	
 	c) 三角不等式: 对任意$x,y,z \in X$, $d(x,z) \leq d(x,y)+d(y,z)$. 
 	
@@ -314,7 +351,7 @@
 
 如果一个赋范向量空间是完备的, 我们通常称其为Banach空间. 
 
-赋范向量空间较于一般的度量空间的优势在于: 它对于加法和标量乘法是封闭的. 也就是说我们会有显然的性质$\lim_{n\to \infty} (x_n+y_n) = \lim_{n\to \infty} x_n + \lim_{n\to \infty} y_n$和$\lim_{n\to \infty} \lambda x_n = \lambda \lim_{n\to \infty} x_n$. 特别地, 考虑矩阵的空间$(\mathbf{M}_n(\R),\| \bigcdot \|)$, 其中$$\| A \| := \sup_{1 \leq i,j \leq n} |A_{ij}|,$$
+赋范向量空间较于一般的度量空间的优势在于: 它对于加法和标量乘法是封闭的. 也就是说我们会有显然的性质$\lim_{n\to \infty} (x_n+y_n) = \lim_{n\to \infty} x_n + \lim_{n\to \infty} y_n$和$\lim_{n\to \infty} \lambda x_n = \lambda \lim_{n\to \infty} x_n$. 特别地, 考虑矩阵的空间$(\R ^{n\times n},\| \bigcdot \|)$, 其中$$\| A \| := \sup_{1 \leq i,j \leq n} |A_{ij}|,$$
 我们希望得到$\lim_{n\to \infty} (x_n \cdot y_n) = \lim_{n\to \infty} x_n \cdot \lim_{n\to \infty} y_n$. 
 \begin{proof}
 	问题的关键在于, 在$\R$上$|xy|=|x||y|$, 而在矩阵空间中这一点未必成立. 不过我们可以有$$\| A \cdot B \| = \sup_{1 \leq i,j \leq n} |\sum_{k=1}^{n}A_{ik}B_{kj}| \leq \sum_{k=1}^n (\sup_{1 \leq i,j \leq n} |A_{ij}|)(\sup_{1 \leq i,j \leq n} |B_{ij}|) = n\| A \| \| B \|,$$
@@ -348,10 +385,115 @@
 	因此$$d_1(x,x') = \lim_{n\to \infty} d_1(z_n,z'_n) = \lim_{n\to \infty} d_2(z_n,z'_n) = d_2(f(x),f(x')).$$
 \end{proof}
 
-现在我们考虑构造完备化空间的一般方法. 
+现在我们考虑构造完备化空间的一般方法. 特别地, 从上方命题的证明中可以猜到$\overline{X}$应该与Cauchy列有关. 
+
+\begin{definition}{度量空间的完备化}
+	设度量空间$(X,d)$, 下面定义其完备化空间$(\overline{X},\overline{d})$. 
+	
+	\begin{itemize}
+		\item 令$\mathcal{C} = \{ \{ x_n \} \subseteq X: \textit{$\{ x_n \}$是Cauchy列} \}$, 定义$\mathcal{C}$上的等价关系$\sim$: $$\{ x_n \} \sim \{ y_n \} \quad \Leftrightarrow \quad \lim_{n\to \infty} d(x_n,y_n)=0.$$
+		取$\overline{X} = \mathcal{C} / \sim$. 
+		\item 定义$\overline{X}$上的距离函数$\overline{d}$: $$\overline{d} : \overline{X}^2 \to \R,\quad ([\{ x_n \}], [\{ y_n \}]) \mapsto \lim_{n\to \infty} d(x_n,y_n). $$
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	关于距离函数$\overline{d}$良定义性的验证分为两部分: $\lim_{n\to \infty} d(x_n,y_n)$总是存在且与代表元选取无关. 
+	
+	(1) 注意到$$|d(x_n,y_n) - d(x_m,y_m)| \leq |d(x_n,y_n)-d(x_m,y_n)|+|d(x_m,y_n)-d(x_m,y_m)| \leq d(x_n,x_m)+d(y_n,y_m), $$
+	容易得到$d(x_n,y_n)$是Cauchy列, 所以收敛. 
+	
+	(2) 若$\{ x'_n \} \sim \{ x_n \}, \{ y'_n \} \sim \{ y_n \}$, 由于$$|d(x_n,y_n) - d(x'_n,y'_n)| \leq |d(x_n,y_n) - d(x'_n,y_n)| + |d(x'_n,y_n) - d(x'_n,y'_n)| \leq d(x_n,x'_n) + d(y_n,y'_n), $$
+	可得$\lim_{n\to \infty} d(x_n,y_n) = \lim_{n\to \infty} d(x'_n,y'_n)$. 
+\end{remark}
+
+验证$\overline{d}$是距离函数比较容易. 
+
+现在, 我们思考怎样将$X$视作$\overline{X}$的子空间. 具体来说, 我们定义嵌入映射$$\iota : X \to \overline{X},\quad x \mapsto [\{ x_n=x \}]. $$
+容易验证, 若$x\neq y$则$\iota (x) \neq \iota (y)$, 从而$\iota$是单射, 符合嵌入映射的要求. 另一方面, $\iota$是等距映射, 即$\overline{d} (\iota (x),\iota (y)) = d(x,y)$. 从而, 我们可以证明$X$在$\overline{X}$中稠密: 对于$[\{ x_n \}] \in \overline{X}$, 和任意的$\varepsilon >0$, 存在$N$使得任意$n>N$有$d(x_n,x_N)<\varepsilon$, 从而$\overline{d} (\iota (x_N),[\{ x_n \}]) < \varepsilon$. 
+
+最后, 我们说明$(\overline{X}, \overline{d})$是完备的. 基本的思路类似于定理\ref{pro:hjuucauchy}的证法一, 即我们需要从Cauchy序列中构造出一个极限来. 
+
+\begin{proof}
+	设$\overline{x}^{(n)} \in \overline{X}$, 则对每个$\overline{x}^{(n)}$都存在$x_n \in X$使得$\overline{d}(\overline{x}^{(n)},\iota (x_n))<1/n$. 容易验证$\{ x_n \}$是Cauchy列, 因为对$m \neq n$有$$d(x_m,x_n) \leq \overline{d} (\iota (x_m), \overline{x}^{(m)}) + \overline{d} (\overline{x}^{(m)}, \overline{x}^{(n)}) + \overline{d} (\overline{x}^{(n)}, \iota (x_n)) \leq \frac{1}{m} + \frac{1}{n} + \overline{d} (\overline{x}^{(m)}, \overline{x}^{(n)}). $$
+	设$\overline{x} = [\{ x_n \}]$. 下面说明, $\{ \overline{x}^{(n)} \}$的极限为$\overline{x}$. 其实只需计算$$\overline{d} (\overline{x}^{(n)} , \overline{x}) \leq \overline{d}(\overline{x}^{(n)},\iota (x_n)) + \overline{d}(\iota (x_n),\overline{x}) < \frac{1}{n} + \lim_{m\to \infty} d(x_n,x_m). $$
+\end{proof}
+
+需要注意的是, 度量空间的完备化针对距离函数来说是唯一的, 但我们可以选择不同的距离函数构造完备化空间. 例如, 利用Euclid度量$d(x-y)=|x-y|$将$\mathbb{Q}$完备化得到$\R$, 而利用$p$进绝对值$d_p(x,y) = p^{-v_p(x-y)}$将$\mathbb{Q}$完备化得到的不是$\R$. 
+
+
+\subsection{$\R$上的通常拓扑}
+
+我们先将邻域的概念延拓一下并使用新的记号: 度量空间$(X,d)$上, 所谓以$x_0$为圆心, $\varepsilon$为半径的开球$B(x_0,\varepsilon)$, 定义为$\{ x \in X:d(x,x_0)<\varepsilon \}$. 
+
+\begin{definition}{$\R$上的开集}
+	设$U \subseteq \R$, 称$U$是$\R$上的一个\textit{开集}(open set), 若对任意$x \in U$都存在$\varepsilon >0$使得$B(x,\varepsilon) \subseteq U$. 
+\end{definition}
+\begin{remark}
+	等价地, 让$x$遍历$U$可以得到开集的另一个定义: $U=\bigcup_{\alpha \in A} I_{\alpha}$, 其中$I_{\alpha}$是开区间, $A$是指标集. 
+\end{remark}
+
+一些开集的例子是: $\R$, $\varnothing$, 任意开区间, 任意开区间的并集. 一般地, 我们有如下的命题: 
+
+\begin{proposition}{$\R$上开集的性质}
+	设$\tau$表示$\R$上开集的全体. 
+	\begin{itemize}
+		\item $\R \in \tau$, $\varnothing \in \tau$; 
+		\item $\bigcup_{\alpha \in A} U_{\alpha} \in \tau$, 其中$U_{\alpha}$是开集, $A$是指标集; 
+		\item $\bigcap_{1 \leq i \leq n} U_i \in \tau$, 其中$U_i(i=1,\cdots ,n)$是开集. 
+	\end{itemize}
+\end{proposition}
+\begin{remark}
+	容易举出无限个开集的交集不是开集的例子: 设$I_n=(1-1/n,1+1/n)$, 则$\bigcap_{n\geq 1}I_n = \{ 1 \}$. 
+\end{remark}
+\begin{proof}
+	前两条是显然的. 第三条: 任取$x \in \bigcap_{1 \leq i \leq n} U_i$, 对每个$i$都存在开区间$I_i \subseteq U_i$使得$x \in I_i$, 从而$x \in \bigcap_{1 \leq i \leq n} I_i \subseteq \bigcap_{1 \leq i \leq n} U_i$. 
+\end{proof}
+
+关于开集, 很自然地会有如下想法: 
+
+\begin{proposition}{}
+	设$U \subseteq \R$是开集, 则可将$U$拆分为可数个两两不交的开区间的并. 
+\end{proposition}
+\begin{remark}
+	这是$\R$上的特殊性质, 无法推广. 
+\end{remark}
+
+与开集相对应的概念是所谓闭集. 
+
+\begin{definition}{$\R$上的闭集}
+	设$U \subseteq \R$, 称$U$是$\R$上的一个\textit{闭集}(closed set), 如果$\R - U$是开集. 
+\end{definition}
+
+一些闭集的例子是: $\R$, $\varnothing$, 任意闭区间, 任意闭区间的交集. 对开集的命题取补集即可得到: 
+
+\begin{proposition}{$\R$上闭集的性质}
+	\vspace{-2em}
+	\begin{itemize}
+		\item $\R,\varnothing$是闭集; 
+		\item $\bigcap_{\alpha \in A} U_{\alpha}$是闭集, 其中$U_{\alpha}$是闭集, $A$是指标集; 
+		\item $\bigcup_{1 \leq i \leq n} U_i$是闭集, 其中$U_i(i=1,\cdots ,n)$是闭集. 
+	\end{itemize}
+\end{proposition}
+\begin{remark}
+	容易举出无限个闭集的并集是开集的例子: 设$I_n = [1+1/n,2-1/n]$, 则$\bigcup_{n\geq 1} I_n = (1,2)$. 
+\end{remark}
+
+关于闭集, 一个重要性质是: 
+
+\begin{proposition}{}
+	设$U \subseteq \R$, 则$U$是闭集当且仅当$U$的所有聚点都在$U$中. 
+\end{proposition}
+\begin{proof}
+	“$\Rightarrow$”: 设$U$是闭集, 任取$U$的聚点$x$. 假设$x \notin U$, 那么$x \in \R - U$, 从而存在$\varepsilon$使得$x \in B(x,\varepsilon) \subseteq \R - U$, 矛盾. 
+	
+	“$\Leftarrow$”: 设$U$的任意聚点都在$U$中. 假设$\R - U$不是开集, 即存在$x \notin U$使得任意包含$x$的开球$B(x) \nsubseteq \R - U$即$B(x) \cap U \neq \varnothing$. 选取$x_n \in B(x,1/n) \cap U$可知$x_n \to x$, 矛盾. 
+\end{proof}
 
 
 
+\subsection{紧性}
+
+回顾$\R$上闭区间$I$所拥有的良好性质: 连续函数$f$在$I$上有界且能取到极值, 而且$f$在$I$上一致连续. 在上述定理的证明中, 我们都用到了\textit{$I$中的数列存在子列使得其极限也在$I$中}这一事实, 即是说$I$是闭集. 另一方面, 在后者中, 由于利用有限覆盖定理也能完成证明, 我们会猜想是否闭集都能满足有限覆盖定理. 实际上, 这就是所谓紧性的一般化. 
 
 
 
