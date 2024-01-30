@@ -1,9 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is '/Volumes/Storage_SSD/latex new/DEEP Team ElegantBook Template/.texpadtmp/elegantbook-cn.blg'
-[32] biber-darwin:340> INFO - === Sat Jan 21, 2023, 08:34:49
-[40] Biber.pm:418> INFO - Reading '/Volumes/Storage_SSD/latex new/DEEP Team ElegantBook Template/.texpadtmp/elegantbook-cn.bcf'
-[76] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
-[82] bbl.pm:654> INFO - Writing '/Volumes/Storage_SSD/latex new/DEEP Team ElegantBook Template/.texpadtmp/elegantbook-cn.bbl' with encoding 'UTF-8'
-[82] bbl.pm:757> INFO - Output to /Volumes/Storage_SSD/latex new/DEEP Team ElegantBook Template/.texpadtmp/elegantbook-cn.bbl
-[83] Biber.pm:130> WARN - The file '/Volumes/Storage_SSD/latex new/DEEP Team ElegantBook Template/.texpadtmp/elegantbook-cn.bcf' does not contain any citations!
-[83] Biber.pm:132> INFO - WARNINGS: 1

@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\color{purple!80}{[root@localhost mail]#}} \PYG{k}{grep} \PYG{p}{\PYGZhy{}}Ev \PYG{l+s+s1}{\PYGZsq{}\PYGZca{}\PYGZdl{}|\PYGZca{}[\PYGZsh{};]\PYGZsq{}} \PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{conf}
-\PYG{k}{conf}\PYG{p}{\PYGZhy{}}\PYG{k}{dir}\PYG{p}{=}\PYG{l+s+sr}{/etc/}dnsmasq.\PYG{k}{d}\PYG{p}{,}.rpmnew\PYG{p}{,}.rpmsave\PYG{p}{,}.rpmorig
-\end{Verbatim}

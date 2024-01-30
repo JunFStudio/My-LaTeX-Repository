@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\color{purple!80}{[root@localhost ~]#}} yum install dnsmasq \PYG{p}{\PYGZhy{}}\PYG{k}{y}
-Loaded plugins: fastestmirror
-Loading mirror speeds from cached hostfile
-\end{Verbatim}
