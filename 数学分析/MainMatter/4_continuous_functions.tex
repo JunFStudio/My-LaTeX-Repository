@@ -7,28 +7,40 @@
 类似于函数的极限, 函数的连续性有两种等价的定义: 
 
 \begin{definition}{函数的连续性}
-	设$f:E \to \R$, 若$E \ni a$是$E$的一个聚点, 我们称$f$在$a$点处\textit{连续}(continuous), 如果$\lim_{E \ni x \to a} f(x) = f(a)$. 等价地有: 
+	设$f:E \to \R$, 若$E \ni a$是$E$的一个聚点, 我们称$f$在$x_0$点处\textit{连续}(continuous), 如果$\lim_{E \ni x \to a} f(x) = f(x_0)$. 等价地有: 
 	
-	-~~对于任意$\varepsilon >0$, 存在$\delta >0$使得$f(\mathring{N}_{\delta} (a)) \subseteq N_{\varepsilon} (f(a))$; 
+	-~~对于任意$\varepsilon >0$, 存在$\delta >0$使得$f(\mathring{N}_{\delta} (x_0) \cap E) \subseteq N_{\varepsilon} (f(x_0))$; 
 	
-	-~~对任意的数列$\{ x_n \}$, 若$\lim_{n \to \infty} x_n = a$, 则$\lim_{n \to \infty} f(x_n) = f(a)$. 
+	-~~对任意的数列$\{ x_n \} \subseteq E$, 若$\lim_{n \to \infty} x_n = x_0$, 则$\lim_{n \to \infty} f(x_n) = f(x_0)$. 
 	
 	\noindent
-	特别地, 对于区间$[i,s) \subseteq E$, 若$\lim_{x \to s^-} f(x) = f(s)$, 称$f$在$s$处连续. 另一侧亦然. 
+	特别地, 对于区间$(i,s] \subseteq E$, 若$\lim_{x \to s^-} f(x) = f(s)$, 称$f$在$s$处左连续. 另一侧亦然. 
 \end{definition}
 \begin{remark}
-	若将定义中的$a$拓广到$E$中的任意点, 按照第一种等价说法, 显然$a$为孤立点时$f$在$a$处连续. 
+	若将定义中的$x_0$拓广到$E$中的任意点, 按照第一种等价说法, 显然$x_0$为孤立点时$f$在$x_0$处连续. 此时, 考虑以所有$x_0$的邻域(与$E$的交集)构成的基$\mathcal{B}_{x_0}$, 仍然有$\lim_{\mathcal{B}_{x_0}} f(x) = f(x_0)$. 
 \end{remark}
 \begin{remark}
-	一种直观的写法是: $\lim_{x \to \infty} f(x_n) = f(\lim_{x \to \infty}x_n)$. 这是某种意义上的换序操作, 我们后面也会介绍不同的换序. 
+	显然$f$只有在开区间$(i,s)$上才可能做到逐点连续. 我们约定$f$在区间$(i,s]$上逐点连续当且仅当$f$在$(i,s)$上连续且在$s$处左连续. 
 \end{remark}
+
+关于第二种等价形式, 一种直观的写法是: $\lim_{x \to \infty} f(x_n) = f(\lim_{x \to \infty}x_n)$. 更加一般地, 将$\{ x_n \}$换成极限为$x_0$的函数也成立. 
+
+\begin{proposition}{连续函数的复合运算}
+	设$f:E\to \R$在$E \ni x_0$处连续, $g:N(t_0) \to E$, 且$\lim_{t \to t_0} g(t)=x_0$, 则
+	\begin{center}
+		$\displaystyle \lim_{t \to t_0} f(g(t)) = f\left(\lim_{t \to t_0} g(t) \right) = f(x_0). $
+	\end{center}
+\end{proposition}
+\begin{proof}
+	对任意极限为$t_0$的数列$\{ t_n \}$, $g(t_n) \to x_0$. 从而$\lim_{n\to \infty} f(g(t_n)) = f(\lim_{n\to \infty}g(t_n)) = f(x_0)$. 
+\end{proof}
 
 函数极限的Cauchy收敛准则依然适用: $f$在$a$连续当且仅当对任意$\varepsilon >0$, 存在$a$的邻域$N_{\delta} (a)$使得$\omega (f;N_{\delta} (a))<\varepsilon$. 特别地, 定义$\omega (f;a)= \lim_{\delta \to 0^+} \omega (f;N_{\delta} (a))$, 上式告诉我们$\omega (f;a)=0$, 即$f$在$a$处的振幅为$0$. 
 
 这里给出一个有趣的事实: 我们知道$\omega (f;I)$可以写成$\sup_{x \in I} f(I) - \inf_{x \in I} f(I)$的形式, 那么$f$在$a$处连续当且仅当$$\lim_{\delta \to 0^+} \left( \sup_{x \in N_{\delta}(x_0)} f(x) \right)= \lim_{\delta \to 0^+} \left( \inf_{x \in N_{\delta}(x_0)} f(x) \right).$$
 如果将上式中的邻域换成空心的, 这就分别是函数的上下极限(虽然我们没有讲过). 这时就要添加一个条件: 两侧极限都等于$f(x_0)$, 才能与上式等价. 
 
-虽然连续是一个局部概念, 我们仍然愿意称$f$在$E$上连续当且仅当其在$E$的每个点上都连续, 这就是逐点连续的概念. 记$C(E)$为$E$上连续函数的全体. 
+虽然连续是一个局部概念, 我们仍然愿意称$f$在$E$上连续当且仅当其在$E$的每个点上都连续(或是先前注释中所说的单侧连续的情况), 这就是逐点连续的概念. 记$C(E)$为$E$上连续函数的全体. 
 
 实际上, 初等函数都是连续的: 为此, 我们需要证明基本初等函数的连续性, 连续函数的四则运算(显然)和复合运算. 
 
@@ -63,17 +75,7 @@
 	令$\delta = |x-\varepsilon |$即得. 
 \end{proof}
 
-\begin{proposition}{连续函数的复合运算}
-	设$f \in C(I)$且$f$的值域在$J$中, $g \in C(J)$, 那么$gf \in C(I)$. 
-\end{proposition}
-\begin{proof}
-	对于极限在$I$中的数列$\{ x_n \}$, $$\lim_{n\to \infty} g(f(x_n)) = g(\lim_{n\to \infty} f(x_n)) = g(f(\lim_{n\to \infty} x_n)).  $$
-\end{proof}
-\begin{remark}
-	以上证明绕过了复合函数极限是否成立的验证. 
-\end{remark}
-
-连续函数的这种性质有助于我们进行极限的计算. 
+函数的连续性有助于我们进行极限的计算. 
 
 \begin{example}
 	求极限: $$\lim_{x\to 0} \frac{\ln (1+x)}{x}, \qquad \lim_{x\to 0} \frac{e^x-1}{x},\qquad \lim_{x\to 0} \frac{(1+x)^{\alpha}-1}{x}~(\alpha \neq 0). $$
@@ -93,16 +95,19 @@
 
 \begin{definition}{函数的间断点}
 	设$f: E \to \R$, $a \in E$是$f$的间断点. 
-	
-	(1) 若极限$$\lim_{E \ni x \to a^-}=:f(a^-), \qquad \lim_{E \ni x \to a^+}=:f(a^+)$$都存在且至少有一个不等于$f(a)$, 称$a$为$f$的\textit{第一类间断点}(discontinuity of first kind); 
-	
-	(2) 若上述两个极限至少一个不存在, 称$a$为$f$的\textit{第二类间断点}(discontinuity of second kind). 
+	\begin{itemize}
+		\item 若极限$$\lim_{E \ni x \to a^-}f(x)=:f(a^-), \qquad \lim_{E \ni x \to a^+}f(x)=:f(a^+)$$都存在且至少有一个不等于$f(a)$, 称$a$为$f$的\textit{第一类间断点}(discontinuity of first kind); 
+		\item 若上述两个极限至少一个不存在, 称$a$为$f$的\textit{第二类间断点}(discontinuity of second kind). 
+	\end{itemize}
 \end{definition}
 
 称$a$为$f$的\textit{可去间断点}(removable discontinuity), 若存在$\tilde{f} \in C(E)$使得$\tilde{f} |_{E-a} = f |_{E-a}$. 显然, $a$为可去间断点当且仅当$\lim_{E \ni x \to a}f(x)$存在且不为$f(a)$: 此时我们只要将$f(a)$换成$\lim_{E \ni x \to a}f(x)$即可. 于是可以对第一类间断点进行进一步分类: 若$f(a^-) = f(a^+)$, $a$就是所谓可去间断点; 若不然, 称$a$是$f$的\textit{跳跃间断点}(jump discontinuity), 并称$|f(a^-) - f(a^+)|$为$f$在$a$处的\textit{跃度}(jump). 
 
 \begin{lemma}{}\label{lem:djdnhjuuzoyzjixm}
-	$I$是区间, $f:I \to \R$是$I$上的单调函数, 则对任意$x_0 \in I$, $f$在$x_0$处的左右极限均存在. 特别地, 设$f$单调不减, 那么$$\lim_{x \to x_0^-} f(x) = \sup_{x \in (-\infty,x_0) \cap I} f(x),\qquad \lim_{x \to x_0^+} f(x) = \inf_{x \in (x_0,+\infty) \cap I} f(x).$$
+	$I$是区间, $f:I \to \R$是$I$上的单调函数, 则对任意$x_0 \in I$, $f$在$x_0$处的左右极限均存在. 特别地, 设$f$单调不减, 那么
+	\begin{center}
+		$\displaystyle \lim_{x \to x_0^-} f(x) = \sup_{x \in (-\infty,x_0) \cap I} f(x),\qquad \lim_{x \to x_0^+} f(x) = \inf_{x \in (x_0,+\infty) \cap I} f(x).$
+	\end{center}
 \end{lemma}
 \begin{proof}
 	这是定理\ref{thm:djdnhjuudejixm}的直接推论. 
@@ -121,7 +126,7 @@
 
 下方的命题能促进对这一方法的进一步理解. 
 
-\begin{proposition}{}
+\begin{proposition}{($\R$上的)反函数定理}
 	设$f \in C([a,b])$且严格单调递增, 那么$f$是$[a,b] \to [f(a),f(b)]$的双射且其逆映射$f^{-1}:[f(a),f(b)] \to [a,b]$是连续且严格单调递增的. 
 \end{proposition}
 \begin{remark}
@@ -133,14 +138,9 @@
 	用反证法. 假设$f(x_0)=y_0 \in [f(a),f(b)]$是$f^{-1}$的一个间断点, 由引理\ref{lem:djdnhjuuzoyzjixm}知存在一个开区间$I_{y_0}=(x_1,x_2)$, 其中$x_1=\sup_{z<y_0}f^{-1}(z),x_2=\inf_{z>y_0}f^{-1}(z)$, 使得$y_0 \in I_{y_0}$. 显然$x_1 \leq x_0 \leq x_2$. 但对于$y<y_0$均有$f^{-1}(y)<x_1$, 对$y>y_0$均有$f^{-1}(y)>x_2$, 意味着$(x_1,x_2)-\{ x_0 \} \nsubseteq [a,b]$, 矛盾. 
 \end{proof}
 
-我们再做一个相关的练习: 
 
-\begin{proposition}{}
-	设$f \in C([a,b])$, 则$f$是单射当且仅当$f$在$[a,b]$上严格单调. 
-\end{proposition}
-\begin{proof}
-	充分性显然. 必要性: 不妨$f(a)<f(b)$. 假设$a \leq x_1 < x_2 \leq b$满足$f(b) \geq f(x_1) \geq f(x_2) \geq f(a)$, 那么$[f(a),f(x_1)] = f([a,x_1]), [f(x_2),f(b)] = f([x_2,b])$, 从而存在$z_1 \in [a,x_1],z_2 \in [x_2,b]$使得$f(z_1)=f(z_2) \in [f(x_2),f(x_1)]$, 与单射性矛盾. 
-\end{proof}
+
+
 
 \newpage
 \section{闭区间上连续函数的性质}
@@ -168,6 +168,14 @@
 	任取$M>0$, 由于$f(x) \leq f(0)+cx$, 只要取$x > \frac{M+f(0)}{1-c}$就有$f(x)-x<-M$, 从而说明$F(x) \to -\infty ,x \to +\infty$, 同理可得$F(x) \to +\infty ,x \to -\infty$. 又显然$f$连续, 所以$F$连续, 从而$F$在$\R$上存在唯一零点. 
 \end{proof}
 
+再做一个相关的练习: 
+
+\begin{proposition}{}
+	设$f \in C([a,b])$, 则$f$是单射当且仅当$f$在$[a,b]$上严格单调. 
+\end{proposition}
+\begin{proof}
+	充分性显然. 必要性: 不妨$f(a)<f(b)$. 假设$a \leq x_1 < x_2 \leq b$满足$f(b) \geq f(x_1) \geq f(x_2) \geq f(a)$, 那么$[f(a),f(x_1)] = f([a,x_1]), [f(x_2),f(b)] = f([x_2,b])$, 从而存在$z_1 \in [a,x_1],z_2 \in [x_2,b]$使得$f(z_1)=f(z_2) \in [f(x_2),f(x_1)]$, 与单射性矛盾. 
+\end{proof}
 
 \begin{theorem}{Weierstrass最大值定理}
 	设$f \in C([a,b])$, 那么$f$有界, 且存在$x_1,x_2 \in [a,b]$使得$f(x_1) = \inf_{x \in [a,b]} f(x), f(x_2) = \sup_{x \in [a,b]}f(x)$. 
@@ -211,6 +219,16 @@
 \begin{proposition}{Lipschitz}
 	设区间$I$, $f \in C(I)$. 若存在常数$L$使得对任意$x,y \in I$都有$|f(x)-f(y)| \leq L|x-y|$, 那么$f$一致连续. 
 \end{proposition}
+\begin{remark}
+	若函数$f$满足命题中的条件, 我们称其为\textit{Lipschitz连续的}, 不难发现该条件比一致连续更强. (反例如定义在$[0,+\infty )$上的函数$\sqrt{\bigcdot}$)
+\end{remark}
+
+\begin{example}
+	证明$f(x)=x\cos \frac{1}{x}$在$[\delta ,+\infty)$上一致连续, 其中$\delta$是任意正数. 
+\end{example}
+\begin{proof}
+	由$f'(x) = \cos \frac{1}{x} + \frac{1}{x} \sin \frac{1}{x} = \sqrt{\frac{x^2+1}{x^2}} \sin (\frac{1}{x}+\varphi)$可知$|f'(x)| \leq \sqrt{1+\frac{1}{\delta ^2}}, \delta \leq x$, 从而(由Lagrange中值定理)可知$f$在$[\delta ,+\infty )$上有一个Lipschitz常数$\sqrt{1+\frac{1}{\delta ^2}}$, 进而$f$在$[\delta ,+\infty )$上一致连续. 
+\end{proof}
 
 我们也可以选择用数列极限来刻画(区间上的)一致连续性: 
 
@@ -228,7 +246,7 @@
 	选取$x_n=n+\frac{1}{n},y_n=n$, 那么$x_n-y_n \to 0$, 但是$f(x_n)-f(y_n)=2+\frac{1}{n^2} \to 2$, 故$f$在$[0,+\infty)$上并非一致连续. 
 \end{proof}
 
-上面的例子指出: 在某个区间上无界(当然只能是开区间)的逐点连续函数不一定一致连续. 反过来, 就是所谓Cantor-Heine定理: 
+这个例子指出: 在某个区间上无界(当然只能是开区间)的逐点连续函数不一定一致连续. 反过来, 就是所谓Cantor-Heine定理: 
 
 \begin{theorem}{Cantor-Heine的一致连续性定理}
 	若$f \in C([a,b])$, 则$f$一致连续. 
@@ -237,14 +255,14 @@
 	类似于上一个定理, 我们可以将$[a,b]$拓广到所谓“紧的”集合上. 
 \end{remark}
 \begin{proof}
-	\underline{\textbf{证法一}}~~任取$\varepsilon >0$, 显然对任意$x_0 \in I$, 存在$x_0$的一个邻域$N_{\delta(x_0)}(x_0)$使得$f$在$N(x_0)$上的振幅$\omega (f;N_{\delta(x_0)}(x_0)) <\varepsilon$. 由于$\bigcup_{x \in I} N_{\delta(x_0)}(x_0)$构成$I$的一个开覆盖, 可取其中的有限个使得它们仍然构成一个开覆盖, 设为$N_{\delta (x_1)}(x_1), \cdots ,N_{\delta (x_n)}(x_n)$. 我们选取$\delta _0 = \frac{1}{2}\min \{ \delta (x_1),\cdots ,\delta (x_n) \}$, 考虑$|x-y|<\delta _0$, 显然存在$\ell$使得$x,y \in N_{\delta (x_{\ell})}(x_{\ell})$, 所以立得$|f(x)-f(y)|<\varepsilon$. 
+	\underline{\textbf{证法一}}~~任取$\varepsilon >0$, 显然对任意$x_0 \in I$, 存在$x_0$的一个邻域$N_{\delta(x_0)}(x_0)$使得$f$在$N(x_0)$上的振幅$\omega (f;N_{\delta(x_0)}(x_0)) <\varepsilon$. 由于$\bigcup_{x \in I} N_{\delta(x_0)}(x_0)$构成$I$的一个开覆盖, 可取其中的有限个使得它们仍然构成一个开覆盖, 设为$N_{\delta (x_1)}(x_1), \cdots ,N_{\delta (x_n)}(x_n)$. 我们选取$\delta _0 = \frac{1}{2}\min \{ \delta (x_1),\cdots ,\delta (x_n) \}$, 考虑$|x-y|<\delta _0$, 设$x \in N_{\delta (x_{\ell})}(x_{\ell})$, 则$|y-x_{\ell}| < |x-y|+|x-x_{\ell}|<\delta (x_{\ell})$, 所以$x,y \in N_{\delta (x_{\ell})}(x_{\ell})$, 立得$|f(x)-f(y)|<\varepsilon$. 
 	
 	\underline{\textbf{证法二}}~~设若不然, 则存在$\varepsilon >0$使得对任意$n >0$, 存在$|x_n-y_n|<1/n$且$|f(x_n)-f(y_n)| \geq \varepsilon$. 通过选取$\{ x_n \}$的子列, 不妨设其极限为$x \in I$, 进而显然有$y_n \to x$. 由于$f$在$x$处连续, 可知$\lim_{n\to \infty} f(x_n) = \lim_{n\to \infty} f(y_n) = x$, 得到矛盾. 
 \end{proof}
 
 对于开区间我们也有一致连续的充要条件, $f(x)=\frac{1}{x}$的例子就是一个印证. 
 
-\begin{proposition}{}
+\begin{proposition}{} \label{pro:kdqujmuhyivilmxu}
 	设$f \in C((a,b))$, 其中$a,b$可以为$\infty$. 则$f$一致连续当且仅当$f(a^+),f(b^-)$存在(且有限). 
 \end{proposition}
 \begin{proof}
@@ -257,13 +275,20 @@
 \end{cases}.$$
 \end{proof}
 
+\begin{example}
+	证明$f(x)=x\cos \frac{1}{x}$在$(0,+\infty)$上一致连续. 
+\end{example}
+\begin{proof}
+	注意到$f(0^+)=0$, 对任意正数$\delta$就有$f$在$(0,\delta ]$上一致连续. 结合上面的例子即可得到结论. 
+\end{proof}
+
 最后介绍一个刻画一致连续性的优雅命题: 
 
 \begin{proposition}{}
 	设$f:E \to \R$, 其中$E$是长度有限的区间, 则$f$在$E$上一致连续当且仅当对所有Cauchy列$\{ x_n \} \subseteq E$, $\{ f(x_n) \}$仍然是Cauchy列. 
 \end{proposition}
 \begin{proof}
-	必要性显然. 充分性: 假设$f$并非一致连续, 即存在$\varepsilon >0$使任意$\delta >0$都有$|x-y|<\delta \Rightarrow |f(x)-f(y)| \geq \varepsilon$. 特别地, 取$\delta = 1/n$, 构造数列$\{ x_n \},\{ y_n \}$使得$|x_n-y_n|<1/n$. 由于$E$有界, $\{ x_n \}$和$\{ y_n \}$都存在收敛子列, 将两个收敛子列的点交错排序得到Cauchy列$\{ z_n \}$, 但是$\{ f(z_n) \}$不是Cauchy列, 矛盾. 
+	必要性显然. 充分性: 假设$f$并非一致连续, 即存在$\varepsilon >0$使任意$\delta >0$都存在$|x-y|<\delta \Rightarrow |f(x)-f(y)| \geq \varepsilon$. 特别地, 取$\delta = 1/n$, 构造数列$\{ x_n \},\{ y_n \}$使得$|x_n-y_n|<1/n$. 由于$E$有界, $\{ x_n \}$和$\{ y_n \}$都存在收敛子列, 将两个收敛子列的点交错排序得到Cauchy列$\{ z_n \}$, 但是$\{ f(z_n) \}$不是Cauchy列, 矛盾. 
 \end{proof}
 
 关于一致连续函数的运算, 设$f,g$分别在区间$I$上一致连续, 显然有$f+g$在$I$上一致连续. 由于乘法需要用到有界性来约束, 自然会考虑: 
@@ -272,12 +297,59 @@
 	设$f,g$在有限区间$I$上一致连续, 则$f \cdot g$在$I$上一致连续. 
 \end{proposition}
 \begin{proof}
-	问题的关键是在于证明: 若$f$在$I$上一致连续, 则有界. 当$I$是闭区间时结论显然; 当$I$有至少一边是开的时, 利用命题4.6的方法将其补全为闭区间上的函数, 由于$f$在$I$两端的极限均为实数, 这样的补全是合理的, 从而证明了结论. 
+	问题的关键是在于证明: 若$f$在$I$上一致连续, 则有界. 当$I$是闭区间时结论显然; 当$I$有至少一边是开的时, 利用命题\ref{pro:kdqujmuhyivilmxu}的方法将其补全为闭区间上的函数, 由于$f$在$I$两端的极限均为实数, 这样的补全是合理的, 从而证明了结论. 
 \end{proof}
 
 \newpage
 \section*{一些习题 ~~\small 对应原书4.2习题}
 
+\subsection*{A: 用多项式逼近有界函数}
+
+设$f,g :X \to \R$, 记$d(f,g) = \sup_{x \in X} | f(x)-g(x) |$表示$f,g$的距离\footnote{这其实就是函数之间的一致度量.}. 
+\vspace{1em}
+
+\textbf{A1)}~~设$f,g \in C([a,b])$, 则存在$x_0 \in [a,b]$使得$d(f,g) = |f(x_0)-g(x_0)|$. 
+\vspace{1em}
+
+设$P_n(x)$是不超过$n$次的多项式, 有界函数$f:[a,b] \to \R$. 记$E_n(f)= \inf_{P_n} d(f,P_n)$. 若$d(f,P_n) = E_n(f)$, 则称$P_n$为$f$的$n$次最佳逼近多项式. 下面出现的$f,P_n(x)$均遵循该定义. 
+\vspace{1em}
+
+\textbf{A2-1)}~~零次最佳逼近多项式存在. 
+
+\textbf{A2-2)}~~当$P_n$是固定的多项式时, 存在$\lambda _0$使得$d(f,\lambda _0P_n) = \inf_{\lambda \in \R} d(f,\lambda P_n)$. 
+
+\textbf{A2-3)}~~若$n$次最佳逼近多项式存在, 则$n+1$次最佳逼近多项式也存在. 
+
+\vspace{1em}
+这样我们就证明了对任意$n$, $f$的$n$此最佳逼近多项式存在. 特别地, 归纳过程给出了具体构造方法. 
+\vspace{1em}
+
+\textbf{A3)}(Vallée Poussin)~~如果在闭区间$[a,b]$上有$n+2$个点$x_0 <\cdots <x_{n+1}$, 使得量$\sgn \big( (f(x_i)-P(x_i))(-1)^i \big)$在$i=0,\cdots ,n+1$时为常数, 则$E_n(f) \geq \min_{0 \leq i \leq n+1} |f(x_i)-P_n(x_i)|$. 
+\vspace{1em}
+
+称$n+2$个点$x_0 < \cdots < x_{n+1}$为Chebyshev交错点, 如果$f(x_i)-P_n(x_i) = (-1)^i \cdot d(f,P_n) \cdot \sigma$, 其中$\sigma$为等于$\pm 1$的常量. 
+
+\vspace{1em}
+\textbf{A4-1)}(Chebyshev)~~若$P_n(x)$是$f \in C([a,b])$的$n$次最佳逼近多项式, 则在闭区间$[a,b]$上可以求出至少$n+2$个Chebyshev交错点. {\color{blue}该命题的证明需要用到很多引理, 没有做的必要, 后文可以直接使用. }
+
+\begin{wrapfigure}{r}[1cm]{0pt}
+	\includegraphics[width=6cm]{attachment/iShot_2024-02-01_18.43.57.png}
+	\caption{\small $T_1 \sim T_4$在$[-1,1]$上的示意图}
+\end{wrapfigure}
+
+\textbf{A4-2)}求$f(x)=x^2$在$[0,1]$上的$1$次最佳逼近多项式, 并以此构造反例说明当$f$不连续时上述命题不一定成立. 
+
+\textbf{A4-3)}~~若在$[a,b]$上可以求出至少$n+2$个Chebyshev交错点, 则$P_n(x)$是$f \in C([a,b])${\color{blue}唯一}的$n$次最佳逼近多项式. 
+
+\vspace{1em}
+我们定义Chebyshev多项式$T_n(x)=\cos (n \arccos x)$. 简单验证可知$T_n(x)$是首项系数为$2^{n-1}$的$n$次多项式. $\{ T_n \}$的前几项分别为: $T_1(x)=x, T_2(x)=2x^2-1, T_3(x)=4x^3-3x, T_4(x)=8x^4-8x^2+1$. 
+
+\vspace{1em}
+\textbf{A5)}~~在$x^n$的系数为$1$的多项式中, 多项式$T_n(x)/2^{n-1}$是$f(x)=0, -1 \leq x \leq 1$的最佳逼近多项式. 
+
+\subsection*{B: 连续函数环的极大理想}
+
+这部分习题在于品老师的讲义上有平替, Zorich提示太少不好做. 
 
 
 
@@ -351,14 +423,7 @@
 
 例如, $\R ^n$上可以定义三种范数: $$\| x \|_1 := \sum_{j=1}^n |x_j|,\qquad \| x \|_n := \sqrt[n]{\sum_{j=1}^n |x_j|^n},\qquad \| x \|_{\infty} := \sup_{1 \leq j \leq n}|x_j|. $$
 
-同样地可以定义赋范向量空间上的等价范数. 事实上, 对于有限维赋范向量空间, 上面所有的范数都是等价的. 
-
-\begin{proposition}{}
-	$n$维向量空间$V$上的所有范数都等价. 
-\end{proposition}
-\begin{proof}
-	在该命题的证明中需要用到$\R ^n$上函数的连续性相关命题, 我们先承认这些命题正确. 
-\end{proof}
+同样地可以定义赋范向量空间上的等价范数. 事实上, 对于有限维赋范向量空间, 上面所有的范数都是等价的. 我们会在后面证明这个命题. 
 
 如果一个赋范向量空间是完备的, 我们通常称其为Banach空间. 
 
@@ -661,7 +726,42 @@
 
 \subsection{基本概念}
 
-\subsection{度量空间$(C([a,b]),\| \bigcdot \|_{\infty})$的完备性}
+可以给函数列定义两种收敛方式. 
+
+\begin{definition}{函数列的收敛}
+	设度量空间$(X,d)$, $\{ f_n :X \supseteq E \to \R \}_{n\geq 1}$是函数的序列, $f:E \to \R$. 
+	\begin{itemize}
+		\item 称$f_n$在$E$上\textit{逐点收敛}(pointwisely convergent)到$f$, 如果对任意的$x \in E$, 数列$f_n(x) \to f(x),n \to \infty$. 
+		\item 称$f_n$在$E$上\textit{一致收敛}(uniformly convergent)到$f$, 记作$f_n \rightrightarrows f,n\to \infty$, 如果对任意$\varepsilon >0$都存在$N$使得当$n>N$时对任意$x \in E$都有$|f_n(x)-f(x)|<\varepsilon$. 
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	设$f_n(x)=\frac{1}{nx}$, 则在$(0,1)$上$f_n(x)$逐点收敛到$0$, 但并非一致收敛到$0$. 
+\end{example}
+\begin{proof}
+	假设$f_n \rightrightarrows 0$, 即对任意$\varepsilon >0$都存在$N$使得$n>N$时对任意$x \in (0,1)$都有$\frac{1}{nx}<\varepsilon$, 那么$x > \frac{1}{N\varepsilon}$, 显然不可能. 
+\end{proof}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6cm]{attachment/IMG_3545.jpg}
+	\caption{$f_n(x)=\frac{1}{nx}$收敛情况的示意图, 手绘勿喷}
+\end{figure}
+
+在几何上来看, 若$f_n \rightrightarrows f$, 则对任意$\varepsilon >0$, 对足够大的$n$, $y=f_n(x)$的图像应当完全落在$y=f(x)-\varepsilon$到$y=f(x)+\varepsilon$之间. 
+
+\begin{proposition}{}
+	设$E$上的函数列$\{ f_n \}$, 则以下说法等价: 
+	
+	1) $f_n \rightrightarrows f$;\qquad 2) $\displaystyle \lim_{n\to \infty} \sup_{x \in E}|f_n(x) - f(x)|=0$;\qquad 3) 对任意$\{ x_n \}\subseteq E$都有$f_n(x_n)-f(x_n) \to 0$. 
+\end{proposition}
+\begin{proof}
+	$1) \Rightarrow 2)$和$2) \Rightarrow 3)$都是显然的. 下面证明$3) \Rightarrow 1)$. 
+\end{proof}
+
+
+\subsection{度量空间$\big( C([a,b]),\| \bigcdot \|_{\infty} \big)$的完备性}
 
 
 

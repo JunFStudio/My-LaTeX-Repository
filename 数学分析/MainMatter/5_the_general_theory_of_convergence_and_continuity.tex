@@ -2,7 +2,7 @@
 
 在第四章研究函数的连续性时, 我们已经“顺带”定义好了度量空间, 甚至定义了($\R$上)开集, 闭集, 连续映射等拓扑概念. 但是, 有一些微妙的事情我们还没有处理. 例如, 我们说闭区间上连续函数的性质可以推广到所谓“连通的”或者“紧的”集合上; 另外, 我们好奇拓扑空间的具体性质. 这些事情统统可以归在点集拓扑学里, 也就是本章会(部分地)研究的对象. 
 
-在数分I就讲拓扑学是少见的安排, 事实上本章的内容应该对应Zorich的第七章和第九章. 这样做的原因主要在于, 连续函数(映射)自然会牵涉到很多拓扑的内容, 紧接着第四章讲拓扑学有助于贯通理解这两个概念的关系(而且拓扑和后面的内容没有必要的先后关系). 
+事实上本章的内容应该对应Zorich的第七章和第九章. 这样安排的原因主要在于, 连续函数(映射)自然会牵涉到很多拓扑的内容, 紧接着第四章讲拓扑有助于贯通理解这两个概念的关系(而且拓扑和后面的内容没有必要的先后关系). 
 
 本章的核心内容如下表所示. 
 
@@ -109,7 +109,10 @@
 对于一般定义的向量值函数$f:\R ^n \supseteq X \to \R ^n$, 我们可以将其分解为$f=(f^1,\cdots ,f^m)$, 因此只需研究值域为$\R$的函数, 称为多元函数. 
 
 \begin{definition}{多元函数的重极限}
-	设$f: \R ^n \supseteq X \to \R$, $\mathcal{B}$是$X$上的基. 称$l$为函数$f$\textit{在基$\mathcal{B}$上的极限}, 如果对于$l \in \R$的任何邻域$B(l,\varepsilon)$都存在$B \in \mathcal{B}$使得$f(B) \subseteq B(l,\varepsilon)$. 记作$$\lim_{\mathcal{B}}f(x)=l.$$
+	设$f: \R ^n \supseteq X \to \R$, $\mathcal{B}$是$X$上的基. 称$l$为函数$f$\textit{在基$\mathcal{B}$上的极限}, 如果对于$l \in \R$的任何邻域$B(l,\varepsilon)$都存在$B \in \mathcal{B}$使得$f(B) \subseteq B(l,\varepsilon)$. 记作
+	\begin{center}
+		$\displaystyle \lim_{\mathcal{B}}f(x)=l.$
+	\end{center}
 \end{definition}
 
 \begin{proposition}{多元函数极限的性质}
@@ -252,6 +255,22 @@
 	重复一元函数对应定理中利用Bolzano-Weierstrass证明的部分即可. 
 \end{proof}
 
+现在来补上之前缺少的一个证明: 
+
+\begin{proposition}{}
+	$n$维向量空间$V$上的所有范数都等价. 
+\end{proposition}
+\begin{proof}
+	取$V$的一组基$v_1,\cdots ,v_n$. 设$x=(x^1,\cdots ,x^n)$, 定义$\| x \| = \sqrt{\sum_{j=1}^{n} (x^j)^2}$. 设另一个范数$N(\bigcdot )$, 下证$N(\bigcdot )$和$\| \bigcdot \|$等价. 
+	
+	先证明$N$是范数$\| \bigcdot \|$下的连续函数. 任取$x=(x^1,\cdots ,x^n),y=(y^1,\cdots ,y^n)$. 由范数的三角不等式可知$|N(x)-N(y)| \leq N(x-y)$, 从而
+	\begin{align*}
+		|N(x)-N(y)| &\leq N(x-y) = N\left( \sum_{j=1}^{n} (x^j-y^j)v_j \right) \leq \sum_{j=1}^{n} (x^j-y^j)N(v_j) \\
+		&\leq \sqrt{\sum_{j=1}^{n} (x^i-y^i)^2} \cdot \sqrt{\sum_{j=1}^{n} (N(v_j))^2} = C\| x-y \|. 
+	\end{align*}
+	
+	接着, 考虑$V$中的欧氏单位球面$S=\{ x \in V:\| x \|=1 \}$, 显然$S$是有界闭集, 从而$N$在$S$上可以取到最大值$M$和最小值$m(>0)$. 对任意非零的$x \in V$有$\frac{x}{\| x \|} \in S$, 所以$m \leq N(\frac{x}{\| x \|}) \leq M$, 这就是说$m\| x \| \leq N(x) \leq M\| x \|$. 
+\end{proof}
 
 
 \newpage

@@ -655,6 +655,7 @@ $$\begin{pmatrix}
 	若$\nul \varphi _1=\nul \varphi _2=V$, 则$\varphi _1 = \varphi _2=0$. 否则考虑$u\in V$且$u \notin \nul \varphi _1$. 由上一题可知$V = \nul \varphi _1 \oplus \{ au:a \in \F \}$. 任取$v \in V$, 将其表示为$v = w + au$, 那么$\frac{\varphi _1(v)}{\varphi _2(v)} = \frac{\varphi _1(u)}{\varphi _2(u)}$, 为定值. 
 \end{proof}
 
+\newpage
 \section{可逆性与同构的向量空间}
 
 \subsection{线性映射的可逆性}
@@ -693,7 +694,7 @@ $$\begin{pmatrix}
 
 其实我们可以做出更为细致的分析:
 
-\begin{proposition}{} %LADR 练习3.20,21
+\begin{proposition}{} \label{pro:kenixmxkykuedexiviffxi} %LADR 练习3.20,21
 	(1) 设$W$是有限维的, $T \in \lmap (V,W)$, 则$T$是单的当且仅当存在$S \in \lmap (W,V)$使得$ST=I$. \\
 	(2) 设$V$是有限维的, $T \in \lmap (V,W)$, 则$T$是满的当且仅当存在$S \in \lmap (W,V)$使得$TS=I$.
 \end{proposition}
@@ -802,7 +803,6 @@ $$\begin{pmatrix}
 \end{pmatrix}, $$
 即可完成同样的证明. 
 
-\newpage
 \subsection*{习题  ~~\small 对应原书3.D习题}
 
 \begin{exercise} %(3e) 4
@@ -999,8 +999,188 @@ $$\begin{pmatrix}
 \newpage
 \section{对偶与矩阵的秩}
 
+\subsection{对偶}
 
-% LADR 新增内容: Column–Row Factorization and Rank of a Matrix (3C)
+之前我们证明了矩阵乘法就等价于其对应线性映射的复合, 也说明了可逆矩阵和可逆线性映射的关系. 实际上, 矩阵的对偶也会有对应的线性映射的形式, 但这一套理论并不显然. 现在让我们以反向探索的方式进行研究. 
+
+设线性映射$T \in \lmap (V,W)$, $V$的一组基$v_1,\cdots ,v_m$, $W$的一组基$w_1,\cdots ,w_n$, 简记$\mathcal{M}(T)$表示$\mathcal{M}(T, (v_1,\cdots ,v_m), (w_1,\cdots ,w_n))$. 
+
+首先, 由于$\mathcal{M}(T)$作用到$v \in V$上而$\mathcal{M}(T)^{\T}$作用到$v^{\T}$即$1\times m$的矩阵上, 我们需要定义这些矩阵(或者说线性映射). 
+
+\begin{definition}{线性泛函, 对偶空间}
+	\vspace{-2em}
+	\begin{itemize}
+		\item 称$V$上的\textit{线性泛函}为$\lmap (V,\F)$中的元素. 
+		\item $V$上所有线性泛函组成的向量空间$\lmap (V,\F)$称为$V$的\textit{对偶空间}, 记作$V'$. 
+	\end{itemize}
+\end{definition}
+
+我们来寻找$V'$的一组基. 从矩阵的角度, 容易想到的构造是: $\varphi _k(v_j) = \begin{cases} 1 & j=k \\ 0 & j \neq k \end{cases}, k=1,\cdots ,m$. 称这组基为$v_1,\cdots ,v_m$的\textit{对偶基}. 
+
+现在考虑构造$\lmap (W',V')$里的线性映射$T'$使得$\mathcal{M}(T'):= \mathcal{M}(T',(\psi _1,\cdots ,\psi _n), (\varphi _1,\cdots ,\varphi _m))$满足$\mathcal{M}(T') = \mathcal{M}(T)^{\T}$, 其中$\psi _1,\cdots ,\psi _n$是$w_1,\cdots ,w_n$的对偶基. 设$Tv_i = c_{1i} w_1 + \cdots + c_{ni} w_n$, 那么$\psi _j Tv_i = c_{ji}$, 进而可以排布出理想中的$\mathcal{M}(T')$: $$\mathcal{M}(T') = \begin{pmatrix}
+ \psi _1Tv_1 & \cdots & \psi _nTv_1 \\
+ \vdots &  & \vdots \\
+ \psi _1Tv_m & \cdots & \psi _nTv_m
+\end{pmatrix}. $$
+也就是说, 对$k=1,\cdots ,n$, $T'(\psi _k) = (\psi _kTv_1)\varphi _1 + \cdots + (\psi _kTv_m)\varphi _m$. 左右同时作用于$j=1,\cdots ,m$可得$T'(\psi _k)(v_j) = \psi _k Tv_j$. 因此, 我们定义$T'(\psi) = \psi \circ T$即可. 
+
+\begin{definition}{对偶映射}
+	设$T \in \lmap (V,W)$, 则$T$的\textit{对偶映射}$T' \in \lmap (W',V')$满足$T'(\psi) = \psi \circ T$. 
+\end{definition}
+
+容易验证, 将映射变为对偶映射的映射$(\bigcdot )^'$满足下方代数运算性质. 
+
+\begin{proposition}{}
+	\vspace{-2em}
+	\begin{itemize}
+		\item 加法. 对所有$S,T \in \lmap (V,W)$, $(S+T)'=S'+T'$. 
+		\item 标量乘法. 对所有$\lambda \in \F$和$T \in \lmap (V,W)$, $(\lambda T)' = \lambda T'$. 
+		\item 复合. 对所有$T \in \lmap (U,V)$和$S\in \lmap (V,W)$, $(ST)' = T'S'$. 
+	\end{itemize}
+\end{proposition}
+
+当然, 这些性质可以直接从定义推导出来, 无需借助上方的结论. 另一方面, 上述命题也向我们阐明了$(\bigcdot)^{'}$和$(\bigcdot)^{\T}$的统一性. 
+
+\subsection{矩阵的秩}
+
+现在我们暂时从对偶理论中跳脱出来, 看看如何衡量一个矩阵(所对应线性映射)的零空间和值域. 
+
+\begin{definition}{矩阵的秩}
+	设矩阵$A$. 
+	\begin{itemize}
+		\item 称$A$的列向量的张成空间为$A$的\textit{列空间}, 记作$\mathcal{R}(A)$. $\{ x:Ax=0 \}$称为$A$的\textit{零空间}, 记作$\mathcal{N}(A)$. 
+		\item 称$\dim \mathcal{R}(A)$为$A$的\textit{列秩}, 记作$\rank A$. 称$\dim \mathcal{R}(A^{\T})$为$A$的\textit{行秩}. 
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	若$A$对应线性映射$T$, 则$\mathcal{R}(A) = \rge T$, $\mathcal{N}(A) = \nul T$. 
+\end{remark}
+\begin{remark}
+	后面我们会说明, 矩阵的行秩和列秩其实是相等的. 这里我们先用列秩定义秩. 
+\end{remark}
+
+我们注意到, 例如, 设$A$是$m \times n$矩阵, 那么$\rank A \leq n$(因为$A$只有$n$列)并且$\rank A \leq m$(因为每个列向量只有$m$个坐标). 
+
+\begin{proposition}{行列分解}
+	设$A$是$m\times n$矩阵, $c=\rank A \geq 1$, 则存在$m\times c$矩阵$C$和$c \times n$矩阵$R$使得$A=CR$. 
+\end{proposition}
+\begin{proof}
+	设$A$的列向量$v_1,\cdots ,v_n$, 取其极大线性无关组$v_{k_1},\cdots ,v_{k_c}$, 令$C=\begin{pmatrix} v_{k_1} & \cdots & v_{k_c} \end{pmatrix}$. 设$v_j = a_{1j}v_{k_1} + \cdots + a_{cj}v_{k_c}, j=1,\cdots ,n$, 令$R = \begin{pmatrix} a_{ij} \end{pmatrix}$. 容易验证$A=CR$. 
+\end{proof}
+
+上述命题直接的推论: 
+
+\begin{proposition}{矩阵的行秩等于列秩}
+	设$A$是$m\times n$矩阵, 则$\rank A = \rank A^{\T}$. 
+\end{proposition}
+\begin{proof}
+	设$A$的秩为$c$, 则存在$m\times c$矩阵$C$和$c \times n$矩阵$R$使得$A=CR$. 和上个命题恰好相反地, 容易验证$A$的行都可由$R$的所有行线性表出(其中系数取自$C$). 从而$\rank A^{\T} \leq \rank A$. 对$A^{\T}$作同样的操作可以证明$\rank A \leq \rank A^{\T}$, 所以原命题成立. 
+\end{proof}
+
+从矩阵计算的角度来看, 可以按如下的方式计算矩阵的秩以及零空间的一组基: 容易说明, $\mathrm{rref}A$和$A$的列向量具有相同的特征, 即若$A$中某个列向量能用其他线性无关的列向量线性表出, 则在$\mathrm{rref}A$中对应的列向量也能被对应的列向量组线性表出, 且表示系数相同. 因此, $\mathrm{rref} A$的阶梯数就是$\rank A$, 且我们能通过$\mathrm{rref} A$简单地得到解空间的结构. $$A=\begin{pmatrix}
+1 & 1 & 4 & 2 \\
+5 & 1 & 4 & 4 \\
+2 & 0 & 0 & 1 
+\end{pmatrix}\quad \stackrel{\textit{化简}}{\longrightarrow} \quad \mathrm{rref}A = 
+\begin{pmatrix}
+1 & 0 & 0 & \frac{1}{2}  \\
+0 & 1 & 4 & \frac{3}{2}  \\
+0 & 0 & 0 & 0 
+\end{pmatrix}.$$
+在上例中, 设$A$的列向量为$v_1 , \cdots ,v_4$, 则可得$v_3=4v_2,v_4=\frac{1}{2}v_1+\frac{3}{2}v_2$. 
+
+另一方面, 作初等行变换时也不会改变行空间$\mathcal{R^{\T}}$(但是行向量之间的关系会改变), 这样我们就得到了$\rank A = \rank A^{\T}$的另一种证明. 
+
+\begin{definition}{满秩}
+	设$m\times n$矩阵$A$. 当$\rank A = m$时, 称$A$\textit{行满秩}; 当$\rank A = n$时, 称$A$\textit{列满秩}; 当$\rank A = m =n$时, 称$A$\textit{满秩}. 
+\end{definition}
+
+容易验证, 设$T$是$A$所对应的线性映射, 则$T$是单射当且仅当$A$列满秩, $T$是满射当且仅当$A$行满秩, $T$是双射当且仅当$A$满秩. 将这一观点结合行列分解, 可以得到和命题\ref{pro:kenixmxkykuedexiviffxi}类似的看法. 
+
+\begin{proposition}{}
+	设$m\times n$矩阵$A$和$n\times p$矩阵$B$, 则$\mathcal{R}(AB) \subseteq \mathcal{R}(A)$, 等号在$B$可逆时取得. 
+\end{proposition}
+\begin{proof}
+	将$A,B$视作线性映射, 结论是显然的. 
+\end{proof}
+
+\begin{proposition}{矩阵乘法和秩的关系}
+	设$m\times n$矩阵$A$和$n\times p$矩阵$B$, $m$阶可逆矩阵$P$, $n$阶可逆矩阵$Q$. 
+	\begin{itemize}
+		\item $\rank (AB) \leq \min \{ \rank A,\rank B \}$. 
+		\item $\rank (PAQ) = \rank A$. 
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	这是上个命题的直接推论(需要用矩阵转置说明两个方面的关系). 
+\end{proof}
+
+\subsection{对偶映射的零空间和值域}
+
+我们先尝试来猜测对偶映射的零空间和值域的结构. 设$T' \in \lmap (W',V')$, 则
+$$T'(\psi) = 0 \Leftrightarrow \psi \circ T = 0 \Leftrightarrow \forall v \in V,\psi (Tv)= 0 \Leftrightarrow \rge T \subseteq \nul \psi .$$
+即$\nul T' = \{ \psi \in W' : \rge T \subseteq \nul \psi \}$. 
+
+另一方面, 设$\nul T$的一组基为$v_1,\cdots ,v_m$, 扩充为$V$的一组基$v_1,\cdots ,v_m,u_1,\cdots ,u_n$; $\rge T$的一组基$Tu_1,\cdots ,Tu_n$, 扩充为$W$的一组基$Tu_1,\cdots ,Tu_n,w_1,\cdots ,w_p$. 
+
+则$T$关于$V$的这组基的矩阵为$$\mathcal{M}(T) = \begin{pmatrix}
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot \\
+ \vdots &  & \vdots & \vdots &  & \vdots\\
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}.$$
+而当$\psi$遍历$W'$时, $$\mathcal{M}(\psi) \cdot \mathcal{M}(T) = \begin{pmatrix}
+\bigcdot & \cdots & \bigcdot & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}_{1 \times \atop (n+p)} \cdot \begin{pmatrix}
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot \\
+ \vdots &  & \vdots & \vdots &  & \vdots\\
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}_{(n+p) \times \atop (m+n)} = 
+\begin{pmatrix}
+0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}_{1 \times \atop (m+n)}$$
+容易验证, $\psi \circ T$遍历所有使得$\nul T \subseteq \nul \varphi$的$\varphi \in V'$, 即$\rge T' = \{ \varphi \in V' : \nul T \subseteq \nul \varphi \}$. 
+
+将以上两个结论放在一起, 自然引出下方定义: 
+
+\begin{definition}{零化子}
+	设$U$是$V$的子空间, 那么定义$U$的\textit{零化子}$U^0$如下: 
+	\begin{center}
+		$U^0 := \{ \varphi \in V':U \subseteq \nul \varphi \}. $
+	\end{center}
+\end{definition}
+
+容易验证, $U^0$是$V'$的子空间. 我们可以将上方的两个结论写成: 
+
+\begin{proposition}{对偶映射的零空间与值域}
+	设有限维向量空间$V,W$, $T \in \lmap (V,W)$, 则
+	\begin{center}
+		$\nul T' = (\rge T)^0,\qquad \rge T' = (\nul T)^0.$
+	\end{center}
+\end{proposition}
+\begin{remark}
+	实际上, 第一个结论的得出并不需要有限维的假设, 参见先前的证明过程. 第二个结论需要, 这是因为在验证“遍历”的时候我们隐含使用了有限维的假设(否则没办法把线性映射写成矩阵). 
+\end{remark}
+
+为了得到$\nul T',\rge T'$具体的维数, 我们需要研究$U^0$的性质. 
+
+\begin{proposition}{零化子的维数}
+	设$V$是有限维的, $U$是$V$的子空间, 则$\dim U + \dim U^0 = \dim V$. 
+\end{proposition}
+\begin{proof}
+	构造嵌入映射$\iota \in \lmap (U,V)$, 使得$\iota |_U=I_U$. 那么$\iota ' \in \lmap (V',U')$, 满足$\nul \iota ' = U^0$. 由线性映射基本定理, $$\dim \rge \iota '+ \dim U^0 = \dim V' = \dim V. $$
+	另外, 对任意$\varphi \in U'$, 存在$\varphi _1 \in V'$使得$\varphi _1|_U = \varphi$, 而$\iota ' (\varphi _1) = \varphi$, 从而$\rge \iota ' = U$. 这就完成了证明. 
+\end{proof}
+
+因此可以得到: $\dim \nul T' = \dim \nul T + \dim W - \dim V$, $\dim \rge T' = \dim \rge T$. 因此, $T$是满射当且仅当$T'$是单射, $T$是单射当且仅当$T'$是满射. 
+
+利用对偶, 我们可以给出$\rank A = \rank A^{\T}$的第三种证明: 设$T$是$A$对应的线性映射, 那么$$\rank A = \dim \rge T = \dim \rge T' = \rank A^{\T}. $$
+
+\subsection*{习题  ~~\small 对应原书3.F习题}
+
+
+
+
+
 
 
 
