@@ -59,19 +59,22 @@
 \contentsline {subsection}{\numberline {4.4.2}拓扑空间}{80}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}函数列的逐点收敛与一致收敛}{83}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}基本概念}{83}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}度量空间$\big ( C([a,b]),\| \mathchoice {\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \displaystyle \bullet $}}}}}{\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \textstyle \bullet $}}}}}{\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \scriptstyle \bullet $}}}}}{\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \scriptscriptstyle \bullet $}}}}}\|_{\infty } \big )$的完备性}{84}{subsection.4.5.2}%
-\contentsline {chapter}{\numberline {5}收敛性和连续性的一般化}{85}{chapter.5}%
-\contentsline {section}{\numberline {5.1}$\mathbb {R}^n$上的点列极限与连续映射}{86}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}点列的极限}{86}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}实数完备性定理的推广}{87}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}多元函数的重极限}{88}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}多元函数的累次极限}{89}{subsection.5.1.4}%
-\contentsline {subsection}{\numberline {5.1.5}多元函数的连续性}{90}{subsection.5.1.5}%
-\contentsline {subsection}{\numberline {5.1.6}有界闭集上连续函数的性质}{91}{subsection.5.1.6}%
-\contentsline {section}{\numberline {5.2}度量空间上的点列极限与连续映射}{93}{section.5.2}%
-\contentsline {section}{\numberline {5.3}拓扑空间上的点列极限与连续映射}{94}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}拓扑空间中点列的收敛性}{94}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}拓扑空间之间的连续映射}{94}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}多元函数的极限和连续性}{95}{section.5.4}%
-\contentsline {section}{\numberline {5.5}拓扑不变量}{96}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}紧集, 列紧集, 有界闭集}{96}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}极限函数的连续性}{84}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}度量空间$\big ( C([a,b]),\| \mathchoice {\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \displaystyle \bullet $}}}}}{\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \textstyle \bullet $}}}}}{\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \scriptstyle \bullet $}}}}}{\mathbin {\vcenter {\hbox {\scalebox {.5}{$\mathsurround \z@ \scriptscriptstyle \bullet $}}}}}\|_{\infty } \big )$的完备性}{86}{subsection.4.5.3}%
+\contentsline {chapter}{\numberline {5}收敛性和连续性的一般化}{87}{chapter.5}%
+\contentsline {section}{\numberline {5.1}$\mathbb {R}^n$上的点列极限与连续映射}{88}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}点列的极限}{88}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}实数完备性定理的推广}{89}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}多元函数的重极限}{90}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}多元函数的累次极限}{91}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}多元函数的连续性}{92}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}有界闭集上连续函数的性质}{93}{subsection.5.1.6}%
+\contentsline {section}{\numberline {5.2}度量空间上的点列极限与连续映射}{95}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}点列的极限}{95}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}实数完备性定理的推广}{95}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}拓扑空间上的点列极限与连续映射}{97}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}拓扑空间中点列的收敛性}{97}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}拓扑空间之间的连续映射}{97}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}多元函数的极限和连续性}{98}{section.5.4}%
+\contentsline {section}{\numberline {5.5}拓扑不变量}{99}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}紧集, 列紧集, 有界闭集}{99}{subsection.5.5.1}%

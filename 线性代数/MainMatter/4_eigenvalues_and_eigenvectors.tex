@@ -1,0 +1,93 @@
+\chapter{本征值和本征向量}
+
+\section{不变子空间}
+
+\subsection*{引子一}
+
+设$T \in \lmap (V)$, 设$V$的一个直和分解$V=V_1 \oplus \cdots \oplus V_m$, 则在研究$T$时我们只需要知道每个$T|_{V_k}$的行为即可. 但是, $T|_{V_k}$不一定是$V_k$上的算子, 这样很多有效的工具就没有作用了. 因此, 我们要考虑是否存在$V$的一种直和分解, 使得对所有$k$, $T|_{V_k} \in \lmap (V_k)$. 
+
+一般地, 设$U$是$V$的子空间, $T\in \lmap (V)$. 称$U$是$T$下的一个\textit{不变子空间}, 如果$T(U) \subseteq U$. 最简单的不变子空间就是由向量$v$张成的一维子空间. 此时$Tv \in \spn (v)$说明存在$\lambda \in \F$使得$Tv=\lambda v$. 反过来, 若上式成立, 则$\spn (v)$自然是$T$的一个不变子空间. 
+
+\subsection*{引子二\footnote{摘编自~梁鑫,田垠,杨一龙. \underline{线性代数入门}. 清华大学出版社, 2022}}
+
+我们来看这样一个例子: 甲地和乙地之间每年都会有人口的流动. 设每年甲地向乙地转移其人口的$40 \%$, 乙地向甲地转移其人口的$10 \%$, 那么当足够久之后两地的人口比例是否会趋于稳定? 用矩阵变换来描述这个问题, 就是说对任意的$0<t<1$, 当$n\to \infty$时式子$$
+\begin{pmatrix}
+ 0.6 & 0.1\\
+ 0.4 & 0.9
+\end{pmatrix}^n \cdot \begin{pmatrix}
+t \\
+1-t
+\end{pmatrix}$$
+是否存在极限? 
+
+一方面, 由压缩映射原理, 我们可以猜测稳定状态下的结果$x$就是$Ax=x$的解, 而后者解集为向量$\begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix}$的张成空间. 另外不难验证对任意$n$, 最终$x$的两个坐标之和为$1$. 因此我们猜出了稳定的情况$x_0=\begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix}$. 
+
+另一方面, 设$A$是上方的矩阵, 我们要考虑怎样选取一组基才能将$A$变为对角矩阵(因为对角矩阵的乘积就是直接将对角线上元素相乘). 这就是说, 要寻找$x_1,x_2$使得$Ax_1=\lambda _1x_1$和$Ax_2=\lambda _2x_2$. 一般地, 考虑方程$(A-\lambda I)x=0$. 我们知道该方程有非零解当且仅当$\rank A=1$, 从而$$\rank A=1 ~~\Leftrightarrow ~~ \frac{0.6-\lambda}{0.4} = \frac{0.1}{0.9-\lambda} ~~\Leftrightarrow ~~ \lambda ^2-1.5\lambda +0.5=0 ~~\Leftrightarrow ~~ \lambda _1=1, \lambda _2=0.5. $$
+计算可得, $\lambda _1,\lambda _2$对应的$x_1,x_2$分别为$\begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix},\begin{pmatrix}
+1 \\ -1
+\end{pmatrix}$. 记$X=\begin{pmatrix}
+	x_1 & x_2
+\end{pmatrix}$. 那么$$A^n X = \begin{pmatrix}
+	A^nx_1 & A^nx_2
+\end{pmatrix} = \begin{pmatrix}
+	x_1 & 0.5^nx_2
+\end{pmatrix} = X\begin{pmatrix}
+	1 & \\ & 0.5
+\end{pmatrix}^n. $$
+由$x_1,x_2$线性无关知$X$可逆, 那么$$A^n = \begin{pmatrix}
+	0.2 & 1 \\ 0.8 & -1
+\end{pmatrix} \cdot \begin{pmatrix}
+	1 & \\ & 0.5^n
+\end{pmatrix} \cdot \begin{pmatrix}
+	0.2 & 1 \\ 0.8 & -1
+\end{pmatrix}^{-1} = \begin{pmatrix}
+	0.2+\frac{0.8}{2^n} & 0.2-\frac{0.2}{2^n} \\ 0.8-\frac{0.8}{2^n} & 0.8+\frac{0.2}{2^n}
+\end{pmatrix}. $$
+由数分的知识, 一个矩阵的极限就等于其所有分量极限的矩阵. 因此$A^n \to \begin{pmatrix}
+	0.2 & 0.2 \\ 0.8 & 0.8
+\end{pmatrix}$, 从而$A^n \begin{pmatrix}
+t \\
+1-t
+\end{pmatrix} \to \begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix}$. 这与我们的猜想是一致的. 
+
+\subsection{基本概念}
+
+总结以上两个引子, 我们希望找到一组基使得$T \in \lmap (V)$的表示矩阵为对角矩阵, 这直接等价于寻找$\lambda$和$v$使得$Tv=\lambda v$. 于是引出如下定义: 
+
+\begin{definition}{本征值, 本征向量}
+	设$T \in \lmap (V)$. 称$\lambda \in \F$为$T$的一个\textit{本征值}, 如果存在$V \ni v \neq 0$使得$Tv = \lambda v$, 同时这样的$v$称作$\lambda $的一个\textit{本征向量}. 
+\end{definition}
+
+在$\R ^n$平面上, $Tv=\lambda v$的几何意义就是$Tv$和$v$共线. 
+
+\begin{example}
+	设旋转变换$R = \begin{pmatrix}
+ \cos \theta & -\sin \theta \\
+ \sin \theta & \cos \theta
+\end{pmatrix}$. 若$\theta \neq k\pi$, 在$\R ^2$上显然不存在$v$使得$Rv$和$v$共线. 从矩阵的角度, $(R-\lambda I)v=0$有解等价于$$\frac{\cos \theta - \lambda}{\sin \theta} = \frac{-\sin \theta}{\cos \theta - \lambda} ~~\Leftrightarrow ~~\lambda ^2 - 2\cos \theta \lambda + 1 = 0~~\Leftrightarrow ~~\Delta = 4(\cos ^2 \theta - 1) \geq 0. $$
+而这是不可能的. 但是另一方面, 若考虑$\C ^2$, 则方程有两解$\lambda _{1,2} = \cos \theta \pm \ic \sin \theta$. 
+\end{example}
+
+上面的例子说明, 在$\R ^n$和$\C ^n$上我们可能得到完全不同的结果. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

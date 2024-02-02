@@ -205,7 +205,7 @@
 \end{remark}
 
 \begin{example}
-	证明$f(x)=\frac{1}{x}$在$(0,+\infty)$上并非一致连续, 而在$(c ,+\infty ), c >0$上一致连续. 
+	证明$f(x)=\frac{1}{x}$在$(0,+\infty)$上并非一致连续, 而在$[c ,+\infty ), c >0$上一致连续. 
 \end{example}
 \begin{proof}
 	(1) 假设存在$\delta >0$符合要求, 任取$\varepsilon >0$, 由于$$\varepsilon > |\frac{1}{x}-\frac{1}{y}| = \frac{|x-y|}{xy},$$
@@ -724,6 +724,8 @@
 \newpage
 \section{函数列的逐点收敛与一致收敛}
 
+在本节开头必须声明, 函数列的一致收敛性通常会用来研究积分算子, 微分算子, 极限算子与极限算子间的换序问题, 这里只会研究第三种, 其余部分内容会在函数项级数那里补上. 这样安排的目的主要在于为下一章做知识上的铺垫. (顺便还能证明度量空间$\big( C([a,b]),\| \bigcdot \|_{\infty} \big)$的完备性)
+
 \subsection{基本概念}
 
 可以给函数列定义两种收敛方式. 
@@ -731,10 +733,13 @@
 \begin{definition}{函数列的收敛}
 	设度量空间$(X,d)$, $\{ f_n :X \supseteq E \to \R \}_{n\geq 1}$是函数的序列, $f:E \to \R$. 
 	\begin{itemize}
-		\item 称$f_n$在$E$上\textit{逐点收敛}(pointwisely convergent)到$f$, 如果对任意的$x \in E$, 数列$f_n(x) \to f(x),n \to \infty$. 
+		\item 称$f_n$在$E$上\textit{逐点收敛}(pointwisely convergent)到$f$, 记作$f_n \to f,n\to \infty$, 如果对任意的$x \in E$, 数列$f_n(x) \to f(x),n \to \infty$. 
 		\item 称$f_n$在$E$上\textit{一致收敛}(uniformly convergent)到$f$, 记作$f_n \rightrightarrows f,n\to \infty$, 如果对任意$\varepsilon >0$都存在$N$使得当$n>N$时对任意$x \in E$都有$|f_n(x)-f(x)|<\varepsilon$. 
 	\end{itemize}
 \end{definition}
+\begin{remark}
+	可以注意到, 函数列的极限就像是数列的极限, 我们之后还会将$\mathbb{N} \ni n \to \infty$换成其它基来考虑函数族的收敛性. 
+\end{remark}
 
 \begin{example}
 	设$f_n(x)=\frac{1}{nx}$, 则在$(0,1)$上$f_n(x)$逐点收敛到$0$, 但并非一致收敛到$0$. 
@@ -758,14 +763,105 @@
 \end{proposition}
 \begin{proof}
 	$1) \Rightarrow 2)$和$2) \Rightarrow 3)$都是显然的. 下面证明$3) \Rightarrow 1)$. 
+	
+	假设$f_n$并非一致收敛于$f$, 即存在$\varepsilon >0$使得有无穷多个$n$满足存在$x_n \in E$使得$|f_n(x_n)-f(x_n)| \geq \varepsilon$, 这就与$3)$矛盾. 
+\end{proof}
+
+\begin{example}
+	设$f_n(x)=\frac{nx}{1+n^2x^2}$, 则在$(0,+\infty)$上$f_n$并非一致收敛, 在$[\delta ,+\infty )$上一致收敛. 
+\end{example}
+\begin{proof}
+	(1) 显然$f_n \to 0$. 选取$x_n=\frac{1}{n}$, 则$|f_n(\frac{1}{n})-f(\frac{1}{n})| = \frac{1}{2}$, 故$f_n$在$(0,+\infty)$上并非一致收敛. 
+	
+	(2) 考虑$f_n(x) < \frac{1}{nx} \leq \frac{1}{n\delta}$, 因此$\sup _{x \in [\delta ,+\infty )} |f_n(x)-f(x)| \leq \frac{1}{n\delta}$, 显见其极限为$0$, 因此$f_n$在$[\delta ,+\infty )$上一致收敛到$0$. 
+\end{proof}
+
+“在$(0,+\infty)$上并非一致收敛(连续), 而在$[\delta ,+\infty )$上一致收敛(连续)”这种话我们已经见过几次了. 实际上, 我们称$\{ f_n \}$在开集$I$上\textit{内闭一致收敛}(inner closed uniformly convergent), 如果对$I$的任何闭子集$\{ f_n \}$都是一致收敛的. 后面, 我们会见到这一定义的作用. 
+
+类比数列极限, 我们有: 
+
+\begin{theorem}{函数列的Cauchy收敛准则} \label{thm:hjuulpcauchy}
+	设$E$上的函数列$\{ f_n \}$, 则$\{ f_n \}$在$E$上一致收敛当且仅当对任意$\varepsilon >0$都存在$N$, 使得对任意$m,n > N$和任意$x \in E$都有$|f_n(x)-f_m(x)|<\varepsilon$. 
+\end{theorem}
+\begin{proof}
+	必要性是显然的. 充分性: 由数列的Cauchy收敛准则可知$\{ f_n \}$在$E$上逐点收敛, 设极限函数为$f$, 在上式中令$m\to \infty$即得$$\forall \varepsilon >0, \exists N \big(\forall n>N,x \in E,  |f_n(x)-f(x)|\leq \varepsilon \big).$$
+	这就是说$f_n \rightrightarrows f$. 
+\end{proof}
+
+\subsection{极限函数的连续性}
+
+\begin{theorem}{极限函数的连续性} \label{jixmhjuudelmxuxk}
+	设$E$上的函数列$\{ f_n \}$, 若对所有$n$都有$f_n$在$E$上连续, 且$f_n \rightrightarrows f$, 则$f$在$E$上连续. 即是说, $$\lim_{x \to x_0} \lim_{n \to \infty} f_n(x) = \lim_{n\to \infty} \lim_{x \to x_0} f_n(x) , \quad \forall x_0 \in E. $$
+\end{theorem}
+\begin{proof}
+	由一致收敛性, 对任意$\varepsilon >0$, 都存在$N$使得$n>N$时对任意$x \in E$有$|f_n(x)-f(x)|<\frac{\varepsilon}{3}$; 对于$x_0 \in E$, 由$f_n$的连续性可知, 对上方的$\varepsilon$, 存在$\delta$使得当$x \in E \cap B(x_0,\delta)$时$|f_n(x)-f_n(x_0)|<\frac{\varepsilon}{3}$. 
+	
+	因此, 对$n>N$和$x \in E \cap B(x_0,\delta)$, 我们有$$|f(x)-f(x_0)| \leq |f(x)-f_n(x)|+|f_n(x)-f_n(x_0)| + |f_n(x_0)-f(x_0)| < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon .$$
+	这就是说$f$在$E$上连续. 
+\end{proof}
+
+该定理的一个直接推论是: 
+
+\begin{corollary}{}
+	若定义在开集$I$上的连续函数列$\{ f_n \}$内闭一致收敛于$f$, 则$f$在$I$上连续. 
+\end{corollary}
+\begin{proof}
+	对任意$x_0 \in I$, 存在$\delta$使得闭球$\{ x:d(x,x_0)\leq \delta \} \subseteq I$, 因此$f$在$x_0$处连续. 
+\end{proof}
+
+更一般地: 
+
+\begin{theorem}{Moore-Osgood}
+	设$E$上的函数列$\{ f_n \}$, $x_0$是$E$的极限点, 若$\lim_{x \to x_0} f_n(x)$都存在, 记为$a_n$, 且$f_n \rightrightarrows f$, 则$\{ a_n \}$收敛并且$$\lim_{x \to x_0} f(x) = \lim_{n \to \infty} a_n.$$
+\end{theorem}
+\begin{proof}
+	只证明$\{ a_n \}$收敛, 剩下操作和上个定理是几乎一样的. 
+	
+	由一致收敛性, 对任意$\varepsilon >0$, 存在$N$使得对任意$m,n >N$都有$|f_m(x)-f_n(x)|<\varepsilon$. 在上式中令$x \to x_0$即得$|a_m-a_n|\leq \varepsilon$, 从而$\{ a_n \}$收敛. 
+\end{proof}
+
+在阐述下面的定理之前, 我们要将$\R$上闭区间的紧性推广到度量空间上的紧集. 至于紧集有何作用, 我们会在下一章介绍. 
+
+\begin{definition}{开覆盖, 紧集}
+	设度量空间$(X,d)$, $S \subseteq X$. 
+	\begin{itemize}
+		\item 称集合族$\mathcal{U} = \{ U_{\alpha} \}_{\alpha \in A}$为$S$的一个\textit{开覆盖}(open cover), 如果$S \subseteq \bigcup_{\alpha \in A} U_{\alpha}$. 
+		\item 承上述定义, 设指标集$A' \subseteq A$, 称$\mathcal{U}$的子集$\mathcal{U}'= \{ U_{\alpha} \}_{\alpha \in A'}$是$U$的\textit{子覆盖}(subcover), 如果$S \subseteq \bigcup_{\alpha \in A'} U_{\alpha}$. 
+		\item 称$S$是\textit{紧集}(compact set), 如果$S$的任意开覆盖都存在一个有限子覆盖. 
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}{Dini}
+	设紧集$E$上的函数列$\{ f_n \}$. 若满足: 
+	
+	1) 极限函数$f$存在且在$E$上连续;\qquad 2) 对每个$n$, $f_n$在$E$上连续;
+	
+	3) 对任意$x \in E$, $f_n(x)$单调不减收敛到$f(x)$. 
+	
+	\noindent
+	则$f_n \rightrightarrows f$. 
+\end{theorem}
+\begin{remark}
+	单调不增情况是一样的. 
+\end{remark}
+\begin{proof}
+	任意取$\varepsilon >0$. 对$x_0 \in E$, 存在$N(x_0)$使得对$n>N(x_0)$有$0 \leq f(x)-f_{n}(x_0) < \varepsilon$. 由$f,f_n$的连续性可知存在$\delta (x_0)$使得对任意$x \in B(x_0,\delta (x_0))$都有$0 \leq f(x)-f_{n} < \varepsilon$. 
+	
+	当$x_k$取遍$E$时, $\bigcup_{k\geq 0}B(x_k,\delta (x_k))$构成$E$的开覆盖, 因此存在$K$使得(不妨)$\bigcup_{k=0}^{K}B(x_k,\delta (x_k)) \supseteq E$. 现在取$N_\varepsilon = \max \{ N(x_0),\cdots ,N(x_K) \}$, 那么当$n>N_\varepsilon$时, 对任意$x \in E$都有$0 \leq f(x) - f_n(x) < \varepsilon$. 
 \end{proof}
 
 
 \subsection{度量空间$\big( C([a,b]),\| \bigcdot \|_{\infty} \big)$的完备性}
 
+在以下讨论中, 我们定义函数的一致范数$$\| \bigcdot \|_{\infty} : C([a,b]) \to \R _{\geq 0}, \quad f \mapsto \sup_{x \in [a,b]}|f(x)|. $$
+由于$|f(x)|$是$[a,b]$上的连续函数, 可知其有界, 说明$\sup_{x \in [a,b]}|f(x)|$存在, 即$\| f \|$是良定义的. 
 
-
-
+\begin{theorem}{}
+	$\big( C([a,b]),\| \bigcdot \|_{\infty} \big)$是完备的赋范向量空间. 
+\end{theorem}
+\begin{proof}
+	这是定理\ref{thm:hjuulpcauchy}和定理\ref{jixmhjuudelmxuxk}的直接结论. 
+\end{proof}
 
 
 

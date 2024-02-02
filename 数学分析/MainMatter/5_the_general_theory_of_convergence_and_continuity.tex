@@ -34,7 +34,7 @@
 
 \section{$\R ^n$上的点列极限与连续映射}
 
-在$\R ^n$中, 我们定义开球(邻域)$B(x_0,\varepsilon)$为$\{ x \in X:d(x,x_0)<\varepsilon \}$, 其中$d$是由范数$\| (x^1,\cdots ,x^n) \| = \sqrt{(x^1)^2+\cdots (x^n)^2}$引出的度量. 称点列$\{ x_k \}$是有界的, 如果存在$M>0$使得对任意$k$都有$x_k<M$. 
+在$\R ^n$中, 我们定义开球(邻域)$B(x_0,\varepsilon)$为$\{ x \in X:d(x,x_0)<\varepsilon \}$, 其中$d$是由范数$\| (x^1,\cdots ,x^n) \| = \sqrt{(x^1)^2+\cdots (x^n)^2}$引出的度量. 称点列$\{ x_k \}$是有界的, 如果存在$M>0$使得对任意$k$都有$\| x_k \|<M$. 
 
 \subsection{点列的极限}
 
@@ -43,7 +43,8 @@
 \end{definition}
 
 \begin{proposition}{点列极限的性质}
-	(1) 收敛点列存在唯一的极限. \qquad (2) 收敛点列必有界. 
+	(1) 收敛点列存在唯一的极限. \qquad (2) 收敛点列必有界. \\
+	(3) 点列收敛于一点当且仅当其所有子列都收敛于同一点. 
 \end{proposition}
 
 \begin{proposition}{点列极限线性运算法则}
@@ -276,7 +277,41 @@
 \newpage
 \section{度量空间上的点列极限与连续映射}
 
-由于度量空间上定义了距离函数(重要! 这是一般的拓扑空间所不具有的), 我们可以很轻易地将$\R$中的一些概念和定理延拓过来. 
+这里我们讨论一般度量空间$(X,d)$, 因此极限算子的线性运算性质就没有了. 除此之外, $(X,d)$和$\R ^n$很多性质是相同的(但是证明方法不同). 
+
+此处我们定义开球$B(x_0,\varepsilon) = \{ x\in X:d(x,x_0)<\varepsilon \}$. 定义集合$E$的直径$\diam E := \sup_{x,y \in E}d(x,y)$. 称集合$E$有界, 若$\diam E \in \R$. 
+
+\subsection{点列的极限}
+
+\begin{definition}{点列的极限}
+	称点$l \in X$为点列$\{ x_k \}$的\textit{极限}(limit), 如果对任意的$l$的邻域$B(l,\varepsilon)$都存在$N$使得当$k \geq N$时$x_k \in B(l,\varepsilon)$. 记为$$l = \lim_{k \to \infty} x_k ~~ \text{或} ~~ x_k \to l,~k \to \infty$$且称$\{ x_k \}$\textit{收敛}(convergent)于$l$. 
+\end{definition}
+
+\begin{proposition}{点列极限的性质}
+	(1) 收敛点列存在唯一的极限. \qquad (2) 收敛点列必有界. \\
+	(3) 点列收敛于一点当且仅当其所有子列都收敛于同一点. 
+\end{proposition}
+
+\subsection{实数完备性定理的推广}
+
+在$(X,d)$中, 完备性定理都变成了拓扑性质的定义(或推论), 我们会在拓扑不变量一节中深入研究和有界闭性, 紧性, 列紧性的相关内容, 这里只看一个和完备性相关的定理. 
+
+在下面的定理中, 定义闭球为$\tilde{B}(x_0,\varepsilon):=\{ x:d(x,x_0)\leq \varepsilon \}$. 
+
+\begin{theorem}{闭球套定理}
+	设度量空间$(X,d)$, 闭球套$\tilde{B}(x_1,r_1) \supseteq \cdots \supseteq \tilde{B}(x_n,r_n) \supseteq \cdots$. 若$r_n \to 0,n\to \infty$, 则$(X,d)$完备当且仅当存在唯一的同时属于每个闭球的点. 
+\end{theorem}
+\begin{proof}
+	(1) 必要性. 设$(X,d)$完备, 先证明球心点列$\{ x_n \}$是Cauchy列: 实际上, 由$r_n \to 0,n\to \infty$可知对任意$\varepsilon >0$存在$N$使得对任意$n >N$都有$r_n<\frac{\varepsilon}{2}$, 从而对任意$m,n>N$, $x_m,x_n \in \tilde{B}(x_N,r_N)$, 那么$$d(x_m,x_n) \leq d(x_m,x_N)+d(x_N,x_n) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon .$$
+	于是$\{ x_n \}$存在极限$x$. 另一方面, 任意取定$N$, 则对任意$n>N$都有$x_n \in \tilde{B}(x_N,r_N)$. 取$n$使得$d(x_N,x_n) \neq r_N$(存在这样的$n$, 否则显然$r_n \nrightarrow 0$, 矛盾), 由$x_n \to x$可知存在$M$使得当$m>M$时$d(x_m,x)<r_N-d(x_N,x_n)$. 注意到若$n_1>n_2$则$d(x_N,x_{n_1}) \leq d(x_N,x_{n_2})$, 因此只要令$m>\max \{ M,n \}$就有$d(x_m,x)<r_N-d(x_N,x_n)<r_N-d(x_N,x_m)$, 从而$$d(x,x_N) \leq d(x,x_m) + d(x_m,x_N) < r_N. $$
+	这说明对任意$N$都有$x \in \tilde{B}(x_N,r_N)$. 
+	
+	(2) 充分性: 
+\end{proof}
+
+
+
+
 
 \newpage
 \section{拓扑空间上的点列极限与连续映射}
@@ -317,6 +352,8 @@ $\R^n$或有限维赋范向量空间 & 有界闭集$\stackrel{\textit{定理}1}{
 度量空间             & 有界闭集$\Longleftarrow$紧集$\Longleftrightarrow$列紧集      \\ \hline
 \end{tabular}
 \end{table}
+
+回顾紧集的定义: 
 
 \begin{definition}{开覆盖, 紧集}
 	设度量空间$(X,d)$, $S \subseteq X$. 

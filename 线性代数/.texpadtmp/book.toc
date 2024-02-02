@@ -38,3 +38,6 @@
 \contentsline {subsection}{\numberline {3.5.1}对偶}{54}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}矩阵的秩}{55}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}对偶映射的零空间和值域}{56}{subsection.3.5.3}%
+\contentsline {chapter}{\numberline {4}本征值和本征向量}{59}{chapter.4}%
+\contentsline {section}{\numberline {4.1}不变子空间}{59}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}基本概念}{60}{subsection.4.1.1}%
