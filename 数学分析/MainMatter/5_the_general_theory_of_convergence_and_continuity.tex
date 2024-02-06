@@ -303,23 +303,66 @@
 \end{theorem}
 \begin{proof}
 	(1) 必要性. 设$(X,d)$完备, 先证明球心点列$\{ x_n \}$是Cauchy列: 实际上, 由$r_n \to 0,n\to \infty$可知对任意$\varepsilon >0$存在$N$使得对任意$n >N$都有$r_n<\frac{\varepsilon}{2}$, 从而对任意$m,n>N$, $x_m,x_n \in \tilde{B}(x_N,r_N)$, 那么$$d(x_m,x_n) \leq d(x_m,x_N)+d(x_N,x_n) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon .$$
-	于是$\{ x_n \}$存在极限$x$. 另一方面, 任意取定$N$, 则对任意$n>N$都有$x_n \in \tilde{B}(x_N,r_N)$. 取$n$使得$d(x_N,x_n) \neq r_N$(存在这样的$n$, 否则显然$r_n \nrightarrow 0$, 矛盾), 由$x_n \to x$可知存在$M$使得当$m>M$时$d(x_m,x)<r_N-d(x_N,x_n)$. 注意到若$n_1>n_2$则$d(x_N,x_{n_1}) \leq d(x_N,x_{n_2})$, 因此只要令$m>\max \{ M,n \}$就有$d(x_m,x)<r_N-d(x_N,x_n)<r_N-d(x_N,x_m)$, 从而$$d(x,x_N) \leq d(x,x_m) + d(x_m,x_N) < r_N. $$
+	于是$\{ x_n \}$存在极限$x \in X$. 另一方面, 任意取定$N$, 则对任意$n>N$都有$x_n \in \tilde{B}(x_N,r_N)$. 取$n$使得$d(x_N,x_n) \neq r_N$(存在这样的$n$, 否则显然$r_n \nrightarrow 0$, 矛盾), 由$x_n \to x$可知存在$M$使得当$m>M$时$d(x_m,x)<r_N-d(x_N,x_n)$. 注意到若$n_1>n_2$则$d(x_N,x_{n_1}) \leq d(x_N,x_{n_2})$, 因此只要令$m>\max \{ M,n \}$就有$d(x_m,x)<r_N-d(x_N,x_n)<r_N-d(x_N,x_m)$, 从而$$d(x,x_N) \leq d(x,x_m) + d(x_m,x_N) < r_N. $$
 	这说明对任意$N$都有$x \in \tilde{B}(x_N,r_N)$. 
 	
-	(2) 充分性: 
+	(2) 充分性: 设$\{ x_n \}$是Cauchy列, 则对任意$k$, 存在$N_k$使得对任意$m,n>N_k$有$d(x_n,x_m)<a_k$, 这里$\{ a_k \}$是待定的单减数列, 因此不妨让$\{ N_k \}$是单增数列. 构造$\tilde{B}(x_{N_k},b_k)$, 任取$x \in \tilde{B}(x_{N_{k+1}},b_{k+1})$可知$$d(x,x_{N_k}) \leq d(x,x_{N_{k+1}}) + d(x_{N_{k+1}}, x_{N_{k}}) < a_{k+1}+a_k < 2a_k. $$
+	因此只需取$a_k=\frac{1}{2^{k+1}}, b_k = \frac{1}{2^k}$就能保证$\tilde{B}(x_{N_k},b_k)$可以构成闭球套. 
+	
+	由假设可知, 存在唯一的$x \in \bigcap_{k\geq 1} \tilde{B}(x_{N_k},b_k)$. 由于$d(x,x_{N_k})<a_k\to 0$, $\{ x_n \}$的一个子列$\{ x_{N_k} \}$收敛于$x$, 从而$x_n \to x, n\to \infty$. 
 \end{proof}
 
+\subsection{映射的极限与连续性}
 
+\begin{definition}{映射的极限}
+	设$f: X \supseteq E \to Y$, $\mathcal{B}$是$E$上的基. 称点$l$为映射$f$\textit{在基$\mathcal{B}$上的极限}, 如果对于$l \in Y$的任何邻域$B(l,\varepsilon)$都存在$B \in \mathcal{B}$使得$f(B) \subseteq B(l,\varepsilon)$. 记作
+	\begin{center}
+		$\displaystyle \lim_{\mathcal{B}}f(x)=l.$
+	\end{center}
+\end{definition}
+
+\begin{proposition}{映射极限的性质}
+	(1) 收敛的映射存在唯一的极限. \qquad (2) 在$\mathcal{B}$上收敛的映射在$\mathcal{B}$上最终有界. 
+\end{proposition}
+
+容易证明, Heine归结原理对于度量空间上的映射也是成立的, 因此可得映射极限的算术运算规则和Cauchy收敛准则. 另外由定义还可以直接得到复合映射的极限(和连续性)定理. 
+
+\begin{definition}{极限的连续性}
+	设$f:X \supseteq E \to Y$, 若$E \ni x_0$是$E$的一个极限点, 我们称$f$在$x_0$点处\textit{连续}(continuous), 如果$\lim_{E \ni x \to x_0} f(x) = f(x_0)$. 等价地有: 
+	\begin{itemize}
+		\item 对于任意$\varepsilon >0$, 存在$\delta >0$使得$f(B(x_0,\delta) - \{ x_0 \}) \subseteq B(f(x_0),\varepsilon)$; 
+		\item 对任意的点列$\{ x_n \}$, 若$\lim_{n \to \infty} x_n = x_0$, 则$\lim_{n \to \infty} f(x_n) = f(x_0)$. 
+	\end{itemize}
+\end{definition}
+
+关于有界闭集上连续映射的性质, 因为有界闭性既不能得到紧性也不能得到列紧性, 因此\textit{Cantor-Heine的一致连续性定理}和\textit{Weierstrass最大值定理}都无从谈起(但分别在紧集和列紧集上是适用的). 
 
 
 
 \newpage
 \section{拓扑空间上的点列极限与连续映射}
 
-
-
-
 \subsection{拓扑空间中点列的收敛性}
+
+\begin{definition}{点列的极限}
+	称点$l \in X$和点列$\{ x_k \}$. 如果对任意的$l$的邻域$U(l)$都存在$N$使得当$k \geq N$时$x_k \in U(l)$. 称$\{ x_k \}$\textit{收敛}(convergent)于$l$. 
+\end{definition}
+
+需要注意的是, 由于拓扑空间中邻域的概念和度量无关, 我们不能直接得到点列极限唯一这一命题. 但如果人为地加上限制条件就可以: 
+
+\begin{axiom}{Hausdorff空间}
+	设拓扑空间$(X,\tau)$, 称$X$是一个\textit{Hausdorff空间}(Hausdorff space), 如果对任意$x_1,x_2 \in X$都存在邻域$U(x_1),U(x_2)$使得$U(x_1) \cap U(x_2) = \varnothing$. 
+\end{axiom}
+
+由刚才的观察直接可以得到: 
+
+\begin{proposition}{}
+	在Hausdorff空间中收敛点列存在唯一极限. 
+\end{proposition}
+
+显然度量空间都是Hausdorff空间(这是我们的思想来源). 
+
+Hausdorff空间还有一些值得研究的性质(包括相关的分离性公理), 但对于数分的学习没有太大帮助, 就不提了. 
 
 \subsection{拓扑空间之间的连续映射}
 
@@ -328,58 +371,273 @@
 \end{definition}
 
 \begin{proposition}{}
-	设度量空间$(X,d_X),(Y,d_Y)$, 则$f:X \to Y$是连续映射当且仅当对任意$x,y \in X$和任意$\varepsilon >0$, 存在$\delta >0$使得只要$d_X(x,y)<\delta$就有$d_Y(f(x),f(y))<\varepsilon$. 
+	设拓扑空间$(X,\tau _X),(Y,\tau _Y)$, 则$f:X \to Y$是连续映射当且仅当对任意$x \in X$, 任取$f(x)$的邻域$U_Y(f(x))$都存在$x$的邻域$U_X(x)$使得$f(U_X(x)) \subseteq U_Y(f(x))$. 
 \end{proposition}
 
-\newpage
-\section{多元函数的极限和连续性}
+类似地, 深入研究拓扑空间之间的连续映射是点集拓扑学的任务, 我们暂时略去. 
+
 
 \newpage
 \section{拓扑不变量}
 
-\subsection{紧集, 列紧集, 有界闭集}
+先定义同胚的概念: 
+
+\begin{definition}{同胚}
+	设拓扑空间$(X,\tau _X),(Y,\tau _Y)$. 称$f:X \to Y$是$X$到$Y$的一个\textit{同胚}(homeomorphism), 如果: 
+	
+	1) $f$是双射;\qquad 2) $f$是连续映射;\qquad 3) $f^{-1}$是连续映射. 
+	
+	\noindent
+	此时称$X,Y$是\textit{同胚的}(homeomorphous). 
+\end{definition}
+
+在$\R$上我们已经证明, 由前两条要求可以得到第三条. 
+
+拓扑空间之间的同胚类似于向量空间之间的\textit{同构}, 后者也要求存在向量空间之间的双射$f$且$f,f^{-1}$都是线性映射. 
+
+接着我们给出拓扑不变量的概念: 
+
+\begin{definition}{拓扑不变量}
+	称拓扑空间的性质为\textit{拓扑不变量}(topological invariant), 如果它在同胚下保持不变. 
+\end{definition}
+
+\subsection{紧集, 列紧集与有界闭集}
 
 回顾$\R$上闭区间$I$所拥有的良好性质: 连续函数$f$在$I$上有界且能取到极值, 而且$f$在$I$上一致连续. 在上述定理的证明中, 我们都用到了\textit{$I$中的数列存在子列使得其极限也在$I$中}这一事实, 即是说$I$是闭集. 另一方面, 在后者中, 由于利用有限覆盖定理也能完成证明, 我们会猜想是否闭集都能满足有限覆盖定理. 实际上, 这就是所谓紧性的一般化. 
 
-本节的核心任务是下面的表格: 
+本小节的核心任务是下面的表格: 
 
 \begin{table}[h]
 	\centering
 	\renewcommand\arraystretch{1.5}
 	\begin{tabular}{|c|c|}
 \hline
-$\R^n$或有限维赋范向量空间 & 有界闭集$\stackrel{\textit{定理}1}{\Longleftrightarrow}$紧集$\Longleftrightarrow$列紧集 \\ \hline
-度量空间             & 有界闭集$\Longleftarrow$紧集$\Longleftrightarrow$列紧集      \\ \hline
+$\R^n$或有限维赋范向量空间 & 有界+闭集$\Longleftrightarrow$紧集$\Longleftrightarrow$列紧集 \\ \hline
+度量空间             & 有界+闭集$\Longleftarrow$紧集$\Longleftrightarrow$列紧集      \\ \hline
 \end{tabular}
 \end{table}
 
-回顾紧集的定义: 
+先来定义两种拓扑不变量: 
 
 \begin{definition}{开覆盖, 紧集}
-	设度量空间$(X,d)$, $S \subseteq X$. 
+	设拓扑空间$(X,\tau)$, $E \subseteq X$. 
 	\begin{itemize}
-		\item 称集合族$\mathcal{U} = \{ U_{\alpha} \}_{\alpha \in A}$为$S$的一个\textit{开覆盖}(open cover), 如果$S \subseteq \bigcup_{\alpha \in A} U_{\alpha}$. 
-		\item 承上述定义, 设指标集$A' \subseteq A$, 称$\mathcal{U}$的子集$\mathcal{U}'= \{ U_{\alpha} \}_{\alpha \in A'}$是$U$的\textit{子覆盖}(subcover), 如果$S \subseteq \bigcup_{\alpha \in A'} U_{\alpha}$. 
-		\item 称$S$是\textit{紧集}(compact set), 如果$S$的任意开覆盖都存在一个有限子覆盖. 
+		\item 称集合族$\mathcal{U} = \{ U_{\alpha} \}_{\alpha \in A}$为$E$的一个\textit{开覆盖}(open cover), 如果$E \subseteq \bigcup_{\alpha \in A} U_{\alpha}$. 
+		\item 承上述定义, 设指标集$A' \subseteq A$, 称$\mathcal{U}$的子集$\mathcal{U}'= \{ U_{\alpha} \}_{\alpha \in A'}$是$U$的\textit{子覆盖}(subcover), 如果$E \subseteq \bigcup_{\alpha \in A'} U_{\alpha}$. 
+		\item 称$E$是\textit{紧集}(compact set), 如果$E$的任意开覆盖都存在一个有限子覆盖. 
 	\end{itemize}
 \end{definition}
 
-\begin{lemma}{紧集在连续映射下被保持}
-	设度量空间$(X,d_X),(Y,d_Y)$, $f:X \to Y$是连续映射, 若$K \subseteq X$是紧集, 则$f(K) \subseteq Y$也是紧集. 
-\end{lemma}
+当然要验证紧性是拓扑不变量. 注意这里只要求$f$是连续映射, 并不要求是同胚. 
 
-先关注$\R$和$\R ^n$(以及有限维赋范向量空间, 只要选取一组基即可转化为$\R ^n$的问题)上的紧集. 
-
-\begin{proposition}{($\R$上的)Lebesgue数引理}
-	设$K \subseteq \R$是有界闭集, $\mathcal{U} = \{ U_{\alpha} \}_{\alpha \in A}$是$K$的开覆盖, 则存在$\mathcal{U}$的\textit{Lebesgue数}$\delta >0$, 使得对任意$x,y \in K$, 只要$|x-y|<\delta$, 就存在$\alpha \in A$使得$[x,y] \cap K \subseteq U_{\alpha}$. 
+\begin{proposition}{}
+	设拓扑空间$(X,\tau _X),(Y,\tau _Y)$, $f:X \to Y$是连续映射, 若$E \subseteq X$是紧集, 则$f(E) \subseteq Y$也是紧集. 
 \end{proposition}
 \begin{proof}
-	XXX
+	设$f(E)$的开覆盖$\{ U_{\alpha} \}_{\alpha \in A}$, 那么$\{ f^{-1}(U_{\alpha}) \}_{\alpha \in A}$是$E$的开覆盖. 取其有限子覆盖$\{ f^{-1}(U_{\alpha}) \}_{\alpha \in A'}$, 容易见得$\{ U_{\alpha} \}_{\alpha \in A'}$是$f(E)$的一个有限覆盖. 
 \end{proof}
 
-\begin{theorem}{Heine-Borel}
-	设$K \subseteq \R$, 则$K$是紧集当且仅当$K$是有界闭集. 
+\begin{definition}{列紧集}
+	设拓扑空间$(X,\tau)$. 称$X$是\textit{列紧的}(sequentially compact), 如果任意点列$\{ x_n \} \subseteq X$都存在收敛到某个点的子列. 称$E \subseteq X$是\textit{列紧集}(sequentially compact set), 如果在$E$上存在$X$的子空间拓扑且$E$是列紧的. 
+\end{definition}
+\begin{remark}
+	注意若一个集合是列紧集蕴含该集合是闭集. 
+\end{remark}
+
+容易验证, 列紧性是拓扑不变量. 
+
+我们先来看紧性和列紧性的关系. 这里的证明思路是: $$\textit{列紧性} \quad \Longrightarrow \quad \textit{Lebesgue数引理} \quad \stackrel{\textit{定理\ref{thm:zilpjbxkdgjxyujbxk}}}{\Longrightarrow} \quad \textit{紧性},\qquad \textit{紧性} \quad \stackrel{\textit{定理\ref{thm:zilpjbxkdgjxyujbxk}}}{\Longrightarrow} \quad \textit{列紧性}. $$
+
+\begin{theorem}{Lebesgue数引理}
+	设度量空间$(X,d)$, $E \subseteq X$是列紧的, $\mathcal{U}=\{ U_{\alpha} \}_{\alpha \in A}$是$E$的开覆盖. 存在$\mathcal{U}$的\textit{Lebesgue数}$\delta >0$, 使得对任意的$x \in E$, 存在$\alpha \in A$使得$\varnothing \neq B(x,\delta) \cap E \subseteq U_{\alpha}$. 
 \end{theorem}
 \begin{proof}
-	XXX
+	设若不然, 则对每个$\delta = \frac{1}{n}$都存在$x_n \in E$使得对任意$\alpha \in A$, $B(x_n,\frac{1}{n}) \nsubseteq U_{\alpha}$. 由列紧性, 不妨让$\{ x_n \}$收敛于$x \in E$. 取$\alpha$使得$x \in U_{\alpha}$, 则存在$B(x,r) \subseteq U_{\alpha}$, 这与上方式子矛盾. 
 \end{proof}
+
+\begin{theorem}{} \label{thm:zilpjbxkdgjxyujbxk}
+	设度量空间$(X,d)$, $E \subseteq X$. 则$E$是列紧集当且仅当$E$是紧集. 
+\end{theorem}
+\begin{proof}
+	(1) 充分性: 设$\{ x_n \} \subseteq E$, 只要证明存在$x \in E$使得$x$的任意邻域都包含$\{ x_n \}$的无穷多项. 假设不成立, 则对任意$x \in E$, 存在$r(x)>0$使得$B(x,r(x))$只包含$\{ x_n \}$的有限项. 取开覆盖$\mathcal{U} = \{ B(x,r(x)):x \in E \}$, 则其存在有限子覆盖$\mathcal{U}'$, 但是$\mathcal{U}'$只能覆盖$\{ x_n \}$中的有限项, 这就矛盾了. 
+	
+	(2) 必要性: 设$E$的开覆盖$\mathcal{U}=\{ U_{\alpha} \}_{\alpha \in A}$, 取$\mathcal{U}$的一个Lebesgue数$\delta >0$. 归纳地构造$\{ x_n \}$: 任取$x_0 \in E$, 则存在$U_0 \supseteq B(x_0,\delta)$. 选取$x_{n+1} \in X-\bigcup_{0 \leq k \leq n}B(x_k,\delta)$(这里不妨设$\bigcup_{0 \leq k \leq n}B(x_k,\delta)$不是开覆盖), 存在$U_{n+1} \supseteq B(x_{n+1},\delta)$. 这样的归纳会在有限步内停止, 否则存在$\{ x_n \} \subseteq E$使得任意两点的距离大于$\delta$. 
+\end{proof}
+
+接着来看紧集和有界闭集的关系. 证明思路如下: $$\textit{(一般度量空间上)紧集} \quad \stackrel{\textit{定理\ref{thm:jbjiketvdeyzjpbiji}}}{\Longrightarrow} \quad \textit{有界$+$闭集}, $$
+$$\textit{($\R ^n$上)有界$+$闭集} \quad \stackrel{\textit{Bolzano-Weierstrass定理}}{\Longrightarrow} \quad \textit{列紧集} \quad \Longrightarrow \quad \textit{紧集}. $$
+
+\begin{proposition}{}
+	设Hausdorff空间$X$, $E \subseteq X$是紧集, 则$E$是闭集. 
+\end{proposition}
+\begin{proof}
+	任取$x \in X-E$, 下证存在$U(x)$使得$U(x) \cap E = \varnothing$. 对任意$y \in E$, 存在$U_y(y)$和$U_y(x)$使得$U_y(y) \cap U_y(x) = \varnothing$, 从而构造$E$的开覆盖$\mathcal{U} = \{ U_y(y):y \in E \}$. 取$\mathcal{U}$的有限子覆盖, 设为$\{ U(y_1),\cdots ,U(y_n) \}$, 令$U(x) = \bigcap_{1 \leq k \leq n} U(y_k)$, 显然$U(x) \cap \big( \bigcup_{1 \leq k \leq n} U(y_k) \big) = \varnothing$, 从而$U(x) \cap E = \varnothing$. 
+\end{proof}
+
+\begin{theorem}{} \label{thm:jbjiketvdeyzjpbiji}
+	设度量空间$(X,d)$, $E \subseteq X$是紧集, 则$E$是有界闭集. 
+\end{theorem}
+\begin{proof}
+	由于度量空间都是Hausdorff空间, 由上个命题可知$E$是闭集. 另外, 构造$E$的开覆盖$\mathcal{U}= \{ B(x,\delta):x \in E \}$, 其中$\delta >0$是常数. 取$\mathcal{U}$的有限子覆盖, 由于每个$B(x,\delta)$都有界, 可知它们的有限并也有界, 从而说明$E$有界. 
+\end{proof}
+
+虽然在度量空间和更一般的拓扑空间上, 闭集并不一定是紧集, 但将其限制在紧集里就可以判定: 
+
+\begin{proposition}{}
+	紧集的闭子集是紧集. 
+\end{proposition}
+\begin{proof}
+	设紧集$K$, 闭子集$E$. 取$E$的开覆盖$\mathcal{U}$, 注意到$\mathcal{U} \cup (K-E)$是$K$的一个开覆盖, 取其有限子覆盖$\mathcal{U}'$, 显然$\mathcal{U}$也是$E$的有限覆盖. 
+\end{proof}
+
+\subsection{紧性的进一步研究}
+
+\begin{theorem}{紧集套定理}
+	设Hausdorff空间$X$, $K_1 \supseteq \cdots \supseteq K_n \supseteq \cdots$是$X$中的非空紧集套, 则$\bigcap_{n\geq 1}K_n$非空. 
+\end{theorem}
+\begin{remark}
+	由该定理直接可以得到: 设$X$是度量空间, 若$\diam K_n \to 0$, 则存在唯一点$x \in \bigcap_{n\geq 1}K_n$. 
+\end{remark}
+\begin{proof}
+	设$G_i=K_1-K_i$, 假设$\bigcap_{n\geq 1}K_n = \varnothing$, 那么$\{ G_i \}_{i\geq 1}$是$K_1$的一个开覆盖. 取一个有限覆盖, 注意到$G_1 \subseteq \cdots \subseteq G_n \subseteq \cdots$, 则存在$n$使得$K_1 \subseteq G_n = K_1-K_n$, 矛盾. 
+\end{proof}
+
+\begin{corollary}{}
+	紧的度量空间是完备的. 
+\end{corollary}
+\begin{proof}
+	设紧的度量空间$(X,d)$. 对于Cauchy列$\{ x_n \}$, 记$E_n=\{ x_k:k \geq n \}$, 那么$\diam E_n \to 0$, 进而$\diam \overline{E_n} = \diam E_n \to 0$. 又$\overline{E_n}$都是紧的, 可知存在唯一的$x \in \bigcap_{n \geq 1} \overline{E_n}$, 从而由$d(x,x_n)<\diam \overline{E_n}$可知$x_n \to x$. 
+\end{proof}
+\begin{remark}
+	另一种更显然的证法只需利用以下事实: $X$是列紧的, 而Cauchy列只要子列收敛就收敛. 
+\end{remark}
+
+\begin{theorem}{Cantor-Heine的一致连续性定理}
+	设度量空间$(X,d_X),(Y,d_Y)$, $f:X \to Y$是连续映射. 若$X$是紧的, 则$f$在$X$上一致连续. 
+\end{theorem}
+\begin{proof}
+	利用列紧性即可. 
+\end{proof}
+
+\begin{theorem}{}
+	设度量空间$(X,d_X),(Y,d_Y)$, $f:X \to Y$是连续映射. 若$X$是紧的, 则$f$在$Y$上有界. 
+\end{theorem}
+\begin{proof}
+	利用列紧性即可. 
+\end{proof}
+
+\begin{theorem}{Weierstrass最大值定理}
+	设度量空间$(X,d)$, $f:X \to \R$是连续映射. 若$X$是紧的, 则$f$在$\R$上有界且可以取到最值. 
+\end{theorem}
+\begin{proof}
+	利用列紧性即可. 
+\end{proof}
+
+\subsection{连通性}
+
+前面提到过, 对于拓扑空间$(X,\tau)$, $X$中既是开集又是闭集的集合至少包括$\varnothing$和$X$. 直观来看, 只有刚好延伸至$X$的边界(或无限延伸, 若$X$是无限集)并且内部没有洞的子集$E \neq \varnothing$才能同时是开集和闭集. 另一方面, 若$E \subseteq X$可以被划分为$U \cup V$, 则$E$满足内部没有洞这一特征必须要求$U,V$不同时是开集, 否则$U$或$V$的边界就不在$E$里. 
+
+由此引出了拓扑空间连通性的两种定义: 
+
+\begin{definition}{连通集}
+	设拓扑空间$(X,\tau)$. 称$X$是\textit{连通的}(connected), 若对$X$的任意划分$\{ U,V \}$, $U,V$不同时是开集. 称$E \subseteq X$是\textit{连通集}(connected set), 如果$E$上存在$X$的子空间拓扑且$E$是连通的. 
+\end{definition}
+
+容易验证, 连通性是拓扑不变量. 
+
+\begin{proposition}{}
+	设拓扑空间$(X,\tau)$. 则$X$是连通的当且仅当$X$的开闭子集只有$X$和$\varnothing$. 
+\end{proposition}
+\begin{proof}
+	充分性: 设若不然, 即存在$X$的划分$\{ U,V \}$使得$U,V$均为开集, 这就是说$U$是开闭子集. 
+	
+	必要性: 假设存在非平凡的开闭子集$U$, 那么$\{ U,U^c \}$构成$X$的划分但都是开集. 
+\end{proof}
+
+在$\R$上连通的子集只有区间, 或者可以用下列命题描述: 
+
+\begin{proposition}{}
+	非空集合$E \subseteq \R$是连通集当且仅当对任意$x,y \in E$, 只要$z$满足$x<z<y$就有$z \in E$. 
+\end{proposition}
+\begin{proof}
+	(1) 必要性: 设若不然, 即对于连通集$E$, 存在$x,y \in E$满足$x<z<y$且$z \notin E$. 取$E$中的开集$U=E \cap (-\infty ,z), V=E \cap (z,+\infty)$, 那么$x \in U,y \in V$且$E=U \cup V$, 这说明$E$不是连通的, 矛盾. 
+	
+	(2) 充分性: 设$E$满足对任意$x,y \in E$都有$[x,y] \subseteq E$. 假设$E$不连通, 即存在非平凡开闭子集$U$. 取$x \in U, y \in U^c$, 不妨$x<y$, 那么$[x,y] \subseteq E$. 取$[x,y]$中点, 若属于$U$则记为$x_1$, 同时记$y_1=y$, 反之亦然. 由此归纳地构造$\{ x_n \} \subseteq U, \{ y_n \} \subseteq U^c$. 由闭区间套定理, 存在唯一的$z \in  \bigcap_{n\geq 1} [x_n,y_n]$且$x_n \to z,y_n \to z$. 由$U,U^c$是闭集可知$z \in U, z \in U^c$, 矛盾. 
+\end{proof}
+
+在连续函数一章我们实际上有两个关于连通性的结论: Bolzano-Cauchy中值定理, 连续映射将区间映射到区间(这是前者的直接推论). 它们可以推广: 
+
+\begin{theorem}{}
+	设拓扑空间$(X,\tau _X),(Y,\tau _Y)$, $f:X\to Y$是连续映射. 若$X$是连通的, 则$f(X)$也是连通的. 
+\end{theorem}
+\begin{proof}
+	设若不然, 即存在$f(X)$的非平凡开闭子集$U$. 由$f$连续可知$f^{-1}(U)$和$f^{-1}(U^c)$都是开集. 但是$\{ f^{-1}(U), f^{-1}(U^c) \}$显然构成$X$的划分, 矛盾. 
+\end{proof}
+
+\begin{theorem}{}
+	设连续函数$f:\R ^n \supseteq E \to \R$. 若$E$是连通集, 则对于任意$y \in [f(a),f(b)]$(其中$a,b \in E$)都存在$c \in E$使得$y=f(c)$. 
+\end{theorem}
+\begin{proof}
+	由上述命题可知$f(E)$是区间, 从而$y \in [f(a),f(b)] \subseteq f(E)$, 即是说存在$c \in E$使得$y=f(c)$. 
+\end{proof}
+
+\subsection{Cantor集}
+
+\begin{definition}{Cantor集}
+	递归地定义序列$\{ C_n \}$: 令$$C_0 = [0,1], C_{n+1} = \frac{1}{3}(C_n \cup (2+C_n)).$$
+	称$\mathcal{C} = \bigcap_{n \geq 0} C_n$为\textit{Cantor集}(Cantor set). 
+\end{definition}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{./attachment/cantor_set.pdf}
+	\caption{Cantor集构造过程的示意图, 图源Wikipedia}
+\end{figure}
+
+Cantor集的构造过程用开集描述就是: 在第$n$次操作去掉(为了好写, 下面的开区间是包含已经去掉的部分的)$$I_n^1 = \big( \frac{1}{3^n},\frac{2}{3^n} \big), \quad  \cdots ,\quad I_n^k = \big( \frac{3k-2}{3^n},\frac{3k-1}{3^n} \big),\quad  \cdots , \quad I_n^{3^{n-1}} = \big( \frac{3^n-2}{3^n},\frac{3^n-1}{3^n} \big). $$
+
+在分析Cantor集的性质之前, 需要定义: 
+
+\begin{definition}{零测集}
+	称一个集合$E \subseteq \R$是\textit{零测集}(null set), 如果对任意$\varepsilon >0$都存在至多可数个开区间组成的开覆盖$\{ I_n \}_{n \geq 1}$使得$\sum_{n=0}^{\infty} |I_n|<\varepsilon$. 
+\end{definition}
+\begin{remark}
+	零测集的概念在Riemann积分部分还要使用. 
+\end{remark}
+
+无处稠密集的定义如同字面: 称$E$在$X$中无处稠密, 若对任意$x \in X$都存在邻域$U(x)$与$E$无交. 
+
+\begin{proposition}{Cantor集的性质}
+	Cantor集: 
+	
+	1) 是有限闭集(从而是紧集, 列紧集);\qquad 2) 是无处稠密集;
+	
+	3) 没有孤立点(这样的闭集称作完备集);\qquad 4) 是不可数集;\qquad 5) 是零测集. 
+\end{proposition}
+\begin{proof}
+	(1) 由于$C_n$都是闭集, 可知$\mathcal{C}$也是闭集. 另外显然$\mathcal{C} \subseteq [0,1]$有限. 
+	
+	(2) 对任意$x \in [0,1]$, 显然存在足够大的$n,k$使得$x \in I_n^k$. 
+	
+	(3) 对任意$x \in \mathcal{C}$, 设$N$满足对任意$n>N$, $x \in C_N$. 特别地对每个$n$取$I_n$是包含$x$的闭区间, 再从$I_n$任取$x_n \neq x$, 那么$x_n \to x$. 
+	
+	(4) \underline{\textbf{证法一}}(直观但不够严谨)~~利用三进制来描述Cantor集的构造就是: 第$n$次操作去掉开区间$$I_n^k =  (0.a_1\cdots a_{n-1}1, 0.a_1\cdots a_{n-1}2),$$其中$0.a_1\cdots a_{n-1}=\frac{k}{3^{n-1}}$, $k$遍历$1,\cdots ,3^{n-1}$. 这就是说, $\mathcal{C} = \{ x:x\textit{的三进制表示中只有$0$或$2$} \}$. 将$\mathcal{C}$中的数的$2$全部变成$1$, 即得$\mathcal{C}$与$[0,1]$等势. 
+	
+	\underline{\textbf{证法二}}~~假设$\mathcal{C}$可数, 记$\mathcal{C} = \{ x_1,\cdots ,x_n,\cdots \}$. 下面归纳构造开区间列$\{ I_n \}$: 取$I_1 \subseteq [0,1]$使得$x_1 \in I_1$. 取$I_{n+1}$满足$$\overline{I_{n+1}} \subseteq I_n,\qquad x_n \notin \overline{I_{n+1}},\qquad I_{n+1} \cap \mathcal{C} \neq \varnothing .$$
+	其中$I_{n+1} \cap \mathcal{C} \neq \varnothing$是由(3)保证的. 定义$K_n = \overline{I_n} \cap \mathcal{C}$, 则有紧集套$K_1 \supseteq \cdots \supseteq K_n \supseteq \cdots$, 于是$\cap_{n \geq 1}K_n \neq \varnothing$. 但是这与$x_n \notin K_{n+1}$矛盾. 
+	
+	(5) 任何一个$C_n$都能够覆盖$\mathcal{C}$, 而$|C_n| = 2^n \cdot \frac{1}{3^n} = \big( \frac{2}{3} \big)^n \to 0$, 因此$\mathcal{C}$是零测集. 
+\end{proof}
+\begin{remark}
+	使用无限小数做证明的缺点在于: 例如$1/3$的三进制表示可以为$0.022\cdots$, 也可以为$0.1$, 我们需要人为约定只应用第一种情况. 
+\end{remark}
+
+
+
+
+
+
+
+
+
+

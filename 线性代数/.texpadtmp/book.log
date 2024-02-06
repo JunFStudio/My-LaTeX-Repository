@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  2 FEB 2024 20:38
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  6 FEB 2024 17:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -3268,7 +3268,10 @@ and I'll forget about whatever was undefined.
 
  (./MainMatter/4_eigenvalues_and_eigenvectors.tex
 Chapter 4.
-[59
+
+Overfull \vbox (0.10814pt too high) has occurred while \output is active []
+
+ [59
 
 
 
@@ -3289,7 +3292,143 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [60] (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/1_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/2_finite-dimensional_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/3_linear_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/4_eigenvalues_and_eigenvectors.aux))
+[60]
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:86: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.86 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:99: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.99 \begin{proof}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[61]
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:117: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.117 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:123: Undefined control sequence.
+\example ...hapter .\arabic {exam}}}~~} \citshape 
+                                                  
+l.123 \begin{example}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:132: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.132 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[62]
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:146: Undefined control sequence.
+\example ...hapter .\arabic {exam}}}~~} \citshape 
+                                                  
+l.146 \begin{example}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:155: Undefined control sequence.
+\solution ...le}{\text {解}}~~} \itshape \citshape 
+                                                  
+l.155 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:165: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.165 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:168: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.168 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:175: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.175 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[63]
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:192: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.192 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/4_eigenvalues_and_eigenvectors.tex:204: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.204 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [64] (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/1_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/2_finite-dimensional_vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/3_linear_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/./MainMatter/4_eigenvalues_and_eigenvectors.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -3297,15 +3436,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: 32ADAE181FB0A8ECCBF4C15DB9E12EB8;5593.
+(rerunfilecheck)             Checksum: 031DE2AC671C1F2D348DFE26FFFD4554;5948.
  ) 
 Here is how much of TeX's memory you used:
- 20300 strings out of 476683
- 447945 string characters out of 5804047
+ 20301 strings out of 476683
+ 447965 string characters out of 5804047
  1873018 words of memory out of 5000000
- 40041 multiletter control sequences out of 15000+600000
+ 40042 multiletter control sequences out of 15000+600000
  529828 words of font info for 161 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  104i,14n,111p,637b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/book.pdf (66 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/线性代数/.texpadtmp/book.pdf (70 pages).

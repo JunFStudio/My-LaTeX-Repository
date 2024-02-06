@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  2 FEB 2024 16:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  6 FEB 2024 13:03
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -694,7 +694,7 @@ Package: ulem 2019/11/18
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/4_continuous_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/5_the_general_theory_of_convergence_and_continuity.aux))
+ (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/4_continuous_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/5_the_general_theory_of_convergence_and_continuity.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/6_differential_calculus.aux))
 \openout1 = `book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
@@ -3170,10 +3170,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:672: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:679: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
-l.672 \begin{example}
+l.679 \begin{example}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3181,10 +3181,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:682: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:689: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.682 \begin{proof}
+l.689 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3193,10 +3193,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [81]
-./MainMatter/4_continuous_functions.tex:705: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:712: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
-l.705 \begin{remark}
+l.712 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3205,10 +3205,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [82]
-./MainMatter/4_continuous_functions.tex:740: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:747: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
-l.740 \begin{remark}
+l.747 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3216,10 +3216,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:744: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:751: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
-l.744 \begin{example}
+l.751 \begin{example}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3227,10 +3227,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:747: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:754: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.747 \begin{proof}
+l.754 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3241,10 +3241,10 @@ and I'll forget about whatever was undefined.
 File: attachment/IMG_3545.jpg Graphic file (type bmp)
 <attachment/IMG_3545.jpg>
 [83]
-./MainMatter/4_continuous_functions.tex:764: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:771: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.764 \begin{proof}
+l.771 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3252,10 +3252,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:770: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:777: Undefined control sequence.
 \example ...hapter .\arabic {exam}}}~~} \citshape 
                                                   
-l.770 \begin{example}
+l.777 \begin{example}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3263,10 +3263,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:773: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:780: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.773 \begin{proof}
+l.780 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3274,10 +3274,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:786: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:793: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.786 \begin{proof}
+l.793 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3285,10 +3285,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:796: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:803: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.796 \begin{proof}
+l.803 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3297,10 +3297,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [84]
-./MainMatter/4_continuous_functions.tex:808: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:815: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.808 \begin{proof}
+l.815 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3308,10 +3308,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:817: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:824: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.817 \begin{proof}
+l.824 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3320,10 +3320,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [85]
-./MainMatter/4_continuous_functions.tex:844: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:851: Undefined control sequence.
 \remark ...eral}{\text {注}}~~} \itshape \citshape 
                                                   
-l.844 \begin{remark}
+l.851 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3331,10 +3331,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/4_continuous_functions.tex:847: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:854: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.847 \begin{proof}
+l.854 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3344,332 +3344,332 @@ and I'll forget about whatever was undefined.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 854.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\setbox' on input line 854.
+(hyperref)                removing `\setbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 854.
+(hyperref)                removing `\hbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 854.
+(hyperref)                removing `\mathsurround' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\nulldelimiterspace' on input line 854.
+(hyperref)                removing `\nulldelimiterspace' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\left' on input line 854.
+(hyperref)                removing `\left' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vcenter' on input line 854.
+(hyperref)                removing `\vcenter' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ne' on input line 854.
+(hyperref)                removing `\@ne' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\big@size' on input line 854.
+(hyperref)                removing `\big@size' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\right' on input line 854.
+(hyperref)                removing `\right' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\box' on input line 854.
+(hyperref)                removing `\box' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\|' on input line 854.
+(hyperref)                removing `\|' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathchoice' on input line 854.
+(hyperref)                removing `\mathchoice' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathbin' on input line 854.
+(hyperref)                removing `\mathbin' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vcenter' on input line 854.
+(hyperref)                removing `\vcenter' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 854.
+(hyperref)                removing `\hbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scalebox' on input line 854.
+(hyperref)                removing `\scalebox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 854.
+(hyperref)                removing `\mathsurround' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\displaystyle' on input line 854.
+(hyperref)                removing `\displaystyle' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\bullet' on input line 854.
+(hyperref)                removing `\bullet' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathbin' on input line 854.
+(hyperref)                removing `\mathbin' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vcenter' on input line 854.
+(hyperref)                removing `\vcenter' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 854.
+(hyperref)                removing `\hbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scalebox' on input line 854.
+(hyperref)                removing `\scalebox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 854.
+(hyperref)                removing `\mathsurround' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\textstyle' on input line 854.
+(hyperref)                removing `\textstyle' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\bullet' on input line 854.
+(hyperref)                removing `\bullet' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathbin' on input line 854.
+(hyperref)                removing `\mathbin' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vcenter' on input line 854.
+(hyperref)                removing `\vcenter' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 854.
+(hyperref)                removing `\hbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scalebox' on input line 854.
+(hyperref)                removing `\scalebox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 854.
+(hyperref)                removing `\mathsurround' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scriptstyle' on input line 854.
+(hyperref)                removing `\scriptstyle' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\bullet' on input line 854.
+(hyperref)                removing `\bullet' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathbin' on input line 854.
+(hyperref)                removing `\mathbin' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vcenter' on input line 854.
+(hyperref)                removing `\vcenter' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 854.
+(hyperref)                removing `\hbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scalebox' on input line 854.
+(hyperref)                removing `\scalebox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 854.
+(hyperref)                removing `\mathsurround' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scriptscriptstyle' on input line 854.
+(hyperref)                removing `\scriptscriptstyle' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\bullet' on input line 854.
+(hyperref)                removing `\bullet' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\|' on input line 854.
+(hyperref)                removing `\|' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 854.
+(hyperref)                removing `subscript' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 854.
+(hyperref)                removing `\infty' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 854.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\setbox' on input line 854.
+(hyperref)                removing `\setbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 854.
+(hyperref)                removing `\hbox' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 854.
+(hyperref)                removing `\mathsurround' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\nulldelimiterspace' on input line 854.
+(hyperref)                removing `\nulldelimiterspace' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\left' on input line 854.
+(hyperref)                removing `\left' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vcenter' on input line 854.
+(hyperref)                removing `\vcenter' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ne' on input line 854.
+(hyperref)                removing `\@ne' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\big@size' on input line 854.
+(hyperref)                removing `\big@size' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\right' on input line 854.
+(hyperref)                removing `\right' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\box' on input line 854.
+(hyperref)                removing `\box' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 854.
+(hyperref)                removing `\z@' on input line 861.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 854.
+(hyperref)                removing `math shift' on input line 861.
 
-./MainMatter/4_continuous_functions.tex:862: Undefined control sequence.
+./MainMatter/4_continuous_functions.tex:869: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.862 \begin{proof}
+l.869 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3973,10 +3973,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [95] [96] [97] [98]
-./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:376: Undefined control sequence.
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:436: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.376 \begin{proof}
+l.436 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3984,10 +3984,21 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:383: Undefined control sequence.
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:443: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.443 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:454: Undefined control sequence.
 \proof ...eral}{\text {证明}}~~} \itshape \citshape 
                                                   
-l.383 \begin{proof}
+l.454 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3995,20 +4006,234 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [99] (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/4_continuous_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/5_the_general_theory_of_convergence_and_continuity.aux))
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:461: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.461 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[99]
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:473: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.473 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:480: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.480 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:489: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.489 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:498: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.498 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:501: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.501 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:508: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.508 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:511: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.511 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[100]
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:518: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.518 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:525: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.525 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:532: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.532 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:551: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.551 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[101]
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:562: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.562 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:573: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.573 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:580: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.580 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+File: ./attachment/cantor_set.pdf Graphic file (type pdf)
+<use ./attachment/cantor_set.pdf>
+[102]
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:604: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.604 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:617: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.617 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/5_the_general_theory_of_convergence_and_continuity.tex:631: Undefined control sequence.
+\remark ...eral}{\text {注}}~~} \itshape \citshape 
+                                                  
+l.631 \begin{remark}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [103]
+\openout2 = `./MainMatter/6_differential_calculus.aux'.
+
+ (./MainMatter/6_differential_calculus.tex
+Chapter 6.
+) [104
+
+
+
+
+] (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/4_continuous_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/5_the_general_theory_of_convergence_and_continuity.aux) (/Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/./MainMatter/6_differential_calculus.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: 8199DC141E06E47D23BE745894D2B3AF;11812.
+(rerunfilecheck)             Checksum: 5CBD40991E5AAAC04F26B08F0800A4CB;12328.
  ) 
 Here is how much of TeX's memory you used:
- 20466 strings out of 476683
- 453861 string characters out of 5804047
- 1872018 words of memory out of 5000000
- 40180 multiletter control sequences out of 15000+600000
+ 20505 strings out of 476683
+ 455890 string characters out of 5804047
+ 1873018 words of memory out of 5000000
+ 40210 multiletter control sequences out of 15000+600000
  529860 words of font info for 165 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,14n,111p,663b,499s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,13n,111p,663b,499s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/book.pdf (106 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeX/数学分析/.texpadtmp/book.pdf (111 pages).

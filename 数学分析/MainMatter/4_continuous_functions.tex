@@ -370,7 +370,7 @@
 
 \subsection{度量空间的基本概念}
 
-\begin{definition}{度量空间}
+\begin{axiom}{度量空间}
 	设集合$X$. 若存在$d:X \times X \to \R _{\geq 0}$满足: 
 	
 	a) 正定性: 对任意$x,y \in X$, $d(x,y)\geq 0$且取等号当且仅当$x=y$; 
@@ -381,7 +381,7 @@
 	
 	\noindent
 	则称$(X,d)$是一个\textit{度量空间}(metric space), $d$是该度量空间上的\textit{距离函数}(metric function). 
-\end{definition}
+\end{axiom}
 \begin{remark}
 	需要注意, 度量空间都是建立在$\R$上的. 
 \end{remark}
@@ -405,7 +405,7 @@
 
 类似于$\mathbb{Q}$在$\R$中的稠密性, 对于度量空间$(X,d)$和$Y \subseteq X$, 称$Y$在$X$中\textit{稠密}(dense), 如果对任意$x \in X, \varepsilon >0$都存在$y \in Y$使得$d(y,x) < \varepsilon$. 
 
-\begin{definition}{赋范向量空间, 范数}
+\begin{axiom}{赋范向量空间}
 	设$V$是$\R$(或者$\C$)上的向量空间. 若存在$\| \bigcdot \|:V \to \R _{\geq 0}$满足: 
 	
 	a) 齐次性: 对任意$x \in V, \lambda \in \R$, $\| \lambda x \|=|\lambda | \| x \|$; 
@@ -416,7 +416,7 @@
 	
 	\noindent
 	则称$(V,\| \bigcdot \| )$是一个\textit{赋范向量空间}(normed vector space), $\| \bigcdot \|$是该空间上的\textit{范数}(norm). 
-\end{definition}
+\end{axiom}
 \begin{remark}
 	如果不加解释, 我们通过定义$(V,d(x,y)=\| x-y \|)$将赋范向量空间看作度量空间. 
 \end{remark}
@@ -645,7 +645,7 @@
 
 将开集及其性质抽象出来, 就构成一般的拓扑空间的定义. 
 
-\begin{definition}{拓扑空间}
+\begin{axiom}{拓扑空间}
 	设$X$为非空集合, 称$\tau \in \mathcal{P}(X)$是$X$上的一个\textit{拓扑}(topology), 如果: 
 	\begin{itemize}
 		\item $X \in \tau$, $\varnothing \in \tau$; 
@@ -653,7 +653,7 @@
 		\item $\bigcap_{1 \leq i \leq n} U_i \in \tau$, 其中$U_i \in \tau(i=1,\cdots ,n)$. 
 	\end{itemize}
 	接着, 称$(X,\tau)$是一个\textit{拓扑空间}(topological space), 称$\tau$中的集合为\textit{开集}(open set), 称$U \subseteq X$为\textit{闭集}(closed set)如果$X - U$是开集. 
-\end{definition}
+\end{axiom}
 
 \begin{example}
 	设非空集合$X$, 那么
@@ -662,6 +662,13 @@
 		\item $\tau = \mathcal{P}(X)$称为$X$上的离散拓扑, 这是$X$上最大的拓扑. 
 	\end{itemize}
 \end{example}
+
+\begin{definition}{子空间拓扑}
+	设拓扑空间$(X,\tau)$, $Y \subseteq X$, 定义$Y$上的拓扑
+	\begin{center}
+		$\tau _Y := \{ Y \cap U:U \in \tau \}. $
+	\end{center}
+\end{definition}
 
 类似于$\R$, 我们可以由度量自然地引出拓扑. 
 
